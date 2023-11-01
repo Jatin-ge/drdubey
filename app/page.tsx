@@ -20,11 +20,12 @@ import {
 } from "@/components/ui/select";
 import Navbar from "@/components/Navbar/navbar";
 
+import Hero from "@/components/Hero/Hero";
 export default function CardWithForm() {
   return (
     <>
       <Navbar />
-      <Card className="w-[350px]">
+      {/* <Card className="w-[350px]">
         <CardHeader>
           <CardTitle>Create Ayush</CardTitle>
           <CardDescription>
@@ -59,7 +60,9 @@ export default function CardWithForm() {
           <Button variant="outline">Cancel</Button>
           <Button>Deploy</Button>
         </CardFooter>
-      </Card>
+      </Card> */}
+
+      <Hero />
     </>
   );
 }
