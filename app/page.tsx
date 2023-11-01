@@ -25,6 +25,10 @@ import { benefitOne, benefitTwo } from "../components/Benifits/data";
 import { Benefits } from "@/components/Benifits/Benifits";
 
 import Hero from "@/components/Hero/Hero";
+import Hero2 from "@/components/Hero2/Hero2";
+import Features from "@/components/Features/Features";
+import Stats from "@/components/Stats/Stats";
+import Banner from "@/components/Banner/Banner";
 export default function CardWithForm() {
   return (
     <>
@@ -67,8 +71,15 @@ export default function CardWithForm() {
       </Card> */}
 
       <Hero />
+      <Stats />
 
-      <Benefits data={benefitOne} />
+      {/* <Benefits data={benefitOne} /> */}
+
+      <Hero2 />
+
+      <Features />
+
+      <Banner />
     </>
   );
 }

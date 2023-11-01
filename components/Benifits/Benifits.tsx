@@ -31,6 +31,8 @@ const bullets = [
   },
 ];
 
+// what do you keep turn around for sure things keep ready ashutosh nautiyal ashutosh nautiyal
+
 export const Benefits = (props: Props) => {
   return (
     <>
@@ -67,7 +69,11 @@ export const Benefits = (props: Props) => {
 
             <div className="w-full mt-5">
               {bullets.map((bullet) => (
-                <Benefit key={bullet.title} title={bullet.title} icon={bullet.icon}>
+                <Benefit
+                  key={bullet.title}
+                  title={bullet.title}
+                  icon={bullet.icon}
+                >
                   {bullet.desc}
                 </Benefit>
               ))}
@@ -79,7 +85,7 @@ export const Benefits = (props: Props) => {
   );
 };
 
-function Benefit(props) {
+function Benefit(props: any) {
   return (
     <>
       <div className="flex items-start mt-8 space-x-3">
