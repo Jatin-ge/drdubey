@@ -20,6 +20,10 @@ import {
 } from "@/components/ui/select";
 import Navbar from "@/components/Navbar/navbar";
 
+import { benefitOne, benefitTwo } from "../components/Benifits/data";
+
+import { Benefits } from "@/components/Benifits/Benifits";
+
 import Hero from "@/components/Hero/Hero";
 export default function CardWithForm() {
   return (
@@ -63,6 +67,8 @@ export default function CardWithForm() {
       </Card> */}
 
       <Hero />
+
+      <Benefits data={benefitOne} />
     </>
   );
 }
