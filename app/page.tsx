@@ -36,6 +36,7 @@ import { Testimonial } from "@/components/Testimonials/Testimonial";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Gallery from "@/components/HorizontalGallery/Gallery";
+import Carousel from "@/components/Carousel/Carousel";
 export default function CardWithForm() {
   React.useEffect(() => {
     AOS.init({
@@ -97,6 +98,8 @@ export default function CardWithForm() {
       <Testimonial />
 
       <Gallery />
+
+      <Carousel />
     </>
   );
 }
