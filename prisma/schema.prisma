@@ -9,11 +9,15 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
-
+enum SexType{
+  M 
+  F 
+  OTHERS
+}
 model patients {
-  id String @id @default(uuid()) @map("_id") @db.ObjectId
-  NAME String? 
-  AGE Int?
-  SEX String?
-  ADDRESS String?
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  NAME String @db.String
+  AGE Int @db.Int
+  SEX SexType @default(M)
+  ADDRESS String? @db.String
 }

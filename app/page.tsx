@@ -25,6 +25,8 @@ import { benefitOne, benefitTwo } from "../components/Benifits/data";
 import { Benefits } from "@/components/Benifits/Benifits";
 
 import Hero from "@/components/Hero/Hero";
+import { Testimonial } from "@/components/Hero/testimonial";
+import {Stats} from "@/components/Stats/Stats";
 export default function CardWithForm() {
   return (
     <>
@@ -67,8 +69,8 @@ export default function CardWithForm() {
       </Card> */}
 
       <Hero />
-
-      <Benefits data={benefitOne} />
+      <Stats/>
+      <Testimonial/>
     </>
   );
 }

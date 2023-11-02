@@ -1,3 +1,4 @@
+"use client"
 import axios from "axios"
 import {
   Table,
@@ -19,54 +20,67 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "@/components/ui/command"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 import { db } from "@/lib/db"
+import { Button } from "../ui/button"
+import { use, useState } from "react"
+import { cn } from "@/lib/utils"
 
+interface TableProps{
+  patients:{
+    NAME: string | null
+    AGE: Number | null
+    ADDRESS: string | null
+    SEX: string | null
+  }
+}
 
 export const TableDemo = async() => {
-  const patients = await db.patients.findMany()
+  const [currentRow, setCurrentRow] = useState(false)
+  const patients = await db.patients.findMany(
+    {
+      orderBy:{
+        NAME: "asc"
+      }
+    }
+  )
   
   return (
-
-    <Table>
-    <Command className="overflow-scroll">
-    <CommandInput placeholder="Type a command or search..." />
-    <CommandList>
-    <CommandGroup>
-    
-      <TableHeader>
-        <TableRow>
-          <TableHead className="w-[100px]">ID</TableHead>
-          <TableHead>NAME</TableHead>
-          <TableHead>AGE</TableHead>
-          <TableHead>SEX</TableHead>
-          <TableHead className="text-center">ADDRESS</TableHead>
-        </TableRow>
-      </TableHeader>
-     
-      <TableBody>
+   
+      <ScrollArea>
+      <h2 className="text-3xl font-semibold mb-10 mx-10">Patients</h2>
+        <Table className="mx-4">
+          <TableHeader>
+            <TableRow>
+              <TableHead className="w-[100px]">ID</TableHead>
+              <TableHead>NAME</TableHead>
+              <TableHead>AGE</TableHead>
+              <TableHead className="text-right">SEX</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {patients.map((patient) => (
         
-        {patients.map((patient) => (
-                
-          <TableRow key={patient.id}>
-            <TableCell className="font-medium">{patient.id}</TableCell>  
-            <CommandItem key={patient.id} className="max-w-max">        
-              <TableCell>{patient.NAME}</TableCell>   
-            </CommandItem>      
-            <TableCell>{patient.AGE}</TableCell>
-            <TableCell className="text-right">{patient.SEX}</TableCell>
-            <TableCell className="text-center">{patient.ADDRESS}</TableCell>
-          </TableRow>
+              <TableRow key={patient.id} onMouseEnter={() => setCurrentRow(true)}>
+                <TableCell className="font-medium">{patient.id}</TableCell>
+                  <TableCell>{patient.NAME}</TableCell>
+                <TableCell>{patient.AGE}</TableCell>
+                <TableCell className="text-right">{patient.SEX}</TableCell>
+                <TableCell className="text-center">{patient.ADDRESS}</TableCell>
+                <Button className={cn(
+                  "hidden",
+                  currentRow && ""
+                )}>
+                  Edit
+                </Button>
+              </TableRow>
+              
+            ))}
         
-        
-        ))}
-      
-      </TableBody>
-    
-    </CommandGroup>
-    </CommandList>
-    </Command>
-    </Table>
+          </TableBody>
+        </Table>
+      </ScrollArea>
 
     
   )
