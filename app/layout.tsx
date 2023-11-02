@@ -5,6 +5,8 @@ import Navbar from "@/components/Navbar/navbar";
 import { ThemeProvider } from "@/components/Provider/ThemeProvider";
 import { ModalProvider } from "@/components/providers/modal-provider";
 
+import React, { useEffect } from "react";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
