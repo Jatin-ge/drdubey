@@ -1,13 +1,16 @@
+"use client";
 import React from "react";
+import CountUp from "react-countup";
 
-type Props = {};
-
-const Stats = (props: Props) => {
+export const Stats = () => {
   return (
-    <div>
+    <div data-aos="">
       <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          <div className="flex flex-col gap-y-3 lg:gap-y-5 p-4 md:p-5 bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-800">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12">
+          <div
+            data-aos="flip-left"
+            className="flex flex-col gap-y-3 lg:gap-y-5 p-4 md:p-5 bg-white border shadow-xl shadow-primary hover:scale-110  rounded-xl dark:bg-slate-900 dark:border-gray-800"
+          >
             <div className="inline-flex justify-center items-center">
               <span className="w-2 h-2 inline-block bg-gray-500 rounded-full mr-2"></span>
               <span className="text-xs font-semibold uppercase text-gray-600 dark:text-gray-400">
@@ -17,7 +20,7 @@ const Stats = (props: Props) => {
 
             <div className="text-center">
               <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-gray-200">
-                150
+                <CountUp end={150} duration={6} />
               </h3>
             </div>
 
@@ -50,7 +53,10 @@ const Stats = (props: Props) => {
             </dl>
           </div>
 
-          <div className="flex flex-col gap-y-3 lg:gap-y-5 p-4 md:p-5 bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-800">
+          <div
+            data-aos="flip-left"
+            className="flex flex-col gap-y-3 lg:gap-y-5 p-4 md:p-5 bg-white border shadow-xl shadow-primary hover:scale-110 rounded-xl dark:bg-slate-900 dark:border-gray-800"
+          >
             <div className="inline-flex justify-center items-center">
               <span className="w-2 h-2 inline-block bg-green-500 rounded-full mr-2"></span>
               <span className="text-xs font-semibold uppercase text-gray-600 dark:text-gray-400">
@@ -60,7 +66,7 @@ const Stats = (props: Props) => {
 
             <div className="text-center">
               <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-gray-200">
-                25
+                <CountUp end={150} duration={6} />
               </h3>
             </div>
 
@@ -93,23 +99,26 @@ const Stats = (props: Props) => {
             </dl>
           </div>
 
-          <div className="flex flex-col gap-y-3 lg:gap-y-5 p-4 md:p-5 bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-800">
+          <div
+            data-aos="flip-left"
+            className="flex flex-col gap-y-3 lg:gap-y-5 p-4 md:p-5 bg-white border shadow-xl shadow-primary hover:scale-110 rounded-xl dark:bg-slate-900 dark:border-gray-800"
+          >
             <div className="inline-flex justify-center items-center">
-              <span className="w-2 h-2 inline-block bg-red-500 rounded-full mr-2"></span>
+              <span className="w-2 h-2 inline-block bg-green-500 rounded-full mr-2"></span>
               <span className="text-xs font-semibold uppercase text-gray-600 dark:text-gray-400">
-                Failed conversions
+                Successful conversions
               </span>
             </div>
 
             <div className="text-center">
               <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-gray-200">
-                4
+                <CountUp end={4} duration={2} />
               </h3>
             </div>
 
             <dl className="flex justify-center items-center divide-x divide-gray-200 dark:divide-gray-700">
               <dt className="pr-3">
-                <span className="text-red-600">
+                <span className="text-green-600">
                   <svg
                     className="inline-block w-4 h-4 self-center"
                     xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +129,7 @@ const Stats = (props: Props) => {
                   >
                     <path
                       fill-rule="evenodd"
-                      d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+                      d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"
                     />
                   </svg>
                   <span className="inline-block text-sm">5.6%</span>
@@ -140,5 +149,3 @@ const Stats = (props: Props) => {
     </div>
   );
 };
-
-export default Stats;

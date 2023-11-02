@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
@@ -27,9 +29,20 @@ import { Benefits } from "@/components/Benifits/Benifits";
 import Hero from "@/components/Hero/Hero";
 import Hero2 from "@/components/Hero2/Hero2";
 import Features from "@/components/Features/Features";
-import Stats from "@/components/Stats/Stats";
+import { Stats } from "@/components/Stats/Stats";
 import Banner from "@/components/Banner/Banner";
+import { Testimonial } from "@/components/Testimonials/Testimonial";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Gallery from "@/components/HorizontalGallery/Gallery";
 export default function CardWithForm() {
+  React.useEffect(() => {
+    AOS.init({
+      duration: 1500,
+      once: false,
+    });
+  }, []);
   return (
     <>
       <Navbar />
@@ -80,6 +93,10 @@ export default function CardWithForm() {
       <Features />
 
       <Banner />
+
+      <Testimonial />
+
+      <Gallery />
     </>
   );
 }

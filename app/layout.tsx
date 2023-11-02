@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar/navbar";
 import { ThemeProvider } from "@/components/Provider/ThemeProvider";
 
+import React, { useEffect } from "react";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
