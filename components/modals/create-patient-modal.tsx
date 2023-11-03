@@ -4,7 +4,7 @@ import axios from "axios";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { SexType } from "@prisma/client";
+import { GenderType, LeadStatus } from "@prisma/client";
 import {format} from "date-fns";
 import {
   Dialog,
@@ -43,14 +43,17 @@ const formSchema = z.object({
   name: z.string().min(1, {
     message: "Patient name is required."
   }),
-  sex: z.nativeEnum(SexType),
+  email: z.string(),
+  phone: z.string().min(1,{
+    message: "phone is required"
+  }),
+  age: z.number(),
+  sex: z.nativeEnum(GenderType),
   address: z.string().min(1, {
     message: "address is required."
   }),
-  dob: z.date({
-    required_error: "A date of birth is required.",
-  })
-  
+  status: z.nativeEnum(LeadStatus),
+  remark: z.string(),
 });
 
 export const CreatePatientModal = () => {
@@ -65,9 +68,13 @@ export const CreatePatientModal = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      sex: SexType.M,
+      email:"",
+      phone:"",
+      age:0,
+      sex: GenderType.MALE,
       address: "",
-      dob: new Date()
+      status: LeadStatus.PENDING,
+      remark: ""
     }
   });
 
@@ -119,6 +126,75 @@ export const CreatePatientModal = () => {
                         className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
                         placeholder="Enter Patient name"
                         {...field}
+                        type="text"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel
+                      className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70"
+                    >
+                      Enter email
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        disabled={isLoading}
+                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                        placeholder="Enter Patient name"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="phone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel
+                      className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70"
+                    >
+                      Phone number
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        disabled={isLoading}
+                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                        placeholder="Enter Patient name"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="age"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel
+                      className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70"
+                    >
+                      
+                      Age
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        disabled={isLoading}
+                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                        placeholder="Enter Patient's age"
+                        {...field}
+                        type="number"
                       />
                     </FormControl>
                     <FormMessage />
@@ -130,7 +206,7 @@ export const CreatePatientModal = () => {
                 name="sex"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Gender</FormLabel>
+                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">Gender</FormLabel>
                     <Select
                       disabled={isLoading}
                       onValueChange={field.onChange}
@@ -144,7 +220,7 @@ export const CreatePatientModal = () => {
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        {Object.values(SexType).map((type) => (
+                        {Object.values(GenderType).map((type) => (
                           <SelectItem
                             key={type}
                             value={type}
@@ -181,49 +257,62 @@ export const CreatePatientModal = () => {
                   </FormItem>
                 )}
               />
-              <FormField
-          control={form.control}
-          name="dob"
-          render={({ field }) => (
-            <FormItem className="flex flex-col">
-              <FormLabel>Date of birth</FormLabel>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant={"outline"}
-                      className={cn(
-                        "w-[240px] pl-3 text-left font-normal",
-                        !field.value && "text-muted-foreground"
-                      )}
+               <FormField
+                control={form.control}
+                name="status"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">Lead Status</FormLabel>
+                    <Select
+                      disabled={isLoading}
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
                     >
-                      {field.value ? (
-                        format(field.value, "PPP")
-                      ) : (
-                        <span>Pick a date</span>
-                      )}
-                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    onSelect={field.onChange}
-                    disabled={(date) =>
-                      date > new Date() || date < new Date("1900-01-01")
-                    }
-                    initialFocus
-                  />
-                </PopoverContent>
-              </Popover>
-              <FormDescription>
-                Your date of birth is used to calculate your age.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+                      <FormControl>
+                        <SelectTrigger
+                          className="bg-zinc-300/50 border-0 focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none"
+                        >
+                          <SelectValue placeholder="Select Gender" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {Object.values(LeadStatus).map((type) => (
+                          <SelectItem
+                            key={type}
+                            value={type}
+                            className="capitalize"
+                          >
+                            {type.toLowerCase()}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="remark"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel
+                      className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70"
+                    >
+                      remarks
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        disabled={isLoading}
+                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                        placeholder="Enter Remarks"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
             </div>
             <DialogFooter className="bg-gray-100 px-6 py-4">
               <Button variant="primary" disabled={isLoading}>

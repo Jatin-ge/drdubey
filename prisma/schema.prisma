@@ -9,15 +9,28 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
-enum SexType{
-  M 
-  F 
-  OTHERS
+enum GenderType {
+  MALE 
+  FEMALE
+  OTHER
 }
-model patients {
+
+model Lead {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  NAME String @db.String
-  AGE Int @db.Int
-  SEX SexType @default(M)
-  ADDRESS String? @db.String
+  name String
+  email String?
+  phone String
+  remark String
+  age Int?
+  gender GenderType @default(MALE)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  status LeadStatus @default(PENDING)
 }
+enum LeadStatus {
+  PENDING
+  CONTACTED
+  CONVERTED
+  LOST
+}
+

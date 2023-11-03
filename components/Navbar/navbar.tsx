@@ -3,6 +3,7 @@ import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
 import Image from "next/image";
 import { Disclosure } from "@headlessui/react";
+import { UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   return (
@@ -177,9 +178,12 @@ const Navbar = () => {
           </ul>
         </div>
 
+        <UserButton  afterSignOutUrl="/"/>
+
         <div className="hidden mr-3 space-x-4 lg:flex nav__item text-[#EE8A27]">
           <ThemeChanger />
         </div>
+        
       </nav>
     </div>
   );
