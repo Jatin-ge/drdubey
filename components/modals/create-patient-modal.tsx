@@ -62,7 +62,6 @@ export const CreatePatientModal = () => {
   const params = useParams();
 
   const isModalOpen = isOpen && type === "createPatient";
-  const { patients } = data;
  
   const form = useForm({
     resolver: zodResolver(formSchema),
