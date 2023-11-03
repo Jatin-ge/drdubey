@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/navbar";
 import { ThemeProvider } from "@/components/Provider/ThemeProvider";
+import { ModalProvider } from "@/components/providers/modal-provider";
+import { ClerkProvider } from '@clerk/nextjs'
 
 import React, { useEffect } from "react";
 
@@ -19,14 +21,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        {/* <ThemeProvider attribute="class" defaultTheme="light"> */}
-        <ThemeProvider attribute="class" defaultTheme="light">
-          {children}
-        </ThemeProvider>
-        {/* </ThemeProvider> */}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          {/* <ThemeProvider attribute="class" defaultTheme="light"> */}
+          <ThemeProvider attribute="class" defaultTheme="light">
+            <ModalProvider/>
+              {children}
+          </ThemeProvider>
+          {/* </ThemeProvider> */}
+        </body>
+      </html>
+    </ClerkProvider>
+    
   );
 }

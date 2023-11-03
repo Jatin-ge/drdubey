@@ -19,54 +19,75 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "@/components/ui/command"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 import { db } from "@/lib/db"
+import { Button } from "@/components/ui/button"
+import { ActionTooltip } from "@/components/action-tooltip"
+import { Edit, Trash } from "lucide-react"
 
+interface TableProps{
+  leads:{
+    NAME: string | null
+    AGE: Number | null
+    ADDRESS: string | null
+    SEX: string | null
+  }
+}
 
 export const TableDemo = async() => {
-  const patients = await db.patients.findMany()
+  const leads = await db.lead.findMany(
+    {
+      orderBy:{
+        name: "asc"
+      }
+    }
+  )
   
   return (
-
-    <Table>
-    <Command className="overflow-scroll">
-    <CommandInput placeholder="Type a command or search..." />
-    <CommandList>
-    <CommandGroup>
-    
-      <TableHeader>
-        <TableRow>
-          <TableHead className="w-[100px]">ID</TableHead>
-          <TableHead>NAME</TableHead>
-          <TableHead>AGE</TableHead>
-          <TableHead>SEX</TableHead>
-          <TableHead className="text-center">ADDRESS</TableHead>
+   
+      <ScrollArea>
+      <h2 className="text-3xl font-semibold mb-10 mx-10">leads</h2>
+        <Table className="ml-4">
+          <TableHeader>
+            <TableRow>
+              {/* <TableHead className="w-[100px]">ID</TableHead> */}
+              <TableHead>NAME</TableHead>
+              <TableHead className="text-left">AGE</TableHead>
+              <TableHead className="text-left">SEX</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {leads.map((lead) => (
+        
+              <TableRow key={lead.id} >
+                {/* <TableCell className="font-medium">{lead.id}</TableCell> */}
+                  <TableCell>{lead.name}</TableCell>
+                <TableCell className="text-left">{lead.age}</TableCell>
+                <TableCell className="">{lead.gender}</TableCell>
+            <div className="hidden group-hover:flex items-center gap-x-2 absolute p-1 -top-2 right-5 bg-white dark:bg-zinc-800 border rounded-sm">
+          
+            <ActionTooltip label="Edit">
+              <Edit
+                className="cursor-pointer ml-auto w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition"
+              />
+            </ActionTooltip>
+          <ActionTooltip label="Delete">
+            <Trash
+              className="cursor-pointer ml-auto w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition"
+            />
+          </ActionTooltip>
+        </div>
         </TableRow>
-      </TableHeader>
-     
-      <TableBody>
+
+              
+              
+              
+            ))}
         
-        {patients.map((patient) => (
-                
-          <TableRow key={patient.id}>
-            <TableCell className="font-medium">{patient.id}</TableCell>  
-            <CommandItem key={patient.id} className="max-w-max">        
-              <TableCell>{patient.NAME}</TableCell>   
-            </CommandItem>      
-            <TableCell>{patient.AGE}</TableCell>
-            <TableCell className="text-right">{patient.SEX}</TableCell>
-            <TableCell className="text-center">{patient.ADDRESS}</TableCell>
-          </TableRow>
-        
-        
-        ))}
-      
-      </TableBody>
-    
-    </CommandGroup>
-    </CommandList>
-    </Command>
-    </Table>
+          </TableBody>
+        </Table>
+      </ScrollArea>
 
     
   )
