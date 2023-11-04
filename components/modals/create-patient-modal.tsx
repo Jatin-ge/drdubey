@@ -77,18 +77,18 @@ export const CreatePatientModal = () => {
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    // try {
-    //   console.log(values)
-    //   await axios.post(`/api/patients`, values);
+    try {
+      console.log(values)
+      await axios.post(`/api/patients`, values);
 
-    //   form.reset();
+      form.reset();
      
-    //   onClose();
+      onClose();
       
-    // } catch (error) {
-    //   console.log(error);
-    // }
-    console.log(values)
+    } catch (error) {
+      console.log(error);
+    }
+   
   }
 
   const handleClose = () => {
