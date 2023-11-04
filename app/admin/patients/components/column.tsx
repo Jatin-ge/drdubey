@@ -4,6 +4,7 @@ import { ColumnDef } from "@tanstack/react-table"
 import { LeadStatus } from "@prisma/client"
 import { ArrowUpDown, MoreHorizontal } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { CellAction } from "./cell-action"
 
 
 
@@ -49,6 +50,10 @@ export const columns: ColumnDef<LeadCloumn>[] = [
     accessorKey: "email",
     header: "Email",
   },
+  {
+    id: "actions",
+    cell : () => <CellAction/>
+  }
    
 
 ];
