@@ -7,6 +7,24 @@ export async function POST(
     req: Request,
 ){
     try{
+
+        const {name, email, phone, gender, address, status , remark } = await req.json();
+
+        const Lead = await db.lead.create({
+            data: {
+                name,
+                email, 
+                phone, 
+                gender, 
+                address, 
+                status, 
+                remark ,  
+
+            }
+        })
+
+        return NextResponse.json(Lead); 
+
     
     }
     catch(err){
@@ -14,3 +32,4 @@ export async function POST(
         return new NextResponse("Internal server error" , {status: 500})
     }
 }
+

@@ -1,13 +1,12 @@
 
 import {create} from "zustand"
-import { SexType, patients } from "@prisma/client";
+import { Lead } from "@prisma/client";
 
 
 export type ModalType = "createPatient"
 
 interface ModalData{
-    patients?: patients
-    sexType?: SexType
+    lead?: Lead
     apiUrl?: string
     query?: Record<string, any>
 }

@@ -24,14 +24,14 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { db } from "@/lib/db"
 import { Button } from "@/components/ui/button"
 import { ActionTooltip } from "@/components/action-tooltip"
-import { Edit, Trash } from "lucide-react"
+import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
 
 interface TableProps{
   leads:{
-    NAME: string | null
-    AGE: Number | null
-    ADDRESS: string | null
-    SEX: string | null
+    NAME: String
+    AGE: Number 
+    ADDRESS: string 
+    SEX: string
   }
 }
 
@@ -63,21 +63,13 @@ export const TableDemo = async() => {
               <TableRow key={lead.id} >
                 {/* <TableCell className="font-medium">{lead.id}</TableCell> */}
                   <TableCell>{lead.name}</TableCell>
-                <TableCell className="text-left">{lead.age}</TableCell>
+                <TableCell className="text-left">{lead.address}</TableCell>
                 <TableCell className="">{lead.gender}</TableCell>
-            <div className="hidden group-hover:flex items-center gap-x-2 absolute p-1 -top-2 right-5 bg-white dark:bg-zinc-800 border rounded-sm">
-          
-            <ActionTooltip label="Edit">
-              <Edit
-                className="cursor-pointer ml-auto w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition"
-              />
-            </ActionTooltip>
-          <ActionTooltip label="Delete">
-            <Trash
-              className="cursor-pointer ml-auto w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition"
-            />
-          </ActionTooltip>
-        </div>
+                <TableCell className="">{lead.address}</TableCell>
+               <Button variant="outline" className="ml-auto">
+               <MoreHorizontal className="ml-2 h-4 w-4" />
+            </Button>
+         
         </TableRow>
 
               

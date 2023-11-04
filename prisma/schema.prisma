@@ -20,8 +20,9 @@ model Lead {
   name String
   email String?
   phone String
-  remark String
   age Int?
+  remark String
+  address String? 
   gender GenderType @default(MALE)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

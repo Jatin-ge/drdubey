@@ -38,6 +38,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { cn } from "@/lib/utils";
 import { CalendarIcon } from "lucide-react";
 import { Calendar } from "../ui/calendar";
+import { ScrollArea } from "../ui/scroll-area";
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -47,7 +48,7 @@ const formSchema = z.object({
   phone: z.string().min(1,{
     message: "phone is required"
   }),
-  age: z.number(),
+  age: z.coerce.number(),
   sex: z.nativeEnum(GenderType),
   address: z.string().min(1, {
     message: "address is required."
@@ -62,7 +63,6 @@ export const CreatePatientModal = () => {
   const params = useParams();
 
   const isModalOpen = isOpen && type === "createPatient";
-  const { patients } = data;
  
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -70,7 +70,7 @@ export const CreatePatientModal = () => {
       name: "",
       email:"",
       phone:"",
-      age:0,
+      age: 0,
       sex: GenderType.MALE,
       address: "",
       status: LeadStatus.PENDING,
@@ -100,6 +100,7 @@ export const CreatePatientModal = () => {
   }
 
   return (
+    
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
@@ -107,6 +108,7 @@ export const CreatePatientModal = () => {
             Enter Patient Details
           </DialogTitle>
         </DialogHeader>
+        <ScrollArea>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="space-y-8 px-6">
@@ -147,8 +149,9 @@ export const CreatePatientModal = () => {
                       <Input
                         disabled={isLoading}
                         className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
-                        placeholder="Enter Patient name"
+                        placeholder="Enter email"
                         {...field}
+                        type="email"
                       />
                     </FormControl>
                     <FormMessage />
@@ -169,8 +172,9 @@ export const CreatePatientModal = () => {
                       <Input
                         disabled={isLoading}
                         className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
-                        placeholder="Enter Patient name"
+                        placeholder="Enter Phone number"
                         {...field}
+                        type="phone"
                       />
                     </FormControl>
                     <FormMessage />
@@ -194,8 +198,8 @@ export const CreatePatientModal = () => {
                         className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
                         placeholder="Enter Patient's age"
                         {...field}
-                        type="number"
-                      />
+                        type="number"              
+                  />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -321,7 +325,10 @@ export const CreatePatientModal = () => {
             </DialogFooter>
           </form>
         </Form>
+        </ScrollArea>
       </DialogContent>
     </Dialog>
+
+    
   )
 }
