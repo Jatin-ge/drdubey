@@ -33,11 +33,6 @@ import {
   SelectTrigger,
   SelectValue
 } from "@/components/ui/select";
-import { useEffect } from "react";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { cn } from "@/lib/utils";
-import { CalendarIcon } from "lucide-react";
-import { Calendar } from "../ui/calendar";
 import { ScrollArea } from "../ui/scroll-area";
 
 const formSchema = z.object({
@@ -48,7 +43,7 @@ const formSchema = z.object({
   phone: z.string().min(1,{
     message: "phone is required"
   }),
-  age: z.coerce.number(),
+  age: z.number().lte(150).positive(),
   sex: z.nativeEnum(GenderType),
   address: z.string().min(1, {
     message: "address is required."
@@ -82,16 +77,18 @@ export const CreatePatientModal = () => {
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    try {
-      await axios.post(`/api/patients`, values);
+    // try {
+    //   console.log(values)
+    //   await axios.post(`/api/patients`, values);
 
-      form.reset();
-      router.refresh();
-      onClose();
+    //   form.reset();
+     
+    //   onClose();
       
-    } catch (error) {
-      console.log(error);
-    }
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    console.log(values)
   }
 
   const handleClose = () => {
@@ -129,6 +126,7 @@ export const CreatePatientModal = () => {
                         placeholder="Enter Patient name"
                         {...field}
                         type="text"
+                        
                       />
                     </FormControl>
                     <FormMessage />
@@ -198,6 +196,7 @@ export const CreatePatientModal = () => {
                         className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
                         placeholder="Enter Patient's age"
                         {...field}
+                        { ...form.register("age", { valueAsNumber: true } ) }
                         type="number"              
                   />
                     </FormControl>
