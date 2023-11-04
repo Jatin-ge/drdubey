@@ -1,6 +1,7 @@
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
-import { NextResponse } from "next/lead";
+import { NextResponse } from "next/server";
+
 
 export async function DELETE(
     req: Request,
@@ -12,7 +13,7 @@ export async function DELETE(
         if(!profile){
             return new NextResponse("Unauthorized", {status: 401})
         }
-
+        
         if(!params.leadId){
             return new NextResponse("lead Id missing", {status: 400})
         }
