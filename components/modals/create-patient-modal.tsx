@@ -48,7 +48,7 @@ const formSchema = z.object({
   phone: z.string().min(1,{
     message: "phone is required"
   }),
-  age: z.coerce.number(),
+  age: z.number(),
   sex: z.nativeEnum(GenderType),
   address: z.string().min(1, {
     message: "address is required."
@@ -129,6 +129,7 @@ export const CreatePatientModal = () => {
                         placeholder="Enter Patient name"
                         {...field}
                         type="text"
+                        
                       />
                     </FormControl>
                     <FormMessage />
@@ -198,6 +199,7 @@ export const CreatePatientModal = () => {
                         className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
                         placeholder="Enter Patient's age"
                         {...field}
+                        { ...form.register("age", { valueAsNumber: true } ) }
                         type="number"              
                   />
                     </FormControl>
