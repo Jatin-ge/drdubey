@@ -10,7 +10,7 @@ export async function PATCH  (
 ) {
     try{
 
-        const {name, email, phone, sex, address, status , remark, age } = await req.json();
+        const { name, email, phone, sex, address, status , remark, age } = await req.json();
 
         
 

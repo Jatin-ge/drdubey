@@ -24,7 +24,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useParams, useRouter } from "next/navigation";
+import { redirect, useParams, useRouter } from "next/navigation";
 import { useModal } from "@/hooks/use-modal-store";
 import {
   Select,
@@ -86,7 +86,7 @@ const Addpatient = () => {
       await axios.post(`/api/patients`, values);
 
       form.reset();
-      router.refresh();
+      redirect('/admin/patients');
     } catch (error) {
       console.log(error);
     }
