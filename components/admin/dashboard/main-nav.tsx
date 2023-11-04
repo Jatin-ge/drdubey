@@ -13,7 +13,7 @@ export function MainNav({
 }: React.HTMLAttributes<HTMLElement>) {
   const router = useRouter();
   const onClick = () => {
-    router.push("/admin/form")
+    router.push("/admin/addpatient")
   }
   const {onOpen, data} = useModal(); 
   return (
@@ -34,7 +34,7 @@ export function MainNav({
         Customers
       </Link>
 
-      <Button onClick={() => onOpen("createPatient")} className=" px-3 py-2 text-sm cursor-pointer" variant="outline">
+      <Button onClick={onClick} className=" px-3 py-2 text-sm cursor-pointer" variant="outline">
         <Plus className="rounded-full h-6 w-6"/> New Lead
       </Button>
     </nav>
