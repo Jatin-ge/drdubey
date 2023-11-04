@@ -5,11 +5,16 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Plus } from "lucide-react"
 import { useModal } from "@/hooks/use-modal-store"
+import { useRouter } from "next/navigation"
 
 export function MainNav({
   className,
   ...props
 }: React.HTMLAttributes<HTMLElement>) {
+  const router = useRouter();
+  const onClick = () => {
+    router.push("/admin/form")
+  }
   const {onOpen, data} = useModal(); 
   return (
     <nav
@@ -28,19 +33,8 @@ export function MainNav({
       >
         Customers
       </Link>
-      <Link
-        href="/examples/dashboard"
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-      >
-        Products
-      </Link>
-      <Link
-        href="/examples/dashboard"
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-      >
-        Settings
-      </Link>
-      <Button onClick={()=> onOpen("createPatient")} className=" px-3 py-2 text-sm cursor-pointer" variant="outline">
+
+      <Button onClick={() => onOpen("createPatient")} className=" px-3 py-2 text-sm cursor-pointer" variant="outline">
         <Plus className="rounded-full h-6 w-6"/> New Lead
       </Button>
     </nav>

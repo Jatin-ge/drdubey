@@ -37,8 +37,8 @@ import { useEffect } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { CalendarIcon } from "lucide-react";
-import { Calendar } from "../ui/calendar";
-import { ScrollArea } from "../ui/scroll-area";
+import { Calendar } from "@/components/ui/calendar";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -48,7 +48,9 @@ const formSchema = z.object({
   phone: z.string().min(1,{
     message: "phone is required"
   }),
-  age: z.coerce.number(),
+   age: z.string().refine((val) => !Number.isNaN(parseInt(val, 10)), {
+    message: "Expected number, received a string"
+  }),
   sex: z.nativeEnum(GenderType),
   address: z.string().min(1, {
     message: "address is required."
@@ -57,7 +59,7 @@ const formSchema = z.object({
   remark: z.string(),
 });
 
-export const CreatePatientModal = () => {
+ export const CreatePatientForm = () => {
   const { isOpen, onClose, type, data } = useModal();
   const router = useRouter();
   const params = useParams();
@@ -70,7 +72,7 @@ export const CreatePatientModal = () => {
       name: "",
       email:"",
       phone:"",
-      age: 0,
+      age:"",
       sex: GenderType.MALE,
       address: "",
       status: LeadStatus.PENDING,
@@ -86,7 +88,7 @@ export const CreatePatientModal = () => {
       await axios.post(`/api/patients`, values);
 
       form.reset();
-      router.refresh();
+      router.push('/admin/patients');
       onClose();
       
     } catch (error) {
@@ -100,25 +102,18 @@ export const CreatePatientModal = () => {
   }
 
   return (
-    
-    <Dialog open={isModalOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
-        <DialogHeader className="pt-8 px-6">
-          <DialogTitle className="text-2xl text-center font-bold">
-            Enter Patient Details
-          </DialogTitle>
-        </DialogHeader>
-        <ScrollArea>
-        <Form {...form}>
+    <div className="space-y-4 mt-10">
+        <h1 className="ml-4 text-2xl font-semibold">Enter Patient Details</h1>
+         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <div className="space-y-8 px-6">
+            <div className="space-y-8 px-50">
               <FormField
                 control={form.control}
                 name="name"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel
-                      className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70"
+                      className="uppercase text-xs font-bold text-zinc-500 dark:text-white"
                     >
                       Patient name
                     </FormLabel>
@@ -141,7 +136,7 @@ export const CreatePatientModal = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel
-                      className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70"
+                      className="uppercase text-xs font-bold text-zinc-500 dark:text-white"
                     >
                       Enter email
                     </FormLabel>
@@ -164,7 +159,7 @@ export const CreatePatientModal = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel
-                      className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70"
+                      className="uppercase text-xs font-bold text-zinc-500 dark:text-white"
                     >
                       Phone number
                     </FormLabel>
@@ -187,7 +182,7 @@ export const CreatePatientModal = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel
-                      className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70"
+                      className="uppercase text-xs font-bold text-zinc-500 dark:text-white"
                     >
                       
                       Age
@@ -198,8 +193,11 @@ export const CreatePatientModal = () => {
                         className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
                         placeholder="Enter Patient's age"
                         {...field}
-                        type="number"              
-                  />
+                        type="number"
+                        min={0}
+                        max={100}
+                       
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -210,7 +208,7 @@ export const CreatePatientModal = () => {
                 name="sex"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">Gender</FormLabel>
+                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">Gender</FormLabel>
                     <Select
                       disabled={isLoading}
                       onValueChange={field.onChange}
@@ -245,7 +243,7 @@ export const CreatePatientModal = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel
-                      className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70"
+                      className="uppercase text-xs font-bold text-zinc-500 dark:text-white"
                     >
                       Address
                     </FormLabel>
@@ -266,7 +264,7 @@ export const CreatePatientModal = () => {
                 name="status"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">Lead Status</FormLabel>
+                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">Lead Status</FormLabel>
                     <Select
                       disabled={isLoading}
                       onValueChange={field.onChange}
@@ -301,7 +299,7 @@ export const CreatePatientModal = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel
-                      className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70"
+                      className="uppercase text-xs font-bold text-zinc-500 dark:text-white"
                     >
                       remarks
                     </FormLabel>
@@ -318,17 +316,15 @@ export const CreatePatientModal = () => {
                 )}
               />
             </div>
-            <DialogFooter className="bg-gray-100 px-6 py-4">
-              <Button variant="primary" disabled={isLoading}>
+            <div className=" px-6 py-4">
+              <Button  disabled={isLoading}>
                 Create
               </Button>
-            </DialogFooter>
+            </div>
           </form>
         </Form>
-        </ScrollArea>
-      </DialogContent>
-    </Dialog>
-
-    
+    </div>
+       
   )
 }
+export default CreatePatientForm
