@@ -4,19 +4,19 @@ import { NextResponse } from "next/server";
 
 export async function DELETE(
     req: Request,
-    {params}: {params: {leadId: string}}
+    {params}: {params: {patientId: string}}
 ){
     try{
 
     
         
-        if(!params.leadId){
+        if(!params.patientId){
             return new NextResponse("lead Id missing", {status: 400})
         }
 
         const lead = await db.lead.delete({
             where:{
-                id: params.leadId,
+                id: params.patientId,
             },
         })
 
