@@ -63,7 +63,7 @@ export const TableDemo = async () => {
               <TableCell className="">{lead.gender}</TableCell>
               <TableCell className="">{lead.address}</TableCell>
               <Button variant="outline" className="ml-auto">
-                <div class="w-6 h-6 text-blue-500">
+                <div className="w-6 h-6 text-blue-500">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -85,7 +85,7 @@ export const TableDemo = async () => {
                   </svg>
                 </div>
 
-                {/* <MoreHorizontal className="ml-2 h-4 w-4" /> */}
+                {/* <MoreHorizontal sclassName="ml-2 h-4 w-4" /> */}
               </Button>
             </TableRow>
           ))}

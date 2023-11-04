@@ -61,7 +61,7 @@ const formSchema = z.object({
   remark: z.string(),
 });
 
-const addpatient = () => {
+const Addpatient = () => {
   const router = useRouter();
   const params = useParams();
 
@@ -306,4 +306,4 @@ const addpatient = () => {
   );
 };
 
-export default addpatient;
+export default Addpatient;

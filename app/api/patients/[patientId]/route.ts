@@ -1,4 +1,3 @@
-import { currentProfile } from "@/lib/current-profile";
 
 import { db } from "@/lib/db";
 import { v4 as uuidv4 } from 'uuid';
@@ -10,21 +9,17 @@ export async function PATCH  (
     {params}: {params: {leadId: string}}
 ) {
     try{
-        const profile = await currentProfile();
 
         const {name, email, phone, sex, address, status , remark, age } = await req.json();
 
-        if(!profile){
-            return new NextResponse("Unauthorizes" , {status: 401})
-        }
+        
 
         const lead = await db.lead.update({
             where: {
                 id: params.leadId,
-                profileId: profile.id
             },
             data:{
-                name, email, phone, sex, address, status , remark, age 
+                name, email, phone, gender: sex, address, status , remark, age 
             }
     })
 
