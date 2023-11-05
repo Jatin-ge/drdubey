@@ -6,6 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { GenderType, LeadStatus } from "@prisma/client";
 import { format } from "date-fns";
+import { toast } from "react-hot-toast"
+
 import {
   Dialog,
   DialogContent,
@@ -33,16 +35,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useEffect } from "react";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { cn } from "@/lib/utils";
-import { CalendarIcon } from "lucide-react";
-import { Calendar } from "@/components/ui/calendar";
+import { useState } from "react";
 import { ScrollArea } from "@/components//ui/scroll-area";
+import { Lead } from "@prisma/client";
+
+interface AddpatientProps {
+  initialData: Lead | null;
+};
+
+
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -52,8 +53,8 @@ const formSchema = z.object({
   phone: z.string().min(1, {
     message: "phone is required",
   }),
-  age: z.coerce.number(),
-  sex: z.nativeEnum(GenderType),
+  age: z.number().lte(150).positive(),
+  gender: z.nativeEnum(GenderType),
   address: z.string().min(1, {
     message: "address is required.",
   }),
@@ -61,18 +62,24 @@ const formSchema = z.object({
   remark: z.string(),
 });
 
-const Addpatient = () => {
+type AddpatientFormValues = z.infer<typeof formSchema>
+
+const Addpatient: React.FC<AddpatientProps> = ({initialData}) => {
   const router = useRouter();
   const params = useParams();
+  const [loading, setLoading] = useState(false);
 
-  const form = useForm({
+  const toastMessage = initialData ? 'Patient updated.' : 'Patient created.';
+
+  const form = useForm<AddpatientFormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
+    // @ts-ignore
+    defaultValues: initialData || {
       name: "",
       email: "",
       phone: "",
       age: 0,
-      sex: GenderType.MALE,
+      gender: GenderType.MALE,
       address: "",
       status: LeadStatus.PENDING,
       remark: "",
@@ -82,13 +89,21 @@ const Addpatient = () => {
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    try {
-      await axios.post(`/api/patients`, values);
-
-      form.reset();
-      redirect('/admin/patients');
-    } catch (error) {
-      console.log(error);
+     try {
+      setLoading(true);
+      if (initialData) {
+        await axios.patch(`/api/patients/${initialData.id}`, values);
+      } else {
+        await axios.post(`/api/patients`, values);
+      }
+      router.refresh();
+      router.push(`/admin/patients`);
+      toast.success(toastMessage);
+    }
+    catch (error: any) {
+      toast.error('Something went wrong.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -178,6 +193,7 @@ const Addpatient = () => {
                       className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
                       placeholder="Enter Patient's age"
                       {...field}
+                      { ...form.register('age', { valueAsNumber: true } ) }
                       type="number"
                     />
                   </FormControl>
@@ -187,7 +203,7 @@ const Addpatient = () => {
             />
             <FormField
               control={form.control}
-              name="sex"
+              name="gender"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">

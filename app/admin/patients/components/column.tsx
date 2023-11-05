@@ -51,8 +51,12 @@ export const columns: ColumnDef<LeadCloumn>[] = [
     header: "Email",
   },
   {
+    accessorKey: "status",
+    header: "Status",
+  },
+  {
     id: "actions",
-    cell : () => <CellAction/>
+    cell : ({row}) => <CellAction data={row.original}/>
   }
    
 
