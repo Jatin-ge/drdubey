@@ -10,11 +10,14 @@ import { CellAction } from "./cell-action"
 
 export type LeadCloumn = {
   id: string
-  name: string
+  name: string | null
   email: string | null
-  createdAt: string
   address: string | null
-  age: number
+  age: number | null
+  dood: string | null
+  doad: string | null
+  ipdReg: number | null 
+  bill : number | null 
   status: LeadStatus
 }
 
@@ -25,19 +28,30 @@ export const columns: ColumnDef<LeadCloumn>[] = [
     header: "Name",
   },
   {
-    accessorKey: "createdAt",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Created At
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    },
+    accessorKey: "age",
+    header: "age",
   },
+  {
+    accessorKey: "doad",
+    header: "doad",
+  },
+  {
+    accessorKey: "dood",
+    header: "dood",
+  },
+  {
+    accessorKey: "dx",
+    header: "description",
+  },
+  {
+    accessorKey: "surgery",
+    header: "surgery",
+  },
+  {
+    accessorKey: "side",
+    header: "side",
+  },
+  
   {
     accessorKey: "address",
     header: "Address",
@@ -45,10 +59,6 @@ export const columns: ColumnDef<LeadCloumn>[] = [
   {
     accessorKey: "age",
     header: "Age",
-  },
-  {
-    accessorKey: "email",
-    header: "Email",
   },
   {
     accessorKey: "status",
