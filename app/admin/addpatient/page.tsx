@@ -52,7 +52,7 @@ const formSchema = z.object({
   email: z.string(),
   phone: z.string().min(1, {
     message: "phone is required",
-  }),
+  }) || null,
   age: z.number().lte(150).positive(),
   gender: z.nativeEnum(GenderType),
   address: z.string().min(1, {
@@ -79,7 +79,7 @@ const Addpatient: React.FC<AddpatientProps> = ({initialData}) => {
       email: "",
       phone: "",
       age: 0,
-      gender: GenderType.MALE,
+      gender: GenderType.M,
       address: "",
       status: LeadStatus.PENDING,
       remark: "",

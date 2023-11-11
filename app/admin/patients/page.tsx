@@ -20,11 +20,17 @@ const BillboardsPage = async ({
   const formattedLeadCloumn: LeadCloumn[] = billboards.map((item) => ({
     id: item.id,
     name: item.name,
-    email: item.email,
-    address: item.address,
-    age: item.age,
-    createdAt: format(item.createdAt, 'MMMM do, yyyy'),
-    status: item.status
+    dood: item.dood ? format(new Date(item.dood), 'dd/MM/yyyy') : null,
+    doad: item.doad ? format(new Date(item.doad), 'dd/MM/yyyy') : null,
+    gender: item.gender,
+    dx: item.dx || null,
+    surgery: item.surgery || null,
+    side: item.side || null,
+    remark: item.remark || null,
+    phone: item.phone || null,
+    address: item.address || null,
+    age: item.age || null,
+    status: item.status || null
   }));
 
   return (
