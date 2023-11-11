@@ -17,7 +17,7 @@ enum GenderType {
 
 model Lead {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  name String?
+  name String
   email String?
   age Int?
   remark String?
@@ -26,8 +26,8 @@ model Lead {
   createdAt DateTime? @default(now())
   updatedAt DateTime? @updatedAt
   status LeadStatus @default(PENDING)
-  doad String? 
-  dood String? 
+  doad DateTime? 
+  dood DateTime? 
   dx String?
   surgery String?
   side String?
