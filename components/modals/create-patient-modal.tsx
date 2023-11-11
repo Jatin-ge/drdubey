@@ -66,7 +66,7 @@ export const CreatePatientModal = () => {
       email:"",
       phone:"",
       age: 0,
-      sex: GenderType.MALE,
+      sex: GenderType.M,
       address: "",
       status: LeadStatus.PENDING,
       remark: ""

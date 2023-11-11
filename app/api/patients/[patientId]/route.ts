@@ -6,20 +6,20 @@ import { NextResponse } from "next/server";
 
 export async function PATCH  (
     req:Request,
-    {params}: {params: {leadId: string}}
+    {params}: {params: {patientId: string}}
 ) {
     try{
 
-        const { name, email, phone, sex, address, status , remark, age } = await req.json();
+        const { name, email, phone, gender, address, status , remark, age } = await req.json();
 
         
 
         const lead = await db.lead.update({
             where: {
-                id: params.leadId,
+                id: params.patientId,
             },
             data:{
-                name, email, phone, gender: sex, address, status , remark, age 
+                name, email, phone, gender, address, status , remark, age 
             }
     })
 

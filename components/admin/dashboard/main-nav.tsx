@@ -1,42 +1,47 @@
-"use client"
+"use client";
+
 import Link from "next/link"
+import { useParams, usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Plus } from "lucide-react"
-import { useModal } from "@/hooks/use-modal-store"
-import { useRouter } from "next/navigation"
 
 export function MainNav({
   className,
   ...props
 }: React.HTMLAttributes<HTMLElement>) {
-  const router = useRouter();
-  const onClick = () => {
-    router.push("/admin/addpatient")
-  }
-  const {onOpen, data} = useModal(); 
+  const pathname = usePathname();
+  const params = useParams();
+
+  const routes = [
+    {
+      href: `/admin`,
+      label: 'Overview',
+      active: pathname === `/admin`,
+    },
+    {
+      href: `/admin/patients`,
+      label: 'Patients',
+      active: pathname === `/admin/billboards`,
+    },
+  ]
+
   return (
     <nav
       className={cn("flex items-center space-x-4 lg:space-x-6", className)}
       {...props}
     >
-      <Link
-        href="/examples/dashboard"
-        className="text-sm font-medium transition-colors hover:text-primary"
-      >
-        Overview
+      {routes.map((route) => (
+        <Link
+          key={route.href}
+          href={route.href}
+          className={cn(
+            'text-sm font-medium transition-colors hover:text-primary',
+            route.active ? 'text-black dark:text-white' : 'text-muted-foreground'
+          )}
+        >
+          {route.label}
       </Link>
-      <Link
-        href="/admin/patients"
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-      >
-        Customers
-      </Link>
-
-      <Button onClick={onClick} className=" px-3 py-2 text-sm cursor-pointer" variant="outline">
-        <Plus className="rounded-full h-6 w-6"/> New Lead
-      </Button>
+      ))}
     </nav>
   )
-}
+};
