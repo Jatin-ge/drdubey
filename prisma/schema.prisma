@@ -10,8 +10,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 enum GenderType {
-  M 
-  F
+  MALE 
+  FEMALE
   OTHER
 }
 
@@ -19,12 +19,13 @@ model Lead {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   name String
   email String?
-  age Int?
-  remark String?
-  address String?
-  gender GenderType @default(M)
-  createdAt DateTime? @default(now())
-  updatedAt DateTime? @updatedAt
+  phone String
+  age Int
+  remark String
+  address String? 
+  gender GenderType @default(MALE)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   status LeadStatus @default(PENDING)
   doad DateTime? 
   dood DateTime? 

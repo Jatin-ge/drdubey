@@ -79,7 +79,7 @@ const Addpatient: React.FC<AddpatientProps> = ({initialData}) => {
       email: "",
       phone: "",
       age: 0,
-      gender: GenderType.M,
+      gender: GenderType.MALE,
       address: "",
       status: LeadStatus.PENDING,
       remark: "",

@@ -23,14 +23,8 @@ const BillboardsPage = async ({
     email: item.email,
     address: item.address,
     age: item.age,
-    status: item.status,
-    dood: item.dood,
-    doad: item.doad,
-    dx: item.dx,
-    surgery: item.surgery,
-    side: item.side,
-    ipdReg: item.ipdReg,
-    bill: item.bill,
+    createdAt: format(item.createdAt, 'MMMM do, yyyy'),
+    status: item.status
   }));
 
   return (
