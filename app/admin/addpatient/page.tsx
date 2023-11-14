@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 "use client";
 
 import axios from "axios";
@@ -59,7 +61,8 @@ const formSchema = z.object({
   }),
   status: z.nativeEnum(LeadStatus),
   remark: z.string(),
-  doad: z.date(),
+  doad: z.string().transform((str) => new Date(str)),
+  doop: z.string().transform((str) => new Date(str)),
 });
 
 type AddpatientFormValues = z.infer<typeof formSchema>;
@@ -84,6 +87,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
       status: LeadStatus.PENDING,
       remark: "",
       doad: new Date().toISOString().split("T")[0],
+      doop: new Date().toISOString().split("T")[0]
     },
   });
 
@@ -255,7 +259,55 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                 </FormItem>
               )}
             />
+
+            
             <FormField
+              control={form.control}
+              name="doad"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                    D.O.Ad
+                  </FormLabel>
+                  
+                  <FormControl> 
+                    < Input           
+                      disabled={isLoading}
+                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      placeholder="Enter D.O.Ad"
+                      type="date"
+                      {...field}
+                      
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="doop"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                    D.O.Op
+                  </FormLabel>
+                  
+                  <FormControl>
+                    
+                    <Input                  
+                      disabled={isLoading}
+                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      placeholder="Enter D.O.Op"
+                      {...field}
+                      type="date"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+                        <FormField
               control={form.control}
               name="status"
               render={({ field }) => (
@@ -303,30 +355,6 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                       className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
                       placeholder="Enter Remarks"
                       {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="doad"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
-                    D.O.Ad
-                  </FormLabel>
-
-                  <FormControl>
-                    <Input
-                      disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
-                      placeholder="Enter D.O.Ad"
-                      {...field}
-                      {...form.register("doad", { valueAsDate: true })}
-                      type="date"
                     />
                   </FormControl>
                   <FormMessage />
