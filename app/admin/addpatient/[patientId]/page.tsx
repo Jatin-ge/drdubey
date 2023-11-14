@@ -6,8 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { GenderType, LeadStatus } from "@prisma/client";
 import { format } from "date-fns";
-import { toast } from "react-hot-toast";
-
+import { db } from "@/lib/db";
 import {
   Dialog,
   DialogContent,
@@ -35,57 +34,55 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useState } from "react";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
+import { CalendarIcon } from "lucide-react";
+import { Calendar } from "@/components/ui/calendar";
 import { ScrollArea } from "@/components//ui/scroll-area";
-import { Lead } from "@prisma/client";
-
-interface AddpatientProps {
-  initialData: Lead | null;
-}
 
 const formSchema = z.object({
   name: z.string().min(1, {
     message: "Patient name is required.",
   }),
   email: z.string(),
-  phone:
-    z.string().min(1, {
-      message: "phone is required",
-    }) || null,
-  age: z.number().lte(150).positive(),
-  gender: z.nativeEnum(GenderType),
+  phone: z.string().min(1, {
+    message: "phone is required",
+  }),
+  age: z.coerce.number(),
+  sex: z.nativeEnum(GenderType),
   address: z.string().min(1, {
     message: "address is required.",
   }),
   status: z.nativeEnum(LeadStatus),
   remark: z.string(),
-  doad: z.preprocess( arg => typeof arg == 'string' ? new Date( arg ) : undefined, z.date() ),
-  doop: z.preprocess( arg => typeof arg == 'string' ? new Date( arg ) : undefined, z.date() ),
 });
 
-type AddpatientFormValues = z.infer<typeof formSchema>;
+const data = await db.lead.findUnique({
+  where: {
+    id: params.patientId,
+  },
+});
 
-const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
-  const router = useRouter();
-  const params = useParams();
-  const [loading, setLoading] = useState(false);
+const Addpatient = async ({ params }: { params: { patientId: string } }) => {
+  console.log(data);
 
-  const toastMessage = initialData ? "Patient updated." : "Patient created.";
-
-  const form = useForm<AddpatientFormValues>({
+  const form = useForm({
     resolver: zodResolver(formSchema),
-    // @ts-ignore
-    defaultValues: initialData || {
+    defaultValues: {
       name: "",
       email: "",
       phone: "",
       age: 0,
-      gender: GenderType.M,
+      sex: GenderType.MALE,
       address: "",
       status: LeadStatus.PENDING,
       remark: "",
-      doad: new Date().toISOString().split("T")[0],
-      doop: new Date().toISOString().split("T")[0]
+      doad: "",
+      dood: "",
     },
   });
 
@@ -93,24 +90,13 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      setLoading(true);
-      if (initialData) {
-        await axios.patch(`/api/patients/${initialData.id}`, values);
-      } else {
-        await axios.post(`/api/patients`, values);
-      }
-      router.refresh();
-      router.push(`/admin/patients`);
-      toast.success(toastMessage);
-    } catch (error: any) {
-      toast.error("Something went wrong.");
-    } finally {
-      setLoading(false);
-    }
-  };
+      await axios.post(`/api/patients`, values);
 
-  const handleClose = () => {
-    form.reset();
+      form.reset();
+      redirect("/admin/patients");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -195,7 +181,6 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                       className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
                       placeholder="Enter Patient's age"
                       {...field}
-                      {...form.register("age", { valueAsNumber: true })}
                       type="number"
                     />
                   </FormControl>
@@ -205,7 +190,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
             />
             <FormField
               control={form.control}
-              name="gender"
+              name="sex"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
@@ -257,55 +242,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                 </FormItem>
               )}
             />
-
-            
             <FormField
-              control={form.control}
-              name="doad"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
-                    D.O.Ad
-                  </FormLabel>
-                  
-                  <FormControl>
-                    
-                    <Input                  
-                      disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
-                      placeholder="Enter D.O.Ad"
-                      {...field}
-                      type="date"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="doop"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
-                    D.O.Op
-                  </FormLabel>
-                  
-                  <FormControl>
-                    
-                    <Input                  
-                      disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
-                      placeholder="Enter D.O.Op"
-                      {...field}
-                      type="date"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-                        <FormField
               control={form.control}
               name="status"
               render={({ field }) => (
@@ -368,15 +305,13 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                   <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
                     D.O.Ad
                   </FormLabel>
-
                   <FormControl>
                     <Input
                       disabled={isLoading}
                       className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
-                      placeholder="Enter D.O.Ad"
+                      placeholder="Enter Patient name"
                       {...field}
-                      {...form.register("doad", { valueAsDate: true })}
-                      type="date"
+                      type="text"
                     />
                   </FormControl>
                   <FormMessage />

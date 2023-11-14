@@ -20,7 +20,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import Navbar from "@/components/Navbar/navbar";
 
 import { benefitOne, benefitTwo } from "../components/Benifits/data";
 
@@ -37,6 +36,12 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Gallery from "@/components/HorizontalGallery/Gallery";
 import Carousel from "@/components/Carousel/Carousel";
+import Services from "@/components/Services/Services";
+import Navbar from "@/components/NewNav/Navbar";
+import Hero3 from "@/components/NewNav/Hero";
+import Form from "@/components/ContactForm/Form";
+import Card1 from "@/components/ProfileCard/Card1";
+import WhyChoose from "@/components/WhyChoose/WhyChoose";
 export default function CardWithForm() {
   React.useEffect(() => {
     AOS.init({
@@ -47,6 +52,13 @@ export default function CardWithForm() {
   return (
     <>
       <Navbar />
+
+      <Hero3
+        heading={"Dr. Dheeraj Dubay's Exceptional Joint Replacement Surgery! "}
+        message={
+          "Step into a Pain-Free Tomorrow: 15 Years of Mastery, 18,000 Smiles Created: Dr. Dheeraj Dubay's Journey in Joint Replacement Excellence "
+        }
+      />
       {/* <Card className="w-[350px]">
         <CardHeader>
           <CardTitle>Create Ayush</CardTitle>
@@ -84,14 +96,20 @@ export default function CardWithForm() {
         </CardFooter>
       </Card> */}
 
-      <Hero />
+      {/* <Hero /> */}
+      <Card1 />
       <Stats />
 
       {/* <Benefits data={benefitOne} /> */}
 
       <Hero2 />
 
-      <Features />
+      {/* <Features /> */}
+      <Services />
+
+      <WhyChoose />
+
+      <Form />
 
       <Banner />
 
