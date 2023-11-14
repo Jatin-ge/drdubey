@@ -74,3 +74,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Raleway", sans-serif;
+}
+
+.custom-img {
+  background-image: url("/assets/images/bg1.jpg");
+}

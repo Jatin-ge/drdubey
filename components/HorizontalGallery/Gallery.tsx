@@ -43,7 +43,7 @@ const Gallery = (props: Props) => {
         <div
           id="skills"
           ref={scroller}
-          className=" flex overflow-x-hidden text-white w-[400vw] m-0 bg-gray-900  relative h-screen"
+          className=" flex overflow-x-hidden text-white w-[400vw] m-0 bg-[#E2FFF5] dark:bg-gray-900  relative h-screen"
         >
           <section
             ref={skills}

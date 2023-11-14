@@ -1,7 +1,7 @@
 "use client"
 
 import { ColumnDef } from "@tanstack/react-table"
-import { LeadStatus } from "@prisma/client"
+import { GenderType, LeadStatus } from "@prisma/client"
 import { ArrowUpDown, MoreHorizontal } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { CellAction } from "./cell-action"
@@ -11,10 +11,14 @@ import { CellAction } from "./cell-action"
 export type LeadCloumn = {
   id: string
   name: string
-  email: string | null
-  createdAt: string
   address: string | null
-  age: number
+  age: number | null
+  gender: GenderType
+  doad: string | null
+  dood: string | null
+  dx : string | null
+  surgery: string | null
+  remark: string | null
   status: LeadStatus
 }
 
@@ -25,34 +29,53 @@ export const columns: ColumnDef<LeadCloumn>[] = [
     header: "Name",
   },
   {
-    accessorKey: "createdAt",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Created At
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    },
+    accessorKey: "age",
+    header: "Age",
+  },
+  {
+    accessorKey: "gender",
+    header: "Sex",
+  },
+  
+  {
+    accessorKey: "doad",
+    header: "D.O.AD",
+  },
+  {
+    accessorKey: "dood",
+    header: "D.O.OP",
+  },
+  {
+    accessorKey: "dx",
+    header: "Description",
+  },
+  {
+    accessorKey: "surgery",
+    header: "Surgery",
+  },
+  {
+    accessorKey: "side",
+    header: "Side",
+  },
+  {
+    accessorKey: "remark",
+    header: "Remark",
   },
   {
     accessorKey: "address",
     header: "Address",
   },
   {
-    accessorKey: "age",
-    header: "Age",
+    accessorKey: "phone",
+    header: "Phone",
   },
   {
-    accessorKey: "email",
-    header: "Email",
+    accessorKey: "status",
+    header: "Status",
   },
   {
     id: "actions",
-    cell : () => <CellAction/>
+    cell : ({row}) => <CellAction data={row.original}/>
   }
    
 

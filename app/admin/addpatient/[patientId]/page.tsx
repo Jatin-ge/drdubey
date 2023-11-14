@@ -81,6 +81,8 @@ const Addpatient = async ({ params }: { params: { patientId: string } }) => {
       address: "",
       status: LeadStatus.PENDING,
       remark: "",
+      doad: "",
+      dood: "",
     },
   });
 
@@ -288,6 +290,28 @@ const Addpatient = async ({ params }: { params: { patientId: string } }) => {
                       className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
                       placeholder="Enter Remarks"
                       {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="doad"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                    D.O.Ad
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isLoading}
+                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      placeholder="Enter Patient name"
+                      {...field}
+                      type="text"
                     />
                   </FormControl>
                   <FormMessage />
