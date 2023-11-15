@@ -4,13 +4,14 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ReviewCard from "./ReviewCard";
 
 class Carousel extends Component {
   render() {
     const settingsformd = {
       dots: false,
       infinite: true,
-      slidesToShow: 3,
+      slidesToShow: 2,
       slidesToScroll: 1,
       autoplay: true,
       speed: 5000,
@@ -24,7 +25,7 @@ class Carousel extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      speed: 5000,
+      speed: 1000,
       autoplaySpeed: 10,
       cssEase: "linear",
     };
@@ -35,30 +36,12 @@ class Carousel extends Component {
           !
         </h2>
         <Slider {...settingsformd}>
-          <div className="container ">
-            <img className="md:h-3/4 md:w-3/4 " src="/assets/images/one.jpeg" />
-          </div>
-          <div className="container ">
-            <img className="md:h-3/4 md:w-3/4 " src="assets/images/one.jpeg" />
-          </div>
-          <div className="container ">
-            <img className="md:h-3/4 md:w-3/4 " src="assets/images/one.jpeg" />
-          </div>
-          <div className="container ">
-            <img className="md:h-3/4 md:w-3/4 " src="/assets/images/one.jpeg" />
-          </div>
-          <div className="container ">
-            <img className="md:h-3/4 md:w-3/4 " src="assets/images/one.jpeg" />
-          </div>
-          <div className="container ">
-            <img className="h-3/4 w-3/4 " src="assets/images/one.jpeg" />
-          </div>
-          {/* <div className="container">
-            <img src="http://recruiters-zone.com/static/media/ibexglobal.bbde01ca0d4903ed36b1.png" />
-          </div>
-          <div className="container">
-            <img src="http://recruiters-zone.com/static/media/BRS_Ventures.0722bfe22318cd3f3f5d.jpg" />
-          </div> */}
+          <ReviewCard />
+          <ReviewCard />
+          <ReviewCard />
+          <ReviewCard />
+          <ReviewCard />
+          <ReviewCard />
         </Slider>
       </div>
     );
