@@ -7,11 +7,11 @@ const Banner = (props: Props) => {
   return (
     <div>
       <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center ">
           <Image
-            height={400}
+            height={800}
             width={800}
-            className="w-full object-cover rounded-xl "
+            className="w-full object-cover  rounded-md "
             src="/assets/images/img3.jpg"
             alt="Image Description"
           />

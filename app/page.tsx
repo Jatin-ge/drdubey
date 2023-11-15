@@ -44,6 +44,7 @@ import Card1 from "@/components/ProfileCard/Card1";
 import WhyChoose from "@/components/WhyChoose/WhyChoose";
 import ReviewCard from "@/components/Carousel/ReviewCard";
 import Booknow from "@/components/Booknow/Booknow";
+import Footer from "@/components/Footer/Footer";
 export default function CardWithForm() {
   React.useEffect(() => {
     AOS.init({
@@ -122,6 +123,8 @@ export default function CardWithForm() {
       <Gallery />
 
       <Carousel />
+
+      <Footer />
     </div>
   );
 }

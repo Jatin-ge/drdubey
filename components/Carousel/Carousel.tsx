@@ -31,7 +31,7 @@ class Carousel extends Component {
     };
     return (
       <div className="md:container md:mx-auto md:px-20 my-20">
-        <h2 className="text-center font-bold text-xl md:text-2xl pb-12">
+        <h2 className="text-center font-bold text-xl md:text-5xl pb-12">
           Here’s what google <span className="text-primary"> reviews</span> says
           !
         </h2>
