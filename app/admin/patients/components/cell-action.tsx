@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import { useState } from "react";
-import { Edit, MoreHorizontal, Trash } from "lucide-react";
+import { Edit, MessageSquareIcon, MoreHorizontal, Trash } from "lucide-react";
 import { toast } from "react-hot-toast";
 import { useParams, useRouter } from "next/navigation";
 
@@ -17,6 +17,7 @@ import {
 import { AlertModal } from "@/components/modals/alert-modal";
 
 import { LeadCloumn } from "./column";
+import { useModal } from "@/hooks/use-modal-store";
 
 interface CellActionProps {
   data: LeadCloumn;
@@ -25,6 +26,7 @@ interface CellActionProps {
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
   const router = useRouter();
   const params = useParams();
+  const {onOpen} = useModal();
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -68,6 +70,9 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => setOpen(true)}>
             <Trash className="mr-2 h-4 w-4" /> Delete
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => onOpen("sendMessage",{recipent: data})}>
+            <MessageSquareIcon className="mr-2 h-4 w-4" /> Whatsapp
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

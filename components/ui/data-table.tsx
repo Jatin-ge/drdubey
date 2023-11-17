@@ -22,13 +22,16 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import React from "react"
+import React, { useState } from "react"
 import { Input } from "@/components/ui/input"
+import { cn } from "@/lib/utils"
+import axios from "axios"
 
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
+
 }
 
 
@@ -40,24 +43,100 @@ export function DataTable<TData, TValue>({
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   )
+  const [rowSelection, setRowSelection] = React.useState({})
+  const [isLoading, setIsLoading] = useState(false)
+  const [templates, setTemplates] = useState([""])
+  const header = {
+   "headers":{
+    Authorization: "Bearer EAAEf4LMZAyZA8BOZBTZBgyDQ9NhZBajpkFVQy3R6uzHUa9uO7bNiJZC3fu3KLk0vD3oLCsaQPUasNYSajIZA0xbZA48R1E3V2ROQXZBHZBd0tLbkkwFulzCKDEXY7f4VNrGkJYJsqYqt2scSw9m55ZChXGyfh9nJNVhq1JFg03Iaa6sZBHjDzLVlrBlZCjFe1G8dZA6uZB1iJ6LTCljimorKjJNhKMZD",
+    Accept: "application/json"
+    
+   } 
+  }
+
+  const getTemplates = async() => {
+    try{
+      setTemplates(await axios.get('https://graph.facebook.com/v18.0/102290129340398/message_templates', {
+  params: {
+    fields: 'name,status',
+    limit: 3
+  },
+  headers: {
+    Authorization: `Bearer EAAEf4LMZAyZA8BOZBTZBgyDQ9NhZBajpkFVQy3R6uzHUa9uO7bNiJZC3fu3KLk0vD3oLCsaQPUasNYSajIZA0xbZA48R1E3V2ROQXZBHZBd0tLbkkwFulzCKDEXY7f4VNrGkJYJsqYqt2scSw9m55ZChXGyfh9nJNVhq1JFg03Iaa6sZBHjDzLVlrBlZCjFe1G8dZA6uZB1iJ6LTCljimorKjJNhKMZD`
+  }
+}))
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+  
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
-    state: {
-      sorting,
-      columnFilters
-    },
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
+    onRowSelectionChange: setRowSelection,
+    state: {
+      sorting,
+      columnFilters,
+      rowSelection,
+    },
+    
   })
+
+  const onSubmit = async() => {
+  console.log("yooyo", getTemplates)
+  setIsLoading(true) 
+  // try {
+  //   for (const number of table.getFilteredSelectedRowModel().rows) {
+  //     console.log(number)
+  //     const body = {
+  //       messaging_product: "whatsapp",
+  //       recipient_type: "individual",
+  //       //@ts-ignore
+  //       to: number.original?.phone,
+  //       type: "template",
+  //       template: {
+  //         name: "",
+  //         language: {
+  //           code: "en_US"
+  //         },
+  //       }
+  //     };  
+      
+  //     await axios.post("https://graph.facebook.com/v17.0/177309328798172/messages", body, header);
+  //     console.log("done")
+  //   }
+  //   setIsLoading(false)
+  // } catch (error) {
+  //   console.log(error);
+  // }
+};
 
   return (
     <div>
+      <div className="flex flex-row ">
+        <div className="flex-1 text-sm text-muted-foreground">
+          {table.getFilteredSelectedRowModel().rows.length} of{" "}
+          {table.getFilteredRowModel().rows.length} row(s) selected.
+        </div>
+
+        <Button
+            className={cn("bg-green-500 flex flex-col text-white text-md",table.getFilteredSelectedRowModel().rows.length > 0 ? "" : "hidden")}
+            variant="outline"
+            size="lg"
+            onClick={onSubmit}
+            disabled={isLoading}
+            
+          >
+            Send Whatsapp message
+          </Button>
+      </div>
         <div className="flex items-center py-4">
         <Input
           placeholder="Filter names..."
@@ -129,7 +208,9 @@ export function DataTable<TData, TValue>({
         >
           Next
         </Button>
+        
       </div>
+      
     </div>
   )
 }
