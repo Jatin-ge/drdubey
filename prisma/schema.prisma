@@ -43,3 +43,22 @@ enum LeadStatus {
   LOST
 }
 
+
+// This is for the calendar  management 
+
+
+model Day {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  dayOfWeek Int // @see getDay() documentation, 0 for Sunday, 1 for Monday, ...
+  openTime  String
+  closeTime String
+
+}
+
+model ClosedDay {
+  id   String  @id @default(auto()) @map("_id") @db.ObjectId
+  date DateTime @unique
+}
+
+

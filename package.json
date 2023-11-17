@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
     "@clerk/nextjs": "^4.26.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -45,6 +46,7 @@
     "query-string": "^8.1.0",
     "radix-ui": "^1.0.1",
     "react": "^18",
+    "react-calendar": "^4.6.1",
     "react-countup": "^6.5.0",
     "react-day-picker": "^8.9.1",
     "react-dom": "^18",
@@ -66,6 +68,7 @@
     "@types/aos": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
+    "@types/react-calendar": "^4.1.0",
     "@types/react-dom": "^18",
     "@types/react-slick": "^0.23.11",
     "@types/uuid": "^9.0.6",

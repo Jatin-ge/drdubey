@@ -45,6 +45,8 @@ import WhyChoose from "@/components/WhyChoose/WhyChoose";
 import ReviewCard from "@/components/Carousel/ReviewCard";
 import Booknow from "@/components/Booknow/Booknow";
 import Footer from "@/components/Footer/Footer";
+import Calendar from "@/components/Calendar/Calendar";
+
 export default function CardWithForm() {
   React.useEffect(() => {
     AOS.init({
@@ -111,6 +113,7 @@ export default function CardWithForm() {
       <Services />
 
       <WhyChoose />
+
 
       <Booknow />
 

@@ -2,26 +2,22 @@ import { format } from "date-fns";
 
 import { db } from "@/lib/db";
 
-import { LeadCloumn } from "./components/column"
+import { LeadCloumn } from "./components/column";
 import { BillboardClient } from "./components/client";
 import { LeadStatus } from "@prisma/client";
 
-const BillboardsPage = async ({
-  params
-}: {
-  params: { storeId: string }
-}) => {
+const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
   const billboards = await db.lead.findMany({
     orderBy: {
-      createdAt: 'desc'
-    }
+      createdAt: "desc",
+    },
   });
 
   const formattedLeadCloumn: LeadCloumn[] = billboards.map((item) => ({
     id: item.id,
     name: item.name,
-    dood: item.dood ? format(new Date(item.dood), 'dd/MM/yyyy') : null,
-    doad: item.doad ? format(new Date(item.doad), 'dd/MM/yyyy') : null,
+    dood: item.dood ? format(new Date(item.dood), "dd/MM/yyyy") : null,
+    doad: item.doad ? format(new Date(item.doad), "dd/MM/yyyy") : null,
     gender: item.gender,
     dx: item.dx || null,
     surgery: item.surgery || null,
@@ -30,7 +26,7 @@ const BillboardsPage = async ({
     phone: item.phone || null,
     address: item.address || null,
     age: item.age || null,
-    status: item.status || null
+    status: item.status || null,
   }));
 
   return (
