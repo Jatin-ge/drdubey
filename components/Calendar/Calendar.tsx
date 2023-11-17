@@ -1,0 +1,104 @@
+"use client";
+
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+
+import ReactCalendar from "react-calendar";
+
+import "./Calendar.css";
+
+import { format, formatISO, isBefore, parse } from "date-fns";
+import {
+  CLOSING_TIME,
+  INTERVAL,
+  OPENING_HOURS_INTERVAL,
+  OPENING_TIME,
+  now,
+} from "./Constants/config";
+import { useRouter } from "next/navigation";
+import { getOpeningTimes, roundToNearestMinutes } from "@/utils/helper";
+import { Day } from "@prisma/client";
+
+type DateTime = {
+  justDate: Date | null;
+  dateTime: Date | null;
+};
+
+interface indexProps {
+  date: DateTime;
+  setDate: Dispatch<SetStateAction<DateTime>>;
+}
+
+interface CalendarProps {
+  days: Day[];
+  closedDays: string[];
+}
+
+const Calendar = ({ days, closedDays }: CalendarProps) => {
+  const router = useRouter();
+
+  // console.log("the days sent to props in the calendar are ", days);
+  // Determine if today is closed
+  const today = days.find((d) => d.dayOfWeek === now.getDay());
+  const rounded = roundToNearestMinutes(now, OPENING_HOURS_INTERVAL);
+  const closing = parse(today!.closeTime, "kk:mm", now);
+  const tooLate = !isBefore(rounded, closing);
+  if (tooLate) closedDays.push(formatISO(new Date().setHours(0, 0, 0, 0)));
+
+  const [date, setDate] = useState<DateTime>({
+    justDate: null,
+    dateTime: null,
+  });
+
+  useEffect(() => {
+    if (date.dateTime) {
+      const formattedDate = format(date.dateTime, "yyyy-MM-dd");
+      const formattedTime = format(date.dateTime, "HH:mm");
+      localStorage.setItem("selectedDate", formattedDate);
+      localStorage.setItem("selectedTime", formattedTime);
+      localStorage.setItem("isodate", date.dateTime.toISOString());
+      router.push("/menu");
+    }
+  }, [date.dateTime, router]);
+
+  // console.log("the just date is ", date.justDate);
+
+  const times = date.justDate && getOpeningTimes(date.justDate, days);
+
+  console.log("the closed days in the calender are ", closedDays);
+
+  return (
+    <div className="h-screen flex flex-col justify-center items-center">
+      {date.justDate ? (
+        <div className="flex gap-4">
+          {times?.map((time, i) => (
+            <div key={`time-${i}`} className="rounded-sm bg-gray-100 p-2">
+              <button
+                type="button"
+                onClick={() => setDate((prev) => ({ ...prev, dateTime: time }))}
+              >
+                {format(time, "kk: mm")}
+              </button>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <ReactCalendar
+          minDate={new Date()}
+          className="REACT-CALENDAR p-2 mx-auto "
+          view="month"
+          tileDisabled={({ date }) =>
+            closedDays && closedDays.includes(formatISO(date))
+          }
+          onClickDay={(date) =>
+            setDate((prev) => ({
+              ...prev,
+              justDate: date,
+            }))
+          }
+        />
+      )}
+    </div>
+  );
+};
+
+export default Calendar;

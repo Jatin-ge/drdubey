@@ -9,7 +9,7 @@ export const Stats = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12">
           <div
             data-aos="flip-left"
-            className="flex flex-col gap-y-3 lg:gap-y-5 p-4 md:p-5 bg-white border shadow-xl shadow-primary hover:scale-110  rounded-xl dark:bg-slate-900 dark:border-gray-800"
+            className="flex flex-col gap-y-3 lg:gap-y-5 p-4 md:p-5 bg-white border shadow-xl shadow-primary hover:scale-110   dark:bg-slate-900 dark:border-gray-800"
           >
             <div className="inline-flex justify-center items-center">
               <span className="w-2 h-2 inline-block bg-gray-500 rounded-full mr-2"></span>
@@ -55,7 +55,7 @@ export const Stats = () => {
 
           <div
             data-aos="flip-left"
-            className="flex flex-col gap-y-3 lg:gap-y-5 p-4 md:p-5 bg-white border shadow-xl shadow-primary hover:scale-110 rounded-xl dark:bg-slate-900 dark:border-gray-800"
+            className="flex flex-col gap-y-3 lg:gap-y-5 p-4 md:p-5 bg-white border shadow-xl shadow-primary hover:scale-110  dark:bg-slate-900 dark:border-gray-800"
           >
             <div className="inline-flex justify-center items-center">
               <span className="w-2 h-2 inline-block bg-green-500 rounded-full mr-2"></span>
@@ -101,7 +101,7 @@ export const Stats = () => {
 
           <div
             data-aos="flip-left"
-            className="flex flex-col gap-y-3 lg:gap-y-5 p-4 md:p-5 bg-white border shadow-xl shadow-primary hover:scale-110 rounded-xl dark:bg-slate-900 dark:border-gray-800"
+            className="flex flex-col gap-y-3 lg:gap-y-5 p-4 md:p-5 bg-white border shadow-xl shadow-primary hover:scale-110  dark:bg-slate-900 dark:border-gray-800"
           >
             <div className="inline-flex justify-center items-center">
               <span className="w-2 h-2 inline-block bg-green-500 rounded-full mr-2"></span>

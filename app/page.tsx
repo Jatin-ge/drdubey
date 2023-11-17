@@ -42,6 +42,11 @@ import Hero3 from "@/components/NewNav/Hero";
 import Form from "@/components/ContactForm/Form";
 import Card1 from "@/components/ProfileCard/Card1";
 import WhyChoose from "@/components/WhyChoose/WhyChoose";
+import ReviewCard from "@/components/Carousel/ReviewCard";
+import Booknow from "@/components/Booknow/Booknow";
+import Footer from "@/components/Footer/Footer";
+import Calendar from "@/components/Calendar/Calendar";
+
 export default function CardWithForm() {
   React.useEffect(() => {
     AOS.init({
@@ -50,7 +55,7 @@ export default function CardWithForm() {
     });
   }, []);
   return (
-    <>
+    <div className="overflow-hidden">
       <Navbar />
 
       <Hero3
@@ -109,6 +114,9 @@ export default function CardWithForm() {
 
       <WhyChoose />
 
+
+      <Booknow />
+
       <Form />
 
       <Banner />
@@ -118,6 +126,8 @@ export default function CardWithForm() {
       <Gallery />
 
       <Carousel />
-    </>
+
+      <Footer />
+    </div>
   );
 }
