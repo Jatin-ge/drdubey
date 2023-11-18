@@ -48,29 +48,11 @@ export function DataTable<TData, TValue>({
   const [templates, setTemplates] = useState([""])
   const header = {
    "headers":{
-    Authorization: "Bearer EAAEf4LMZAyZA8BOZBTZBgyDQ9NhZBajpkFVQy3R6uzHUa9uO7bNiJZC3fu3KLk0vD3oLCsaQPUasNYSajIZA0xbZA48R1E3V2ROQXZBHZBd0tLbkkwFulzCKDEXY7f4VNrGkJYJsqYqt2scSw9m55ZChXGyfh9nJNVhq1JFg03Iaa6sZBHjDzLVlrBlZCjFe1G8dZA6uZB1iJ6LTCljimorKjJNhKMZD",
+    Authorization: "Bearer EAAEf4LMZAyZA8BO4tHBZBePIoauTjxZAvBkZAZAEzxZBsNg3Xbq0JTcLvZAk21X74bp0izDHpZBL5RposTMqbZBGlMO8tqbWSZAKrZBci8JE1TfxVlcZBZADN9WNcPVpgRHIYqRvYNqBfbTiSSCLeg1ZAfhkIq356wYH35SmpXbPOpo0sFchjoVyZA4MOcReSHHc17HiZAjrEOhAZCWUKJZAv6RiSNQ2scZD",
     Accept: "application/json"
     
    } 
   }
-
-  const getTemplates = async() => {
-    try{
-      setTemplates(await axios.get('https://graph.facebook.com/v18.0/102290129340398/message_templates', {
-  params: {
-    fields: 'name,status',
-    limit: 3
-  },
-  headers: {
-    Authorization: `Bearer EAAEf4LMZAyZA8BOZBTZBgyDQ9NhZBajpkFVQy3R6uzHUa9uO7bNiJZC3fu3KLk0vD3oLCsaQPUasNYSajIZA0xbZA48R1E3V2ROQXZBHZBd0tLbkkwFulzCKDEXY7f4VNrGkJYJsqYqt2scSw9m55ZChXGyfh9nJNVhq1JFg03Iaa6sZBHjDzLVlrBlZCjFe1G8dZA6uZB1iJ6LTCljimorKjJNhKMZD`
-  }
-}))
-    }
-    catch(err){
-      console.log(err)
-    }
-  }
-  
 
   const table = useReactTable({
     data,
@@ -90,32 +72,31 @@ export function DataTable<TData, TValue>({
   })
 
   const onSubmit = async() => {
-  console.log("yooyo", getTemplates)
   setIsLoading(true) 
-  // try {
-  //   for (const number of table.getFilteredSelectedRowModel().rows) {
-  //     console.log(number)
-  //     const body = {
-  //       messaging_product: "whatsapp",
-  //       recipient_type: "individual",
-  //       //@ts-ignore
-  //       to: number.original?.phone,
-  //       type: "template",
-  //       template: {
-  //         name: "",
-  //         language: {
-  //           code: "en_US"
-  //         },
-  //       }
-  //     };  
+  try {
+    for (const number of table.getFilteredSelectedRowModel().rows) {
+      console.log(number)
+      const body = {
+        messaging_product: "whatsapp",
+        recipient_type: "individual",
+        //@ts-ignore
+        to: number.original?.phone,
+        type: "template",
+        template: {
+          name: "hello_world",
+          language: {
+            code: "en_US"
+          },
+        }
+      };  
       
-  //     await axios.post("https://graph.facebook.com/v17.0/177309328798172/messages", body, header);
-  //     console.log("done")
-  //   }
-  //   setIsLoading(false)
-  // } catch (error) {
-  //   console.log(error);
-  // }
+      await axios.post("https://graph.facebook.com/v17.0/177309328798172/messages", body, header);
+      console.log("done")
+    }
+    setIsLoading(false)
+  } catch (error) {
+    console.log(error);
+  }
 };
 
   return (

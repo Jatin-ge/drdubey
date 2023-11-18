@@ -50,7 +50,7 @@ export const SendMessageModal = () => {
 
   const header = {
    "headers":{
-    Authorization: "Bearer EAAEf4LMZAyZA8BOZBTZBgyDQ9NhZBajpkFVQy3R6uzHUa9uO7bNiJZC3fu3KLk0vD3oLCsaQPUasNYSajIZA0xbZA48R1E3V2ROQXZBHZBd0tLbkkwFulzCKDEXY7f4VNrGkJYJsqYqt2scSw9m55ZChXGyfh9nJNVhq1JFg03Iaa6sZBHjDzLVlrBlZCjFe1G8dZA6uZB1iJ6LTCljimorKjJNhKMZD",
+    Authorization: "Bearer EAAEf4LMZAyZA8BO4tHBZBePIoauTjxZAvBkZAZAEzxZBsNg3Xbq0JTcLvZAk21X74bp0izDHpZBL5RposTMqbZBGlMO8tqbWSZAKrZBci8JE1TfxVlcZBZADN9WNcPVpgRHIYqRvYNqBfbTiSSCLeg1ZAfhkIq356wYH35SmpXbPOpo0sFchjoVyZA4MOcReSHHc17HiZAjrEOhAZCWUKJZAv6RiSNQ2scZD",
     Accept: "application/json"
     
    } 
