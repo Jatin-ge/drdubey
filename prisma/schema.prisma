@@ -43,8 +43,31 @@ enum LeadStatus {
   LOST
 }
 
+model Profile{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @unique
+  name String 
+  imageUrl String 
+  email String 
+  createdAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+  appointments Appointment[]
 
-
+}
+model Appointment{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String
+  user Profile @relation(fields: [userId], references: [userId])
+  name String
+  date String
+  time String
+  phone String
+  age Int
+  address String
+  gender GenderType @default(M)
+  createdAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+}
 
 // This is for the calendar  management 
 

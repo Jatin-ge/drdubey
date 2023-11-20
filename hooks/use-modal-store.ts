@@ -2,15 +2,17 @@
 import {create} from "zustand"
 import { Lead } from "@prisma/client";
 import { LeadCloumn } from "@/app/admin/patients/components/column";
+import { RowModel } from "@tanstack/react-table";
 
 
-export type ModalType = "createPatient" | "sendMessage"
+export type ModalType = "createPatient" | "sendMessage" | "sendBulkMessage"
 
 interface ModalData{
     lead?: Lead
     recipent?: LeadCloumn
     apiUrl?: string
     query?: Record<string, any>
+    template?: any
 }
 
 interface ModalStrore{
