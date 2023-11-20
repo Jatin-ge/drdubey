@@ -26,7 +26,7 @@ import React, { useState } from "react"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
 import axios from "axios"
-
+import { useModal } from "@/hooks/use-modal-store"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -45,7 +45,8 @@ export function DataTable<TData, TValue>({
   )
   const [rowSelection, setRowSelection] = React.useState({})
   const [isLoading, setIsLoading] = useState(false)
-  const [templates, setTemplates] = useState([""])
+  const { onOpen } = useModal();
+
   const header = {
    "headers":{
     Authorization: "Bearer EAAEf4LMZAyZA8BO4tHBZBePIoauTjxZAvBkZAZAEzxZBsNg3Xbq0JTcLvZAk21X74bp0izDHpZBL5RposTMqbZBGlMO8tqbWSZAKrZBci8JE1TfxVlcZBZADN9WNcPVpgRHIYqRvYNqBfbTiSSCLeg1ZAfhkIq356wYH35SmpXbPOpo0sFchjoVyZA4MOcReSHHc17HiZAjrEOhAZCWUKJZAv6RiSNQ2scZD",
@@ -111,7 +112,7 @@ export function DataTable<TData, TValue>({
             className={cn("bg-green-500 flex flex-col text-white text-md",table.getFilteredSelectedRowModel().rows.length > 0 ? "" : "hidden")}
             variant="outline"
             size="lg"
-            onClick={onSubmit}
+            onClick={() => onOpen("sendBulkMessage",{template : table.getFilteredSelectedRowModel().rows}) }
             disabled={isLoading}
             
           >

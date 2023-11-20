@@ -8,11 +8,11 @@ import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 
 
-import { columns, LeadCloumn } from "./column";
+import { columns, AppointMentCloumn } from "./column";
 import { DataTable } from "@/components/ui/data-table";
 
 interface BillboardClientProps {
-  data: LeadCloumn[];
+  data: AppointMentCloumn[];
 }
 
 export const BillboardClient: React.FC<BillboardClientProps> = ({

@@ -23,6 +23,11 @@ export function MainNav({
       label: 'Patients',
       active: pathname === `/admin/billboards`,
     },
+    {
+      href: `/admin/appointment`,
+      label: 'Appointments',
+      active: pathname === `/admin/billboards`,
+    },
   ]
 
   return (

@@ -35,33 +35,37 @@ import {
 } from "@/components/ui/select";
 import { ScrollArea } from "../ui/scroll-area";
 import { Textarea } from "../ui/textarea";
+import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 const formSchema = z.object({
-  template: z.string()
+  template: z.string(),
   
 });
 
 
-export const SendMessageModal = () => {
-  
-  
-  const { isOpen, onClose, type, data } = useModal();
+export const SendBulkMessageModal = () => {
   const templates = ["hello_world", "testdubey"]
-
+  const { isOpen, onClose, type, data } = useModal();
+  const router = useRouter();
+  const params = useParams();
+  const [template, setTemplate] = useState("");
 
   const header = {
-   "headers":{
-    Authorization: process.env.WHATSAPP_TOKEN,
+   headers:{
+    Authorization: "Bearer EAAEf4LMZAyZA8BOxHgGybAdK6uEedHyGFSTCZCJZC4OghQJBGqNN2TdVP9AUUOSPdmWlmtq7qrCy1Ob9bNHzfipO21eKbaXUSlTt1B2Y5LHufzIurIVGJzhHR9iE2vQm9gHutnZCpxRj5x3vDO5axDqFrbqFLZBw5MP3Fdr3BFXRyYXDeCbXM1yUpN9l4HrSx0eVcKijXahhd40OaJK78ZD",
     Accept: "application/json"
     
    } 
   }
 
-  const isModalOpen = isOpen && type === "sendMessage";
+  const isModalOpen = isOpen && type === "sendBulkMessage";
   const form = useForm({
     resolver: zodResolver(formSchema),
-    defaultValues:  {
-      template: "",
+    // @ts-ignore
+    defaultValues: {
+        
+      template: ""
     }
   });
 
@@ -71,13 +75,14 @@ export const SendMessageModal = () => {
   
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
- try {
+  try {
     if(values.template.toLowerCase() === "testdubey"){
+      for (const row of data.template) {
       const body = {
         messaging_product: "whatsapp",
         recipient_type: "individual",
-        to: data.recipent?.phone,
-        type: "personalized_message",
+        to: row.original?.phone,
+        type: "template",
         template: {
           name: values.template.toLowerCase(),
           language: {
@@ -89,8 +94,13 @@ export const SendMessageModal = () => {
                 parameters: [
                 {
                     type: "text",
-                    text: data.recipent?.name
+                    text: row.original?.name
                 },
+                {
+                    type: "text",
+                    text: row.original?.address
+                },
+                    
                 ]
         
             }
@@ -98,16 +108,17 @@ export const SendMessageModal = () => {
     }}
 
       await axios.post("https://graph.facebook.com/v17.0/177309328798172/messages", body, header);
+    }
 }
     else{
-        
+        for (const row of data.template) {
       const body = {
         messaging_product: "whatsapp",
         recipient_type: "individual",
-        to: data.recipent?.phone,
+        to: row.original?.phone,
         type: "template",
         template: {
-          name: "hello_world",
+          name: values.template.toLowerCase(),
           language: {
             code: "en_US"
           },
@@ -115,6 +126,8 @@ export const SendMessageModal = () => {
       };
 
       await axios.post("https://graph.facebook.com/v17.0/177309328798172/messages", body, header);
+    }
+
     }
     form.reset();
     onClose();
@@ -135,38 +148,14 @@ export const SendMessageModal = () => {
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">
-            Send Message to {data.recipent?.name}
+            Select a template to send bulk messages
           </DialogTitle>
         </DialogHeader>
         <ScrollArea>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="space-y-8 px-6">
-              {/* <FormField
-              control={form.control}
-              name="phone"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
-                    Phone number
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
-                      
-                      {...field}
-                      type="text"
-                      //@ts-ignore
-                      
-                      
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            /> */}
-                <FormField
+               <FormField
                 control={form.control}
                 name="template"
                 render={({ field }) => (
@@ -201,7 +190,9 @@ export const SendMessageModal = () => {
                   </FormItem>
                 )}
               />
-              
+              <div className={cn("hiden",)}>
+
+              </div>
             </div>
             <DialogFooter className="bg-gray-100 px-6 py-4">
               <Button variant="primary" disabled={isLoading}>
