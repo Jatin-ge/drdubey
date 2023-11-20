@@ -35,12 +35,12 @@ const AppointmentList = async() => {
                 key={appointment.id}
                 className="py-4 transition duration-300 transform hover:scale-105"
               >
-                <div className="flex items-center justify-between "></div>
+                <div className="flex items-center justify-between ">
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800">
+                    <h3 className="text-lg font-semibold text-gray-800 ">
                       {appointment.name.toUpperCase()}
                     </h3>
-                    <p className="text-sm text-gray-600 ">
+                    <p className="text-sm text-gray-600">
                       {appointment.date} at {appointment.time}
                     </p>
                   </div>
