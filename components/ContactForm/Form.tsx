@@ -14,14 +14,14 @@ const Form = (props: Props) => {
       className="bg-[#b0e9d26e] h-full py-8  md:py-32"
       style={{
         backgroundImage:
-          'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/assets/images/contact3.jpg")',
+          'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/images/medicalbg2.jpg")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backdropFilter: "blur(115px)",
       }}
     >
       <div className="flex flex-col text-center px-5">
-        <h1 className="text-2xl md:text-5xl font-semibold text-gray-200">
+        <h1 className="text-2xl md:text-5xl font-semibold text-gray-100">
           Fill The Form To Contact Us
         </h1>
         <span className="my-6 px-[0px] md:px-[40px] lg:px-[100px] xl:px-[200px] md:w-[70%] mx-auto md:text-xl text-gray-50">
@@ -30,9 +30,9 @@ const Form = (props: Props) => {
         </span>
       </div>
       <div className="flex flex-wrap md:flex-nowrap justify-center px-5 mt-5 ">
-        <div className="bg-primary text-white p-6 rounded-xl w-[400px] md:mx-4 mb-6 md:mb-0 h-fit">
+        <div className="bg-[#E2FFF5] text-gray-700 p-6 rounded-xl w-[400px] md:mx-4 mb-6 md:mb-0 h-fit">
           <div className="">
-            <h1 className="text-2xl font-bold">Contact Information</h1>
+            <h1 className="text-3xl font-bold">Contact Information</h1>
             <p className="mt-2 mb-8">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
               inventore.

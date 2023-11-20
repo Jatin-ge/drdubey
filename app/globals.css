@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Poppins&family=Ubuntu&display=swap");
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -77,9 +78,10 @@
 
 html {
   scroll-behavior: smooth;
-  font-family: "Raleway", sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .custom-img {
-  background-image: url("/assets/images/bg1.jpg");
+  background-image: url("/assets/images/col2.jpg");
+  background-size: contain;
 }
