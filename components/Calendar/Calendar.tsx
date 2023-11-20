@@ -78,7 +78,7 @@ const Calendar = ({ days, closedDays }: CalendarProps) => {
   console.log("the closed days in the calender are ", closedDays);
 
   return (
-    <div className="h-screen flex flex-col justify-center items-center">
+    <div className="mt-10 flex flex-col justify-center items-center">
       {date.justDate ? (
         <div className="flex gap-4">
           {times?.map((time, i) => (

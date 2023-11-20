@@ -45,7 +45,7 @@ const formSchema = z.object({
 
 
 export const SendBulkMessageModal = () => {
-  const templates = ["hello_world", "testdubey"]
+  const templates = ["hello_world", "personalized_message"]
   const { isOpen, onClose, type, data } = useModal();
   const router = useRouter();
   const params = useParams();
@@ -53,7 +53,7 @@ export const SendBulkMessageModal = () => {
 
   const header = {
    headers:{
-    Authorization: "Bearer EAAEf4LMZAyZA8BOxHgGybAdK6uEedHyGFSTCZCJZC4OghQJBGqNN2TdVP9AUUOSPdmWlmtq7qrCy1Ob9bNHzfipO21eKbaXUSlTt1B2Y5LHufzIurIVGJzhHR9iE2vQm9gHutnZCpxRj5x3vDO5axDqFrbqFLZBw5MP3Fdr3BFXRyYXDeCbXM1yUpN9l4HrSx0eVcKijXahhd40OaJK78ZD",
+    Authorization: "Bearer EAAEf4LMZAyZA8BO3EBgXGBIphqRakCAhIc5JF7q7kzWfPbuIVZACWNvBA1triytP3uuAjMZBtWM7ue62IbhvXo4zdZCNRn8H1OqV5iC8Osw1wHGDyEomoZC2MCnb0Ldyg3KdzfwS2grMERVKy4zczvb7CWfh5gKm5PKEycGQ13iRKrUuFLXOhLNTpdZBNbR9g5CzJCc4qQiFrD6ZC6ZCi27YZD",
     Accept: "application/json"
     
    } 
@@ -76,7 +76,7 @@ export const SendBulkMessageModal = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
   try {
-    if(values.template.toLowerCase() === "testdubey"){
+    if(values.template.toLowerCase() === "personalized_message"){
       for (const row of data.template) {
       const body = {
         messaging_product: "whatsapp",
@@ -84,7 +84,7 @@ export const SendBulkMessageModal = () => {
         to: row.original?.phone,
         type: "template",
         template: {
-          name: values.template.toLowerCase(),
+          name: "personalized_message",
           language: {
             code: "en_US"
           },

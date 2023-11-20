@@ -24,7 +24,7 @@ export const BillboardClient: React.FC<BillboardClientProps> = ({
   return (
     <>
       <div className="flex items-center justify-between">
-        <Heading title={`Leads (${data.length})`} description="Manage patients for your hospital" />
+        <Heading title={`Appointments (${data.length})`} description="Manage your Appointments" />
         <Button onClick={() => router.push(`/admin/addpatient`)}>
           <Plus className="mr-2 h-4 w-4" /> Add New
         </Button>

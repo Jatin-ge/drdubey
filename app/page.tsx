@@ -57,7 +57,6 @@ export default function CardWithForm() {
   return (
     <div className="overflow-hidden">
       <Navbar />
-
       <Hero3
         heading={"Dr. Dheeraj Dubay's Exceptional Joint Replacement Surgery! "}
         message={
