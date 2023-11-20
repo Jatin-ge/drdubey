@@ -1,4 +1,3 @@
-"use client"
 
 import { Metadata } from "next"
 import Image from "next/image"
@@ -24,13 +23,23 @@ import { RecentSales } from "@/components/admin/dashboard/recent-sales"
 import { Search } from "@/components/admin/dashboard/search"
 
 import { UserNav } from "@/components/admin/dashboard/user-nav"
+import { getAppoinments } from "@/actions/get-appoinments"
+import { revenue } from "@/actions/get-sales"
+import { getLastMonthLeads } from "@/actions/get-leads"
+import { getGraphRevenue } from "@/actions/get-graph-revenue"
 
 export const metadata: Metadata = {
   title: "Dashboard",
   description: "Example dashboard app built using the components.",
 }
 
-export function DashboardPage() {
+export const  DashboardPage = async() => {
+
+  const TotalAppointments = await getAppoinments()
+  const TotalSales = await revenue()
+  const LeadsLastMonth = await getLastMonthLeads()
+  const graphRevenue = await getGraphRevenue();
+
   return (
     <>
       <div className=" flex-col md:flex">
@@ -68,16 +77,16 @@ export function DashboardPage() {
                     </svg>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold">$45,231.89</div>
-                    <p className="text-xs text-muted-foreground">
+                    <div className="text-4xl font-bold">₹{TotalSales}</div>
+                    {/* <p className="text-xs text-muted-foreground">
                       +20.1% from last month
-                    </p>
+                    </p> */}
                   </CardContent>
                 </Card>
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">
-                      Subscriptions
+                      Appoinments
                     </CardTitle>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -95,15 +104,15 @@ export function DashboardPage() {
                     </svg>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold">+2350</div>
+                    <div className="text-4xl font-bold">{TotalAppointments}</div>
                     <p className="text-xs text-muted-foreground">
-                      +180.1% from last month
+                      scheduled this week
                     </p>
                   </CardContent>
                 </Card>
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Sales</CardTitle>
+                    <CardTitle className="text-sm font-medium">Leads</CardTitle>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -119,9 +128,9 @@ export function DashboardPage() {
                     </svg>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-2xl font-bold">+12,234</div>
+                    <div className="text-4xl font-bold">+{LeadsLastMonth}</div>
                     <p className="text-xs text-muted-foreground">
-                      +19% from last month
+                      in past 30 days
                     </p>
                   </CardContent>
                 </Card>
@@ -157,15 +166,12 @@ export function DashboardPage() {
                     <CardTitle>Overview</CardTitle>
                   </CardHeader>
                   <CardContent className="pl-2">
-                    <Overview />
+                    <Overview data={graphRevenue}/>
                   </CardContent>
                 </Card>
                 <Card className="col-span-3">
                   <CardHeader>
-                    <CardTitle>Recent Sales</CardTitle>
-                    <CardDescription>
-                      You made 265 sales this month.
-                    </CardDescription>
+                    <CardTitle>Recent Appiontments</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <RecentSales />
@@ -179,3 +185,4 @@ export function DashboardPage() {
     </>
   )
 }
+

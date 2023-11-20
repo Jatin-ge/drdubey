@@ -1,71 +1,43 @@
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
+import { UserAvatar } from "@/components/ui/user-avatar"
+import { db } from "@/lib/db"
+import { User } from "@clerk/nextjs/server"
 
-export function RecentSales() {
+export const RecentSales = async() => {
+  const appointments  = await db.appointment.findMany({
+    include:{
+      user:{
+        select:{
+          email:true,
+          imageUrl: true
+        }
+      
+      }
+    },
+    orderBy:{
+      createdAt:"desc"
+    }
+    
+  }
+  
+  )
   return (
     <div className="space-y-8">
-      <div className="flex items-center">
-        <Avatar className="h-9 w-9">
-          <AvatarImage  alt="Avatar" />
-          <AvatarFallback>OM</AvatarFallback>
-        </Avatar>
+        {appointments.slice(0,5).map((appointment) => (
+               <div className="flex items-center" key={appointment.id}>
+                <UserAvatar src={appointment.user.imageUrl} className="flex-shrink-0 h-10 w-10 rounded-full" />
         <div className="ml-4 space-y-1">
-          <p className="text-sm font-medium leading-none">Olivia Martin</p>
+          <p className="text-sm font-medium leading-none">{appointment.name}</p>
           <p className="text-sm text-muted-foreground">
-            olivia.martin@email.com
+            {appointment.user.email}
           </p>
         </div>
-        <div className="ml-auto font-medium">+$1,999.00</div>
+        <div className="ml-auto font-medium">{appointment.date}</div>
       </div>
-      <div className="flex items-center">
-        <Avatar className="flex h-9 w-9 items-center justify-center space-y-0 border">
-          <AvatarImage  alt="Avatar" />
-          <AvatarFallback>JL</AvatarFallback>
-        </Avatar>
-        <div className="ml-4 space-y-1">
-          <p className="text-sm font-medium leading-none">Jackson Lee</p>
-          <p className="text-sm text-muted-foreground">jackson.lee@email.com</p>
-        </div>
-        <div className="ml-auto font-medium">+$39.00</div>
+
+          ))}
+
+        
+        
       </div>
-      <div className="flex items-center">
-        <Avatar className="h-9 w-9">
-          <AvatarImage  alt="Avatar" />
-          <AvatarFallback>IN</AvatarFallback>
-        </Avatar>
-        <div className="ml-4 space-y-1">
-          <p className="text-sm font-medium leading-none">Isabella Nguyen</p>
-          <p className="text-sm text-muted-foreground">
-            isabella.nguyen@email.com
-          </p>
-        </div>
-        <div className="ml-auto font-medium">+$299.00</div>
-      </div>
-      <div className="flex items-center">
-        <Avatar className="h-9 w-9">
-          <AvatarImage alt="Avatar" />
-          <AvatarFallback>WK</AvatarFallback>
-        </Avatar>
-        <div className="ml-4 space-y-1">
-          <p className="text-sm font-medium leading-none">William Kim</p>
-          <p className="text-sm text-muted-foreground">will@email.com</p>
-        </div>
-        <div className="ml-auto font-medium">+$99.00</div>
-      </div>
-      <div className="flex items-center">
-        <Avatar className="h-9 w-9">
-          <AvatarImage alt="Avatar" />
-          <AvatarFallback>SD</AvatarFallback>
-        </Avatar>
-        <div className="ml-4 space-y-1">
-          <p className="text-sm font-medium leading-none">Sofia Davis</p>
-          <p className="text-sm text-muted-foreground">sofia.davis@email.com</p>
-        </div>
-        <div className="ml-auto font-medium">+$39.00</div>
-      </div>
-    </div>
   )
 }

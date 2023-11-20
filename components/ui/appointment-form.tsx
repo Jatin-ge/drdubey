@@ -68,13 +68,21 @@ type AddpatientFormValues = z.infer<typeof formSchema>;
 
 const Appointment = ({name,email, userId}: AddpatientProps) => {
   const router = useRouter();
-  const params = useParams();
   const [loading, setLoading] = useState(false);
   const urlParams = new URLSearchParams(window.location.search);
 
   // Retrieve the 'date' and 'time' parameters
-  const date = urlParams.get('date');
-  const time = urlParams.get('time');
+  const date =  urlParams.get('date');
+  const time =  urlParams.get('time');
+
+
+  const header = {
+   "headers":{
+    Authorization: 'Bearer EAAEf4LMZAyZA8BO3EBgXGBIphqRakCAhIc5JF7q7kzWfPbuIVZACWNvBA1triytP3uuAjMZBtWM7ue62IbhvXo4zdZCNRn8H1OqV5iC8Osw1wHGDyEomoZC2MCnb0Ldyg3KdzfwS2grMERVKy4zczvb7CWfh5gKm5PKEycGQ13iRKrUuFLXOhLNTpdZBNbR9g5CzJCc4qQiFrD6ZC6ZCi27YZD',
+    Accept: "application/json"
+    
+   } 
+  }
 
 
   console.log(time)
@@ -111,9 +119,34 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setLoading(true);
+      const body = {
+        messaging_product: "whatsapp",
+        recipient_type: "individual",
+        to: values.phone,
+        type: "template",
+        template: {
+          name: "hello_world",
+          language: {
+            code: "en_US"
+          },
+    //       components: [
+    //         {
+    //             type: "body",
+    //             parameters: [
+    //             {
+    //                 type: "text",
+    //                 text: data.recipent?.name
+    //             },
+    //             ]
+        
+    //         }
+    // ]
+    }}
+      await axios.post(`/api/booking`, {values, date, time, userId});
       
 
-      await axios.post(`/api/booking`, {values, date, time, userId});
+      await axios.post("https://graph.facebook.com/v17.0/177309328798172/messages", body, header);
+      
       router.push("/booking/success");
       toast.success(toastMessage);
     } catch (error: any) {

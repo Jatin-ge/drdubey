@@ -8,6 +8,10 @@ import { LeadStatus } from "@prisma/client";
 
 const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
   const appointments = await db.appointment.findMany({
+    include:{
+        user:true
+    },
+
     orderBy: {
       createdAt: "desc",
     },
@@ -22,6 +26,7 @@ const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
     age: item.age,
     date: item.date,
     time: item.time,
+    email: item.user.email,
   }));
 
   return (

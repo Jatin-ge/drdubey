@@ -6,6 +6,7 @@ import { Day } from "@prisma/client";
 import { currentProfile } from "@/lib/current-profile";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+import { InitialProfile } from "@/lib/initial-profile";
 
 interface HomeProps {
   days: Day[];
@@ -14,20 +15,11 @@ interface HomeProps {
 
 const AppointmentPage = async () => {
 
- const user = await currentUser();
+  const profile = await InitialProfile();
 
- if(!user){
+  if(!profile){
         return redirect("/sign-in");
-     }
-  const profile = await db.profile.findUnique({
-        where: {
-            userId: user.id,
-        }
-     })
-
-     if(!profile){
-        
-     }
+  }
   const days: Day[] = await db.day.findMany();
 
   const closedDays: string[] = (await db.closedDay.findMany()).map((d) =>
@@ -36,6 +28,9 @@ const AppointmentPage = async () => {
 
   return (
     <div>
+      <h1 className="text-4xl font-bold text-center text-gray-800 mt-20">
+  Book your Appointment
+</h1>
       <Calendar days={days} closedDays={closedDays} />
     </div>
   );
