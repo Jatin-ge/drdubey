@@ -46,12 +46,12 @@ export const SendMessageModal = () => {
   
   
   const { isOpen, onClose, type, data } = useModal();
-  const templates = ["hello_world", "testdubey"]
+  const templates = ["hello_world", "personalized_message"]
 
 
   const header = {
    "headers":{
-    Authorization: process.env.WHATSAPP_TOKEN,
+    Authorization: 'Bearer EAAEf4LMZAyZA8BO3EBgXGBIphqRakCAhIc5JF7q7kzWfPbuIVZACWNvBA1triytP3uuAjMZBtWM7ue62IbhvXo4zdZCNRn8H1OqV5iC8Osw1wHGDyEomoZC2MCnb0Ldyg3KdzfwS2grMERVKy4zczvb7CWfh5gKm5PKEycGQ13iRKrUuFLXOhLNTpdZBNbR9g5CzJCc4qQiFrD6ZC6ZCi27YZD',
     Accept: "application/json"
     
    } 
@@ -72,12 +72,12 @@ export const SendMessageModal = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
  try {
-    if(values.template.toLowerCase() === "testdubey"){
+    if(values.template.toLowerCase() === "personalized_message"){
       const body = {
         messaging_product: "whatsapp",
         recipient_type: "individual",
         to: data.recipent?.phone,
-        type: "personalized_message",
+        type: "template",
         template: {
           name: values.template.toLowerCase(),
           language: {
