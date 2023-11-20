@@ -10,6 +10,8 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 type Props = {};
 
 const Booknow = (props: Props) => {
+
+  
   return (
     <div className=" md:px-[100px] py-[100px]">
       <div className="bg-[#E2FFF5] p-10 flex flex-col items-center">

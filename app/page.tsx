@@ -2,40 +2,14 @@
 
 import * as React from "react";
 
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
-import { benefitOne, benefitTwo } from "../components/Benifits/data";
-
-import { Benefits } from "@/components/Benifits/Benifits";
-
 import Hero from "@/components/Hero/Hero";
 import Hero2 from "@/components/Hero2/Hero2";
-import Features from "@/components/Features/Features";
 import { Stats } from "@/components/Stats/Stats";
 import Banner from "@/components/Banner/Banner";
 import { Testimonial } from "@/components/Testimonials/Testimonial";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Gallery from "@/components/HorizontalGallery/Gallery";
-import Carousel from "@/components/Carousel/Carousel";
 import Services from "@/components/Services/Services";
 import Navbar from "@/components/NewNav/Navbar";
 import Hero3 from "@/components/NewNav/Hero";
@@ -45,7 +19,6 @@ import WhyChoose from "@/components/WhyChoose/WhyChoose";
 import ReviewCard from "@/components/Carousel/ReviewCard";
 import Booknow from "@/components/Booknow/Booknow";
 import Footer from "@/components/Footer/Footer";
-import Calendar from "@/components/Calendar/Calendar";
 
 export default function CardWithForm() {
   React.useEffect(() => {
