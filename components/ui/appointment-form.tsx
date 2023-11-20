@@ -145,7 +145,7 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
       await axios.post(`/api/booking`, {values, date, time, userId});
       
 
-      await axios.post("https://graph.facebook.com/v17.0/177309328798172/messages", body, header);
+      axios.post("https://graph.facebook.com/v17.0/177309328798172/messages", body, header);
       
       router.push("/booking/success");
       toast.success(toastMessage);
