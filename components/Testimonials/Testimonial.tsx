@@ -13,12 +13,8 @@ import { tr } from "date-fns/locale";
 /* Install pure-react-carousel using -> npm i pure-react-carousel */
 export const Testimonial = () => {
   return (
-    <div>
-      <div className="flex items-center justify-between h-full w-full absolute z-0 dark:bg-gray-800">
-        <div className="w-1/3 bg-white dark:bg-slate-900  h-full" />
-        <div className="w-4/6 ml-16 bg-[#ecf5f2] dark:bg-gray-800 h-full" />
-      </div>
-      <div className="xl:px-20 px-8 py-20 2xl:mx-auto 2xl:container relative z-40">
+    <div className="-z-30">
+      <div className="xl:px-20 px-8 py-20 2xl:mx-auto 2xl:container relative ">
         <CarouselProvider
           naturalSlideWidth={100}
           naturalSlideHeight={100}

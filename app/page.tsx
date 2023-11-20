@@ -114,7 +114,6 @@ export default function CardWithForm() {
 
       <WhyChoose />
 
-
       <Booknow />
 
       <Form />
@@ -123,9 +122,9 @@ export default function CardWithForm() {
 
       <Testimonial />
 
-      <Gallery />
+      {/* <Gallery /> */}
 
-      <Carousel />
+      {/* <Carousel /> */}
 
       <Footer />
     </div>

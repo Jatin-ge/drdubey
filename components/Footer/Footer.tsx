@@ -5,7 +5,7 @@ type Props = {};
 const Footer = (props: Props) => {
   return (
     <div>
-      <div className="bg-gray-800 py-4 text-gray-400">
+      <div className="bg-gray-800 py-4 text-gray-400 ">
         <div className="container px-4 mx-auto">
           <div className="-mx-4 flex flex-wrap justify-between">
             <div className="px-4 my-4 w-full xl:w-1/5">
@@ -190,18 +190,6 @@ const Footer = (props: Props) => {
                   <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path>
                 </svg>
               </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="bg-primary py-4 text-gray-100">
-        <div className="container mx-auto px-4">
-          <div className="-mx-4 flex flex-wrap justify-between">
-            <div className="px-4 w-full text-center sm:w-auto sm:text-left">
-              Copyright © 2020 Tailwindow. All Rights Reserved.
-            </div>
-            <div className="px-4 w-full text-center sm:w-auto sm:text-left">
-              Made with ❤️ by Tailwindow.
             </div>
           </div>
         </div>

@@ -24,7 +24,7 @@ const WhyChoose = (props: Props) => {
           </h1>
           <ul className="list-disc list-inside mt-4 text-xl">
             <li className="flex items-center my-2">
-              <CheckCircleIcon className="mr-2 bg-red-50" color="primary" />
+              <CheckCircleIcon className="mr-2 " color="primary" />
               Safety First Quality Must
             </li>
             <li className="flex items-center my-2">

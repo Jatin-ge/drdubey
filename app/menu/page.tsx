@@ -28,7 +28,9 @@ const page = (props: Props) => {
   }, [router]);
   return (
     <div>
-      <div>this is the menu page {selectedTime}  and the Date is {formattedDate} </div>
+      <div>
+        this is the menu page {selectedTime} and the Date is {formattedDate}{" "}
+      </div>
     </div>
   );
 };
