@@ -1,12 +1,14 @@
 
 import {create} from "zustand"
 import { Lead } from "@prisma/client";
+import { LeadCloumn } from "@/app/admin/patients/components/column";
 
 
-export type ModalType = "createPatient"
+export type ModalType = "createPatient" | "sendMessage"
 
 interface ModalData{
     lead?: Lead
+    recipent?: LeadCloumn
     apiUrl?: string
     query?: Record<string, any>
 }
