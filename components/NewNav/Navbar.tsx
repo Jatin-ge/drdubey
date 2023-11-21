@@ -58,9 +58,7 @@ const Navbar = () => {
           <li className="p-4 mb-1">
             <ThemeChanger />
           </li>
-          <li className="p-4">
-            <UserButton afterSignOutUrl="/" />
-          </li>
+         
         </ul>
 
         {/* Mobile Button */}
@@ -103,9 +101,6 @@ const Navbar = () => {
               className="p-4 text-4xl hover:text-gray-500"
             >
               <Link href="/contact">Contact</Link>
-            </li>
-            <li className="p-4 text-4xl hover:text-gray-500">
-              <UserButton afterSignOutUrl="/" />
             </li>
           </ul>
         </div>

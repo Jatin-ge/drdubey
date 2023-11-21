@@ -67,6 +67,7 @@ model Appointment{
   gender GenderType @default(M)
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt
+  description String? 
 }
 
 // This is for the calendar  management 
