@@ -204,7 +204,7 @@ export const SendMessageModal = () => {
               
             </div>
             <DialogFooter className="bg-gray-100 px-6 py-4">
-              <Button variant="primary" disabled={isLoading}>
+              <Button className="mt-10" variant="primary" disabled={isLoading}>
                 Send
               </Button>
             </DialogFooter>

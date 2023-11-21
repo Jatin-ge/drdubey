@@ -125,30 +125,37 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
         to: values.phone,
         type: "template",
         template: {
-          name: "hello_world",
+          name: "booking_confirmation",
           language: {
             code: "en_US"
           },
-    //       components: [
-    //         {
-    //             type: "body",
-    //             parameters: [
-    //             {
-    //                 type: "text",
-    //                 text: data.recipent?.name
-    //             },
-    //             ]
+          components: [
+            {
+                type: "body",
+                parameters: [
+                {
+                    type: "text",
+                    text: values.name
+                },
+                {
+                    type: "text",
+                    text: date
+                },
+                {
+                    type: "text",
+                    text: time
+                },
+                ]
         
-    //         }
-    // ]
+            }
+    ]
     }}
       await axios.post(`/api/booking`, {values, date, time, userId});
-      
+      await axios.post("https://graph.facebook.com/v17.0/177309328798172/messages", body, header);
 
-      axios.post("https://graph.facebook.com/v17.0/177309328798172/messages", body, header);
       
       router.push("/booking/success");
-      toast.success(toastMessage);
+      
     } catch (error: any) {
       toast.error("Something went wrong.");
     } finally {

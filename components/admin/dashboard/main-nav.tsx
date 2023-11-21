@@ -21,13 +21,24 @@ export function MainNav({
     {
       href: `/admin/patients`,
       label: 'Patients',
-      active: pathname === `/admin/billboards`,
+      active: pathname === `/admin/patients`,
     },
     {
       href: `/admin/appointment`,
       label: 'Appointments',
-      active: pathname === `/admin/billboards`,
+      active: pathname === `/admin/appointment`,
     },
+    {
+      href: `/admin/openings`,
+      label: 'Opening times',
+      active: pathname === `/admin/openings`,
+    },
+    {
+      href: `/admin/closeddate`,
+      label: 'Closed',
+      active: pathname === `/admin/openings`,
+    },
+
   ]
 
   return (

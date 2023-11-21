@@ -9,7 +9,7 @@ const Services = (props: Props) => {
   return (
     <div className="bg-gray-100 py-32 ">
       <div className="container  mx-auto  h-full w-full">
-        <div className="flex justify-between flex-col sm:flex-row xl:-ml-32">
+        <div className="flex justify-between flex-col sm:flex-row xl:-ml-30">
           <div className=" w-[100%] sm:w-[40vw] xl:w-[30vw]">
             <span className="text-primary  font-semibold text-xl">
               SERVICES & TREATMENT
