@@ -32,6 +32,14 @@ export const RecentSales = async () => {
 
   return (
     <div className="space-y-8">
+      <div className="flex items-center font-bold text-xl">
+        <div className="ml-4 space-y-1">
+          <p className=" font-medium leading-none">Patient Name</p>
+        </div>
+        <div className="ml-auto font-medium">Date</div>
+        <div className="ml-auto font-medium">Time</div>
+      </div>
+      <hr />
       {todayAppointments.map((appointment) => (
         <Link
           href={`/profile/${appointment.userId}`}
@@ -46,11 +54,9 @@ export const RecentSales = async () => {
             <p className="text-sm font-medium leading-none">
               {appointment.name}
             </p>
-            <p className="text-sm text-muted-foreground">
-              {appointment.user.email}
-            </p>
           </div>
           <div className="ml-auto font-medium">{appointment.date}</div>
+          <div className="ml-auto font-medium">{appointment.time}</div>
         </Link>
       ))}
     </div>
