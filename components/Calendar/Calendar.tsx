@@ -57,7 +57,7 @@ const Calendar = ({ days, closedDays }: CalendarProps) => {
   useEffect(() => {
     if (date.dateTime) {
       const formattedDate = format(date.dateTime, "dd-MM-yyyy");
-      const formattedTime = format(date.dateTime, "hh:mm aaaaa'm'");
+      const formattedTime = format(date.dateTime, "hh:mm aaa");
       const booking = qs.stringifyUrl({
         url: "/booking/booking-form",
         query: {
@@ -76,16 +76,16 @@ const Calendar = ({ days, closedDays }: CalendarProps) => {
   console.log("the closed days in the calender are ", closedDays);
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex  flex-col justify-center items-center">
       {date.justDate ? (
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4">
           {times?.map((time, i) => (
-            <div key={`time-${i}`} className="rounded-sm bg-gray-100 p-2">
+            <div key={`time-${i}`} className="rounded-sm bg-gray-100 p-2 ">
               <button
                 type="button"
                 onClick={() => setDate((prev) => ({ ...prev, dateTime: time }))}
               >
-                {format(time, "kk: mm")}
+                {format(time, "hh: mm aaa")}
               </button>
             </div>
           ))}

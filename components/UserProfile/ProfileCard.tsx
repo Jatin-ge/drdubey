@@ -23,6 +23,7 @@ const ProfileCard = ({ name, imageUrl, email, appointments, phone }: Props) => {
               width={56}
               height={56}
               className="rounded-full"
+              alt={""}
             />
           </div>
           <div className="border-t border-gray-200 px-4 py-5 sm:p-0">

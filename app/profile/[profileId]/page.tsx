@@ -12,7 +12,7 @@ type ProfileTypes = {
   imageUrl: string;
 };
 
-const page = async () => {
+const page = async ({ params }: { params: { profileId: string } }) => {
   const user = await db.profile.findMany();
   const AuthProfile = await currentProfile();
 
@@ -27,7 +27,7 @@ const page = async () => {
 
   const appointments = await db.appointment.findMany({
     where: {
-      userId: userId,
+      userId: params.profileId,
     },
     orderBy: {
       createdAt: "desc",
