@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import ThemeChanger from "./DarkSwitch";
+import { UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -50,6 +51,9 @@ const Navbar = () => {
             <Link href="/contact">Contact</Link>
           </li>
           <li className="p-4">
+            <UserButton afterSignOutUrl="/"/>
+          </li>
+          <li className="p-4 mb-1">
             <ThemeChanger />
           </li>
         </ul>

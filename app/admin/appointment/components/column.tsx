@@ -9,6 +9,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 
 
 
+
 export type AppointMentCloumn = {
   id: string
   name: string
@@ -23,6 +24,7 @@ export type AppointMentCloumn = {
 }
 
 export const columns: ColumnDef<AppointMentCloumn>[] = [
+  
   {
     id: "select",
     header: ({ table }) => (
@@ -39,8 +41,8 @@ export const columns: ColumnDef<AppointMentCloumn>[] = [
         aria-label="Select row"
       />
     ),
-    enableSorting: false,
-    enableHiding: false,
+    enableSorting: true,
+    enableHiding: true,
   },
     
   {
@@ -59,11 +61,22 @@ export const columns: ColumnDef<AppointMentCloumn>[] = [
     accessorKey: "email",
     header: "Email",
   },
-  
   {
     accessorKey: "date",
-    header: "Date",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Date
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
   },
+  
+  
   {
     accessorKey: "time",
     header: "Time",

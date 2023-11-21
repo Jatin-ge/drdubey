@@ -56,8 +56,8 @@ const Calendar = ({ days, closedDays }: CalendarProps) => {
 
   useEffect(() => {
     if (date.dateTime) {
-      const formattedDate = format(date.dateTime, "yyyy-MM-dd");
-      const formattedTime = format(date.dateTime, "HH:mm");
+      const formattedDate = format(date.dateTime, "dd-MM-yyyy");
+      const formattedTime = format(date.dateTime, "hh:mm aaaaa'm'");
       const booking = qs.stringifyUrl({
         url: "/booking/booking-form",
         query: {
