@@ -6,8 +6,6 @@ import { Day } from "@prisma/client";
 import { currentProfile } from "@/lib/current-profile";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-import ModalCalendar from "@/components/Calendar/ModalCalendar";
-import CalenderComponent from "@/components/CalendarComponent/CalenderComponent";
 import ClosingDate from "@/components/ClosingDate/ClosingDate";
 
 interface HomeProps {
