@@ -6,39 +6,33 @@ import { Day } from "@prisma/client";
 import { currentProfile } from "@/lib/current-profile";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-import ModalCalendar from "@/components/Calendar/ModalCalendar";
-import CalenderComponent from "@/components/CalendarComponent/CalenderComponent";
-import ClosingDate from "@/components/ClosingDate/ClosingDate";
+import { InitialProfile } from "@/lib/initial-profile";
 
 interface HomeProps {
   days: Day[];
   closedDays: string[];
 }
 
-const page = async () => {
-  const user = await currentUser();
-
-  if (!user) {
-    return redirect("/sign-in");
-  }
-  const profile = await db.profile.findUnique({
-    where: {
-      userId: user.id,
-    },
-  });
+const AppointmentPage = async () => {
+  const profile = await InitialProfile();
 
   if (!profile) {
+    return redirect("/sign-in");
   }
   const days: Day[] = await db.day.findMany();
 
   const closedDays: string[] = (await db.closedDay.findMany()).map((d) =>
     formatISO(d.date)
   );
+
   return (
     <div>
-      <ClosingDate closedDays={closedDays} />
+      <h1 className="text-4xl font-bold text-center text-gray-800 mt-20">
+        Book your Appointment
+      </h1>
+      <Calendar days={days} closedDays={closedDays} />
     </div>
   );
 };
 
-export default page;
+export default AppointmentPage;

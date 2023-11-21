@@ -38,7 +38,7 @@ const EditableTable = ({ days }: any) => {
   };
 
   return (
-    <div className="max-w-screen-md mx-auto p-4 bg-primary dark:bg-gray-800">
+    <div className="container mx-auto p-4 bg-primary dark:bg-gray-800">
       <table className="min-w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600">
         <thead className="bg-gray-100 dark:bg-gray-600">
           <tr>
@@ -58,7 +58,7 @@ const EditableTable = ({ days }: any) => {
           {editableDays.map((day, index) => (
             <tr
               key={day.id}
-              className={index % 2 === 0 ? "bg-gray-50 dark:bg-gray-800" : ""}
+              className={index % 2 === 0 ? "bg-gray-50 dark:bg-gray-800 " : ""}
             >
               <td className="py-2 px-4 border-b dark:border-gray-500">
                 <input

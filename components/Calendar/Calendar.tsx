@@ -19,7 +19,7 @@ import { getOpeningTimes, roundToNearestMinutes } from "@/utils/helper";
 import { Day } from "@prisma/client";
 import { useModal } from "@/hooks/use-modal-store";
 import { currentUser } from "@clerk/nextjs";
-import qs from "query-string"
+import qs from "query-string";
 
 type DateTime = {
   justDate: Date | null;
@@ -39,7 +39,7 @@ interface CalendarProps {
 const Calendar = ({ days, closedDays }: CalendarProps) => {
   const router = useRouter();
 
-  const {onOpen} = useModal()
+  const { onOpen } = useModal();
 
   // console.log("the days sent to props in the calendar are ", days);
   // Determine if today is closed
@@ -63,9 +63,9 @@ const Calendar = ({ days, closedDays }: CalendarProps) => {
         query: {
           date: formattedDate,
           time: formattedTime,
-        }
+        },
       });
-      router.push(booking)
+      router.push(booking);
     }
   }, [date.dateTime, router]);
 
@@ -73,16 +73,14 @@ const Calendar = ({ days, closedDays }: CalendarProps) => {
 
   const times = date.justDate && getOpeningTimes(date.justDate, days);
 
-
-
   console.log("the closed days in the calender are ", closedDays);
 
   return (
-    <div className="mt-10 flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center">
       {date.justDate ? (
         <div className="flex gap-4">
           {times?.map((time, i) => (
-            <div key={`time-${i}`} className="rounded-sm bg-gray-100 p-2" >
+            <div key={`time-${i}`} className="rounded-sm bg-gray-100 p-2">
               <button
                 type="button"
                 onClick={() => setDate((prev) => ({ ...prev, dateTime: time }))}
