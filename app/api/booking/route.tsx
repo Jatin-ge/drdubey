@@ -1,3 +1,4 @@
+import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { InitialProfile } from "@/lib/initial-profile";
 import { redirect } from "next/navigation";
@@ -10,7 +11,8 @@ export async function POST(
 
 {  
   try{ 
-    const profile = await InitialProfile();
+    const profile = await currentProfile();
+
     const { values, date, time , userId } = await req.json();
 
      

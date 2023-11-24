@@ -5,14 +5,13 @@ import { LeadCloumn } from "@/app/admin/patients/components/column";
 import { RowModel } from "@tanstack/react-table";
 
 
-export type ModalType = "createPatient" | "sendMessage" | "sendBulkMessage"
+export type ModalType = "createPatient" | "sendMessage" | "sendBulkMessage" | "createDiscussion" | "editDiscussion"
 
 interface ModalData{
     lead?: Lead
     recipent?: LeadCloumn
-    apiUrl?: string
-    query?: Record<string, any>
     template?: any
+    appointment?: any
 }
 
 interface ModalStrore{
