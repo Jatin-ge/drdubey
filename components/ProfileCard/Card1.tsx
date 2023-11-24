@@ -6,19 +6,19 @@ const Card1 = (props: Props) => {
   return (
     <div>
       <section className="pt-10 overflow-hidden bg-[#F4FEFA]  py-8 md:pt-0 sm:pt-16 2xl:pt-16">
-        <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+        <div className="lg:w-[85%] px-4 mx-auto sm:px-6 lg:px-8 ">
           <div className="grid items-center grid-cols-1 md:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
+              <h2 className="text-3xl font-bold leading-tight text-black sm:text-5xl lg:text-6xl">
                 Dr. Dheeraj Dubay
               </h2>
-              <p className="max-w-lg mt-3 text-xl leading-relaxed text-gray-600 md:mt-8">
+              <p className="max-w-xl mt-3 text-xl lg:text-3xl leading-relaxed text-gray-600 md:mt-8">
                 Sr. Consultant Joint Replacement Surgery - Shalby
                 Multi-Specialty Hospital MBBS, MS (Orthopedic), FJRS (Germany)
                 Ex. Consultant & Head of Joint Replacement Surgery - HCG
                 Hospitals
               </p>
-              <p className="max-w-lg mt-3 text-xl leading-relaxed text-gray-600 md:mt-8">
+              <p className="max-w-2xl mt-3 text-xl lg:text-2xl leading-relaxed text-gray-600 md:mt-8">
                 He has completed his fellowship from Aklepios Ortho Center,
                 Germany in complex and revision joint replacement surgeries. He
                 has more than 15 years of experience in the field of Joint

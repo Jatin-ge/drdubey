@@ -14,11 +14,10 @@ interface HomeProps {
 }
 
 const AppointmentPage = async () => {
-
   const profile = await InitialProfile();
 
-  if(!profile){
-        return redirect("/sign-in");
+  if (!profile) {
+    return redirect("/sign-in");
   }
   const days: Day[] = await db.day.findMany();
 
@@ -27,11 +26,15 @@ const AppointmentPage = async () => {
   );
 
   return (
-    <div>
-      <h1 className="text-4xl font-bold text-center text-gray-800 mt-20">
-  Book your Appointment
-</h1>
-      <Calendar days={days} closedDays={closedDays} />
+    <div className="bg-gradient-to-r from-purple-500 to-indigo-600 font-bold min-h-screen">
+      <div className="container mx-auto p-8">
+        <h1 className="text-4xl text-white font-bold text-center mb-10">
+          Book your Appointment
+        </h1>
+        <div className="mx-auto ">
+          <Calendar days={days} closedDays={closedDays} />
+        </div>
+      </div>
     </div>
   );
 };

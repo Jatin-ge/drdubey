@@ -53,7 +53,7 @@ const Navbar = () => {
             <Link href="/contact">Contact</Link>
           </li>
           <li className="p-4">
-            <UserButton afterSignOutUrl="/"/>
+            <UserButton afterSignOutUrl="/" />
           </li>
           <li className="p-4 mb-1">
             <ThemeChanger />
