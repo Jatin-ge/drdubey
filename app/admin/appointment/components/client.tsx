@@ -9,7 +9,7 @@ import { Separator } from "@/components/ui/separator";
 
 
 import { columns, AppointMentCloumn } from "./column";
-import { DataTable } from "@/components/ui/data-table";
+import { DataTable } from "@/components/ui/data-table-appointment";
 
 interface BillboardClientProps {
   data: AppointMentCloumn[];

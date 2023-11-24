@@ -16,7 +16,9 @@ const Bot = (props: Props) => {
   return (
     <div>
       {" "}
+     
       <Chatbot
+       //@ts-ignore
         config={config}
         messageParser={MessageParser}
         actionProvider={ActionProvider}

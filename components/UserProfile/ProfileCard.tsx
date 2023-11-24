@@ -2,11 +2,11 @@ import { db } from "@/lib/db";
 import Image from "next/image";
 import React from "react";
 
-type Props = {
-  name: string;
+interface Props  {
+  name: string
   imageUrl: string;
   email: string;
-  appointments: [];
+  appointments: any;
   phone: string;
 };
 
@@ -23,7 +23,7 @@ const ProfileCard = ({ name, imageUrl, email, appointments, phone }: Props) => {
               width={56}
               height={56}
               className="rounded-full"
-              alt={""}
+              alt="Profile Picture"
             />
           </div>
           <div className="border-t border-gray-200 px-4 py-5 sm:p-0">
@@ -99,7 +99,7 @@ const ProfileCard = ({ name, imageUrl, email, appointments, phone }: Props) => {
                     <p className="text-2xl font-bold leading-relaxed">Time</p>
                   </div>
                 </li>
-                {appointments.map((appointment) => (
+                {appointments.map((appointment:any) => (
                   <li
                     key={appointment.id}
                     className="py-4 transition duration-300 transform hover:scale-105"

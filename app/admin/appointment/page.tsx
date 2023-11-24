@@ -27,6 +27,7 @@ const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
     date: item.date,
     time: item.time,
     email: item.user.email,
+    userId: item.userId,
   }));
 
   return (

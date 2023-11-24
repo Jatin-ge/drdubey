@@ -5,25 +5,18 @@ import React from "react";
 import { currentProfile } from "@/lib/current-profile";
 import Navbar from "@/components/Navbar/navbar";
 
-type ProfileTypes = {
-  userId: string;
-  name: string;
-  email: string;
-  imageUrl: string;
-};
 
 const page = async () => {
   const user = await db.profile.findMany();
   const AuthProfile = await currentProfile();
 
-  console.log("current profile ", AuthProfile);
 
   if (!AuthProfile) {
     console.error("Profile is undefined");
     return null; // or handle the case where the profile is not available
   }
 
-  const { userId, name, imageUrl, email }: ProfileTypes = AuthProfile;
+  const { userId, name, imageUrl, email }  = AuthProfile;
 
   const appointments = await db.appointment.findMany({
     where: {
