@@ -7,14 +7,14 @@ type Props = {};
 
 const Services = (props: Props) => {
   return (
-    <div className="bg-[#F4FEFA] py-8 ">
+    <div className="bg-[#F4FEFA] py-8 dark:bg-inherit ">
       <div className="container  mx-auto  h-full w-full">
         <div className="flex justify-between flex-col sm:flex-row xl:-ml-56">
           <div className=" w-[100%] sm:w-[40vw] ">
             <span className="text-primary  font-semibold text-xl">
               SERVICES & TREATMENT
             </span>
-            <p className="bolder text-3xl sm:text-3xl lg:text-5xl font-semibold mt-2 mb-8 md:mb-16">
+            <p className="bolder text-3xl sm:text-3xl lg:text-5xl font-semibold mt-2 mb-8 md:mb-16 dark:text-gray-200">
               More than 5 speciality and health care{" "}
               <span className="text-primary">services</span>
             </p>
@@ -25,7 +25,7 @@ const Services = (props: Props) => {
             </button>
           </div>
         </div>
-        <div className=" sm:mx-5 flex flex-wrap justify-around">
+        <div className=" sm:mx-5 flex flex-wrap justify-around dark:text-gray-700">
           <div className="flex w-[500px]  bg-white  py-10 px-8 rounded-xl relative my-4 md:mx-6 shadow-xl">
             <div className="">
               <PsychologyIcon className="" />

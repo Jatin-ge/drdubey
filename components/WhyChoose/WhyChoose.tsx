@@ -9,7 +9,7 @@ const WhyChoose = (props: Props) => {
   return (
     <div className="w-[80%]  mx-auto my-16 md:my-32">
       <div className="flex flex-col md:flex-row items-center justify-center md:space-x-56">
-        <div className="mx-auto md:w-[70%]">
+        <div data-aos="slide-right" className=" mx-auto md:w-[70%]">
           <Image
             width={900}
             height={900}
@@ -19,7 +19,7 @@ const WhyChoose = (props: Props) => {
           />
         </div>
 
-        <div className="md:w-1/2  ">
+        <div data-aos="slide-left" className="md:w-1/2  ">
           <h1 className="text-2xl md:text-5xl font-semibold text-primary my-8">
             Why Choose Us?
           </h1>

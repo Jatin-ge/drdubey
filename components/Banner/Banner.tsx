@@ -7,7 +7,10 @@ const Banner = (props: Props) => {
   return (
     <div>
       <div className="w-[85%] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        <div className="flex items-center justify-center ">
+        <div
+          data-aos="fade-right"
+          className="flex items-center justify-center "
+        >
           <Image
             height={1200}
             width={1200}

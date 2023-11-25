@@ -6,20 +6,20 @@ type Props = {};
 const Card1 = (props: Props) => {
   return (
     <div>
-      <section className="pt-10 overflow-hidden bg-[#F4FEFA]  py-8 md:pt-0 sm:pt-16 2xl:pt-16">
+      <section className="pt-10 overflow-hidden bg-[#F4FEFA] dark:bg-inherit  py-8 md:pt-0 sm:pt-16 2xl:pt-16">
         <div className="lg:w-[85%] px-4 mx-auto sm:px-6 lg:px-8 ">
           <div className="grid items-center grid-cols-1 md:grid-cols-2">
-            <div>
-              <h2 className="text-3xl font-bold leading-tight text-gray-700 sm:text-5xl lg:text-7xl">
+            <div data-aos="fade-right">
+              <h2 className="text-3xl font-bold leading-tight text-gray-700 sm:text-5xl lg:text-7xl dark:text-gray-100">
                 Dr. Dheeraj Dubey
               </h2>
-              <p className="max-w-3xl mt-3 text-xl lg:text-3xl leading-relaxed text-gray-600 md:mt-8">
+              <p className="max-w-3xl mt-3 text-xl lg:text-3xl leading-relaxed text-gray-600 dark:text-gray-200 md:mt-8">
                 Sr. Consultant Joint Replacement Surgery - Shalby
                 Multi-Specialty Hospital MBBS, MS (Orthopedic), FJRS (Germany)
                 Ex. Consultant & Head of Joint Replacement Surgery - HCG
                 Hospitals
               </p>
-              <p className="max-w-4xl mt-3 text-xl lg:text-2xl leading-relaxed text-gray-600 md:mt-8">
+              <p className="max-w-4xl mt-3 text-xl lg:text-2xl leading-relaxed text-gray-600 dark:text-gray-300 md:mt-8">
                 He has completed his fellowship from Aklepios Ortho Center,
                 Germany in complex and revision joint replacement surgeries. He
                 has more than 15 years of experience in the field of Joint
@@ -31,7 +31,7 @@ const Card1 = (props: Props) => {
                 replacement surgeries in a day in Rajasthan.
               </p>
 
-              <p className="mt-4 text-xl text-gray-600 md:mt-8">
+              <p className="mt-4 text-xl text-gray-600 md:mt-8 dark:text-gray-300">
                 <span className="relative inline-block">
                   <span className="absolute inline-block w-full bottom-0.5 h-2 bg-yellow-300"></span>
                   <span className="relative"> Have a question ? </span>
@@ -47,7 +47,7 @@ const Card1 = (props: Props) => {
               </p>
             </div>
 
-            <div className="relative">
+            <div data-aos="fade-left" className="relative">
               <img
                 className="absolute inset-x-0 bottom-0 -mb-48 -translate-x-1/2 left-1/2"
                 src="https://cdn.rareblocks.xyz/collection/celebration/images/team/1/blob-shape.svg"

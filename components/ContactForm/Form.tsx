@@ -31,7 +31,10 @@ const Form = (props: Props) => {
         </span>
       </div>
       <div className="flex flex-wrap md:flex-nowrap justify-center px-5 mt-5 ">
-        <div className="bg-[#E2FFF5] text-gray-700 p-6 rounded-xl w-[400px] md:mx-4 mb-6 md:mb-0 h-fit">
+        <div
+          data-aos="flip-down"
+          className="bg-[#E2FFF5] text-gray-700 p-6 rounded-xl w-[400px] md:mx-4 mb-6 md:mb-0 h-fit"
+        >
           <div className="">
             <h1 className="text-3xl font-bold">Contact Information</h1>
             <p className="mt-2 mb-8">
@@ -68,7 +71,7 @@ const Form = (props: Props) => {
             </div>
           </div>
         </div>
-        <div className="bg-white p-6 rounded-xl w-[500px] md:mx-4 my-6 md:my-0">
+        <div className="bg-white p-6 rounded-xl w-[500px] md:mx-4 my-6 md:my-0 dark:text-gray-800">
           <div className="">
             <h1 className="font-bold mb-3 ">Full name</h1>
             <input
