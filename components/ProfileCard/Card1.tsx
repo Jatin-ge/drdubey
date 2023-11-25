@@ -1,4 +1,5 @@
 import React from "react";
+import { Stats } from "../Stats/Stats";
 
 type Props = {};
 
@@ -9,16 +10,16 @@ const Card1 = (props: Props) => {
         <div className="lg:w-[85%] px-4 mx-auto sm:px-6 lg:px-8 ">
           <div className="grid items-center grid-cols-1 md:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-bold leading-tight text-black sm:text-5xl lg:text-6xl">
-                Dr. Dheeraj Dubay
+              <h2 className="text-3xl font-bold leading-tight text-gray-700 sm:text-5xl lg:text-7xl">
+                Dr. Dheeraj Dubey
               </h2>
-              <p className="max-w-xl mt-3 text-xl lg:text-3xl leading-relaxed text-gray-600 md:mt-8">
+              <p className="max-w-3xl mt-3 text-xl lg:text-3xl leading-relaxed text-gray-600 md:mt-8">
                 Sr. Consultant Joint Replacement Surgery - Shalby
                 Multi-Specialty Hospital MBBS, MS (Orthopedic), FJRS (Germany)
                 Ex. Consultant & Head of Joint Replacement Surgery - HCG
                 Hospitals
               </p>
-              <p className="max-w-2xl mt-3 text-xl lg:text-2xl leading-relaxed text-gray-600 md:mt-8">
+              <p className="max-w-4xl mt-3 text-xl lg:text-2xl leading-relaxed text-gray-600 md:mt-8">
                 He has completed his fellowship from Aklepios Ortho Center,
                 Germany in complex and revision joint replacement surgeries. He
                 has more than 15 years of experience in the field of Joint

@@ -6,6 +6,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import Link from "next/link";
 type Props = {};
 
 const Form = (props: Props) => {
@@ -22,7 +23,7 @@ const Form = (props: Props) => {
     >
       <div className="flex flex-col text-center px-5">
         <h1 className="text-2xl md:text-5xl font-semibold text-gray-100">
-          Fill The Form To Contact Us
+          Contact Us
         </h1>
         <span className="my-6 px-[0px] md:px-[40px] lg:px-[100px] xl:px-[200px] md:w-[70%] mx-auto md:text-xl text-gray-50">
           Ready to take the first step towards a pain-free life? Reach out to us
@@ -97,7 +98,7 @@ const Form = (props: Props) => {
             </button>
             <p className="text-center text-2xl font-semibold mt-2">or</p>
             <button className="w-full font-bold text-xl border-2 border-primary text-primary rounded-xl p-3 mt-5">
-              Book an Appointment
+              <Link href={"/booking"}>Book an Appointment</Link>
             </button>
           </div>
         </div>

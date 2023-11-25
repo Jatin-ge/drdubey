@@ -1,14 +1,15 @@
 import React from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {};
 
 const WhyChoose = (props: Props) => {
   return (
-    <div className="container mx-auto my-16 md:my-32">
-      <div className="flex flex-col md:flex-row items-center justify-center md:space-x-44">
-        <div className="mx-auto md:w-1/2">
+    <div className="w-[80%]  mx-auto my-16 md:my-32">
+      <div className="flex flex-col md:flex-row items-center justify-center md:space-x-56">
+        <div className="mx-auto md:w-[70%]">
           <Image
             width={900}
             height={900}
@@ -22,7 +23,7 @@ const WhyChoose = (props: Props) => {
           <h1 className="text-2xl md:text-5xl font-semibold text-primary my-8">
             Why Choose Us?
           </h1>
-          <ul className="list-disc list-inside mt-4 text-xl">
+          <ul className="list-disc list-inside mt-4 text-xl md:text-2xl">
             <li className="flex items-center my-2">
               <CheckCircleIcon className="mr-2 " color="primary" />
               Safety First Quality Must
@@ -51,16 +52,18 @@ const WhyChoose = (props: Props) => {
         </div>
       </div>
       <div className="my-[80px]">
-        <h1 className="text-4xl font-semibold">
-          Wellness, Compassion, Quality
+        <h1 className="text-4xl md:text-5xl font-semibold">
+          <span className=" text-primary">|</span> Wellness{" "}
+          <span className=" text-primary">|</span> Compassion{" "}
+          <span className=" text-primary">|</span> Quality{" "}
+          <span className=" text-primary">|</span>
         </h1>
-        <p className="my-4 text-lg md:text-xl">
-          They live in Bookmark grove right at ht coast of the Semantic, a large
-          language ocean. A small river named Duden flowws by their place and
-          supplies it.
+        <p className="my-4 text-lg md:text-2xl">
+          We provide you the best quality at the most affordable price . Book an
+          appointment now and visit any of our 5 centers.
         </p>
-        <button className="bg-primary px-5 py-2 rounded-md text-white mt-4 text-xl ">
-          Make An Appointment
+        <button className="bg-primary px-5 py-2 rounded-md text-white mt-4 text-xl  font-bold">
+          <Link href={"/booking"}>Book An Appointment</Link>
         </button>
       </div>
     </div>

@@ -93,37 +93,33 @@ const Footer = (props: Props) => {
             <div className="px-4 my-4 w-full sm:w-auto">
               <div>
                 <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-primary">
-                  Blog
+                  Company
                 </h2>
               </div>
               <ul className="leading-8">
                 <li>
                   <a href="#" className="hover:text-primary">
-                    Getting Started With HTML and CSS
+                    About Us
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-primary">
-                    What Is Flex And When to Use It?
+                    Terms &amp; Conditions
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-primary">
-                    How TailwindCSS Can Help Your Productivity?
+                    Privacy Policy
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-primary">
-                    5 Tips to Make Responsive Website
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    See More
+                    Contact Us
                   </a>
                 </li>
               </ul>
             </div>
+
             <div className="px-4 my-4 w-full sm:w-auto xl:w-1/5">
               <div>
                 <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-primary">

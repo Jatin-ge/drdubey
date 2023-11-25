@@ -7,15 +7,16 @@ type Props = {};
 
 const Services = (props: Props) => {
   return (
-    <div className="bg-gray-100 py-32 ">
+    <div className="bg-[#F4FEFA] py-8 ">
       <div className="container  mx-auto  h-full w-full">
-        <div className="flex justify-between flex-col sm:flex-row xl:-ml-30">
-          <div className=" w-[100%] sm:w-[40vw] xl:w-[30vw]">
+        <div className="flex justify-between flex-col sm:flex-row xl:-ml-56">
+          <div className=" w-[100%] sm:w-[40vw] ">
             <span className="text-primary  font-semibold text-xl">
               SERVICES & TREATMENT
             </span>
             <p className="bolder text-3xl sm:text-3xl lg:text-5xl font-semibold mt-2 mb-8 md:mb-16">
-              More than 40 speciality and health care services
+              More than 5 speciality and health care{" "}
+              <span className="text-primary">services</span>
             </p>
           </div>
           <div className="">
@@ -25,13 +26,13 @@ const Services = (props: Props) => {
           </div>
         </div>
         <div className=" sm:mx-5 flex flex-wrap justify-around">
-          <div className="flex w-[500px]  bg-white  py-10 px-8 rounded-xl relative m-6">
+          <div className="flex w-[500px]  bg-white  py-10 px-8 rounded-xl relative my-4 md:mx-6 shadow-xl">
             <div className="">
               <PsychologyIcon className="" />
             </div>
-            <div className="flex-row mx-4">
+            <div className="flex-row mx-4 ">
               <div>
-                <h1 className="bolder text-2xl font-semibold">
+                <h1 className="bolder text-2xl font-semibold md:text-4xl">
                   Total Elbow Replacement
                 </h1>
               </div>
@@ -41,19 +42,19 @@ const Services = (props: Props) => {
                   or hip replacement, it is just as successful in relieving
                   joint pain and returning people to activities they enjoy.
                 </span>
-                <div className="absolute bottom-0 right-0 bg-gray-300 w-[60px] h-10 rounded-br-xl flex items-center justify-center ">
+                <div className="absolute bottom-0 right-0 bg-primary w-[60px] h-10 rounded-br-xl flex items-center justify-center ">
                   <ArrowForwardIcon />
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex w-[500px]  bg-white p-8 rounded-xl relative m-6">
+          <div className="flex w-[500px]  bg-white p-8 rounded-xl relative my-4 md:mx-6  shadow-xl">
             <div className="">
               <PsychologyIcon className="" />
             </div>
-            <div className="flex-row mx-4">
+            <div className="flex-row mx-4 ">
               <div>
-                <h1 className="bolder text-2xl font-semibold">
+                <h1 className="bolder text-2xl font-semibold md:text-4xl">
                   Pelvic and Complex Trauma
                 </h1>
               </div>
@@ -64,19 +65,19 @@ const Services = (props: Props) => {
                   caused by high-energy trauma, these fractures can also occur
                   in older individuals due to lower energy incidents.
                 </span>
-                <div className="absolute bottom-0 right-0 bg-gray-300 w-[60px] h-10 rounded-br-xl flex items-center justify-center">
+                <div className="absolute bottom-0 right-0 bg-primary w-[60px] h-10 rounded-br-xl flex items-center justify-center">
                   <ArrowForwardIcon />
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex w-[500px]  bg-white p-8 rounded-xl relative m-6">
+          <div className="flex w-[500px]  bg-white p-8 rounded-xl relative my-4 md:mx-6  shadow-xl">
             <div className="">
               <PsychologyIcon className="" />
             </div>
-            <div className="flex-row mx-4">
+            <div className="flex-row mx-4 ">
               <div>
-                <h1 className="bolder text-2xl font-semibold">
+                <h1 className="bolder text-2xl font-semibold md:text-4xl">
                   Rivision Hip Replacement
                 </h1>
               </div>
@@ -88,19 +89,19 @@ const Services = (props: Props) => {
                   replacement, may be recommended to replace parts of the
                   original prosthesis that have failed over time.
                 </span>
-                <div className="absolute bottom-0 right-0 bg-gray-300 w-[60px] h-10 rounded-br-xl flex items-center justify-center">
+                <div className="absolute bottom-0 right-0 bg-primary w-[60px] h-10 rounded-br-xl flex items-center justify-center">
                   <ArrowForwardIcon />
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex w-[500px]  bg-white p-8 rounded-xl relative m-6">
+          <div className="flex w-[500px]  bg-white p-8 rounded-xl relative my-4 md:mx-6  shadow-xl">
             <div className="">
               <PsychologyIcon className="" />
             </div>
-            <div className="flex-row mx-4">
+            <div className="flex-row mx-4 ">
               <div>
-                <h1 className="bolder text-2xl font-semibold">
+                <h1 className="bolder text-2xl font-semibold md:text-4xl">
                   Knee replacement surgery
                 </h1>
               </div>
@@ -112,7 +113,7 @@ const Services = (props: Props) => {
                   motion, stability, and strength, with X-rays determining the
                   extent of damage.
                 </span>
-                <div className="absolute bottom-0 right-0 bg-gray-300 w-[60px] h-10 rounded-br-xl flex items-center justify-center">
+                <div className="absolute bottom-0 right-0 bg-primary w-[60px] h-10 rounded-br-xl flex items-center justify-center">
                   <ArrowForwardIcon />
                 </div>
               </div>

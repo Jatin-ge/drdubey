@@ -6,11 +6,12 @@ type Props = {};
 const Hero2 = (props: Props) => {
   return (
     <div>
-      <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-[85%] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
           <div>
             <h1 className="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white">
-              Dr. Dheeraj Dubay is here for you !
+              Dr. <span className="text-primary">Dheeraj Dubey</span> is here
+              for you !
             </h1>
             <p className="mt-3 text-xl text-gray-800 dark:text-gray-400">
               Experience the freedom of movement with Dr. Dheeraj Dubay Joint
@@ -51,7 +52,7 @@ const Hero2 = (props: Props) => {
               <div className="py-5">
                 <div className="flex space-x-1">
                   <svg
-                    className="h-4 w-4 text-gray-800 dark:text-gray-200"
+                    className="h-4 w-4 text-green-500 dark:text-gray-200"
                     width="51"
                     height="51"
                     viewBox="0 0 51 51"
@@ -64,7 +65,7 @@ const Hero2 = (props: Props) => {
                     />
                   </svg>
                   <svg
-                    className="h-4 w-4 text-gray-800 dark:text-gray-200"
+                    className="h-4 w-4 text-green-500 dark:text-gray-200"
                     width="51"
                     height="51"
                     viewBox="0 0 51 51"
@@ -77,7 +78,7 @@ const Hero2 = (props: Props) => {
                     />
                   </svg>
                   <svg
-                    className="h-4 w-4 text-gray-800 dark:text-gray-200"
+                    className="h-4 w-4 text-green-500 dark:text-gray-200"
                     width="51"
                     height="51"
                     viewBox="0 0 51 51"
@@ -90,7 +91,7 @@ const Hero2 = (props: Props) => {
                     />
                   </svg>
                   <svg
-                    className="h-4 w-4 text-gray-800 dark:text-gray-200"
+                    className="h-4 w-4 text-green-500 dark:text-gray-200"
                     width="51"
                     height="51"
                     viewBox="0 0 51 51"
@@ -103,7 +104,7 @@ const Hero2 = (props: Props) => {
                     />
                   </svg>
                   <svg
-                    className="h-4 w-4 text-gray-800 dark:text-gray-200"
+                    className="h-4 w-4 text-green-500 dark:text-gray-200"
                     width="51"
                     height="51"
                     viewBox="0 0 51 51"
@@ -117,10 +118,10 @@ const Hero2 = (props: Props) => {
                   </svg>
                 </div>
 
-                <p className="mt-3 text-xl text-gray-800 dark:text-gray-200">
+                <p className="mt-3 text-xl font-semibold text-gray-800 dark:text-gray-200">
                   18k successful surgeries
                 </p>
-                <p className="mt-3 text-xl text-gray-800 dark:text-gray-200">
+                <p className="mt-3 text-xl font-semibold text-gray-800 dark:text-gray-200">
                   15 Years of Experience
                 </p>
               </div>

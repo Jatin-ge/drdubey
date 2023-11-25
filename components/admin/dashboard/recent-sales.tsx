@@ -42,7 +42,7 @@ export const RecentSales = async () => {
       <hr />
       {todayAppointments.map((appointment) => (
         <Link
-          href={`/profile/${appointment.userId}`}
+          href={`/admin/appointment/${appointment.userId}`}
           className="flex items-center"
           key={appointment.id}
         >
