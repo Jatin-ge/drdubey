@@ -12,14 +12,15 @@
   width: 100vw;
   background: #aa076b;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #61045f, #aa076b);
+  background: -webkit-linear-gradient(to right, #078caa, #aa076b);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #61045f, #aa076b);
+  background: linear-gradient(to right, #078caa, #aa076b);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .react-chatbot-kit-chat-container {
   width: 400px;
+  color: black;
 }
 
 .react-chatbot-kit-chat-bot-message {
@@ -27,19 +28,19 @@
 }
 
 .react-chatbot-kit-chat-bot-message {
-  background-color: #61045f;
+  background-color: #078caa;
 }
 
 .react-chatbot-kit-chat-bot-message-arrow {
-  border-right: 8px solid #61045f;
+  border-right: 8px solid #078caa;
 }
 
 .react-chatbot-kit-chat-btn-send {
-  background-color: #61045f;
+  background-color: #078caa;
 }
 
 .ADE {
-  background-color: #aa076b;
+  background-color: #078caa;
   width: 40px;
   height: 40px;
   display: grid;
@@ -49,7 +50,7 @@
 }
 
 .start-btn {
-  background-color: #61045f;
+  background-color: #078caa;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 999px;
@@ -70,7 +71,7 @@
 .img-container {
   width: 185px;
   height: 185px;
-  border: 2px solid #61045f;
+  border: 2px solid #078caa;
   overflow: hidden;
   border-radius: 5px;
 }
@@ -86,12 +87,12 @@
   top: 0;
   left: 0;
   border-radius: 5px;
-  background-color: #61045f;
+  background-color: #078caa;
   color: white;
   text-decoration: none;
   padding: 0.5rem 1rem;
 }
 
 .img-component a:hover {
-  background-color: #61045f5e;
+  background-color: #078caa5e;
 }

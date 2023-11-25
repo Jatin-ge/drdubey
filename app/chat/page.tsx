@@ -7,8 +7,8 @@ const page = (props: Props) => {
   return (
     <div>
       {" "}
-      <div>This is the chatbot window </div>
-      <Bot />
+      {/* <div>This is the chatbot window </div> */}
+      <Bot  />
     </div>
   );
 };

@@ -9,7 +9,7 @@ export default function StartBtn(props) {
 
     return (
         <div>
-            <button className='start-btn' onClick={()=> initialAction()}>Lets Get Started</button>
+            <button className='start-btn font-bold' onClick={()=> initialAction()}>Start Now</button>
         </div >
     )
 }

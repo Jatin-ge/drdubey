@@ -19,6 +19,7 @@ import WhyChoose from "@/components/WhyChoose/WhyChoose";
 import ReviewCard from "@/components/Carousel/ReviewCard";
 import Booknow from "@/components/Booknow/Booknow";
 import Footer from "@/components/Footer/Footer";
+import Bot from "@/components/Bot/Bot";
 
 export default function CardWithForm() {
   React.useEffect(() => {
@@ -55,6 +56,8 @@ export default function CardWithForm() {
       <Testimonial />
 
       <Footer />
+
+      <Bot />
     </div>
   );
 }
