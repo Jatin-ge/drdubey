@@ -9,7 +9,7 @@ import data from './data'
 
 
 const config = {
-    botName: "AgeDrive Explorer",
+    botName: "Dr Dheeraj Dubey ",
     initialMessages: [createChatBotMessage(`Hello , Dr Dheeraj Dubey welcomes you !`, {
         widget: "startBtn"
     })],

@@ -13,7 +13,7 @@ import "aos/dist/aos.css";
 import Services from "@/components/Services/Services";
 import Navbar from "@/components/NewNav/Navbar";
 import Hero3 from "@/components/NewNav/Hero";
-import Form from "@/components/ContactForm/Form";
+import Form from "@/components/ContactForm/Form2";
 import Card1 from "@/components/ProfileCard/Card1";
 import WhyChoose from "@/components/WhyChoose/WhyChoose";
 import ReviewCard from "@/components/Carousel/ReviewCard";

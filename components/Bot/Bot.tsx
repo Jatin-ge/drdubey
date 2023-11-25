@@ -24,7 +24,10 @@ const Bot = (props: Props) => {
     <div>
       {showChat ? (
         <div className="fixed bottom-0 right-0 md:bottom-10 md:right-10  text-white bg-primary p-2 rounded-xl">
-          <div className="p-2" onClick={() => toggleShowChat()}>
+          <div
+            className="p-2 flex items-end justify-end"
+            onClick={() => toggleShowChat()}
+          >
             <CancelIcon fontSize="large" />
           </div>
           <Chatbot
@@ -37,7 +40,7 @@ const Bot = (props: Props) => {
       ) : (
         <div
           onClick={toggleShowChat}
-          className="fixed bottom-10 right-10  text-white bg-sky-500 p-4 rounded-full  shadow-lg  overflow-hidden"
+          className="fixed bottom-10 right-10  text-white bg-primary  p-4 rounded-full  shadow-lg  overflow-hidden"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
