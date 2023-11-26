@@ -9,8 +9,8 @@ import data from './data'
 
 
 const config = {
-    botName: "AgeDrive Explorer",
-    initialMessages: [createChatBotMessage(`Welcome to RideAge Advisor!`, {
+    botName: "Dr Dheeraj Dubey ",
+    initialMessages: [createChatBotMessage(`Hello , Dr Dheeraj Dubey welcomes you !`, {
         widget: "startBtn"
     })],
     customComponents: {

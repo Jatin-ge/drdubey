@@ -18,11 +18,11 @@ const Navbar = () => {
                   <span className="flex items-center space-x-2 text-2xl font-medium text-[#EE8A27] dark:text-gray-100">
                     <span>
                       <Image
-                        src="/assets/images/img1.svg"
+                        src="/assets/images/logo2.webp"
                         alt="N"
-                        width="56"
-                        height="56"
-                        className="w-16"
+                        width={200}
+                        height={200}
+                        className="w-full"
                       />
                     </span>
                   </span>
@@ -30,7 +30,7 @@ const Navbar = () => {
 
                 <Disclosure.Button
                   aria-label="Toggle Menu"
-                  className="px-2 py-1 ml-auto text-gray-500 rounded-md lg:hidden hover:text-[#EE8A27] focus:text-[#EE8A27]focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700"
+                  className="px-2 py-1 ml-auto text-gray-500 rounded-md lg:hidden hover:text-primary focus:text-[#EE8A27]focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700"
                 >
                   <svg
                     className="w-6 h-6 fill-current"
@@ -60,44 +60,44 @@ const Navbar = () => {
                   <>
                     <Link
                       href="/"
-                      className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-[#EE8A27] focus:text-[#EE8A27] focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
+                      className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-primary focus:text-[#EE8A27] focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                     >
                       Home
                     </Link>
                     <Link
                       href="/about"
-                      className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-[#EE8A27] focus:text-[#EE8A27] focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
+                      className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-primary focus:text-[#EE8A27] focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                     >
                       About-Me
                     </Link>
                     <Link
                       href="/#services"
-                      className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-[#EE8A27] focus:text-[#EE8A27] focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
+                      className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-primary focus:text-[#EE8A27] focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                     >
                       Services
                     </Link>
                     <Link
                       href="/engagements"
-                      className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-[#EE8A27] focus:text-[#EE8A27] focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
+                      className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-primary focus:text-[#EE8A27] focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                     >
                       Engagements
                     </Link>
                     <Link
                       href="/gallary"
-                      className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-[#EE8A27] focus:text-[#EE8A27] focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
+                      className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-primary focus:text-[#EE8A27] focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                     >
                       Gallery
                     </Link>
 
                     <Link
                       href="/blogs"
-                      className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-[#EE8A27] focus:text-[#EE8A27] focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
+                      className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-primary focus:text-[#EE8A27] focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                     >
                       Publications
                     </Link>
                     <Link
                       href="/contact"
-                      className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-[#EE8A27] focus:text-[#EE8A27] focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
+                      className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-primary focus:text-[#EE8A27] focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                     >
                       Contact-Us
                     </Link>
@@ -121,7 +121,7 @@ const Navbar = () => {
             <li className="mr-3 nav__item">
               <Link
                 href="/"
-                className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-[#EE8A27] focus:text-[#EE8A27] focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+                className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-primary focus:text-[#EE8A27] focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
               >
                 Home
               </Link>
@@ -129,61 +129,53 @@ const Navbar = () => {
             <li className="mr-3 nav__item">
               <Link
                 href="/about"
-                className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-[#EE8A27] focus:text-[#EE8A27] focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+                className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-primary focus:text-[#EE8A27] focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
               >
-                About-Me
+                About-Us
               </Link>
             </li>
 
             <li className="mr-3 nav__item">
               <Link
                 href="/#services"
-                className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-[#EE8A27] focus:text-[#EE8A27] focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+                className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-primary focus:text-[#EE8A27] focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
               >
                 Services
               </Link>
             </li>
+
             <li className="mr-3 nav__item">
               <Link
-                href="/engagements"
-                className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-[#EE8A27] focus:text-[#EE8A27] focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
-              >
-                Engagements
-              </Link>
-            </li>
-            <li className="mr-3 nav__item">
-              <Link
-                href="/gallary"
-                className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-[#EE8A27] focus:text-[#EE8A27] focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+                href="/gallery"
+                className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-primary focus:text-[#EE8A27] focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
               >
                 Gallery
               </Link>
             </li>
+
             <li className="mr-3 nav__item">
               <Link
-                href="/blogs"
-                className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-[#EE8A27] focus:text-[#EE8A27] focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+                href="/contact"
+                className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-primary focus:text-[#EE8A27] focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
               >
-                Publications
+                Contact-Us
               </Link>
             </li>
             <li className="mr-3 nav__item">
               <Link
-                href="/contact"
-                className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-[#EE8A27] focus:text-[#EE8A27] focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+                href="/profile"
+                className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-primary focus:text-[#EE8A27] focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
               >
-                Contact-Us
+                Patient Profile
               </Link>
             </li>
           </ul>
         </div>
 
-        <UserButton  afterSignOutUrl="/"/>
-
         <div className="hidden mr-3 space-x-4 lg:flex nav__item text-[#EE8A27]">
+          <UserButton afterSignOutUrl="/" />
           <ThemeChanger />
         </div>
-        
       </nav>
     </div>
   );

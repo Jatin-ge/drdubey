@@ -2,19 +2,19 @@ import { db } from "@/lib/db";
 import Image from "next/image";
 import React from "react";
 
-interface Props  {
-  name: string
+interface Props {
+  name: string;
   imageUrl: string;
   email: string;
   appointments: any;
   phone: string;
-};
+}
 
 const ProfileCard = ({ name, imageUrl, email, appointments, phone }: Props) => {
   return (
     <>
       <div className="flex flex-col md:flex-row ">
-        <div className="bg-white w-[50%] overflow-hidden shadow rounded-lg border mx-auto">
+        <div className="bg-white md:w-[50%] overflow-hidden shadow rounded-lg border mx-auto">
           <div className="px-4 flex justify-between py-5 sm:px-6 bg-primary text-white">
             <h3 className="text-lg leading-6 font-medium">{name}</h3>
 
@@ -99,7 +99,7 @@ const ProfileCard = ({ name, imageUrl, email, appointments, phone }: Props) => {
                     <p className="text-2xl font-bold leading-relaxed">Time</p>
                   </div>
                 </li>
-                {appointments.map((appointment:any) => (
+                {appointments.map((appointment: any) => (
                   <li
                     key={appointment.id}
                     className="py-4 transition duration-300 transform hover:scale-105"

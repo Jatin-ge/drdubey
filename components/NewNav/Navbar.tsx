@@ -33,24 +33,33 @@ const Navbar = () => {
       style={{ backgroundColor: `${color}` }}
       className="fixed left-0 top-0 w-full z-10 ease-in duration-300"
     >
-      <div className="max-w-[1240px] m-auto flex justify-between items-center p-4 text-white">
+      <div className="max-w-[1240px] m-auto flex justify-between items-center p-4 text-white md:text-lg font-semibold">
         <Link href="/">
-          <h1 style={{ color: `${textColor}` }} className="font-bold text-4xl">
-            Captur
-          </h1>
+          <Image
+            alt="img"
+            height={220}
+            width={220}
+            src={"/assets/images/logo2.webp"}
+          />
         </Link>
         <ul style={{ color: `${textColor}` }} className="hidden sm:flex">
           <li className="p-4">
             <Link href="/">Home</Link>
           </li>
           <li className="p-4">
-            <Link href="/#gallery">Gallery</Link>
+            <Link href="/gallery">Gallery</Link>
           </li>
           <li className="p-4">
-            <Link href="/work">Work</Link>
+            <Link href="/#services">Services</Link>
+          </li>
+          <li className="p-4">
+            <Link href="/about">About-Us</Link>
           </li>
           <li className="p-4">
             <Link href="/contact">Contact</Link>
+          </li>
+          <li className="p-4">
+            <Link href="/profile">Patient Profile</Link>
           </li>
           <li className="p-4">
             <UserButton afterSignOutUrl="/" />
@@ -58,7 +67,6 @@ const Navbar = () => {
           <li className="p-4 mb-1">
             <ThemeChanger />
           </li>
-         
         </ul>
 
         {/* Mobile Button */}
@@ -88,14 +96,27 @@ const Navbar = () => {
               onClick={handleNav}
               className="p-4 text-4xl hover:text-gray-500"
             >
-              <Link href="/#gallery">Gallery</Link>
+              <Link href="/gallery">Gallery</Link>
             </li>
             <li
               onClick={handleNav}
               className="p-4 text-4xl hover:text-gray-500"
             >
-              <Link href="/work">Work</Link>
+              <Link href="/about">AboutUs</Link>
             </li>
+            <li
+              onClick={handleNav}
+              className="p-4 text-4xl hover:text-gray-500"
+            >
+              <Link href="/profile">PatientProfile</Link>
+            </li>
+            <li
+              onClick={handleNav}
+              className="p-4 text-4xl hover:text-gray-500"
+            >
+              <Link href="/#services">Services</Link>
+            </li>
+
             <li
               onClick={handleNav}
               className="p-4 text-4xl hover:text-gray-500"
