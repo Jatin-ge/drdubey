@@ -62,7 +62,13 @@ const formSchema = z.object({
   status: z.nativeEnum(LeadStatus),
   remark: z.string(),
   doad: z.string().transform((str) => new Date(str)),
-  doop: z.string().transform((str) => new Date(str)),
+  dood: z.string().transform((str) => new Date(str)),
+  dx: z.string(),
+  surgery: z.string(),
+  side: z.string(),
+  implant: z.string(),
+  ipdReg : z.number(),
+  bill: z.number(),
 });
 
 type AddpatientFormValues = z.infer<typeof formSchema>;
@@ -70,7 +76,7 @@ type AddpatientFormValues = z.infer<typeof formSchema>;
 const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
   const router = useRouter();
   const params = useParams();
-  const [loading, setLoading] = useState(false);
+  const [isloading, setLoading] = useState(false);
 
   const toastMessage = initialData ? "Patient updated." : "Patient created.";
 
@@ -81,13 +87,19 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
       name: "",
       email: "",
       phone: "",
-      age: 0,
+      age: z.EMPTY_PATH,
       gender: GenderType.M,
       address: "",
       status: LeadStatus.PENDING,
       remark: "",
       doad: new Date().toISOString().split("T")[0],
-      doop: new Date().toISOString().split("T")[0]
+      dood: new Date().toISOString().split("T")[0],
+      dx: "",
+      surgery: "",
+      side: "",
+      implant: "",
+      ipdReg : z.number(),
+      bill: z.number(),
     },
   });
 
@@ -96,20 +108,22 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setLoading(true);
-      if (initialData) {
+      if (initialData) {  
         await axios.patch(`/api/patients/${initialData.id}`, values);
       } else {
-        await axios.post(`/api/patients`, values);
+        await axios.post(`/api/patients`, values);       
       }
       router.refresh();
       router.push(`/admin/patients`);
-      toast.success(toastMessage);
-    } catch (error: any) {
-      toast.error("Something went wrong.");
+    } catch (error) {
+      console.log(error);
     } finally {
       setLoading(false);
     }
+    
   };
+
+  
 
   const handleClose = () => {
     form.reset();
@@ -286,7 +300,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
             />
             <FormField
               control={form.control}
-              name="doop"
+              name="dood"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
@@ -361,6 +375,111 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                 </FormItem>
               )}
             />
+             <FormField
+              control={form.control}
+              name="dx"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                    description
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isLoading}
+                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      placeholder="Enter a Description"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+             <FormField
+              control={form.control}
+              name="surgery"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                    surgery
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isLoading}
+                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      placeholder="Enter name for Surgery"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+             <FormField
+              control={form.control}
+              name="side"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                    side
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isLoading}
+                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      placeholder="Enter side"
+                      {...field}
+                    />
+                    
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+               <FormField
+              control={form.control}
+              name="ipdReg"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                    ipd reg
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isLoading}
+                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      placeholder="Enter IPD Reg Number"
+                      {...field}
+                      {...form.register("ipdReg", { valueAsNumber: true })}
+                      type="number"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+               <FormField
+              control={form.control}
+              name="bill"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                    bill
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isLoading}
+                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      placeholder="Enter Bill amount"
+                      {...field}
+                      {...form.register("bill", { valueAsNumber: true })}
+                      type="number"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />                      
           </div>
 
           <DialogFooter className="bg-gray-100 px-6 py-4">

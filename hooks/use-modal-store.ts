@@ -5,7 +5,7 @@ import { LeadCloumn } from "@/app/admin/patients/components/column";
 import { RowModel } from "@tanstack/react-table";
 
 
-export type ModalType = "createPatient" | "sendMessage" | "sendBulkMessage" | "createDiscussion" | "editDiscussion"
+export type ModalType = "createPatient" | "sendMessage" | "sendBulkMessage" | "createDiscussion" | "editDiscussion" | "sendAppointmentReminder"
 
 interface ModalData{
     lead?: Lead

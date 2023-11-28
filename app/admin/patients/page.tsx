@@ -27,6 +27,9 @@ const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
     address: item.address || null,
     age: item.age || null,
     status: item.status || null,
+    ipdReg: item.ipdReg || null,
+    bill: item.bill || null,
+    implant : item.implant || null,
   }));
 
   return (

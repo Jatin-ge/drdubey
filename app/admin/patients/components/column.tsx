@@ -23,6 +23,9 @@ export type LeadCloumn = {
   surgery: string | null
   remark: string | null
   status: LeadStatus
+  ipdReg: number | null
+  bill: number | null
+  implant : string | null
 }
 
 export const columns: ColumnDef<LeadCloumn>[] = [
@@ -80,6 +83,11 @@ export const columns: ColumnDef<LeadCloumn>[] = [
     header: "Side",
   },
   {
+    accessorKey: "bill",
+    header: "Bill",
+    
+  },
+  {
     accessorKey: "remark",
     header: "Remark",
   },
@@ -94,6 +102,17 @@ export const columns: ColumnDef<LeadCloumn>[] = [
   {
     accessorKey: "status",
     header: "Status",
+    
+  },
+  {
+    accessorKey: "ipdReg",
+    header: "IPD Reg",
+    
+  },
+  
+  {
+    accessorKey: "implant",
+    header: "implant",
     
   },
   {

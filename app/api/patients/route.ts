@@ -8,7 +8,9 @@ export async function POST(
 ){
     try{
 
-        const {name, email, phone, gender, address, status , remark, age, doad } = await req.json();
+        const {name, email, phone, gender, address, status , remark, age, doad, dood, dx, surgery, side, ipdReg, bill } = await req.json();
+        console.log(ipdReg, bill);
+        
 
         const Lead = await db.lead.create({
             data: {
@@ -20,7 +22,15 @@ export async function POST(
                 status, 
                 remark ,  
                 age,
-                doad
+                doad,
+                dood, 
+                dx, 
+                surgery,
+                side,
+                ipdReg,
+                bill
+
+
             }
         })
 
