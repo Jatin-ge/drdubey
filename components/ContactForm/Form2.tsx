@@ -29,15 +29,17 @@ const ContactSection: React.FC = () => {
                 <div className="flex-1 h-2 bg-primary"></div>
               </div>
             </div>
-            <p className="mb-16 text-base text-center text-gray-50">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus
-              magni eius eaque? Pariatur numquam, odio quod nobis ipsum ex
-              cupiditate?
+            <p className="mb-16 text-sm text-center text-gray-50">
+              Drop your message here and feel free to enquire anything about us.
+              We are happy to help.
             </p>
           </div>
         </div>
         <div className="flex flex-wrap mb-8 -mx-4">
-          <div className="w-full px-4 mb-4 lg:w-1/3 lg:mb-0">
+          <div
+            data-aos="fade-right"
+            className="w-full px-4 mb-4 lg:w-1/3 lg:mb-0"
+          >
             <div className="h-full py-12 text-center transition-all rounded-lg shadow dark:bg-gray-800 bg-gray-50 hover:shadow-lg">
               <div className="inline-flex items-center justify-center w-12 h-12 mb-6 text-gray-100 bg-primary rounded-full dark:bg-primary">
                 <svg
@@ -62,7 +64,11 @@ const ContactSection: React.FC = () => {
               </a>
             </div>
           </div>
-          <div className="w-full px-4 mb-4 lg:w-1/3 lg:mb-0">
+
+          <div
+            data-aos="flip-down"
+            className="w-full px-4 mb-4 lg:w-1/3 lg:mb-0"
+          >
             <div className="h-full py-12 text-center transition-all rounded-lg shadow dark:bg-gray-800 bg-gray-50 hover:shadow-lg">
               <div className="inline-flex items-center justify-center w-12 h-12 mb-6 text-gray-100 bg-primary rounded-full dark:bg-primary">
                 <svg
@@ -87,7 +93,11 @@ const ContactSection: React.FC = () => {
               </a>
             </div>
           </div>
-          <div className="w-full px-4 mb-4 lg:w-1/3 lg:mb-0">
+
+          <div
+            data-aos="fade-left"
+            className="w-full px-4 mb-4 lg:w-1/3 lg:mb-0"
+          >
             <div className="h-full py-12 text-center transition-all rounded-lg shadow dark:bg-gray-800 bg-gray-50 hover:shadow-lg">
               <div className="inline-flex items-center justify-center w-12 h-12 mb-6 text-gray-100 bg-primary rounded-full dark:bg-primary">
                 <svg

@@ -2,6 +2,7 @@ import React from "react";
 
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import Link from "next/link";
 
 type Props = {};
 
@@ -9,12 +10,12 @@ const Services = (props: Props) => {
   return (
     <div id="services" className="bg-[#F4FEFA] py-8 dark:bg-inherit ">
       <div className="container  mx-auto  h-full w-full">
-        <div className="flex justify-between flex-col sm:flex-row xl:-ml-56">
+        <div className="flex justify-between flex-col sm:flex-row 2xl:-ml-56">
           <div className=" w-[100%] sm:w-[40vw] ">
             <span className="text-primary  font-semibold text-xl">
               SERVICES & TREATMENT
             </span>
-            <p className="bolder text-3xl sm:text-3xl lg:text-5xl font-semibold mt-2 mb-8 md:mb-16 dark:text-gray-200">
+            <p className="bolder text-3xl sm:text-3xl lg:text-5xl font-semibold mt-2 mb-8 md:mb-16  dark:text-gray-200">
               More than 5 speciality and health care{" "}
               <span className="text-primary">services</span>
             </p>
@@ -26,7 +27,10 @@ const Services = (props: Props) => {
           </div>
         </div>
         <div className=" sm:mx-5 flex flex-wrap justify-around dark:text-gray-700">
-          <div className="flex w-[500px]  bg-white  py-10 px-8 rounded-xl relative my-4 md:mx-6 shadow-xl">
+          <div
+            data-aos="flip-down"
+            className="flex w-[500px]  bg-white  py-10 px-8 rounded-xl relative my-4 md:mx-6 shadow-xl"
+          >
             <div className="">
               <PsychologyIcon className="" />
             </div>
@@ -43,12 +47,17 @@ const Services = (props: Props) => {
                   joint pain and returning people to activities they enjoy.
                 </span>
                 <div className="absolute bottom-0 right-0 bg-primary w-[60px] h-10 rounded-br-xl flex items-center justify-center ">
-                  <ArrowForwardIcon />
+                  <Link href={"/booking"}>
+                    <ArrowForwardIcon />
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex w-[500px]  bg-white p-8 rounded-xl relative my-4 md:mx-6  shadow-xl">
+          <div
+            data-aos="flip-up"
+            className="flex w-[500px]  bg-white p-8 rounded-xl relative my-4 md:mx-6  shadow-xl"
+          >
             <div className="">
               <PsychologyIcon className="" />
             </div>
@@ -66,12 +75,17 @@ const Services = (props: Props) => {
                   in older individuals due to lower energy incidents.
                 </span>
                 <div className="absolute bottom-0 right-0 bg-primary w-[60px] h-10 rounded-br-xl flex items-center justify-center">
-                  <ArrowForwardIcon />
+                  <Link href={"/booking"}>
+                    <ArrowForwardIcon />
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex w-[500px]  bg-white p-8 rounded-xl relative my-4 md:mx-6  shadow-xl">
+          <div
+            data-aos="flip-down"
+            className="flex w-[500px]  bg-white p-8 rounded-xl relative my-4 md:mx-6  shadow-xl"
+          >
             <div className="">
               <PsychologyIcon className="" />
             </div>
@@ -90,12 +104,17 @@ const Services = (props: Props) => {
                   original prosthesis that have failed over time.
                 </span>
                 <div className="absolute bottom-0 right-0 bg-primary w-[60px] h-10 rounded-br-xl flex items-center justify-center">
-                  <ArrowForwardIcon />
+                  <Link href={"/booking"}>
+                    <ArrowForwardIcon />
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex w-[500px]  bg-white p-8 rounded-xl relative my-4 md:mx-6  shadow-xl">
+          <div
+            data-aos="flip-down"
+            className="flex w-[500px]  bg-white p-8 rounded-xl relative my-4 md:mx-6  shadow-xl"
+          >
             <div className="">
               <PsychologyIcon className="" />
             </div>
@@ -114,7 +133,9 @@ const Services = (props: Props) => {
                   extent of damage.
                 </span>
                 <div className="absolute bottom-0 right-0 bg-primary w-[60px] h-10 rounded-br-xl flex items-center justify-center">
-                  <ArrowForwardIcon />
+                  <Link href={"/booking"}>
+                    <ArrowForwardIcon />
+                  </Link>
                 </div>
               </div>
             </div>

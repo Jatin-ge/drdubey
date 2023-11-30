@@ -6,7 +6,7 @@ type Props = {};
 const Footer = (props: Props) => {
   return (
     <div>
-      <div className="bg-gray-800 py-4 text-gray-400 ">
+      <div className="dark:bg-gray-800 bg-[#E2FFF5] py-4 dark:text-gray-400 ">
         <div className="container px-4 mx-auto">
           <div className="-mx-4 flex flex-wrap justify-between">
             <div className="px-4 my-4 w-full xl:w-1/5">
@@ -41,7 +41,7 @@ const Footer = (props: Props) => {
                         ></circle>
                       </g>
                       <text
-                        fill="white"
+                        fill="gray"
                         font-family="Nunito-Bold, Nunito"
                         font-size="512"
                         font-weight="bold"

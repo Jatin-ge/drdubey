@@ -10,8 +10,7 @@ const Hero2 = (props: Props) => {
         <div className="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
           <div data-aos="fade-left">
             <h1 className="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white">
-              Dr. <span className="text-primary">Dheeraj Dubey</span> is here
-              for you !
+              <span className="text-primary"> Dr. Dubey</span> is here for you !
             </h1>
             <p className="mt-3 text-xl text-gray-800 dark:text-gray-400">
               Experience the freedom of movement with Dr. Dheeraj Dubay Joint

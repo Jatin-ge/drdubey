@@ -1,5 +1,6 @@
 import React from "react";
 import { Stats } from "../Stats/Stats";
+import Image from "next/image";
 
 type Props = {};
 
@@ -20,9 +21,7 @@ const Card1 = (props: Props) => {
                 Hospitals
               </p>
               <p className="max-w-4xl mt-3 text-xl lg:text-2xl leading-relaxed text-gray-600 dark:text-gray-300 md:mt-8">
-                He has completed his fellowship from Aklepios Ortho Center,
-                Germany in complex and revision joint replacement surgeries. He
-                has more than 15 years of experience in the field of Joint
+                He has more than 15 years of experience in the field of Joint
                 Replacement Surgeries and is well wersed with latest techniques
                 such as computer navigation and minimally invasive surgeries.
                 Now he is performing replacement surgeries at Shalby
@@ -54,7 +53,9 @@ const Card1 = (props: Props) => {
                 alt=""
               />
 
-              <img
+              <Image
+                width={1400}
+                height={1400}
                 className="relative w-full xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl:scale-110"
                 src="/assets/images/drdubay.png"
                 alt=""

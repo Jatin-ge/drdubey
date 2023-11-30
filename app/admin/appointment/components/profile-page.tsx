@@ -24,13 +24,13 @@ const ProfilePage = ({ profile }: profileProps) => {
         appointments={profile.appointments}
         phone={profile.appointments[0].phone}
       />
-      <div className="container mx-auto px-4 mt-10 mb-10">
+      <div className="container mx-auto px-4 mt-10 mb-10 ">
         <h2 className="text-3xl font-bold mb-2">Discussions</h2>
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 ">
           {profile.appointments.map((appointment: any) => (
             <div
               key={appointment.id}
-              className="bg-white rounded-lg shadow-md p-4"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4"
             >
               {appointment.discussionTitle ? (
                 <div className="flex justify-between">
@@ -43,7 +43,7 @@ const ProfilePage = ({ profile }: profileProps) => {
                     </p>
                   </div>
                   <div>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 dark:text-gray-200">
                       {appointment.date} at {appointment.time}
                     </p>
                     <Button
@@ -62,7 +62,7 @@ const ProfilePage = ({ profile }: profileProps) => {
                     {appointment.date} at {appointment.time}
                   </h3>
                   <div>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 dark:text-gray-200">
                       {appointment.date} at {appointment.time}
                     </p>
                     <Button
