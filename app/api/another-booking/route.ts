@@ -28,6 +28,7 @@ export async function POST(
         gender : appointment.gender,
         date,
         time,
+        email: appointment.email,
         description: values.description,
       }
 })

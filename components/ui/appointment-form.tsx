@@ -78,7 +78,7 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
 
   const header = {
    "headers":{
-    Authorization: 'Bearer EAAEf4LMZAyZA8BO1tcRszuxT4wjZABwcoaRMPazT11hEn0HY1vWYKIopnjVAODYg1wHKqHBK0VbhxMOFoTK61fsUI0sqdtpjdf9ZAaRletZCfogOVBo6IBy9qlNlZC4Mhm8cNY2GVsNM65GoXLl02A9Un1831bnwgpPJ2zeirM5evL4iU5gSZC2QlZAjewVUekVVsoZAWwHZBK1WuMuNc6YSwZD',
+    Authorization: process.env.NEXT_PUBLIC_WHATSAPP_TOKEN,
     Accept: "application/json"
     
    } 
@@ -169,7 +169,7 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
 
   return (
     <ScrollArea className="container mx-auto">
-        <h1 className="text-2xl text-center font-bold py-8 px-6 bg-white text-black p-0 overflow-hidden">
+        <h1 className="text-3xl text-center font-bold py-8 px-6 text-black dark:text-white p-0 overflow-hidden">
             Appointment Form
         </h1>
       <Form {...form}>
@@ -180,13 +180,13 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     Patient name
                   </FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary  focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0"
                       placeholder="Enter Patient name"
                       {...field}
                       type="text"
@@ -201,13 +201,13 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     Enter email
                   </FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary  focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0"
                       placeholder="Enter email"
                       {...field}
                       type="email"
@@ -222,13 +222,13 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     Phone number
                   </FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary  text-black dark:text-white focus-visible:ring-0focus-visible:ring-offset-0"
                       placeholder="Enter Phone number"
                       {...field}
                       type="phone"
@@ -243,13 +243,13 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
               name="age"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     Age
                   </FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary  focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0"
                       placeholder="Enter Patient's age"
                       {...field}
                       {...form.register("age", { valueAsNumber: true })}
@@ -265,7 +265,7 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
               name="gender"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     Gender
                   </FormLabel>
                   <Select
@@ -274,7 +274,7 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger className="bg-zinc-300/50 border-0 focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none">
+                      <SelectTrigger className="bg-transparent border border-primary  focus:ring-0 dark:text-white ring-offset-0 focus:ring-offset-0 capitalize outline-none">
                         <SelectValue placeholder="Select Gender" />
                       </SelectTrigger>
                     </FormControl>
@@ -299,13 +299,13 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
               name="address"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     Address
                   </FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary  focus-visible:ring-0 text-black focus-visible:ring-offset-0"
                       placeholder="Enter Address"
                       {...field}
                     />
@@ -319,7 +319,7 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
            
           </div>
 
-          <DialogFooter className="bg-gray-100 px-6 py-4">
+          <DialogFooter className=" px-6 py-4">
             <Button variant="primary" disabled={isLoading}>
               Create
             </Button>

@@ -132,8 +132,11 @@ console.log(formattedDate); // Output: 29-11-2023
   }
 
   const handleClick = (id: any, event: any) => {
-    if(event.target.tagName === "BUTTON"){
+    if(event.target.tagName === "BUTTON" ){
       return;
+    }
+    if(event.target.textContent === "Add to Leads"){
+      return
     }
     router.push(`/admin/appointment/${id}`)
    
@@ -162,7 +165,7 @@ console.log(formattedDate); // Output: 29-11-2023
         <Input
           placeholder="Filter names..."
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
+          onChange={(event : any ) =>
             table.getColumn("name")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
@@ -178,7 +181,7 @@ console.log(formattedDate); // Output: 29-11-2023
           )}
           
         >
-          <CalendarIcon className="mr-2 h-4 w-4" />
+          <CalendarIcon className="mr-2 h-4 w-4 " />
           {date ? format(date, "PPP") : <span>Pick a date to get appointments</span>}
         </Button>
       </PopoverTrigger>

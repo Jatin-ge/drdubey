@@ -5,6 +5,7 @@ import { GenderType, LeadStatus } from "@prisma/client"
 import { ArrowUpDown, MoreHorizontal } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
+import { CellAction } from "./cell-action"
 
 
 
@@ -91,6 +92,10 @@ export const columns: ColumnDef<AppointMentCloumn>[] = [
     accessorKey: "phone",
     header: "Phone",
   },
+  {
+    id: "actions",
+    cell : ({row}) => <CellAction data={row.original}/>
+  }
    
 
 ];

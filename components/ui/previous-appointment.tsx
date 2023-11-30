@@ -67,7 +67,7 @@ const PreviousAppointment = ({appointments}: PreviousAppointmentProps) => {
 
   const header = {
    "headers":{
-    Authorization: 'Bearer EAAEf4LMZAyZA8BO37mSEVoZAztq9wZBN3sAwKql6az72xdcVCVOccW1jPKqjjy0A1OT3jnJUyemYfiwkHgaDZAHI6WHBPrRIcZBKimC73uD1iAthBFzLjk6EZCvMZCdPxvjSUEylMbRFoJjnpArbxzHqBhxu6EtucJ0Ljb5XRfWBfNQesNeaugkHNumvFTqVMUzt5F810F5Gz3IYMyfAFKUZD',
+    Authorization: process.env.NEXT_PUBLIC_WHATSAPP_TOKEN,
     Accept: "application/json"
     
    } 
@@ -144,7 +144,7 @@ const PreviousAppointment = ({appointments}: PreviousAppointmentProps) => {
 
   return (
     <ScrollArea className="container mx-auto">
-        <h1 className="text-2xl text-center font-bold py-8 px-6 bg-white text-black p-0 overflow-hidden">
+        <h1 className="text-3xl text-center font-bold py-8 px-6  text-black dark:text-white p-0 overflow-hidden">
             Appointment Form
         </h1>
       <Form {...form} >
@@ -155,13 +155,13 @@ const PreviousAppointment = ({appointments}: PreviousAppointmentProps) => {
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     Add a Description
                   </FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0 h-20"
+                      className="bg-transparent border border-primary  focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0 h-20"
                       placeholder="Enter a description"
                       {...field}
                       type="text"
@@ -174,7 +174,7 @@ const PreviousAppointment = ({appointments}: PreviousAppointmentProps) => {
            
           </div>
 
-          <DialogFooter className="bg-gray-100 px-6 py-4">
+          <DialogFooter className="px-6 py-4">
             <Button variant="primary" disabled={isLoading}>
               Create
             </Button>
