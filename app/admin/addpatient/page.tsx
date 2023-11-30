@@ -168,7 +168,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter email"
                       {...field}
                       type="email"
@@ -235,7 +235,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger className="bg-transparent border border-primary focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none">
+                      <SelectTrigger className="bg-transparent border border-primary focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none dark:text-white">
                         <SelectValue placeholder="Select Gender" />
                       </SelectTrigger>
                     </FormControl>
@@ -266,7 +266,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter Address"
                       {...field}
                     />
@@ -289,7 +289,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                   <FormControl> 
                     < Input           
                       disabled={isLoading}
-                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter D.O.Ad"
                       type="date"
                       {...field}
@@ -313,7 +313,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                     
                     <Input                  
                       disabled={isLoading}
-                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter D.O.Op"
                       {...field}
                       type="date"
@@ -337,8 +337,8 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger className="bg-transparent border border-primary focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none">
-                        <SelectValue placeholder="Select Gender" />
+                      <SelectTrigger className="bg-transparent border border-primary focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none dark:text-white">
+                        <SelectValue placeholder="Select Status" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -368,7 +368,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter Remarks"
                       {...field}
                     />
@@ -388,7 +388,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter a Description"
                       {...field}
                     />
@@ -408,7 +408,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter name for Surgery"
                       {...field}
                     />
@@ -428,7 +428,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter side"
                       {...field}
                     />
@@ -449,7 +449,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter IPD Reg Number"
                       {...field}
                       {...form.register("ipdReg", { valueAsNumber: true })}
@@ -471,7 +471,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter Bill amount"
                       {...field}
                       {...form.register("bill", { valueAsNumber: true })}
