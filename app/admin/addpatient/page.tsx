@@ -189,7 +189,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter Phone number"
                       {...field}
                       type="phone"
@@ -210,7 +210,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter Patient's age"
                       {...field}
                       {...form.register("age", { valueAsNumber: true })}
