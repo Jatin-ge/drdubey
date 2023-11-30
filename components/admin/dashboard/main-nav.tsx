@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link"
+import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 export function MainNav({
   className,
@@ -15,31 +15,26 @@ export function MainNav({
   const routes = [
     {
       href: `/admin`,
-      label: 'Overview',
+      label: "Overview",
       active: pathname === `/admin`,
     },
     {
       href: `/admin/patients`,
-      label: 'Patients',
+      label: "Patients",
       active: pathname === `/admin/patients`,
     },
     {
       href: `/admin/appointment`,
-      label: 'Appointments',
+      label: "Appointments",
       active: pathname === `/admin/appointment`,
     },
-    {
-      href: `/admin/openings`,
-      label: 'Opening times',
-      active: pathname === `/admin/openings`,
-    },
+
     {
       href: `/admin/closeddate`,
-      label: 'Closed',
+      label: "Schedule",
       active: pathname === `/admin/openings`,
     },
-
-  ]
+  ];
 
   return (
     <nav
@@ -51,13 +46,15 @@ export function MainNav({
           key={route.href}
           href={route.href}
           className={cn(
-            'text-sm font-medium transition-colors hover:text-primary',
-            route.active ? 'text-black dark:text-white' : 'text-muted-foreground'
+            "text-sm font-medium transition-colors hover:text-primary",
+            route.active
+              ? "text-black dark:text-white"
+              : "text-muted-foreground"
           )}
         >
           {route.label}
-      </Link>
+        </Link>
       ))}
     </nav>
-  )
-};
+  );
+}

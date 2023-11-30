@@ -38,7 +38,7 @@ const EditableTable = ({ days }: any) => {
   };
 
   return (
-    <div className="container mx-auto p-4 bg-primary dark:bg-gray-800">
+    <div className="container mx-auto p-4 rounded-md  bg-primary dark:bg-gray-800">
       <table className="min-w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600">
         <thead className="bg-gray-100 dark:bg-gray-600">
           <tr>
