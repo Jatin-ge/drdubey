@@ -4,6 +4,7 @@ const MessageParser = ({ children, actions }) => {
     // console.log(children.props.state)
     const { checker } = children.props.state;
     const parse = (message) => {
+        
         if (checker === "age") {
             actions.afterNameMessage();
             children.props.state.userData.name = message;
