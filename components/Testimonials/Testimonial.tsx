@@ -52,10 +52,10 @@ export const Testimonial = () => {
                   </div>
                   <div className="md:w-1/3 lg:w-1/3 xl:ml-32 md:ml-20 md:mt-0 mt-4 flex flex-col justify-between">
                     <div>
-                      <h1 className="text-2xl font-semibold xl:leading-loose text-gray-800">
+                      <h1 className="text-2xl font-semibold xl:leading-loose text-gray-800 dark:text-gray-200 ">
                         Some of the best work that was done!
                       </h1>
-                      <p className="text-base font-medium leading-6 mt-4 text-gray-600">
+                      <p className="text-base font-medium leading-6 mt-4 text-gray-600 dark:text-gray-200">
                         Our core values are at the heart of all that we do. They
                         are integrated into our daily work lives and help us to
                         remember our customers always comes first, the last
@@ -66,7 +66,7 @@ export const Testimonial = () => {
                       <p className="text-base font-medium leading-4 text-primary">
                         Anna Smith
                       </p>
-                      <p className="text-base leading-4 mt-2 mb-4 text-gray-600">
+                      <p className="text-base leading-4 mt-2 mb-4 text-gray-600 dark:text-gray-200">
                         Senior Web Designer
                       </p>
                     </div>
@@ -95,10 +95,10 @@ export const Testimonial = () => {
                   </div>
                   <div className="md:w-1/3 lg:w-1/3 xl:ml-32 md:ml-20 md:mt-0 mt-4 flex flex-col justify-between">
                     <div>
-                      <h1 className="text-2xl font-semibold xl:leading-loose text-gray-800">
+                      <h1 className="text-2xl font-semibold xl:leading-loose text-gray-800 dark:text-gray-200">
                         Some of the best work that was done!
                       </h1>
-                      <p className="text-base font-medium leading-6 mt-4 text-gray-600">
+                      <p className="text-base font-medium leading-6 mt-4 text-gray-600 dark:text-gray-300">
                         Our core values are at the heart of all that we do. They
                         are integrated into our daily work lives and help us to
                         remember our customers always comes first, the last
@@ -109,7 +109,7 @@ export const Testimonial = () => {
                       <p className="text-base font-medium leading-4 text-primary">
                         Anna Smith
                       </p>
-                      <p className="text-base leading-4 mt-2 mb-4 text-gray-600">
+                      <p className="text-base leading-4 mt-2 mb-4 text-gray-600 dark:text-gray-200">
                         Senior Web Designer
                       </p>
                     </div>

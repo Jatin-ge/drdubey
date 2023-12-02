@@ -27,7 +27,7 @@ const Banner = (props: Props) => {
               Solutions with our Expert Joint Replacement{" "}
               <span className="text-primary">Services</span>{" "}
             </h2>
-            <p className="mt-2 md:mt-4 text-gray-700 md:text-xl">
+            <p className="mt-2 md:mt-4 text-gray-700 dark:text-gray-200 md:text-xl">
               Experience Less Pain, Faster Recovery, and the Latest Advancements
               in Joint Care for a Renewed and Active Lifestyle.
             </p>

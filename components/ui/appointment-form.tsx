@@ -28,7 +28,12 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { redirect, useParams, useRouter, useSearchParams } from "next/navigation";
+import {
+  redirect,
+  useParams,
+  useRouter,
+  useSearchParams,
+} from "next/navigation";
 import { useModal } from "@/hooks/use-modal-store";
 import {
   Select,
@@ -43,9 +48,9 @@ import { Lead } from "@prisma/client";
 import { useEffect } from "react";
 
 interface AddpatientProps {
-  name: string
-  email: string
-  userId: string
+  name: string;
+  email: string;
+  userId: string;
 }
 
 const formSchema = z.object({
@@ -66,15 +71,14 @@ const formSchema = z.object({
 
 type AddpatientFormValues = z.infer<typeof formSchema>;
 
-const Appointment = ({name,email, userId}: AddpatientProps) => {
+const Appointment = ({ name, email, userId }: AddpatientProps) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const urlParams = new URLSearchParams(window.location.search);
 
   // Retrieve the 'date' and 'time' parameters
-  const date =  urlParams.get('date');
-  const time =  urlParams.get('time');
-
+  const date = urlParams.get("date");
+  const time = urlParams.get("time");
 
   const header = {
    "headers":{
@@ -85,7 +89,7 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
   }
 
 
-  console.log(time)
+  console.log(time);
 
   const form = useForm<AddpatientFormValues>({
     resolver: zodResolver(formSchema),
@@ -100,19 +104,16 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
       status: LeadStatus.PENDING,
       remark: "",
       bokingDate: date,
-      bookingTime: ""
+      bookingTime: "",
     },
   });
 
-    
   useEffect(() => {
-    if(time){
-        form.setValue("age", null)
-        form.setValue("time",time)
+    if (time) {
+      form.setValue("age", null);
+      form.setValue("time", time);
     }
-}, [form,time])
-
-  
+  }, [form, time]);
 
   const isLoading = form.formState.isSubmitting;
 
@@ -127,35 +128,37 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
         template: {
           name: "booking_confirmation",
           language: {
-            code: "en_US"
+            code: "en_US",
           },
           components: [
             {
-                type: "body",
-                parameters: [
+              type: "body",
+              parameters: [
                 {
-                    type: "text",
-                    text: values.name
+                  type: "text",
+                  text: values.name,
                 },
                 {
-                    type: "text",
-                    text: date
+                  type: "text",
+                  text: date,
                 },
                 {
-                    type: "text",
-                    text: time
+                  type: "text",
+                  text: time,
                 },
-                ]
-        
-            }
-    ]
-    }}
-      await axios.post(`/api/booking`, {values, date, time, userId});
-      await axios.post("https://graph.facebook.com/v17.0/177309328798172/messages", body, header);
+              ],
+            },
+          ],
+        },
+      };
+      await axios.post(`/api/booking`, { values, date, time, userId });
+      await axios.post(
+        "https://graph.facebook.com/v17.0/177309328798172/messages",
+        body,
+        header
+      );
 
-      
       router.push("/booking/success");
-      
     } catch (error: any) {
       toast.error("Something went wrong.");
     } finally {
@@ -169,7 +172,7 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
 
   return (
     <ScrollArea className="container mx-auto">
-        <h1 className="text-3xl text-center font-bold py-8 px-6 text-black dark:text-white p-0 overflow-hidden">
+        <h1 className="text-2xl text-center font-bold py-8 px-6 bg-white text-black p-0 overflow-hidden">
             Appointment Form
         </h1>
       <Form {...form}>
@@ -314,9 +317,6 @@ const Appointment = ({name,email, userId}: AddpatientProps) => {
                 </FormItem>
               )}
             />
-
-            
-           
           </div>
 
           <DialogFooter className=" px-6 py-4">

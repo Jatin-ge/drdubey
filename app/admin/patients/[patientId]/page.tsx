@@ -2,6 +2,7 @@ import { db } from "@/lib/db";
 
 import Addpatient from "../../addpatient/page";
 
+
 const BillboardPage = async ({
   params
 }: {

@@ -7,6 +7,7 @@ import { currentProfile } from "@/lib/current-profile";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import ClosingDate from "@/components/ClosingDate/ClosingDate";
+import EditableTable from "@/components/EditableTable/EditableTable";
 
 interface HomeProps {
   days: Day[];
@@ -34,7 +35,10 @@ const page = async () => {
   );
   return (
     <div>
-      <ClosingDate closedDays={closedDays} />
+      <div className="lg:flex lg:my-32 ">
+        <EditableTable days={days} />
+        <ClosingDate closedDays={closedDays} />
+      </div>
     </div>
   );
 };

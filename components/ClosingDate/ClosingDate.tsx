@@ -55,7 +55,10 @@ const ClosingDate = ({ closedDays }: Props) => {
   };
 
   return (
-    <div className="p-4 mx-auto">
+    <div className="p-4 mx-auto dark:text-gray-800">
+      <div className="text-lg md:text-3xl text-primary font-semibold mb-2 dark:text-gray-200">
+        Closing Dates
+      </div>
       <ReactCalendar
         minDate={new Date()}
         className="REACT-CALENDAR p-2 mx-auto"
@@ -68,7 +71,7 @@ const ClosingDate = ({ closedDays }: Props) => {
 
       {/* Display selected dates */}
       <div className="mt-4 ">
-        <h2 className="text-lg md:text-3xl font-semibold mb-2">
+        <h2 className="text-lg md:text-3xl font-semibold mb-2 dark:text-gray-200">
           Selected Dates:
         </h2>
         <ul className="list-disc pl-4">

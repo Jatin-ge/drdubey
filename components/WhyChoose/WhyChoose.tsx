@@ -62,7 +62,7 @@ const WhyChoose = (props: Props) => {
           We provide you the best quality at the most affordable price . Book an
           appointment now and visit any of our 5 centers.
         </p>
-        <button className="bg-primary px-5 py-2 rounded-md text-white mt-4 text-xl  font-bold">
+        <button className="bg-primary px-5 md:px-16 md:py-3 py-2  text-white mt-4 text-xl md:text-2xl  font-bold">
           <Link href={"/booking"}>Book An Appointment</Link>
         </button>
       </div>
