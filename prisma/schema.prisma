@@ -62,6 +62,7 @@ model Appointment{
   date String
   time String
   phone String
+  email String
   age Int
   address String
   gender GenderType @default(M)

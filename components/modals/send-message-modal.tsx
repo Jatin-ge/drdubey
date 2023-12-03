@@ -51,7 +51,7 @@ export const SendMessageModal = () => {
 
   const header = {
    "headers":{
-    Authorization: 'Bearer EAAEf4LMZAyZA8BO1tcRszuxT4wjZABwcoaRMPazT11hEn0HY1vWYKIopnjVAODYg1wHKqHBK0VbhxMOFoTK61fsUI0sqdtpjdf9ZAaRletZCfogOVBo6IBy9qlNlZC4Mhm8cNY2GVsNM65GoXLl02A9Un1831bnwgpPJ2zeirM5evL4iU5gSZC2QlZAjewVUekVVsoZAWwHZBK1WuMuNc6YSwZD',
+    Authorization: process.env.NEXT_PUBLIC_WHATSAPP_TOKEN,
     Accept: "application/json"
     
    } 

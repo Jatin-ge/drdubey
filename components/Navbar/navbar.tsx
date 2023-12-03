@@ -156,7 +156,7 @@ const Navbar = () => {
                 href="/profile"
                 className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md  hover:text-primary focus:text-[#EE8A27] focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
               >
-                Patient Profile
+                My Profile
               </Link>
             </li>
           </ul>

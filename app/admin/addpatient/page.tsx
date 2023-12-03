@@ -6,7 +6,7 @@ import axios from "axios";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { GenderType, LeadStatus } from "@prisma/client";
+import { Appointment, GenderType, LeadStatus } from "@prisma/client";
 import { format } from "date-fns";
 import { toast } from "react-hot-toast";
 
@@ -42,7 +42,7 @@ import { ScrollArea } from "@/components//ui/scroll-area";
 import { Lead } from "@prisma/client";
 
 interface AddpatientProps {
-  initialData: Lead | null;
+  initialData: Lead | Appointment | null;
 }
 
 const formSchema = z.object({
@@ -62,7 +62,13 @@ const formSchema = z.object({
   status: z.nativeEnum(LeadStatus),
   remark: z.string(),
   doad: z.string().transform((str) => new Date(str)),
-  doop: z.string().transform((str) => new Date(str)),
+  dood: z.string().transform((str) => new Date(str)),
+  dx: z.string(),
+  surgery: z.string(),
+  side: z.string(),
+  implant: z.string(),
+  ipdReg : z.number(),
+  bill: z.number(),
 });
 
 type AddpatientFormValues = z.infer<typeof formSchema>;
@@ -70,7 +76,7 @@ type AddpatientFormValues = z.infer<typeof formSchema>;
 const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
   const router = useRouter();
   const params = useParams();
-  const [loading, setLoading] = useState(false);
+  const [isloading, setLoading] = useState(false);
 
   const toastMessage = initialData ? "Patient updated." : "Patient created.";
 
@@ -81,13 +87,19 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
       name: "",
       email: "",
       phone: "",
-      age: 0,
+      age: z.EMPTY_PATH,
       gender: GenderType.M,
       address: "",
       status: LeadStatus.PENDING,
       remark: "",
       doad: new Date().toISOString().split("T")[0],
-      doop: new Date().toISOString().split("T")[0]
+      dood: new Date().toISOString().split("T")[0],
+      dx: "",
+      surgery: "",
+      side: "",
+      implant: "",
+      ipdReg : z.number(),
+      bill: z.number(),
     },
   });
 
@@ -96,27 +108,31 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setLoading(true);
-      if (initialData) {
+      if (initialData) {  
         await axios.patch(`/api/patients/${initialData.id}`, values);
       } else {
-        await axios.post(`/api/patients`, values);
+        await axios.post(`/api/patients`, values);       
       }
       router.refresh();
       router.push(`/admin/patients`);
-      toast.success(toastMessage);
-    } catch (error: any) {
-      toast.error("Something went wrong.");
+    } catch (error) {
+      console.log(error);
     } finally {
       setLoading(false);
     }
+    
   };
+
+  
 
   const handleClose = () => {
     form.reset();
   };
 
   return (
-    <ScrollArea className="container mx-auto">
+    <div>
+      <h2 className="text-3xl font-bold mb-5 m-10">Add New Patient</h2>
+        <ScrollArea className="container mx-auto">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <div className="space-y-8 px-6">
@@ -125,13 +141,13 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     Patient name
                   </FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter Patient name"
                       {...field}
                       type="text"
@@ -146,13 +162,13 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     Enter email
                   </FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter email"
                       {...field}
                       type="email"
@@ -167,13 +183,13 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     Phone number
                   </FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter Phone number"
                       {...field}
                       type="phone"
@@ -188,13 +204,13 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
               name="age"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     Age
                   </FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter Patient's age"
                       {...field}
                       {...form.register("age", { valueAsNumber: true })}
@@ -210,7 +226,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
               name="gender"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     Gender
                   </FormLabel>
                   <Select
@@ -219,7 +235,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger className="bg-zinc-300/50 border-0 focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none">
+                      <SelectTrigger className="bg-transparent border border-primary focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none dark:text-white">
                         <SelectValue placeholder="Select Gender" />
                       </SelectTrigger>
                     </FormControl>
@@ -244,13 +260,13 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
               name="address"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     Address
                   </FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter Address"
                       {...field}
                     />
@@ -266,14 +282,14 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
               name="doad"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     D.O.Ad
                   </FormLabel>
                   
                   <FormControl> 
                     < Input           
                       disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter D.O.Ad"
                       type="date"
                       {...field}
@@ -286,10 +302,10 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
             />
             <FormField
               control={form.control}
-              name="doop"
+              name="dood"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     D.O.Op
                   </FormLabel>
                   
@@ -297,7 +313,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                     
                     <Input                  
                       disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter D.O.Op"
                       {...field}
                       type="date"
@@ -312,7 +328,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
               name="status"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     Lead Status
                   </FormLabel>
                   <Select
@@ -321,8 +337,8 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger className="bg-zinc-300/50 border-0 focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none">
-                        <SelectValue placeholder="Select Gender" />
+                      <SelectTrigger className="bg-transparent border border-primary focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none dark:text-white">
+                        <SelectValue placeholder="Select Status" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -346,13 +362,13 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
               name="remark"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     remarks
                   </FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}
-                      className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
                       placeholder="Enter Remarks"
                       {...field}
                     />
@@ -361,9 +377,114 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                 </FormItem>
               )}
             />
+             <FormField
+              control={form.control}
+              name="dx"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
+                    description
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isLoading}
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
+                      placeholder="Enter a Description"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+             <FormField
+              control={form.control}
+              name="surgery"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
+                    surgery
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isLoading}
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
+                      placeholder="Enter name for Surgery"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+             <FormField
+              control={form.control}
+              name="side"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
+                    side
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isLoading}
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
+                      placeholder="Enter side"
+                      {...field}
+                    />
+                    
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+               <FormField
+              control={form.control}
+              name="ipdReg"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
+                    ipd reg
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isLoading}
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
+                      placeholder="Enter IPD Reg Number"
+                      {...field}
+                      {...form.register("ipdReg", { valueAsNumber: true })}
+                      type="number"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+               <FormField
+              control={form.control}
+              name="bill"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
+                    bill
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isLoading}
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
+                      placeholder="Enter Bill amount"
+                      {...field}
+                      {...form.register("bill", { valueAsNumber: true })}
+                      type="number"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />                      
           </div>
 
-          <DialogFooter className="bg-gray-100 px-6 py-4">
+          <DialogFooter className=" px-6 py-4">
             <Button variant="primary" disabled={isLoading}>
               Create
             </Button>
@@ -371,6 +492,8 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
         </form>
       </Form>
     </ScrollArea>
+    </div>
+    
   );
 };
 

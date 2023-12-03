@@ -165,7 +165,7 @@ export const DashboardPage = async () => {
                 </Card>
                 <Card className="col-span-3">
                   <CardHeader>
-                    <CardTitle className="text-green-600">
+                    <CardTitle className="text-[#1ecf36]  text-3xl">
                       Todays Appiontments
                     </CardTitle>
                   </CardHeader>

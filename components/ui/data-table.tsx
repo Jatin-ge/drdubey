@@ -25,7 +25,6 @@ import {
 import React, { useState } from "react"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
-import axios from "axios"
 import { useModal } from "@/hooks/use-modal-store"
 
 interface DataTableProps<TData, TValue> {
@@ -72,33 +71,7 @@ export function DataTable<TData, TValue>({
     
   })
 
-  const onSubmit = async() => {
-  setIsLoading(true) 
-  try {
-    for (const number of table.getFilteredSelectedRowModel().rows) {
-      console.log(number)
-      const body = {
-        messaging_product: "whatsapp",
-        recipient_type: "individual",
-        //@ts-ignore
-        to: number.original?.phone,
-        type: "template",
-        template: {
-          name: "hello_world",
-          language: {
-            code: "en_US"
-          },
-        }
-      };  
-      
-      await axios.post("https://graph.facebook.com/v17.0/177309328798172/messages", body, header);
-      console.log("done")
-    }
-    setIsLoading(false)
-  } catch (error) {
-    console.log(error);
-  }
-};
+
 
   return (
     <div>

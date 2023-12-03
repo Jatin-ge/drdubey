@@ -10,7 +10,7 @@ export async function PATCH  (
 ) {
     try{
 
-        const { name, email, phone, gender, address, status , remark, age } = await req.json();
+        const { name, email, phone, gender, address, status , remark, age, doad, dood, dx, surgery, side, ipdReg, bill } = await req.json();
 
         
 
@@ -19,7 +19,21 @@ export async function PATCH  (
                 id: params.patientId,
             },
             data:{
-                name, email, phone, gender, address, status , remark, age 
+                name,
+                email, 
+                phone, 
+                gender, 
+                address, 
+                status, 
+                remark ,  
+                age,
+                doad,
+                dood, 
+                dx, 
+                surgery,
+                side,
+                ipdReg,
+                bill
             }
     })
 

@@ -131,7 +131,13 @@ console.log(formattedDate); // Output: 29-11-2023
     table.getColumn("date")?.setFilterValue("")
   }
 
-  const handleClick = (id: any) => {
+  const handleClick = (id: any, event: any) => {
+    if(event.target.tagName === "BUTTON" ){
+      return;
+    }
+    if(event.target.textContent === "Add to Leads"){
+      return
+    }
     router.push(`/admin/appointment/${id}`)
    
   }
@@ -148,18 +154,18 @@ console.log(formattedDate); // Output: 29-11-2023
             className={cn("bg-green-500 flex flex-col text-white text-md",table.getFilteredSelectedRowModel().rows.length > 0 ? "" : "hidden")}
             variant="outline"
             size="lg"
-            onClick={() => onOpen("sendBulkMessage",{template : table.getFilteredSelectedRowModel().rows}) }
+            onClick={() => onOpen("sendAppointmentReminder",{template : table.getFilteredSelectedRowModel().rows}) }
             disabled={isLoading}
             
           >
-            Send Whatsapp message
+            Send Appointment reminder
           </Button>
       </div>
         <div className="flex items-center py-4">
         <Input
           placeholder="Filter names..."
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
+          onChange={(event : any ) =>
             table.getColumn("name")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
@@ -175,7 +181,7 @@ console.log(formattedDate); // Output: 29-11-2023
           )}
           
         >
-          <CalendarIcon className="mr-2 h-4 w-4" />
+          <CalendarIcon className="mr-2 h-4 w-4 " />
           {date ? format(date, "PPP") : <span>Pick a date to get appointments</span>}
         </Button>
       </PopoverTrigger>
@@ -217,16 +223,19 @@ console.log(formattedDate); // Output: 29-11-2023
               ))}
             </TableHeader>
             <TableBody>
+              
               {table.getRowModel().rows?.length ? (
                 table.getRowModel().rows.map((row) => (
                   <TableRow
                     key={row.id}
                     data-state={row.getIsSelected() && "selected"}
                     //@ts-ignore
-                    onClick={() => handleClick(row.original.userId) }
+                    onClick={(event) => handleClick(row.original.userId, event) }
+                    
                   >
+                    
                     {row.getVisibleCells().map((cell) => (
-                      <TableCell key={cell.id}>
+                      <TableCell key={cell.id} >
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </TableCell>
                     ))}

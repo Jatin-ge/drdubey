@@ -30,6 +30,7 @@ export async function POST(
         gender: values.gender,
         date,
         time,
+        email: values.email,
         description: values.description,
       }
 })

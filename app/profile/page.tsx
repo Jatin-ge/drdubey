@@ -26,7 +26,7 @@ const page = async () => {
     },
   });
 
-  const phone = appointments[0].phone;
+  const phone = appointments[0]?.phone;
 
   console.log("My appointments  ", appointments);
 
