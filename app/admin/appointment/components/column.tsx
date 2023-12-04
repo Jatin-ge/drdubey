@@ -20,7 +20,7 @@ export type AppointMentCloumn = {
   phone: string 
   date: string
   time: string
-  email: string
+  email: string | null
   userId: string
   
 }

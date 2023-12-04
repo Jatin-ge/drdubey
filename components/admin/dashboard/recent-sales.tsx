@@ -26,10 +26,6 @@ export const RecentSales = async () => {
     (appointment) => appointment.date === todayFormatted
   );
 
-  console.log("todays date is ", todayFormatted);
-
-  console.log("todays appointments are  ", todayAppointments);
-
   return (
     <div className="space-y-8">
       <div className="flex items-center font-bold text-xl">

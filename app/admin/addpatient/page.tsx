@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { Appointment, GenderType, LeadStatus } from "@prisma/client";
 import { format } from "date-fns";
 import { toast } from "react-hot-toast";
+import { useEffect } from "react";
 
 import {
   Dialog,
@@ -40,9 +41,11 @@ import {
 import { useState } from "react";
 import { ScrollArea } from "@/components//ui/scroll-area";
 import { Lead } from "@prisma/client";
+import { type } from "os";
 
 interface AddpatientProps {
   initialData: Lead | Appointment | null;
+  type: "lead" | "appointment";
 }
 
 const formSchema = z.object({
@@ -108,12 +111,12 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setLoading(true);
-      if (initialData) {  
+      if (type === "lead") {  
         await axios.patch(`/api/patients/${initialData.id}`, values);
       } else {
         await axios.post(`/api/patients`, values);       
       }
-      router.refresh();
+      form.reset();
       router.push(`/admin/patients`);
     } catch (error) {
       console.log(error);
@@ -123,11 +126,20 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
     
   };
 
-  
+  useEffect(() => {
+    if(initialData?.doad){
+      form.setValue("doad", format(new Date(initialData.doad), "yyyy-MM-dd"));
+    }
+  }, [form, initialData?.doad]);
 
-  const handleClose = () => {
-    form.reset();
-  };
+  useEffect(() => {
+    if(initialData?.dood){
+      form.setValue("dood", format(new Date(initialData.dood), "yyyy-MM-dd"));
+    }
+  }
+  , [form, initialData?.dood]);
+
+
 
   return (
     <div>
@@ -438,6 +450,27 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
                 </FormItem>
               )}
             />
+                         <FormField
+              control={form.control}
+              name="implant"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
+                    impant
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isLoading}
+                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
+                      placeholder="Enter implant"
+                      {...field}
+                    />
+                    
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
                <FormField
               control={form.control}
               name="ipdReg"
@@ -486,7 +519,9 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
 
           <DialogFooter className=" px-6 py-4">
             <Button variant="primary" disabled={isLoading}>
-              Create
+              {
+                type === "lead" ? "Update" : "Add Lead"
+              }
             </Button>
           </DialogFooter>
         </form>
