@@ -51,8 +51,7 @@ export const SendBulkMessageModal = () => {
 
   const header = {
     headers: {
-      Authorization:
-        "Bearer EAAEf4LMZAyZA8BO7uErtkHZCORpqGwKZA8G0VOfeZBxxCL8nQzvc2B9ZAs9jBqBIwvZCgYlfe8H9RcGUGNc7Hu05fisQrheRzYYbVuBeAo5hSQaGhaUHZBV0NYrKjtIGkmC8cAg864dnntxKj7Hr9y2s7f62ZBXTcWFB2ZCR7lJEe1fswPM79Wbvjig0PUqnIpiaYdXV2rN4JUfPECsw7mkybSiCcgZCZBZAofHtYlZAIZD",
+      Authorization: process.env.NEXT_PUBLIC_WHATSAPP_TOKEN,
       Accept: "application/json",
     },
   };

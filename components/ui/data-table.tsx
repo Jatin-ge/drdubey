@@ -48,7 +48,7 @@ export function DataTable<TData, TValue>({
 
   const header = {
    "headers":{
-    Authorization: "Bearer EAAEf4LMZAyZA8BO4tHBZBePIoauTjxZAvBkZAZAEzxZBsNg3Xbq0JTcLvZAk21X74bp0izDHpZBL5RposTMqbZBGlMO8tqbWSZAKrZBci8JE1TfxVlcZBZADN9WNcPVpgRHIYqRvYNqBfbTiSSCLeg1ZAfhkIq356wYH35SmpXbPOpo0sFchjoVyZA4MOcReSHHc17HiZAjrEOhAZCWUKJZAv6RiSNQ2scZD",
+    Authorization: process.env.NEXT_PUBLIC_WHATSAPP_TOKEN,
     Accept: "application/json"
     
    } 
