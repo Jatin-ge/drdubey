@@ -100,7 +100,7 @@ export const DashboardPage = async () => {
                       {TotalAppointments}
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      scheduled this week
+                      booked this week
                     </p>
                   </CardContent>
                 </Card>
@@ -131,7 +131,7 @@ export const DashboardPage = async () => {
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">
-                      Active Now
+                      Total Users
                     </CardTitle>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
