@@ -76,7 +76,7 @@ const formSchema = z.object({
 
 type AddpatientFormValues = z.infer<typeof formSchema>;
 
-const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
+const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
   const router = useRouter();
   const params = useParams();
   const [isloading, setLoading] = useState(false);
@@ -113,10 +113,12 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData }) => {
       setLoading(true);
       if (type === "lead") {  
         await axios.patch(`/api/patients/${initialData.id}`, values);
-      } else {
+      } 
+      else {
         await axios.post(`/api/patients`, values);       
       }
       form.reset();
+      router.refresh();
       router.push(`/admin/patients`);
     } catch (error) {
       console.log(error);
