@@ -49,7 +49,7 @@ import { useEffect } from "react";
 
 interface AddpatientProps {
   name: string;
-  email: string;
+  email: string ;
   userId: string;
 }
 
