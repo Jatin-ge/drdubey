@@ -27,7 +27,7 @@ model Lead {
   createdAt DateTime? @default(now())
   updatedAt DateTime? @updatedAt
   status LeadStatus @default(PENDING)
-  doad DateTime? 
+  doad DateTime ? 
   dood DateTime? 
   dx String?
   surgery String?
@@ -48,7 +48,7 @@ model Profile{
   userId String @unique
   name String 
   imageUrl String 
-  email String 
+  email String
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt
   appointments Appointment[]
