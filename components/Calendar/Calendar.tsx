@@ -96,7 +96,7 @@ const Calendar = ({ days, closedDays }: CalendarProps) => {
           className="REACT-CALENDAR p-2 mx-auto "
           view="month"
           tileDisabled={({ date }) =>
-            closedDays && closedDays.includes(formatISO(date))
+            closedDays.includes(formatISO(date.setHours(0, 0, 0, 0)) )
           }
           onClickDay={(date) =>
             setDate((prev) => ({
