@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import { useState } from "react";
-import { Edit, MessageSquareIcon, MoreHorizontal, Trash } from "lucide-react";
+import { Edit, MessageSquareIcon, MoreHorizontal, Printer, Trash } from "lucide-react";
 import { toast } from "react-hot-toast";
 import { useParams, useRouter } from "next/navigation";
 
@@ -46,6 +46,15 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
     }
   };
 
+  const printReceipt = async () => {
+    try{
+       router.push(`/admin/receipt/${data.id}`);
+    }
+    catch(error){
+      console.log(error)
+    }
+  }
+
   return (
     <>
       <AlertModal
@@ -73,6 +82,9 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => onOpen("sendMessage",{recipent: data})}>
             <MessageSquareIcon className="mr-2 h-4 w-4" /> Whatsapp
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={printReceipt}>
+            <Printer className="mr-2 h-4 w-4" /> Print Receipt
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
