@@ -21,9 +21,8 @@ const AppointmentPage = async () => {
   }
   const days: Day[] = await db.day.findMany();
 
-  const closedDays: string[] = (await db.closedDay.findMany()).map((d) =>
-    formatISO(d.date)
-  );
+  const closedDays: string[] =
+    (await db?.closedDay?.findMany())?.map((d) => formatISO(d?.date)) || [];
 
   return (
     <div className="bg-gradient-to-r from-purple-500 to-indigo-600 font-bold min-h-screen">
