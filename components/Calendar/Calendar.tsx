@@ -29,7 +29,7 @@ type DateTime = {
 
 interface CalendarProps {
   days: Day[];
-  closedDays: string[];
+  closedDays: { id: string; date: Date; }[];
 }
 
 const Calendar = ({ days, closedDays }: CalendarProps) => {
@@ -41,7 +41,7 @@ const Calendar = ({ days, closedDays }: CalendarProps) => {
   const rounded = roundToNearestMinutes(now, OPENING_HOURS_INTERVAL);
   const closing = parse(today!.closeTime, "kk:mm", now);
   const tooLate = !isBefore(rounded, closing);
-  if (tooLate) closedDays.push(formatISO(new Date().setHours(0, 0, 0, 0)));
+  // if (tooLate) closedDays.push(formatISO(new Date().setHours(0, 0, 0, 0)));
 
   const [date, setDate] = useState<DateTime>({
     justDate: null,
@@ -89,8 +89,15 @@ const Calendar = ({ days, closedDays }: CalendarProps) => {
           minDate={now}
           className='REACT-CALENDAR p-2'
           view='month'
-          tileDisabled={({ date }) => closedDays.toLocaleString().includes(formatISO(date))}
+          tileDisabled={({date, view}) =>
+                    (view === 'month') && // Block day tiles only
+                    closedDays.some(closedDay =>
+                      date.getFullYear() === closedDay.date.getFullYear() &&
+                      date.getMonth() === closedDay.date.getMonth() &&
+                      date.getDate() === closedDay.date.getDate()
+                    )}
           onClickDay={(date) => setDate((prev) => ({ ...prev, justDate: date }))}
+         
         />
       )}
     </div>
