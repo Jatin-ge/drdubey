@@ -26,10 +26,6 @@ type DateTime = {
   dateTime: Date | null;
 };
 
-interface indexProps {
-  date: DateTime;
-  setDate: Dispatch<SetStateAction<DateTime>>;
-}
 
 interface CalendarProps {
   days: Day[];
@@ -38,8 +34,6 @@ interface CalendarProps {
 
 const Calendar = ({ days, closedDays }: CalendarProps) => {
   const router = useRouter();
-
-  const { onOpen } = useModal();
 
   // console.log("the days sent to props in the calendar are ", days);
   // Determine if today is closed
@@ -92,18 +86,11 @@ const Calendar = ({ days, closedDays }: CalendarProps) => {
         </div>
       ) : (
         <ReactCalendar
-          minDate={new Date()}
-          className="REACT-CALENDAR p-2 mx-auto "
-          view="month"
-          tileDisabled={({ date }) =>
-            closedDays.includes(formatISO(date.setHours(0, 0, 0, 0)) )
-          }
-          onClickDay={(date) =>
-            setDate((prev) => ({
-              ...prev,
-              justDate: date,
-            }))
-          }
+           minDate={now}
+          className='REACT-CALENDAR p-2'
+          view='month'
+          tileDisabled={({ date }) => closedDays.includes(formatISO(date))}
+          onClickDay={(date) => setDate((prev) => ({ ...prev, justDate: date }))}
         />
       )}
     </div>
