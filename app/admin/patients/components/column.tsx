@@ -91,11 +91,12 @@ export const columns: ColumnDef<LeadCloumn>[] = [
     accessorKey: "side",
     header: "Side",
   },
-  {
-    accessorKey: "bill",
-    header: "Bill",
+   {
+    accessorKey: "implant",
+    header: "implant",
     
   },
+  
   {
     accessorKey: "remark",
     header: "Remark",
@@ -145,12 +146,13 @@ export const columns: ColumnDef<LeadCloumn>[] = [
     header: "IPD Reg",
     
   },
-  
   {
-    accessorKey: "implant",
-    header: "implant",
+    accessorKey: "bill",
+    header: "Bill",
     
   },
+  
+ 
   {
     id: "actions",
     cell : ({row}) => <CellAction data={row.original}/>
