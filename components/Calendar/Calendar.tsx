@@ -89,7 +89,7 @@ const Calendar = ({ days, closedDays }: CalendarProps) => {
           minDate={now}
           className='REACT-CALENDAR p-2'
           view='month'
-          tileDisabled={({ date }) => closedDays.includes(formatISO(date))}
+          tileDisabled={({ date }) => closedDays.toLocaleString().includes(formatISO(date))}
           onClickDay={(date) => setDate((prev) => ({ ...prev, justDate: date }))}
         />
       )}
