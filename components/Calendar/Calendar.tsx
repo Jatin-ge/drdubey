@@ -86,10 +86,13 @@ const Calendar = ({ days, closedDays }: CalendarProps) => {
         </div>
       ) : (
         <ReactCalendar
-           minDate={now}
+          minDate={now}
           className='REACT-CALENDAR p-2'
           view='month'
-          tileDisabled={({ date }) => closedDays.includes(formatISO(date))}
+          tileDisabled={({ date }) => {
+          const isoDate = formatISO(date, { representation: 'date' }); // Get ISO date without time
+          return closedDays.includes(isoDate);
+  }}
           onClickDay={(date) => setDate((prev) => ({ ...prev, justDate: date }))}
         />
       )}
