@@ -26,20 +26,14 @@ type DateTime = {
   dateTime: Date | null;
 };
 
-interface indexProps {
-  date: DateTime;
-  setDate: Dispatch<SetStateAction<DateTime>>;
-}
 
 interface CalendarProps {
   days: Day[];
-  closedDays: string[];
+  closedDays: { id: string; date: Date; }[];
 }
 
 const Calendar = ({ days, closedDays }: CalendarProps) => {
   const router = useRouter();
-
-  const { onOpen } = useModal();
 
   // console.log("the days sent to props in the calendar are ", days);
   // Determine if today is closed
@@ -47,7 +41,7 @@ const Calendar = ({ days, closedDays }: CalendarProps) => {
   const rounded = roundToNearestMinutes(now, OPENING_HOURS_INTERVAL);
   const closing = parse(today!.closeTime, "kk:mm", now);
   const tooLate = !isBefore(rounded, closing);
-  if (tooLate) closedDays.push(formatISO(new Date().setHours(0, 0, 0, 0)));
+  // if (tooLate) closedDays.push(formatISO(new Date().setHours(0, 0, 0, 0)));
 
   const [date, setDate] = useState<DateTime>({
     justDate: null,
@@ -92,18 +86,18 @@ const Calendar = ({ days, closedDays }: CalendarProps) => {
         </div>
       ) : (
         <ReactCalendar
-          minDate={new Date()}
-          className="REACT-CALENDAR p-2 mx-auto "
-          view="month"
-          tileDisabled={({ date }) =>
-            closedDays && closedDays.includes(formatISO(date))
-          }
-          onClickDay={(date) =>
-            setDate((prev) => ({
-              ...prev,
-              justDate: date,
-            }))
-          }
+          minDate={now}
+          className='REACT-CALENDAR p-2'
+          view='month'
+          tileDisabled={({date, view}) =>
+                    (view === 'month') && // Block day tiles only
+                    closedDays.some(closedDay =>
+                      date.getFullYear() === closedDay.date.getFullYear() &&
+                      date.getMonth() === closedDay.date.getMonth() &&
+                      date.getDate() === closedDay.date.getDate()
+                    )}
+          onClickDay={(date) => setDate((prev) => ({ ...prev, justDate: date }))}
+         
         />
       )}
     </div>

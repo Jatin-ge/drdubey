@@ -10,7 +10,7 @@ import { InitialProfile } from "@/lib/initial-profile";
 
 interface HomeProps {
   days: Day[];
-  closedDays: string[];
+  closedDays:{ id: string; date: Date; }[];
 }
 
 const AppointmentPage = async () => {
@@ -21,9 +21,8 @@ const AppointmentPage = async () => {
   }
   const days: Day[] = await db.day.findMany();
 
-  const closedDays: string[] = (await db.closedDay.findMany()).map((d) =>
-    formatISO(d.date)
-  );
+  const closedDay  = await db.closedDay.findMany();
+
 
   return (
     <div className="bg-gradient-to-r from-purple-500 to-indigo-600 font-bold min-h-screen">
@@ -32,7 +31,7 @@ const AppointmentPage = async () => {
           Book your Appointment
         </h1>
         <div className="mx-auto ">
-          <Calendar days={days} closedDays={closedDays} />
+          <Calendar days={days} closedDays={closedDay} />
         </div>
       </div>
     </div>
