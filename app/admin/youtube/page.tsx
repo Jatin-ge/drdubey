@@ -58,7 +58,7 @@ const Page: React.FC<Props> = () => {
                 </label>
                 <input
                   id="link"
-                  name="link"
+                  // name="link"
                   type="text"
                   disabled={isLoading}
                   className="w-full mt-1 p-2 border border-primary focus:outline-none focus:border-secondary dark:text-white dark:bg-gray-800"

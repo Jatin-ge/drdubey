@@ -1,9 +1,29 @@
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
+import { useRouter } from "next/navigation";
 type Props = {};
 
 const Hero2 = (props: Props) => {
+  const router = useRouter();
+  const [showCityDropdown, setShowCityDropdown] = useState(false);
+  const [selectedCity, setSelectedCity] = useState<string | null>(null);
+
+  const handleCitySelect = (city: string) => {
+    setSelectedCity(city);
+    router.push(`/booking/${city}`);
+    setShowCityDropdown(false);
+  };
+
+  const handleBookAppointment = () => {
+    setShowCityDropdown(true);
+  };
+
+  const handleNavigateToBooking = () => {
+    if (selectedCity) {
+      router.push(`/booking/${encodeURIComponent(selectedCity)}`);
+    }
+  };
   return (
     <div>
       <div className="w-[85%] mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,32 +39,33 @@ const Hero2 = (props: Props) => {
             </p>
 
             <div className="mt-7 grid gap-3 w-full sm:inline-flex">
-              <Link
-                className="inline-flex justify-center items-center gap-x-3 text-center bg-primary  hover:bg-blue-700 border border-primary text-sm lg:text-base text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
-                href="/booking"
-              >
-                Book An Appointment
-                <svg
-                  className="w-2.5 h-2.5"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
+              {/* City Dropdown */}
+
+              <div className="">
+                <select
+                  id="city"
+                  name="city"
+                  value={selectedCity || ""}
+                  onChange={(e) => handleCitySelect(e.target.value)}
+                  className="p-2 border rounded relative inline-flex justify-center items-center gap-x-3 text-center bg-primary hover:bg-blue-700 border border-primary text-sm lg:text-base text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
                 >
-                  <path
-                    d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </Link>
-              <a
+                  <option value="" disabled>
+                    Book an appointment
+                  </option>
+                  {["chennai", "jaipur", "rajasthan", "kota"].map((city) => (
+                    <option key={city} value={city}>
+                      {city}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <button
+                onClick={handleNavigateToBooking}
                 className="inline-flex justify-center items-center gap-x-3.5 text-sm lg:text-base text-center border hover:border-gray-300 shadow-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:border-gray-800 dark:hover:border-gray-600 dark:shadow-slate-700/[.7] dark:text-white dark:focus:ring-gray-700 dark:focus:ring-offset-gray-800"
-                href="#"
               >
                 Contact Us
-              </a>
+              </button>
             </div>
 
             <div className="mt-6 lg:mt-10 grid grid-cols-2 gap-x-5">

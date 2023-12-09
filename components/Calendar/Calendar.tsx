@@ -26,10 +26,9 @@ type DateTime = {
   dateTime: Date | null;
 };
 
-
 interface CalendarProps {
   days: Day[];
-  closedDays: { id: string; date: Date; }[];
+  closedDays: { id: string; date: Date }[];
 }
 
 const Calendar = ({ days, closedDays }: CalendarProps) => {
@@ -69,6 +68,15 @@ const Calendar = ({ days, closedDays }: CalendarProps) => {
 
   console.log("the closed days in the calender are ", closedDays);
 
+  function isToday(inputDate: Date) {
+    const today = new Date();
+    return (
+      inputDate.getDate() === today.getDate() &&
+      inputDate.getMonth() === today.getMonth() &&
+      inputDate.getFullYear() === today.getFullYear()
+    );
+  }
+
   return (
     <div className="flex  flex-col justify-center items-center dark:text-gray-800">
       {date.justDate ? (
@@ -87,17 +95,21 @@ const Calendar = ({ days, closedDays }: CalendarProps) => {
       ) : (
         <ReactCalendar
           minDate={now}
-          className='REACT-CALENDAR p-2'
-          view='month'
-          tileDisabled={({date, view}) =>
-                    (view === 'month') && // Block day tiles only
-                    closedDays.some(closedDay =>
-                      date.getFullYear() === closedDay.date.getFullYear() &&
-                      date.getMonth() === closedDay.date.getMonth() &&
-                      date.getDate() === closedDay.date.getDate()
-                    )}
-          onClickDay={(date) => setDate((prev) => ({ ...prev, justDate: date }))}
-         
+          className="REACT-CALENDAR p-2"
+          view="month"
+          tileDisabled={({ date, view }) =>
+            (view === "month" &&
+              closedDays.some(
+                (closedDay) =>
+                  date.getFullYear() === closedDay.date.getFullYear() &&
+                  date.getMonth() === closedDay.date.getMonth() &&
+                  date.getDate() === closedDay.date.getDate()
+              )) ||
+            isToday(date)
+          }
+          onClickDay={(date) =>
+            setDate((prev) => ({ ...prev, justDate: date }))
+          }
         />
       )}
     </div>

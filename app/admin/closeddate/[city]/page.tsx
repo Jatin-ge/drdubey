@@ -11,10 +11,10 @@ import EditableTable from "@/components/EditableTable/EditableTable";
 
 interface HomeProps {
   days: Day[];
-  closedDays: string[];
+  closedDays: { id: string; date: Date }[];
 }
 
-const page = async () => {
+const page = async ({ params }: { params: { city: string } }) => {
   const user = await currentUser();
 
   if (!user) {
@@ -28,16 +28,24 @@ const page = async () => {
 
   if (!profile) {
   }
-  const days: Day[] = await db.day.findMany();
+  const days = await db.day.findMany({
+    where: {
+      cityname: params.city,
+    },
+  });
 
-  const closedDays: string[] = (await db.closedDay.findMany()).map((d) =>
-    formatISO(d.date)
-  );
+  const closedDay = await db.closedDay.findMany({
+    where: {
+      cityname: params.city,
+    },
+  });
+
+  const city = params.city;
   return (
     <div>
       <div className="lg:flex lg:my-32 ">
         <EditableTable days={days} />
-        <ClosingDate closedDays={closedDays} />
+        <ClosingDate closedDays={closedDay} city={city} />
       </div>
     </div>
   );

@@ -112,7 +112,6 @@ model Day {
   city Cities @relation(fields: [cityname], references: [name])
 
   name String
-  cityname String?
   dayOfWeek Int // @see getDay() documentation, 0 for Sunday, 1 for Monday, ...
   openTime  String
   closeTime String
@@ -123,7 +122,7 @@ model ClosedDay {
   id   String  @id @default(auto()) @map("_id") @db.ObjectId
   cityname String
   city Cities @relation(fields: [cityname], references: [name])
-  date DateTime @unique
+  date DateTime 
 }
 
 
