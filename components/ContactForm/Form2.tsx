@@ -1,6 +1,11 @@
 import React from "react";
 
 const ContactSection: React.FC = () => {
+
+  const handleClick = (event: any) => {
+    event.preventDefault();
+    console.log(event)
+  }
   return (
     <section
       style={{
@@ -163,7 +168,7 @@ const ContactSection: React.FC = () => {
           </div>
         </div>
         <div className="px-8 py-8 bg-white border rounded-md shadow-md dark:border-gray-800 dark:bg-gray-800">
-          <form action="">
+          <form  onSubmit={handleClick} >
             <div className="mb-6">
               <h2 className="text-xl font-bold text-gray-00 dark:text-gray-400">
                 Please send message for futher information!{" "}
@@ -175,6 +180,7 @@ const ContactSection: React.FC = () => {
                   className="w-full px-3 py-2 leading-loose border rounded-md bg-gray-50 dark:text-gray-400 dark:bg-gray-700 dark:border-gray-700"
                   type="text"
                   placeholder="First Name.."
+                  name="first_name"
                 />
               </div>
               <div className="w-full px-2 lg:w-1/2">
@@ -182,6 +188,7 @@ const ContactSection: React.FC = () => {
                   className="w-full px-3 py-2 leading-loose border rounded-md bg-gray-50 dark:text-gray-400 dark:bg-gray-700 dark:border-gray-700"
                   type="text"
                   placeholder="Last Name.."
+                  name="last_name"
                 />
               </div>
             </div>
@@ -189,13 +196,17 @@ const ContactSection: React.FC = () => {
               className="w-full px-3 py-2 mb-4 leading-loose border rounded-md bg-gray-50 dark:text-gray-400 dark:bg-gray-700 dark:border-gray-700"
               type="email"
               placeholder="abc@gmail.com"
+              name="email"
             />
             <textarea
               rows={4}
               placeholder="Write a message..."
               className="block w-full px-4 mb-4 leading-tight text-gray-700 border rounded bg-gray-50 dark:placeholder-gray-400 py-7 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-700 "
+              name="message"
             />
-            <button className="w-full py-4 text-sm font-bold leading-normal text-white transition-all duration-300 bg-primary rounded-md dark:bg-primary dark:hover:bg-primary hover:bg-blue-700">
+            <button className="w-full py-4 text-sm font-bold leading-normal text-white transition-all duration-300 bg-primary rounded-md dark:bg-primary dark:hover:bg-primary hover:bg-blue-700"
+            
+            >
               Send Message
             </button>
           </form>

@@ -30,9 +30,7 @@ const page = async () => {
   }
   const days: Day[] = await db.day.findMany();
 
-  const closedDays: string[] = (await db.closedDay.findMany()).map((d) =>
-    formatISO(d.date)
-  );
+  const closedDays  = await db.closedDay.findMany();
   return (
     <div>
       <div className="lg:flex lg:my-32 ">

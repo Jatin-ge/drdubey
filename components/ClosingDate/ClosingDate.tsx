@@ -6,7 +6,7 @@ import "../../components/Calendar/Calendar.css";
 import { formatISO } from "date-fns";
 
 type Props = {
-  closedDays: string[];
+  closedDays: { id: string; date: Date; }[];
 };
 
 const ClosingDate = ({ closedDays }: Props) => {
@@ -64,9 +64,13 @@ const ClosingDate = ({ closedDays }: Props) => {
         className="REACT-CALENDAR p-2 mx-auto"
         view="month"
         onClickDay={handleDateClick}
-        tileDisabled={({ date }) =>
-          closedDays && closedDays.includes(formatISO(date))
-        }
+        tileDisabled={({date, view}) =>
+                    (view === 'month') && // Block day tiles only
+                    closedDays.some(closedDay =>
+                      date.getFullYear() === closedDay.date.getFullYear() &&
+                      date.getMonth() === closedDay.date.getMonth() &&
+                      date.getDate() === closedDay.date.getDate()
+                    )}
       />
 
       {/* Display selected dates */}

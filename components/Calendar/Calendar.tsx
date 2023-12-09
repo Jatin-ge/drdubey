@@ -97,7 +97,6 @@ const Calendar = ({ days, closedDays }: CalendarProps) => {
                       date.getDate() === closedDay.date.getDate()
                     )}
           onClickDay={(date) => setDate((prev) => ({ ...prev, justDate: date }))}
-         
         />
       )}
     </div>
