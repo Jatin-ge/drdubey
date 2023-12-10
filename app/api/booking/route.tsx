@@ -5,25 +5,22 @@ import { redirect } from "next/navigation";
 import { NextResponse } from "next/server";
 
 export async function POST(
-    req: Request,
-     { params }: { params: { userId: string } }
-)
-
-{  
-  try{ 
+  req: Request,
+  { params }: { params: { userId: string } }
+) {
+  try {
     const profile = await currentProfile();
 
-    const { values, date, time , userId } = await req.json();
+    const { values, date, time, userId, city } = await req.json();
 
-     
     if (!profile) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    const booking  = await db.appointment.create({
-      data:{
+    const booking = await db.appointment.create({
+      data: {
         userId,
-        name:  values.name,
+        name: values.name,
         phone: values.phone,
         age: values.age,
         address: values.address,
@@ -32,10 +29,11 @@ export async function POST(
         time,
         email: values.email,
         description: values.description,
-      }
-})
-      
-      return NextResponse.json(booking);
+        city,
+      },
+    });
+
+    return NextResponse.json(booking);
   } catch (error) {
     console.log("[CHANNEL_ID_DELETE]", error);
     return new NextResponse("Internal Error", { status: 500 });

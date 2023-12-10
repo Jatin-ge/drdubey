@@ -30,7 +30,7 @@ const AppointmentPage = async ({ params }: { params: { city: string } }) => {
     },
   });
 
-  return <Booking closedDays={closedDay} days={days} />;
+  return <Booking closedDays={closedDay} days={days} city={params.city} />;
 };
 
 export default AppointmentPage;

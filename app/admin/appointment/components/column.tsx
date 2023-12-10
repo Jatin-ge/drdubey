@@ -1,32 +1,27 @@
-"use client"
+"use client";
 
-import { ColumnDef } from "@tanstack/react-table"
-import { GenderType, LeadStatus } from "@prisma/client"
-import { ArrowUpDown, MoreHorizontal } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
-import { CellAction } from "./cell-action"
-
-
-
-
+import { ColumnDef } from "@tanstack/react-table";
+import { GenderType, LeadStatus } from "@prisma/client";
+import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { CellAction } from "./cell-action";
 
 export type AppointMentCloumn = {
-  id: string
-  name: string
-  address: string
-  age: number
-  gender: GenderType
-  phone: string 
-  date: string
-  time: string
-  email: string | null
-  userId: string
-  
-}
+  id: string;
+  name: string;
+  address: string;
+  age: number;
+  gender: GenderType;
+  phone: string;
+  date: string;
+  time: string;
+  email: string | null;
+  userId: string;
+  city: string;
+};
 
 export const columns: ColumnDef<AppointMentCloumn>[] = [
-  
   {
     id: "select",
     header: ({ table }) => (
@@ -46,7 +41,7 @@ export const columns: ColumnDef<AppointMentCloumn>[] = [
     enableSorting: true,
     enableHiding: true,
   },
-    
+
   {
     accessorKey: "name",
     header: "Name",
@@ -74,16 +69,15 @@ export const columns: ColumnDef<AppointMentCloumn>[] = [
           Date
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
-      )
+      );
     },
   },
-  
-  
+
   {
     accessorKey: "time",
     header: "Time",
   },
-  
+
   {
     accessorKey: "address",
     header: "Address",
@@ -94,8 +88,6 @@ export const columns: ColumnDef<AppointMentCloumn>[] = [
   },
   {
     id: "actions",
-    cell : ({row}) => <CellAction data={row.original}/>
-  }
-   
-
+    cell: ({ row }) => <CellAction data={row.original} />,
+  },
 ];

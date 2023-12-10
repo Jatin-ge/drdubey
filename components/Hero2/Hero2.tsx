@@ -150,10 +150,10 @@ const Hero2 = (props: Props) => {
 
           <div data-aos="fade-right" className="relative ml-4 my-8 md:my-44">
             <Image
-              width={600}
+              width={1200}
               height={900}
               className="w-full rounded-md"
-              src="/assets/images/png1.png"
+              src="/assets/images/hero2.JPG"
               alt="Image Description"
             />
             <div className="absolute inset-0 -z-[1] bg-gradient-to-tr from-gray-200 via-white/0 to-white/0 w-full h-full rounded-md mt-4 -mb-4 mr-4 -ml-4 lg:mt-6 lg:-mb-6 lg:mr-6 lg:-ml-6 dark:from-slate-800 dark:via-slate-900/0 dark:to-slate-900/0"></div>

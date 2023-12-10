@@ -35,6 +35,7 @@ const EditableTable = ({ days }: any) => {
     } catch (error) {
       console.error("Error updating data:", error);
     }
+    location.reload();
   };
 
   return (

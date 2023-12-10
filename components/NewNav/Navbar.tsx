@@ -37,9 +37,9 @@ const Navbar = () => {
         <Link href="/">
           <Image
             alt="img"
-            height={220}
-            width={220}
-            src={"/assets/images/logo2.webp"}
+            height={150}
+            width={150}
+            src={"/assets/images/logofinalbg.png"}
           />
         </Link>
         <ul style={{ color: `${textColor}` }} className="hidden sm:flex">
