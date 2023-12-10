@@ -3,13 +3,15 @@
 import React, { useState } from "react";
 import ReactCalendar from "react-calendar";
 import "../../components/Calendar/Calendar.css";
-import { formatISO } from "date-fns";
+import { formatISO, isToday } from "date-fns";
 
 type Props = {
-  closedDays: { id: string; date: Date; }[];
+  closedDays: { id: string; date: Date }[];
+  city: string;
 };
 
-const ClosingDate = ({ closedDays }: Props) => {
+const ClosingDate = ({ closedDays, city }: Props) => {
+  
   const [selectedDates, setSelectedDates] = useState<Date[]>([]);
 
   const handleDateClick = (date: Date) => {
@@ -32,18 +34,16 @@ const ClosingDate = ({ closedDays }: Props) => {
 
   const handleSubmit = async () => {
     try {
-      // Assuming your API endpoint is /api/closedDays and using POST method
-      const response = await fetch("/api/days/closed", {
+      const response = await fetch(`/api/days/closed/${city}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ selectedDates }),
+        body: JSON.stringify({ selectedDates, cityName: city }),
       });
 
       if (response.ok) {
         console.log("Dates submitted successfully!");
-        // Optionally, you can reset the selectedDates array here
         setSelectedDates([]);
       } else {
         console.error("Failed to submit dates");
@@ -64,13 +64,16 @@ const ClosingDate = ({ closedDays }: Props) => {
         className="REACT-CALENDAR p-2 mx-auto"
         view="month"
         onClickDay={handleDateClick}
-        tileDisabled={({date, view}) =>
-                    (view === 'month') && // Block day tiles only
-                    closedDays.some(closedDay =>
-                      date.getFullYear() === closedDay.date.getFullYear() &&
-                      date.getMonth() === closedDay.date.getMonth() &&
-                      date.getDate() === closedDay.date.getDate()
-                    )}
+        tileDisabled={({ date, view }) =>
+          (view === "month" &&
+            closedDays.some(
+              (closedDay) =>
+                date.getFullYear() === closedDay.date.getFullYear() &&
+                date.getMonth() === closedDay.date.getMonth() &&
+                date.getDate() === closedDay.date.getDate()
+            )) ||
+          isToday(date)
+        }
       />
 
       {/* Display selected dates */}

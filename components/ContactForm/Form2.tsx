@@ -1,10 +1,26 @@
+import axios from "axios";
 import React from "react";
+import toast from "react-hot-toast";
 
 const ContactSection: React.FC = () => {
 
-  const handleClick = (event: any) => {
+  const handleClick = async (event: any) => {
     event.preventDefault();
-    console.log(event)
+
+    const formFields = event.target;
+    const fullNameInput = formFields.first_name.value + " " + formFields.last_name.value; 
+    const emailInput = formFields.email.value;
+    const messageInput = formFields.message.value;
+    try{
+        await axios.post('/api/contact', {fullNameInput, emailInput, messageInput})
+        toast.success("Thanks for Contacting us!");
+        formFields.reset();
+    }
+    catch(error){
+      console.log(error)
+    }
+    
+
   }
   return (
     <section

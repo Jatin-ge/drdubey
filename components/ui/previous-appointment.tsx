@@ -64,6 +64,7 @@ const PreviousAppointment = ({appointments}: PreviousAppointmentProps) => {
   const appointment = appointments[0]
   const date =  urlParams.get('date');
   const time =  urlParams.get('time');
+  const city = urlParams.get('city');
 
   const header = {
    "headers":{
@@ -127,7 +128,7 @@ const PreviousAppointment = ({appointments}: PreviousAppointmentProps) => {
             }
     ]
     }}
-      await axios.post(`/api/another-booking`, {values, date, time, appointment });
+      await axios.post(`/api/another-booking`, {values, date, time, appointment, city });
       console.log("done")
       await axios.post("https://graph.facebook.com/v17.0/177309328798172/messages", body, header);
 

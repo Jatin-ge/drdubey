@@ -6,37 +6,28 @@ import { NextResponse } from "next/server";
 
 export async function POST(
     req: Request,
-     { params }: { params: { userId: string } }
 )
 
 {  
   try{ 
     const profile = await currentProfile();
 
-    const { values, date, time , userId, city } = await req.json();
+    const {fullNameInput, emailInput, messageInput} = await req.json();
 
      
     if (!profile) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    const booking  = await db.appointment.create({
+    const contact  = await db.contactUs.create({
       data:{
-        userId,
-        name:  values.name,
-        phone: values.phone,
-        age: values.age,
-        address: values.address,
-        gender: values.gender,
-        cityname: city,
-        date,
-        time,
-        email: values.email,
-        description: values.description,
+        name: fullNameInput,
+        email: emailInput,
+        message: messageInput,
       }
 })
       
-      return NextResponse.json(booking);
+      return NextResponse.json(contact);
   } catch (error) {
     console.log("[CHANNEL_ID_DELETE]", error);
     return new NextResponse("Internal Error", { status: 500 });

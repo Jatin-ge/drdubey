@@ -22,6 +22,7 @@ export type AppointMentCloumn = {
   time: string
   email: string | null
   userId: string
+  city: string
   
 }
 
@@ -62,6 +63,10 @@ export const columns: ColumnDef<AppointMentCloumn>[] = [
   {
     accessorKey: "email",
     header: "Email",
+  },
+  {
+    accessorKey: "city",
+    header: "City",
   },
   {
     accessorKey: "date",

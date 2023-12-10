@@ -30,8 +30,23 @@ export function MainNav({
     },
 
     {
-      href: `/admin/closeddate`,
-      label: "Schedule",
+      href: `/admin/closeddate/kota`,
+      label: "Kota",
+      active: pathname === `/admin/openings`,
+    },
+    {
+      href: `/admin/closeddate/chennai`,
+      label: "Chennai",
+      active: pathname === `/admin/openings`,
+    },
+    {
+      href: `/admin/closeddate/rajasthan`,
+      label: "Rajasthan",
+      active: pathname === `/admin/openings`,
+    },
+    {
+      href: `/admin/closeddate/jaipur`,
+      label: "Jaipur",
       active: pathname === `/admin/openings`,
     },
   ];

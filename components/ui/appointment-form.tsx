@@ -79,6 +79,7 @@ const Appointment = ({ name, email, userId }: AddpatientProps) => {
   // Retrieve the 'date' and 'time' parameters
   const date = urlParams.get("date");
   const time = urlParams.get("time");
+  const city = urlParams.get("city");
 
   const header = {
    "headers":{
@@ -151,7 +152,7 @@ const Appointment = ({ name, email, userId }: AddpatientProps) => {
           ],
         },
       };
-      await axios.post(`/api/booking`, { values, date, time, userId });
+      await axios.post(`/api/booking`, { values, date, time, userId, city });
       await axios.post(
         "https://graph.facebook.com/v17.0/177309328798172/messages",
         body,

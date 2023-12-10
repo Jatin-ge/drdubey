@@ -8,6 +8,7 @@ import { CreateDiscuusionModal } from "../modals/create-discussion";
 import { EditDiscussionModal } from "../modals/edit-discussion";
 import { SendAppointmentReminder } from "../modals/appointment-reminder-modal";
 import { PaymentModal } from "../modals/payment-info-modal";
+import { SelectCityModal } from "../modals/select-city";
 
 export const ModalProvider = () => {
     const [isMounted,  setIsMounted] = useState(false);
@@ -28,6 +29,7 @@ export const ModalProvider = () => {
             <EditDiscussionModal/>
             <SendAppointmentReminder/>
             <PaymentModal/>
+            <SelectCityModal/>
             
         </>
     )

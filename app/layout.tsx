@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar/navbar";
 import { ThemeProvider } from "@/components/Provider/ThemeProvider";
 import { ModalProvider } from "@/components/providers/modal-provider";
 import { ClerkProvider } from '@clerk/nextjs'
-
+import { ToastProvider } from "@/components/providers/toast-provider";
 import React, { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -26,6 +26,7 @@ export default function RootLayout({
         <body className={inter.className}>
           {/* <ThemeProvider attribute="class" defaultTheme="light"> */}
           <ThemeProvider attribute="class" defaultTheme="light">
+            <ToastProvider/>
             <ModalProvider/>
               {children}
           </ThemeProvider>

@@ -8,8 +8,8 @@ import { LeadStatus } from "@prisma/client";
 
 const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
   const appointments = await db.appointment.findMany({
-    include:{
-        user:true
+    include: {
+      user: true,
     },
 
     orderBy: {
@@ -17,18 +17,21 @@ const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
     },
   });
 
-  const formattedAppointmentCloumn: AppointMentCloumn[] = appointments.map((item) => ({
-    id: item.id,
-    name: item.name,
-    gender: item.gender,
-    phone: item.phone,
-    address: item.address,
-    age: item.age,
-    date: item.date,
-    time: item.time,
-    email: item.user.email || null,
-    userId: item.userId,
-  }));
+  const formattedAppointmentCloumn: AppointMentCloumn[] = appointments.map(
+    (item) => ({
+      id: item.id,
+      name: item.name,
+      gender: item.gender,
+      phone: item.phone,
+      address: item.address,
+      age: item.age,
+      date: item.date,
+      time: item.time,
+      email: item.user.email || null,
+      userId: item.userId,
+      city: item.cityname,
+    })
+  );
 
   return (
     <div className="flex-col">

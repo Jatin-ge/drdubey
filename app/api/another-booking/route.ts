@@ -11,7 +11,7 @@ export async function POST(
 {  
   try{ 
     const profile = await InitialProfile();
-    const { values, date, time , appointment } = await req.json();
+    const { values, date, time , appointment, city } = await req.json();
 
      
     if (!profile) {
@@ -21,14 +21,15 @@ export async function POST(
     const booking  = await db.appointment.create({
       data:{
         userId: appointment.userId,
-        name: appointment.name,
-        phone: appointment.phone,
-        age:  appointment.age,
-        address: appointment.address,
-        gender : appointment.gender,
+        name:  values.name,
+        phone: values.phone,
+        age: values.age,
+        address: values.address,
+        gender: values.gender,
+        cityname: city,
         date,
         time,
-        email: appointment.email,
+        email: values.email,
         description: values.description,
       }
 })
