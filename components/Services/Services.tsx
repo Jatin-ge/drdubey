@@ -10,7 +10,7 @@ const Services = (props: Props) => {
   return (
     <div id="services" className="bg-[#F4FEFA] py-8 dark:bg-inherit ">
       <div className="container  mx-auto  h-full w-full">
-        <div className="flex justify-between flex-col sm:flex-row 2xl:-ml-56">
+        <div className="flex justify-between flex-col sm:flex-row   2xl:-ml-24">
           <div className=" w-[100%] sm:w-[40vw] ">
             <span className="text-primary  font-semibold text-xl">
               SERVICES & TREATMENT
