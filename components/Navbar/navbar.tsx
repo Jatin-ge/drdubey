@@ -73,25 +73,22 @@ const Navbar = () => {
                     >
                       Services
                     </Link>
+                    
                     <Link
-                      href="/engagements"
-                      className="w-full px-4 py-2 -ml-4  hover:text-primary focus:focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
-                    >
-                      Engagements
-                    </Link>
-                    <Link
-                      href="/gallary"
+                      href="/gallery"
                       className="w-full px-4 py-2 -ml-4  hover:text-primary focus:focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                     >
                       Gallery
                     </Link>
 
                     <Link
-                      href="/blogs"
+                      href="/youtube"
                       className="w-full px-4 py-2 -ml-4  hover:text-primary focus:focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                     >
-                      Publications
+                      Youtube
                     </Link>
+
+                    
                     <Link
                       href="/contact"
                       className="w-full px-4 py-2 -ml-4  hover:text-primary focus:focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
@@ -140,6 +137,15 @@ const Navbar = () => {
                 className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md  hover:text-primary focus:focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
               >
                 Gallery
+              </Link>
+            </li>
+
+            <li className="mr-3 nav__item">
+              <Link
+                href="/youtube"
+                className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md  hover:text-primary focus:focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+              >
+                Youtube
               </Link>
             </li>
 
