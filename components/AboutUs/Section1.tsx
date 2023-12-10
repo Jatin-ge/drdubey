@@ -13,24 +13,24 @@ const Section1 = (props: Props) => {
               <div className="flex flex-wrap">
                 <div className="w-full px-4 md:w-1/2">
                   <img
-                    src="https://i.postimg.cc/YCJW7jv8/pexels-fauxels-3184357.jpg"
+                    src="/assets/images/main.JPG"
                     alt=""
                     className="object-cover w-full mb-6 rounded-lg h-80"
                   />
                   <img
-                    src="https://i.postimg.cc/j5L5bX2d/pexels-andrea-piacquadio-3757946.jpg"
+                    src="/assets/images/two.JPG"
                     alt=""
                     className="object-cover w-full rounded-lg h-80"
                   />
                 </div>
                 <div className="w-full px-4 md:w-1/2 xl:mt-11">
                   <img
-                    src="https://i.postimg.cc/sXJQ5cw0/pexels-pixabay-256455-1.jpg"
+                    src="/assets/images/dubay/p4.webp"
                     alt=""
                     className="object-cover w-full mb-6 rounded-lg h-80"
                   />
                   <img
-                    src="https://i.postimg.cc/vHTg6593/aqq.jpg"
+                    src="/assets/images/dubay/img3.webp"
                     alt=""
                     className="object-cover w-full rounded-lg h-80"
                   />
