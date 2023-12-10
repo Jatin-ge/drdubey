@@ -62,6 +62,9 @@ const Navbar = () => {
             <Link href="/profile">Patient Profile</Link>
           </li>
           <li className="p-4 hover:text-primary">
+            <Link href="/youtube">Youtube</Link>
+          </li>
+          <li className="p-4 hover:text-primary">
             <UserButton afterSignOutUrl="/" />
           </li>
           <li className="p-4 hover:text-primary mb-1">

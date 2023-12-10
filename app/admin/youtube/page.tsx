@@ -4,8 +4,17 @@ import axios from "axios";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { useRouter } from "next/router";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Input } from "@/components/ui/input";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
 
 type Props = {};
 
@@ -47,42 +56,44 @@ const Page: React.FC<Props> = () => {
       <div>
         <h2 className="text-3xl font-bold mb-5 m-10">Add YouTube Link</h2>
         <div className="container mx-auto">
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <div className="space-y-8 px-6">
-              <div className="mb-6">
-                <label
-                  htmlFor="link"
-                  className="block text-sm font-bold text-black dark:text-white"
-                >
-                  YouTube Link
-                </label>
-                <input
-                  id="link"
-                  // name="link"
-                  type="text"
-                  disabled={isLoading}
-                  className="w-full mt-1 p-2 border border-primary focus:outline-none focus:border-secondary dark:text-white dark:bg-gray-800"
-                  placeholder="Enter YouTube link"
-                  {...form.register("link")}
-                />
-                {form.formState.errors.link && (
-                  <p className="text-sm text-red-500 mt-1">
-                    {form.formState.errors.link.message}
-                  </p>
-                )}
-              </div>
-            </div>
+           <Form {...form} >
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <div className="space-y-8 px-6">
+            <FormField
+              control={form.control}
+              name="link"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
+                    Add Youtube video link
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isLoading}
+                      className="w-full mt-1 p-2 border border-primary focus:outline-none focus:border-secondary dark:text-white dark:bg-gray-800"
+                      placeholder="Enter a youtube link"
+                      {...field}
+                      type="url"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            /> 
+           
+          </div>
 
-            <div className="px-6 py-4">
-              <button
+          
+           <Button
                 type="submit"
                 className="w-full py-2 px-4 bg-primary text-white rounded-md cursor-pointer"
                 disabled={isLoading}
               >
                 Add Link
-              </button>
-            </div>
-          </form>
+              </Button>
+        
+        </form>
+      </Form>
         </div>
       </div>
     </div>
@@ -90,3 +101,5 @@ const Page: React.FC<Props> = () => {
 };
 
 export default Page;
+
+// className="w-full mt-1 p-2 border border-primary focus:outline-none focus:border-secondary dark:text-white dark:bg-gray-800"

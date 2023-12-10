@@ -49,7 +49,7 @@ export const SelectCityModal = () => {
   
   
   const { isOpen, onClose, type, data } = useModal();
-  const cities = ["jaipur", "chennai", "kota", "delhi"]
+  const cities = ["jaipur", "chennai", "kota", "rajasthan"]
 
 
   const header = {

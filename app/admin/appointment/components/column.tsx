@@ -22,6 +22,8 @@ export type AppointMentCloumn = {
   
 }
 
+const cities = ["jaipur", "kota", "chennai", "rajasthan"]
+
 export const columns: ColumnDef<AppointMentCloumn>[] = [
   {
     id: "select",
@@ -61,7 +63,35 @@ export const columns: ColumnDef<AppointMentCloumn>[] = [
   },
   {
     accessorKey: "city",
-    header: "City",
+    // accessorFn: x => x.status,
+    header: ({ table }) => (
+      // <input
+      //   type="text"
+      //   value={table.getColumn("status")?.getFilterValue()}
+      //   onChange={(event) => table.getColumn("status")?.setFilterValue(event.target.value)}
+      //   className="max-w-sm"
+      //   />
+         <select
+        title="filter"
+        //@ts-ignore
+        value={table.getColumn("city")?.getFilterValue()}
+        onChange={(event) => table.getColumn("city")?.setFilterValue(event.target.value)}
+      >
+        <option value="">All</option>
+        {Object.values(cities).map((option: any, i, _) => (
+           <option key={i} value={option}>
+              {option.charAt(0).toUpperCase() + option.slice(1)}
+            </option>
+          ))}
+      </select>
+    ),
+    enableColumnFilter: true,
+
+    // filterFn: selectFilterFn,
+    // meta: {
+    //       filterComponent: CustomFilter
+    //     }
+    
   },
   {
     accessorKey: "date",

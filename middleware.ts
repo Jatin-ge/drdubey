@@ -12,7 +12,8 @@ export default authMiddleware({
     "/admin/:path*",
     "/about",
     "/gallery",
-    "/contact"
+    "/contact",
+    "/youtube"
 
   ],
   
