@@ -10,14 +10,8 @@ export async function POST(
 
 {  
   try{ 
-    const profile = await currentProfile();
 
     const {fullNameInput, emailInput, messageInput} = await req.json();
-
-     
-    if (!profile) {
-      return new NextResponse("Unauthorized", { status: 401 });
-    }
 
     const contact  = await db.contactUs.create({
       data:{

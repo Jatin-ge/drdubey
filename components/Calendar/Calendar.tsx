@@ -164,7 +164,7 @@ const Calendar = ({ days, closedDays, appointments, city }: CalendarProps) => {
             Please Select your Desired Time {"-> "}
           </h1>
           <div className="flex flex-wrap gap-4">
-            {times?.map((time, i) => (
+            {filteredTimes?.map((time, i) => (
               <div key={`time-${i}`} className="rounded-sm bg-gray-100 p-2 ">
                 <button
                   type="button"

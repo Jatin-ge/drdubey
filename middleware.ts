@@ -9,7 +9,11 @@ export default authMiddleware({
     "/sign-in(.*)",
     "/sign-up(.*)",
     "/api(.*)",
-    "/admin/:path*"
+    "/admin/:path*",
+    "/about",
+    "/gallery",
+    "/contact"
+
   ],
   
   ignoredRoutes: [

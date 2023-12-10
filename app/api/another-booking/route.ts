@@ -21,16 +21,16 @@ export async function POST(
     const booking  = await db.appointment.create({
       data:{
         userId: appointment.userId,
-        name:  values.name,
-        phone: values.phone,
-        age: values.age,
-        address: values.address,
-        gender: values.gender,
+        name:  appointment.name,
+        phone: appointment.phone,
+        age: appointment.age,
+        address: appointment.address,
+        gender: appointment.gender,
         cityname: city,
         date,
         time,
-        email: values.email,
-        description: values.description,
+        email: appointment.email,
+        description: appointment.description,
       }
 })
       

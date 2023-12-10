@@ -45,7 +45,7 @@ export const Booking = async({ days, closedDays, city }: HomeProps) => {
               services.
             </p>
             <div className="mx-auto">
-              <Calendar days={days} closedDays={closedDays} city={city} />
+              <Calendar days={days} closedDays={closedDays} city={city} appointments={appoinmentCity?.appointments} />
             </div>
           </div>
         </div>
