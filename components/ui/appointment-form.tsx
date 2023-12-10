@@ -49,7 +49,7 @@ import { useEffect } from "react";
 
 interface AddpatientProps {
   name: string;
-  email: string ;
+  email: string;
   userId: string;
 }
 
@@ -82,13 +82,11 @@ const Appointment = ({ name, email, userId }: AddpatientProps) => {
   const city = urlParams.get("city");
 
   const header = {
-   "headers":{
-    Authorization: process.env.NEXT_PUBLIC_WHATSAPP_TOKEN,
-    Accept: "application/json"
-    
-   } 
-  }
-
+    headers: {
+      Authorization: process.env.NEXT_PUBLIC_WHATSAPP_TOKEN,
+      Accept: "application/json",
+    },
+  };
 
   console.log(time);
 
@@ -173,9 +171,9 @@ const Appointment = ({ name, email, userId }: AddpatientProps) => {
 
   return (
     <ScrollArea className="container mx-auto">
-        <h1 className="text-2xl text-center font-bold py-8 px-6 bg-white text-black p-0 overflow-hidden">
-            Appointment Form
-        </h1>
+      <h1 className="text-2xl text-center font-bold py-8 px-6 bg-white text-black p-0 overflow-hidden">
+        Appointment Form
+      </h1>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <div className="space-y-8 px-6">

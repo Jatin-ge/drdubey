@@ -1,11 +1,31 @@
-import React from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import React, { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 type Props = {};
 
 const WhyChoose = (props: Props) => {
+  const router = useRouter();
+  const [showCityDropdown, setShowCityDropdown] = useState(false);
+  const [selectedCity, setSelectedCity] = useState<string | null>(null);
+
+  const handleCitySelect = (city: string) => {
+    setSelectedCity(city);
+    router.push(`/booking/${city}`);
+    setShowCityDropdown(false);
+  };
+
+  // const handleBookAppointment = () => {
+  //   setShowCityDropdown(true);
+  // };
+
+  const handleNavigateToBooking = () => {
+    if (selectedCity) {
+      router.push(`/booking/${encodeURIComponent(selectedCity)}`);
+    }
+  };
   return (
     <div className="w-[80%]  mx-auto my-16 md:my-32">
       <div className="flex flex-col md:flex-row items-center justify-center md:space-x-56">
@@ -62,9 +82,24 @@ const WhyChoose = (props: Props) => {
           We provide you the best quality at the most affordable price . Book an
           appointment now and visit any of our 5 centers.
         </p>
-        <button className="bg-primary px-5 md:px-16 md:py-3 py-2  text-white mt-4 text-xl md:text-2xl  font-bold">
-          <Link href={"/booking"}>Book An Appointment</Link>
-        </button>
+        <div className="">
+          <select
+            id="city"
+            name="city"
+            value={selectedCity || ""}
+            onChange={(e) => handleCitySelect(e.target.value)}
+            className="p-2 border rounded relative inline-flex justify-center items-center gap-x-3 text-center bg-primary hover:bg-blue-700 border border-primary text-sm lg:text-base text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
+          >
+            <option value="" disabled>
+              Book an appointment
+            </option>
+            {["chennai", "jaipur", "rajasthan", "kota"].map((city) => (
+              <option key={city} value={city}>
+                {city}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import CallIcon from "@mui/icons-material/Call";
 import Person4Icon from "@mui/icons-material/Person4";
@@ -7,10 +7,30 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type Props = {};
 
 const Booknow = (props: Props) => {
+  const router = useRouter();
+  const [showCityDropdown, setShowCityDropdown] = useState(false);
+  const [selectedCity, setSelectedCity] = useState<string | null>(null);
+
+  const handleCitySelect = (city: string) => {
+    setSelectedCity(city);
+    router.push(`/booking/${city}`);
+    setShowCityDropdown(false);
+  };
+
+  const handleBookAppointment = () => {
+    setShowCityDropdown(true);
+  };
+
+  const handleNavigateToBooking = () => {
+    if (selectedCity) {
+      router.push(`/booking/${encodeURIComponent(selectedCity)}`);
+    }
+  };
   return (
     <div className=" my-16">
       <div className="bg-[#E2FFF5] dark:bg-inherit p-10 flex flex-col items-center">
@@ -19,13 +39,24 @@ const Booknow = (props: Props) => {
           Book your medical appointment Today
         </h1>
         <div className="mt-8 flex flex-col lg:flex-row text-2xl font-semibold">
-          <Link
-            href={"/booking"}
-            className="bg-[#B9F7CD] px-12 py-4 m-2 flex items-center dark:text-gray-800"
-          >
-            <CallIcon className="mx-2" />
-            Book an appointment
-          </Link>
+          <div className="">
+            <select
+              id="city"
+              name="city"
+              value={selectedCity || ""}
+              onChange={(e) => handleCitySelect(e.target.value)}
+              className="bg-[#B9F7CD] px-12 py-4 m-2 flex items-center dark:text-gray-800"
+            >
+              <option value="" disabled>
+                Book an appointment
+              </option>
+              {["chennai", "jaipur", "rajasthan", "kota"].map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              ))}
+            </select>
+          </div>
           <Link
             className="border bg-transparent dark:bg-[#B9F7CD] text-black border-black px-12 py-4 m-2 flex items-center"
             href={"/booking"}

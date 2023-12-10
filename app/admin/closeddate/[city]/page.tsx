@@ -43,7 +43,10 @@ const page = async ({ params }: { params: { city: string } }) => {
   const city = params.city;
   return (
     <div>
-      <div className="lg:flex lg:my-32 ">
+      <div className="font-bold text-4xl md:text-6xl text-center text-gray-600 my-8  uppercase">
+        {city}
+      </div>
+      <div className="lg:flex  ">
         <EditableTable days={days} />
         <ClosingDate closedDays={closedDay} city={city} />
       </div>

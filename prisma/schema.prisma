@@ -85,6 +85,7 @@ model Appointment{
   cityname String
   city Cities @relation(fields: [cityname], references: [name])
   age Int
+  city String
   address String
   gender GenderType @default(M)
   createdAt DateTime @default(now())

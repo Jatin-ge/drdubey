@@ -159,17 +159,24 @@ const Calendar = ({ days, closedDays, appointments, city }: CalendarProps) => {
   return (
     <div className="flex  flex-col justify-center items-center dark:text-gray-800">
       {date.justDate ? (
-        <div className="flex flex-wrap gap-4">
-          {filteredTimes?.map((time, i) => (
-            <div key={`time-${i}`} className="rounded-sm bg-gray-100 p-2 ">
-              <button
-                type="button"
-                onClick={() => setDate((prev) => ({ ...prev, dateTime: time }))}
-              >
-                {format(time, "hh: mm aaa")}
-              </button>
-            </div>
-          ))}
+        <div>
+          <h1 className="font-medium text-xl m-4 italic">
+            Please Select your Desired Time {"-> "}
+          </h1>
+          <div className="flex flex-wrap gap-4">
+            {times?.map((time, i) => (
+              <div key={`time-${i}`} className="rounded-sm bg-gray-100 p-2 ">
+                <button
+                  type="button"
+                  onClick={() =>
+                    setDate((prev) => ({ ...prev, dateTime: time }))
+                  }
+                >
+                  {format(time, "hh: mm aaa")}
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       ) : (
         <ReactCalendar

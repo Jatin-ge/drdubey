@@ -56,8 +56,8 @@ const Card1 = (props: Props) => {
               <Image
                 width={1400}
                 height={1400}
-                className="relative w-full xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl:scale-110"
-                src="/assets/images/drdubay.png"
+                className="relative w-full xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl:scale-130"
+                src="/assets/images/photo.png"
                 alt=""
               />
             </div>

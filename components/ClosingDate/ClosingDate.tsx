@@ -11,13 +11,12 @@ type Props = {
 };
 
 const ClosingDate = ({ closedDays, city }: Props) => {
-  
   const [selectedDates, setSelectedDates] = useState<Date[]>([]);
 
   const handleDateClick = (date: Date) => {
     // Check if the date is already selected
     const isDateSelected = selectedDates.some(
-      (d) => d.toISOString() === date.toISOString()
+      (d) => d.toLocaleDateString() === date.toLocaleDateString()
     );
 
     if (!isDateSelected) {
@@ -26,7 +25,7 @@ const ClosingDate = ({ closedDays, city }: Props) => {
     } else {
       // Deselect the date if it's already selected
       const updatedDates = selectedDates.filter(
-        (d) => d.toISOString() !== date.toISOString()
+        (d) => d.toLocaleDateString() !== date.toLocaleDateString()
       );
       setSelectedDates(updatedDates);
     }
@@ -84,10 +83,10 @@ const ClosingDate = ({ closedDays, city }: Props) => {
         <ul className="list-disc pl-4">
           {selectedDates.map((date) => (
             <li
-              key={date.toISOString()}
+              key={date.toLocaleDateString()}
               className="text-gray-800 dark:text-gray-200"
             >
-              {date.toISOString()}
+              {date.toLocaleDateString()}
             </li>
           ))}
         </ul>
