@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../Navbar/navbar";
+import Image from "next/image";
 
 type Props = {};
 
@@ -44,8 +45,10 @@ const Section2 = (props: Props) => {
             </div>
             <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
               <div className="relative">
-                <img
-                  src="https://i.postimg.cc/kGjX7T1M/pexels-andrea-piacquadio-3756679.jpg"
+                <Image
+                  width={1200}
+                  height={1200}
+                  src={"/assets/images/hero2.JPG"}
                   alt="aboutimage"
                   className="relative z-10 object-cover w-full h-full rounded"
                 />
