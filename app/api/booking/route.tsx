@@ -25,17 +25,17 @@ export async function POST(
         age: values.age,
         address: values.address,
         gender: values.gender,
+        cityname: city,
         date,
         time,
         email: values.email,
         description: values.description,
-        city,
       },
     });
 
     return NextResponse.json(booking);
   } catch (error) {
-    console.log("[CHANNEL_ID_DELETE]", error);
+    console.log("[BOOKING_CRETATE]", error);
     return new NextResponse("Internal Error", { status: 500 });
   }
 }

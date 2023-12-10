@@ -1,16 +1,27 @@
-"use client";
 import React from "react";
 import Calendar from "@/components/Calendar/Calendar";
 import { Day } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { db } from "@/lib/db";
 
 interface HomeProps {
-  days: Day[];
+  days: any;
   closedDays: { id: string; date: Date }[];
   city: string;
 }
-export const Booking = ({ days, closedDays, city }: HomeProps) => {
+
+
+export const Booking = async({ days, closedDays, city }: HomeProps) => {
+
+  const appoinmentCity = await db.cities.findUnique({
+    where: {
+      name: city,
+    },
+    include: {
+      appointments: true,
+    },
+  })
   return (
     <div className="">
       <div className="bg-gradient-to-r from-purple-200 via-indigo-300 to-blue-400 font-bold md:w-2/3 mx-auto my-auto rounded-b-2xl md:py-32">
@@ -34,7 +45,7 @@ export const Booking = ({ days, closedDays, city }: HomeProps) => {
               services.
             </p>
             <div className="mx-auto">
-              <Calendar days={days} closedDays={closedDays} city={city} />
+              <Calendar days={days} closedDays={closedDays} city={city} appointments={appoinmentCity?.appointments} />
             </div>
           </div>
         </div>

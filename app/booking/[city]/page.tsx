@@ -11,26 +11,32 @@ import { useRouter } from "next/navigation";
 import { Booking } from "@/components/ui/booking";
 
 const AppointmentPage = async ({ params }: { params: { city: string } }) => {
-  const profile = await InitialProfile();
+  const profile = await currentProfile();
 
   console.log("the city is ", params.city);
 
   if (!profile) {
     return redirect("/sign-in");
   }
-  const days = await db.day.findMany({
+  const city = await db.cities.findUnique({
     where: {
-      cityname: params.city,
+      name: params.city,
     },
+    include:{
+      closeddays: true,
+      days: true
+      
+    }
   });
 
-  const closedDay = await db.closedDay.findMany({
-    where: {
-      cityname: params.city,
-    },
-  });
+  if(!city){
+    return <div>
+      City not Availiable we will be coming soon to ur city
+    </div>
+  }
 
-  return <Booking closedDays={closedDay} days={days} city={params.city} />;
+
+  return <Booking closedDays={city.closeddays} days={city.days} city={params.city} />;
 };
 
 export default AppointmentPage;
