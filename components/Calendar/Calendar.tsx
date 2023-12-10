@@ -6,7 +6,7 @@ import ReactCalendar from "react-calendar";
 
 import "./Calendar.css";
 
-import { format, formatISO, isBefore, parse } from "date-fns";
+import { format, formatISO, isBefore, parse, set } from "date-fns";
 import {
   CLOSING_TIME,
   INTERVAL,
@@ -29,11 +29,13 @@ type DateTime = {
 interface CalendarProps {
   days: Day[];
   closedDays: { id: string; date: Date }[];
+  appointments: any;
   city: string;
 }
 
-const Calendar = ({ days, closedDays, city }: CalendarProps) => {
+const Calendar = ({ days, closedDays, appointments, city }: CalendarProps) => {
   const router = useRouter();
+
 
   // console.log("the days sent to props in the calendar are ", days);
   // Determine if today is closed
@@ -41,6 +43,7 @@ const Calendar = ({ days, closedDays, city }: CalendarProps) => {
   const rounded = roundToNearestMinutes(now, OPENING_HOURS_INTERVAL);
   const closing = parse(today!.closeTime, "kk:mm", now);
   const tooLate = !isBefore(rounded, closing);
+  
   // if (tooLate) closedDays.push(formatISO(new Date().setHours(0, 0, 0, 0)));
 
   const [date, setDate] = useState<DateTime>({
@@ -48,16 +51,91 @@ const Calendar = ({ days, closedDays, city }: CalendarProps) => {
     dateTime: null,
   });
 
+
+    let times =  date?.justDate && getOpeningTimes(date.justDate, days);
+
+    const [filteredTimes, setFilteredTimes] = useState<Date[] | null>(null);
+   
+    
+    console.log("the times are ", times);
+
+    const handleClick = async(event: any) => {
+      
+      console.log("hello" ,event);
+      times =  event && getOpeningTimes(event, days);
+      console.log("the date is ", times);
+      if (times) {
+      console.log(date.justDate);
+      const formattedDate = format(event, "dd-MM-yyyy").toString();
+      console.log("the formatted date is ", formattedDate.toString());
+
+      const exists = appointments.some((appointment: any) => appointment.date === formattedDate)
+
+      console.log("the exists is ", exists);  
+
+      if(exists){
+        appointments = appointments.filter((appointment: any) => appointment.date === formattedDate);
+
+      times.forEach(time => {
+           console.log("the times are", format(time, "hh:mm aaa")); 
+      });
+      
+      
+   
+
+    times = times.filter((time) => {
+    // Check if any appointment matches the current time
+    //@ts-ignore
+    return !appointments.some((appointment) => {
+        return appointment.time === format(time, "hh:mm aaa").toString();
+    });
+});
+    
+    setFilteredTimes(times)
+    
+    
+
+    
+
+
+
+
+      }
+
+      else{
+        setFilteredTimes(times);
+      }
+
+      
+
+
+    }
+    }
+      console.log("the appointments time are ", appointments);
+    
+
+        ;
+
+
+    
+    
+    
+
   useEffect(() => {
     if (date.dateTime) {
+
+
       const formattedDate = format(date.dateTime, "dd-MM-yyyy");
+
+      
       const formattedTime = format(date.dateTime, "hh:mm aaa");
+       
       const booking = qs.stringifyUrl({
         url: "/booking/booking-form",
         query: {
           date: formattedDate,
           time: formattedTime,
-          city: city,
+          city
         },
       });
       router.push(booking);
@@ -66,9 +144,8 @@ const Calendar = ({ days, closedDays, city }: CalendarProps) => {
 
   // console.log("the just date is ", date.justDate);
 
-  const times = date.justDate && getOpeningTimes(date.justDate, days);
+  
 
-  console.log("the closed days in the calender are ", closedDays);
 
   function isToday(inputDate: Date) {
     const today = new Date();
@@ -87,7 +164,7 @@ const Calendar = ({ days, closedDays, city }: CalendarProps) => {
             Please Select your Desired Time {"-> "}
           </h1>
           <div className="flex flex-wrap gap-4">
-            {times?.map((time, i) => (
+            {filteredTimes?.map((time, i) => (
               <div key={`time-${i}`} className="rounded-sm bg-gray-100 p-2 ">
                 <button
                   type="button"
@@ -116,9 +193,13 @@ const Calendar = ({ days, closedDays, city }: CalendarProps) => {
               )) ||
             isToday(date)
           }
-          onClickDay={(date) =>
-            setDate((prev) => ({ ...prev, justDate: date }))
+          onClickDay={(date) => {
+            setDate((prev) => ({ ...prev, justDate: date }));
+            handleClick(date);
           }
+        }
+            
+          
         />
       )}
     </div>

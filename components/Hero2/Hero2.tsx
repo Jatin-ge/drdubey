@@ -1,13 +1,19 @@
+"use client"
+
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Button } from "../ui/button";
+import { useModal } from "@/hooks/use-modal-store";
 type Props = {};
 
 const Hero2 = (props: Props) => {
   const router = useRouter();
   const [showCityDropdown, setShowCityDropdown] = useState(false);
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
+
+  const { onOpen } = useModal();
 
   const handleCitySelect = (city: string) => {
     setSelectedCity(city);
@@ -42,22 +48,13 @@ const Hero2 = (props: Props) => {
               {/* City Dropdown */}
 
               <div className="">
-                <select
-                  id="city"
-                  name="city"
-                  value={selectedCity || ""}
-                  onChange={(e) => handleCitySelect(e.target.value)}
+                <Button
                   className="p-2 border rounded relative inline-flex justify-center items-center gap-x-3 text-center bg-primary hover:bg-blue-700 border border-primary text-sm lg:text-base text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
+
+                  onClick={() => onOpen("selectCity")}
                 >
-                  <option value="" disabled>
-                    Book an appointment
-                  </option>
-                  {["chennai", "jaipur", "rajasthan", "kota"].map((city) => (
-                    <option key={city} value={city}>
-                      {city}
-                    </option>
-                  ))}
-                </select>
+                 Book an appoinment
+                </Button>
               </div>
 
               <button

@@ -8,18 +8,19 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { CellAction } from "./cell-action";
 
 export type AppointMentCloumn = {
-  id: string;
-  name: string;
-  address: string;
-  age: number;
-  gender: GenderType;
-  phone: string;
-  date: string;
-  time: string;
-  email: string | null;
-  userId: string;
-  city: string;
-};
+  id: string
+  name: string
+  address: string
+  age: number
+  gender: GenderType
+  phone: string 
+  date: string
+  time: string
+  email: string | null
+  userId: string
+  city: string
+  
+}
 
 export const columns: ColumnDef<AppointMentCloumn>[] = [
   {
@@ -57,6 +58,10 @@ export const columns: ColumnDef<AppointMentCloumn>[] = [
   {
     accessorKey: "email",
     header: "Email",
+  },
+  {
+    accessorKey: "city",
+    header: "City",
   },
   {
     accessorKey: "date",
