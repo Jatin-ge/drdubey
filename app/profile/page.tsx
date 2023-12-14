@@ -6,10 +6,12 @@ import { currentProfile } from "@/lib/current-profile";
 import Navbar from "@/components/Navbar/navbar";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useModal } from "@/hooks/use-modal-store";
 
-const page = async () => {
+const Page = async () => {
   const user = await db.profile.findMany();
   const AuthProfile = await currentProfile();
+  const { onOpen } = useModal();
 
   if (!AuthProfile) {
     console.error("Profile is undefined");
@@ -92,16 +94,16 @@ const page = async () => {
           <div className="my-8">
             Book an Appointment to create Patient Profile !
           </div>
-          <Link
-            href={"/booking"}
-            className="bg-gradient-to-r from-primary to-cyan-200 py-4 px-32 rounded-full"
+          <Button
+            onClick={() => onOpen("selectCity")}
+            className="p-2 border  relative inline-flex justify-center items-center gap-x-3 text-center bg-primary hover:bg-blue-700  border-primary text-xl lg:text-base text-white  rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
           >
-            Book Now
-          </Link>
+            Book an appointment
+          </Button>
         </div>
       )}
     </>
   );
 };
 
-export default page;
+export default Page;

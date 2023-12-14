@@ -8,6 +8,8 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Button } from "../ui/button";
+import { useModal } from "@/hooks/use-modal-store";
 
 type Props = {};
 
@@ -15,16 +17,7 @@ const Booknow = (props: Props) => {
   const router = useRouter();
   const [showCityDropdown, setShowCityDropdown] = useState(false);
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
-
-  const handleCitySelect = (city: string) => {
-    setSelectedCity(city);
-    router.push(`/booking/${city}`);
-    setShowCityDropdown(false);
-  };
-
-  const handleBookAppointment = () => {
-    setShowCityDropdown(true);
-  };
+  const {onOpen} = useModal();
 
   const handleNavigateToBooking = () => {
     if (selectedCity) {
@@ -40,29 +33,16 @@ const Booknow = (props: Props) => {
         </h1>
         <div className="mt-8 flex flex-col lg:flex-row text-2xl font-semibold">
           <div className="">
-            <select
-              id="city"
-              name="city"
-              value={selectedCity || ""}
-              onChange={(e) => handleCitySelect(e.target.value)}
-              className="bg-[#B9F7CD] px-12 py-4 m-2 flex items-center dark:text-gray-800"
-            >
-              <option value="" disabled>
-                Book an appointment
-              </option>
-              {["chennai", "jaipur", "rajasthan", "kota"].map((city) => (
-                <option key={city} value={city}>
-                  {city}
-                </option>
-              ))}
-            </select>
+            <Button onClick={() => onOpen("selectCity")} className="border bg-transparent dark:bg-[#B9F7CD] text-black border-black px-12 py-4 m-2 flex items-center">
+                <Person4Icon className="mx-2" />
+            Book an appointment
+            </Button>
           </div>
           <Link
-            className="border bg-transparent dark:bg-[#B9F7CD] text-black border-black px-12 py-4 m-2 flex items-center"
+            className=""
             href={"/booking"}
           >
-            <Person4Icon className="mx-2" />
-            Book an appointment
+           
           </Link>
         </div>
       </div>

@@ -7,9 +7,13 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import Link from "next/link";
+import { Button } from "../ui/button";
+import { useModal } from "@/hooks/use-modal-store";
 type Props = {};
 
 const Form = (props: Props) => {
+
+  const {onOpen} = useModal();
   return (
     <div
       className="bg-[#b0e9d26e] h-full py-8  md:py-32"
@@ -100,9 +104,12 @@ const Form = (props: Props) => {
               Contact Now
             </button>
             <p className="text-center text-2xl font-semibold mt-2">or</p>
-            <button className="w-full font-bold text-xl border-2 border-primary text-primary rounded-xl p-3 mt-5">
-              <Link href={"/booking"}>Book an Appointment</Link>
-            </button>
+            <Button
+            onClick={() => onOpen("selectCity")}
+            className="p-2 border  relative inline-flex justify-center items-center gap-x-3 text-center bg-primary hover:bg-blue-700  border-primary text-sm lg:text-base text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
+          >
+            Book an appointment
+          </Button>
           </div>
         </div>
       </div>
