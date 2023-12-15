@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { Button } from "../ui/button";
+import { useModal } from "@/hooks/use-modal-store";
 
 type Props = {};
 
@@ -10,6 +12,8 @@ const WhyChoose = (props: Props) => {
   const router = useRouter();
   const [showCityDropdown, setShowCityDropdown] = useState(false);
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
+
+  const {onOpen} = useModal();
 
   const handleCitySelect = (city: string) => {
     setSelectedCity(city);
@@ -83,22 +87,12 @@ const WhyChoose = (props: Props) => {
           appointment now and visit any of our 5 centers.
         </p>
         <div className="">
-          <select
-            id="city"
-            name="city"
-            value={selectedCity || ""}
-            onChange={(e) => handleCitySelect(e.target.value)}
-            className="p-2 border rounded relative inline-flex justify-center items-center gap-x-3 text-center bg-primary hover:bg-blue-700 border border-primary text-sm lg:text-base text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
+          <Button
+            onClick={() => onOpen("selectCity")}
+            className="p-2 border  relative inline-flex justify-center items-center gap-x-3 text-center bg-primary hover:bg-blue-700  border-primary text-sm lg:text-base text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
           >
-            <option value="" disabled>
-              Book an appointment
-            </option>
-            {["chennai", "jaipur", "rajasthan", "kota"].map((city) => (
-              <option key={city} value={city}>
-                {city}
-              </option>
-            ))}
-          </select>
+            Book an appointment
+          </Button>
         </div>
       </div>
     </div>

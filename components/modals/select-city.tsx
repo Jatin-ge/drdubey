@@ -38,7 +38,7 @@ import toast from "react-hot-toast";
 
 
 const formSchema = z.object({
-  city: z.string()
+  city: z.string().min(1, "Please select a city"),
   
 });
 
@@ -49,16 +49,10 @@ export const SelectCityModal = () => {
   
   
   const { isOpen, onClose, type, data } = useModal();
-  const cities = ["jaipur", "chennai", "kota", "rajasthan"]
+  const cities = ["jaipur",]
 
 
-  const header = {
-   "headers":{
-    Authorization: process.env.NEXT_PUBLIC_WHATSAPP_TOKEN,
-    Accept: "application/json"
-    
-   } 
-  }
+ 
 
   const isModalOpen = isOpen && type === "selectCity";
   const form = useForm({
