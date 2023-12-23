@@ -6,7 +6,7 @@ import axios from "axios";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Appointment, GenderType, LeadStatus } from "@prisma/client";
+import { Appointment, GenderType, LeadStatus, Side, TPA } from "@prisma/client";
 import { format } from "date-fns";
 import { toast } from "react-hot-toast";
 import { useEffect } from "react";
@@ -66,19 +66,28 @@ const formSchema = z.object({
   remark: z.string(),
   doad: z.string().transform((str) => new Date(str)),
   dood: z.string().transform((str) => new Date(str)),
-  dx: z.string(),
+  patientStatus: z.string(),
   surgery: z.string(),
   side: z.string(),
   implant: z.string(),
   ipdReg : z.number(),
   bill: z.number(),
+  // pateintStatus: z.string(),
+  opinfo: z.string().min(1, {
+    message: "Selef Operation Information",
+  }),
+  tpa: z.nativeEnum(TPA),
+  dx: z.string(),
 });
 
 type AddpatientFormValues = z.infer<typeof formSchema>;
 
 const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
+  const implants = ["J&J","Maxx","Zimmer","Stryker","S&N"]
+  const OpInfo = ["Single_Knee_Replacement","Both_Knee_Replacement","Hip_Replacement"]
+  const PatientStatus = ["OPD","CONSERVATIIVE","FRACTURE"] 
   const router = useRouter();
-  const params = useParams();
+
   const [isloading, setLoading] = useState(false);
 
   const toastMessage = initialData ? "Patient updated." : "Patient created.";
@@ -97,30 +106,36 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
       remark: "",
       doad: new Date().toISOString().split("T")[0],
       dood: new Date().toISOString().split("T")[0],
-      dx: "",
+      patientStatus: "",
       surgery: "",
       side: "",
       implant: "",
       ipdReg : z.number(),
       bill: z.number(),
+      dx: "",
+      opinfo: "",
+      tpa: ""
     },
   });
 
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    console.log(values)
     try {
       setLoading(true);
       if (type === "lead") {  
         await axios.patch(`/api/patients/${initialData.id}`, values);
+        toast.success("Patient Updated Successfully");
       } 
       else {
-        await axios.post(`/api/patients`, values);       
+        await axios.post(`/api/patients`, values);   
+        toast.success("Patient Added Successfully");    
       }
       form.reset();
-      router.refresh();
+      
       router.push(`/admin/patients`);
-    } catch (error) {
+    }  catch (error) {
       console.log(error);
     } finally {
       setLoading(false);
@@ -289,8 +304,6 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
                 </FormItem>
               )}
             />
-
-            
             <FormField
               control={form.control}
               name="doad"
@@ -337,7 +350,41 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
                 </FormItem>
               )}
             />
-                        <FormField
+            <FormField
+              control={form.control}
+              name="opinfo"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
+                    Operation Info
+                  </FormLabel>
+                  <Select
+                    disabled={isLoading}
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="bg-transparent border border-primary focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none dark:text-white">
+                        <SelectValue placeholder="Select Operation Info" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {Object.values(OpInfo).map((type) => (
+                        <SelectItem
+                          key={type}
+                          value={type}
+                          className="capitalize"
+                        >
+                          {type.toLowerCase()}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
               control={form.control}
               name="status"
               render={({ field }) => (
@@ -352,7 +399,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
                   >
                     <FormControl>
                       <SelectTrigger className="bg-transparent border border-primary focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none dark:text-white">
-                        <SelectValue placeholder="Select Status" />
+                        <SelectValue placeholder="Select Lead Status" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -391,22 +438,58 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
                 </FormItem>
               )}
             />
-             <FormField
+            <FormField
               control={form.control}
               name="dx"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
-                    description
+                    Description
                   </FormLabel>
-                  <FormControl>
+                   <FormControl>
                     <Input
                       disabled={isLoading}
                       className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
-                      placeholder="Enter a Description"
+                      placeholder="Enter Description"
                       {...field}
                     />
                   </FormControl>
+                  
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+             <FormField
+              control={form.control}
+              name="patientStatus"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
+                    Patient Status
+                  </FormLabel>
+                  <Select
+                    disabled={isLoading}
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="bg-transparent border border-primary focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none dark:text-white">
+                        <SelectValue placeholder="Select patient Status" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {Object.values(PatientStatus).map((type) => (
+                        <SelectItem
+                          key={type}
+                          value={type}
+                          className="capitalize"
+                        >
+                          {type.toLowerCase()}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                   <FormMessage />
                 </FormItem>
               )}
@@ -439,14 +522,29 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
                   <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
                     side
                   </FormLabel>
-                  <FormControl>
-                    <Input
-                      disabled={isLoading}
-                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
-                      placeholder="Enter side"
-                      {...field}
-                    />
-                    
+                 <FormControl>
+                   <Select
+                    disabled={isLoading}
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="bg-transparent border border-primary focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none dark:text-white">
+                        <SelectValue placeholder="Select side" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {Object.values(Side).map((type) => (
+                        <SelectItem
+                          key={type}
+                          value={type}
+                          className="capitalize"
+                        >
+                          {type.toLowerCase()}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -458,16 +556,65 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
-                    impant
+                    implant
                   </FormLabel>
-                  <FormControl>
-                    <Input
-                      disabled={isLoading}
-                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
-                      placeholder="Enter implant"
-                      {...field}
-                    />
-                    
+                  <Select
+                    disabled={isLoading}
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="bg-transparent border border-primary focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none dark:text-white">
+                        <SelectValue placeholder="Select Implant" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {Object.values(implants).map((type) => (
+                        <SelectItem
+                          key={type}
+                          value={type}
+                          className="capitalize"
+                        >
+                          {type.toLowerCase()}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+             <FormField
+              control={form.control}
+              name="tpa"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
+                    TPA
+                  </FormLabel>
+                 <FormControl>
+                   <Select
+                    disabled={isLoading}
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="bg-transparent border border-primary focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none dark:text-white">
+                        <SelectValue placeholder="Select TPA" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {Object.values(TPA).map((type) => (
+                        <SelectItem
+                          key={type}
+                          value={type}
+                          className="capitalize"
+                        >
+                          {type.toLowerCase()}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                   </FormControl>
                   <FormMessage />
                 </FormItem>

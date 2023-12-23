@@ -1,3 +1,4 @@
+
 import ProfileCard from "@/components/UserProfile/ProfileCard";
 import { db } from "@/lib/db";
 import React from "react";
@@ -9,7 +10,7 @@ import Link from "next/link";
 import { useModal } from "@/hooks/use-modal-store";
 
 const Page = async () => {
-  const user = await db.profile.findMany();
+
   const AuthProfile = await currentProfile();
   const { onOpen } = useModal();
 

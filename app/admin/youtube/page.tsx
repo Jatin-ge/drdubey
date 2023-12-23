@@ -15,6 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 type Props = {};
 
@@ -28,6 +29,8 @@ type AddYouTubeFormValues = z.infer<typeof formSchema>;
 
 const Page: React.FC<Props> = () => {
   const [isLoading, setLoading] = useState(false);
+
+  const router = useRouter();
 
   const form = useForm<AddYouTubeFormValues>({
     resolver: zodResolver(formSchema),
@@ -91,11 +94,23 @@ const Page: React.FC<Props> = () => {
               >
                 Add Link
               </Button>
+              
         
         </form>
       </Form>
+      <Button
+              variant="outline"
+                className="w-80 py-2 px-4 mt-4 bg-rose-500 text-white rounded-md cursor-pointer justify-center"
+                disabled={isLoading}
+                onClick={() => router.push("/admin/youtube/manage")}
+              >
+                Manage Videos
+      </Button>
         </div>
+        
       </div>
+      
+
     </div>
   );
 };
