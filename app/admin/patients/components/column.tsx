@@ -1,7 +1,7 @@
 "use client"
 
 import { ColumnDef, FilterFn } from "@tanstack/react-table"
-import { GenderType, LeadStatus } from "@prisma/client"
+import { GenderType, LeadStatus, Side, TPA } from "@prisma/client"
 import { ArrowUpDown, MoreHorizontal } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { CellAction } from "./cell-action"
@@ -27,6 +27,10 @@ export type LeadCloumn = {
   ipdReg: number | null
   bill: number | null
   implant : string | null
+  side : Side
+  opinfo: string | null
+  patientStatus: string | null
+
 }
 
 

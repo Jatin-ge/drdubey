@@ -15,6 +15,7 @@ enum GenderType {
   OTHER
 }
 
+
 model Lead {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   name String
@@ -27,16 +28,19 @@ model Lead {
   createdAt DateTime? @default(now())
   updatedAt DateTime? @updatedAt
   status LeadStatus @default(PENDING)
+  patientStatus String?
   doad DateTime?
   dood DateTime? 
   dx String?
   surgery String?
-  side String?
-  implant String? 
+  side Side @default(LEFT)
+  implant  String? 
   ipdReg Int?
   bill Int?
+  tpa TPA? @default(Private)
   payment Payments[]
-}
+  opinfo String?
+  }
 
 model Payments {
   id String @id @default(auto()) @map("_id") @db.ObjectId
@@ -55,11 +59,40 @@ enum LeadStatus {
   LOST
 }
 
-enum PaymentMode{
+enum PaymentMode {
   CASH
   CARD
   UPI
   NETBANKING
+}
+
+
+
+enum Side {
+  LEFT
+  RIGHT
+  BOTH
+}
+
+enum TPA {
+  Private
+  Cash
+  Schemes
+
+}
+
+enum Implant {
+  JandJ
+  Maxx
+  Zimmer
+  Stryker
+  SandN
+}
+
+enum OpInfo {
+  Single_Knee_Replacement
+  Both_Knee_Replacement
+  Hip_Replacement
 }
 
 model Profile{
@@ -141,6 +174,5 @@ model ContactUs{
 model YouTube {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   link String
- 
-
+  createdAt DateTime @default(now())
 }
