@@ -11,9 +11,7 @@ interface HomeProps {
   city: string;
 }
 
-
-export const Booking = async({ days, closedDays, city }: HomeProps) => {
-
+export const Booking = async ({ days, closedDays, city }: HomeProps) => {
   const appoinmentCity = await db.cities.findUnique({
     where: {
       name: city,
@@ -21,10 +19,10 @@ export const Booking = async({ days, closedDays, city }: HomeProps) => {
     include: {
       appointments: true,
     },
-  })
+  });
   return (
     <div className="">
-      <div className="bg-gradient-to-r from-purple-200 via-indigo-300 to-blue-400 font-bold md:w-2/3 mx-auto my-auto rounded-b-2xl md:py-32">
+      <div className="bg-gradient-to-r from-purple-200 via-indigo-300 to-blue-400 font-bold  mx-auto  min-h-screen my-auto rounded-b-2xl md:py-32">
         <div className="container mx-auto p-8 md:flex">
           <div className="md:w-1/2 md:pr-8 my-auto">
             <Image
@@ -40,12 +38,17 @@ export const Booking = async({ days, closedDays, city }: HomeProps) => {
               Book your Appointment in{" "}
               <span className="font-extrabold uppercase">{city}</span>
             </h1>
-            <p className="hidden md:block text-lg md:text-2xl md:mb-8">
+            <p className="hidden md:block text-lg md:text-xl md:mb-8 mx-4 md:ml-16">
               Book your appointment with us now and experience our exceptional
               services.
             </p>
             <div className="mx-auto">
-              <Calendar days={days} closedDays={closedDays} city={city} appointments={appoinmentCity?.appointments} />
+              <Calendar
+                days={days}
+                closedDays={closedDays}
+                city={city}
+                appointments={appoinmentCity?.appointments}
+              />
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ const Hero = ({ heading, message }: any) => {
   const handleClick = () => {
     router.push("/booking");
   };
-  const {onOpen} = useModal();
+  const { onOpen } = useModal();
   const router = useRouter();
   const [showCityDropdown, setShowCityDropdown] = useState(false);
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
@@ -37,7 +37,7 @@ const Hero = ({ heading, message }: any) => {
         <div className="">
           <Button
             onClick={() => onOpen("selectCity")}
-            className="p-2 border  relative inline-flex justify-center items-center gap-x-3 text-center bg-primary hover:bg-blue-700  border-primary text-xl lg:text-base text-white  rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
+            className=" border  relative inline-flex justify-center items-center gap-x-3 text-center bg-primary hover:bg-blue-700  border-primary text-xl lg:text-2xl text-gray-200   focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white  px-16 py-6  dark:focus:ring-offset-gray-800"
           >
             Book an appointment
           </Button>
