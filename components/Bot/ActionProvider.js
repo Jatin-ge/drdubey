@@ -26,7 +26,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     //     updateState(message)
     // }
     const greet = () =>  {
-        const greetingMessage = createChatBotMessage("Hi, friend.")
+        const greetingMessage = createChatBotMessage("Hi, How can we assist you today? Ask any questions regarding the recovery , replacement, problem regarding walking, pain, restrictions, longetivity of replacement, therapy, compliations, equipment, .")
         updateState(greetingMessage)
       }
 

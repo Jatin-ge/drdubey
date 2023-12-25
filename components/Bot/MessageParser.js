@@ -9,6 +9,9 @@ const MessageParser = ({ children, actions }) => {
         if (lowerCaseMessage.includes("hello")) {
             actions.greet(message)
         }
+        if (lowerCaseMessage.includes("hi")) {
+            actions.greet(message)
+        }
         if (lowerCaseMessage.includes("recovery") ) {
             actions.recoveryMessage(message)
         }

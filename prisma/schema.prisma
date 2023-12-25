@@ -176,3 +176,12 @@ model YouTube {
   link String
   createdAt DateTime @default(now())
 }
+
+
+model Services {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  subtitle String
+  blog String
+  image String
+}
