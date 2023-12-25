@@ -310,7 +310,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
-                    D.O.Ad
+                    Date of Admission
                   </FormLabel>
                   
                   <FormControl> 
@@ -333,7 +333,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
-                    D.O.Op
+                    Date of Operation
                   </FormLabel>
                   
                   <FormControl>

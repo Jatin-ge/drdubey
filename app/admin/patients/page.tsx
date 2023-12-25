@@ -32,7 +32,7 @@ const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
     implant : item.implant || null,
     opinfo: item.opinfo || null,
     patientStatus: item.patientStatus || null,
-    
+    tpa: item.tpa,
   }));
 
   return (

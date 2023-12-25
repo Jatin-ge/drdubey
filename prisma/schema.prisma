@@ -37,7 +37,7 @@ model Lead {
   implant  String? 
   ipdReg Int?
   bill Int?
-  tpa TPA? @default(Private)
+  tpa TPA @default(Private)
   payment Payments[]
   opinfo String?
   }
