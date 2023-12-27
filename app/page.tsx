@@ -20,6 +20,7 @@ import ReviewCard from "@/components/Carousel/ReviewCard";
 import Booknow from "@/components/Booknow/Booknow";
 import Footer from "@/components/Footer/Footer";
 import Bot from "@/components/Bot/Bot";
+import GoogleMaps from "@/components/ui/map";
 
 export default function CardWithForm() {
   React.useEffect(() => {
@@ -52,6 +53,8 @@ export default function CardWithForm() {
       <Form />
 
       <Banner />
+
+      <GoogleMaps/>
 
       <Testimonial />
 
