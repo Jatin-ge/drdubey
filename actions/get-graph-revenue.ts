@@ -5,9 +5,6 @@ import { LeadStatus } from "@prisma/client";
 
 export const getGraphRevenue = async () => {
   const sales = await db.lead.findMany({
-    where: {
-      status: LeadStatus.CONVERTED,
-    },
   });
 
   const monthlyRevenue: { [key: number]: number } = {};
