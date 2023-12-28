@@ -19,7 +19,7 @@ export const Testimonial = () => {
           naturalSlideWidth={100}
           naturalSlideHeight={100}
           isIntrinsicHeight={true}
-          totalSlides={2}
+          totalSlides={4}
           isPlaying={true}
           infinite={true}
           playDirection="forward"
@@ -34,12 +34,98 @@ export const Testimonial = () => {
             What our <span className="text-primary">patients</span> are saying
           </h1>
           <Slider>
+            <Slide index={2}>
+              <div
+                className="flex relative"
+                style={{ transform: "translateX(0%)" }}
+              >
+                <div className="mt-14 md:flex">
+                  <div className="relative lg:w-1/2 sm:w-96 xl:h-96 h-80">
+                    <img
+                      src="/assets/images/patient4.jpg"
+                      alt="image of profile"
+                      className="w-full h-full flex-shrink-0 object-fit object-cover shadow-lg rounded"
+                    />
+                    <div className="w-32 md:flex hidden items-center justify-center absolute top-0 -mr-16 -mt-14 right-0 h-32 bg-primary rounded-full">
+                      <img
+                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/testimonial-svg1.svg"
+                        alt="commas"
+                      />
+                    </div>
+                  </div>
+                  <div className="md:w-1/3 lg:w-1/3 xl:ml-32 md:ml-20 md:mt-0 mt-4 flex flex-col justify-between">
+                    <div>
+                      <h1 className="text-2xl font-semibold xl:leading-loose text-gray-800 dark:text-gray-200">
+                        Some of the best work that was done!
+                      </h1>
+                      <p className="text-base font-medium leading-6 mt-4 text-gray-600 dark:text-gray-300">
+                        Our core values are at the heart of all that we do. They
+                        are integrated into our daily work lives and help us to
+                        remember our customers always comes first, the last
+                        thank you should always comes from us.
+                      </p>
+                    </div>
+                    <div className="md:mt-0 mt-8">
+                      <p className="text-base font-medium leading-4 text-primary">
+                        Anna Smith
+                      </p>
+                      <p className="text-base leading-4 mt-2 mb-4 text-gray-600 dark:text-gray-200">
+                        Senior Web Designer
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Slide>
+            <Slide index={3}>
+              <div
+                className="flex relative"
+                style={{ transform: "translateX(0%)" }}
+              >
+                <div className="mt-14 md:flex">
+                  <div className="relative lg:w-1/2 sm:w-96 xl:h-96 h-80">
+                    <img
+                      src="/assets/images/patient5.webp"
+                      alt="image of profile"
+                      className="w-full h-full flex-shrink-0 object-fit object-cover shadow-lg rounded"
+                    />
+                    <div className="w-32 md:flex hidden items-center justify-center absolute top-0 -mr-16 -mt-14 right-0 h-32 bg-primary rounded-full">
+                      <img
+                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/testimonial-svg1.svg"
+                        alt="commas"
+                      />
+                    </div>
+                  </div>
+                  <div className="md:w-1/3 lg:w-1/3 xl:ml-32 md:ml-20 md:mt-0 mt-4 flex flex-col justify-between">
+                    <div>
+                      <h1 className="text-2xl font-semibold xl:leading-loose text-gray-800 dark:text-gray-200">
+                        Some of the best work that was done!
+                      </h1>
+                      <p className="text-base font-medium leading-6 mt-4 text-gray-600 dark:text-gray-300">
+                        Our core values are at the heart of all that we do. They
+                        are integrated into our daily work lives and help us to
+                        remember our customers always comes first, the last
+                        thank you should always comes from us.
+                      </p>
+                    </div>
+                    <div className="md:mt-0 mt-8">
+                      <p className="text-base font-medium leading-4 text-primary">
+                        Anna Smith
+                      </p>
+                      <p className="text-base leading-4 mt-2 mb-4 text-gray-600 dark:text-gray-200">
+                        Senior Web Designer
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Slide>
             <Slide index={0} tabIndex={1}>
               <div className="flex">
                 <div className="mt-14 md:flex">
                   <div className="relative lg:w-1/2 sm:w-96 xl:h-96 h-80">
                     <img
-                      src="https://i.ibb.co/4g1D9cv/imgslider1.png"
+                      src="/assets/images/patient1.webp"
                       alt="image of profile"
                       className="w-full h-full flex-shrink-0 object-fit object-cover shadow-lg rounded"
                     />
@@ -82,7 +168,7 @@ export const Testimonial = () => {
                 <div className="mt-14 md:flex">
                   <div className="relative lg:w-1/2 sm:w-96 xl:h-96 h-80">
                     <img
-                      src="https://i.ibb.co/4g1D9cv/imgslider1.png"
+                      src="/assets/images/patient3.jpg"
                       alt="image of profile"
                       className="w-full h-full flex-shrink-0 object-fit object-cover shadow-lg rounded"
                     />

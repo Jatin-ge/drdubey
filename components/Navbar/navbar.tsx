@@ -68,12 +68,12 @@ const Navbar = () => {
                       About-Me
                     </Link>
                     <Link
-                      href="/#services"
+                      href="/services/6587bd817a2ebd09d835bd1a"
                       className="w-full px-4 py-2 -ml-4  hover:text-primary focus:focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                     >
                       Services
                     </Link>
-                    
+
                     <Link
                       href="/gallery"
                       className="w-full px-4 py-2 -ml-4  hover:text-primary focus:focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
@@ -85,10 +85,9 @@ const Navbar = () => {
                       href="/youtube"
                       className="w-full px-4 py-2 -ml-4  hover:text-primary focus:focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                     >
-                      Youtube
+                      Testimonials
                     </Link>
 
-                    
                     <Link
                       href="/contact"
                       className="w-full px-4 py-2 -ml-4  hover:text-primary focus:focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
@@ -124,7 +123,7 @@ const Navbar = () => {
 
             <li className="mr-3 nav__item">
               <Link
-                href="/#services"
+                href="/services/6587bd817a2ebd09d835bd1a"
                 className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md  hover:text-primary focus:focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
               >
                 Services
@@ -145,7 +144,7 @@ const Navbar = () => {
                 href="/youtube"
                 className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md  hover:text-primary focus:focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
               >
-                Youtube
+                Testimonials
               </Link>
             </li>
 

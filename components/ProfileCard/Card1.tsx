@@ -12,14 +12,15 @@ const Card1 = (props: Props) => {
           <div className="grid items-center grid-cols-1 md:grid-cols-2">
             <div data-aos="fade-right">
               <h2 className="text-3xl font-bold leading-tight text-gray-700 sm:text-5xl lg:text-7xl dark:text-gray-100">
-                Dr. Dheeraj Dubey
+                Dr. Dheeraj Dubay
               </h2>
               <p className="max-w-3xl mt-3 text-xl lg:text-3xl leading-relaxed text-gray-600 dark:text-gray-200 md:mt-8">
                 Sr. Consultant Joint Replacement Surgery - Shalby
-                Multi-Specialty Hospital MBBS, MS (Orthopedic), FJRS (Germany)
-                Ex. Consultant & Head of Joint Replacement Surgery - HCG
-                Hospitals
+                Multi-Specialty Hospitals Jaipur
               </p>
+              <li className="mx-1 font-semibold text-xl text-gray-600 mt-4">
+                MBBS, MS (Orthopedic), FJRS (Germany)
+              </li>
               <p className="max-w-4xl mt-3 text-xl lg:text-2xl leading-relaxed text-gray-600 dark:text-gray-300 md:mt-8">
                 He has more than 15 years of experience in the field of Joint
                 Replacement Surgeries and is well wersed with latest techniques
@@ -37,11 +38,11 @@ const Card1 = (props: Props) => {
                 </span>
                 <br className="block sm:hidden" /> Ask me on{" "}
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/dr-dheeraj-dubay-36399599/"
                   title=""
                   className="transition-all duration-200 text-sky-500 hover:text-sky-600 hover:underline"
                 >
-                  Twitter
+                  LinkedIn
                 </a>
               </p>
             </div>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -36,9 +36,9 @@ const Hero2 = (props: Props) => {
         <div className="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
           <div data-aos="fade-left">
             <h1 className="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-white">
-              <span className="text-primary"> Dr. Dubey</span> is here for you !
+              <span className="text-primary"> Dr. Dubay</span> is here for you !
             </h1>
-            <p className="mt-3 text-xl text-gray-800 dark:text-gray-400">
+            <p className="mt-3 text-xl md:text-2xl text-gray-800 dark:text-gray-400">
               Experience the freedom of movement with Dr. Dheeraj Dubay Joint
               Replacement Surgery – paving the way to a pain-free and active
               life. Your joints, your journey, your renewed vitality!
@@ -48,28 +48,34 @@ const Hero2 = (props: Props) => {
               {/* City Dropdown */}
 
               <div className="">
-                <Button
+                {/* <Button
                   className="p-2 border rounded relative inline-flex justify-center items-center gap-x-3 text-center bg-primary hover:bg-blue-700 border border-primary text-sm lg:text-base text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
 
                   onClick={() => onOpen("selectCity")}
                 >
                  Book an appoinment
-                </Button>
+                </Button> */}
+                <Link
+                  className="p-2 border rounded relative inline-flex justify-center items-center gap-x-3 text-center bg-primary hover:bg-blue-700 border border-primary text-sm lg:text-base text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
+                  href={"/booking/jaipur"}
+                >
+                  Book an appoinment
+                </Link>
               </div>
 
-              <button
-                onClick={handleNavigateToBooking}
+              <Link
+                href={"/contact"}
                 className="inline-flex justify-center items-center gap-x-3.5 text-sm lg:text-base text-center border hover:border-gray-300 shadow-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:border-gray-800 dark:hover:border-gray-600 dark:shadow-slate-700/[.7] dark:text-white dark:focus:ring-gray-700 dark:focus:ring-offset-gray-800"
               >
                 Contact Us
-              </button>
+              </Link>
             </div>
 
             <div className="mt-6 lg:mt-10 grid grid-cols-2 gap-x-5">
               <div className="py-5">
                 <div className="flex space-x-1">
                   <svg
-                    className="h-4 w-4 text-green-500 "
+                    className="h-4 w-4 text-yellow-500 "
                     width="51"
                     height="51"
                     viewBox="0 0 51 51"
@@ -82,7 +88,7 @@ const Hero2 = (props: Props) => {
                     />
                   </svg>
                   <svg
-                    className="h-4 w-4 text-green-500 "
+                    className="h-4 w-4 text-yellow-500  "
                     width="51"
                     height="51"
                     viewBox="0 0 51 51"
@@ -95,7 +101,7 @@ const Hero2 = (props: Props) => {
                     />
                   </svg>
                   <svg
-                    className="h-4 w-4 text-green-500 "
+                    className="h-4 w-4 text-yellow-500  "
                     width="51"
                     height="51"
                     viewBox="0 0 51 51"
@@ -108,7 +114,7 @@ const Hero2 = (props: Props) => {
                     />
                   </svg>
                   <svg
-                    className="h-4 w-4 text-green-500 "
+                    className="h-4 w-4 text-yellow-500  "
                     width="51"
                     height="51"
                     viewBox="0 0 51 51"
@@ -121,7 +127,7 @@ const Hero2 = (props: Props) => {
                     />
                   </svg>
                   <svg
-                    className="h-4 w-4 text-green-500 "
+                    className="h-4 w-4 text-yellow-500  "
                     width="51"
                     height="51"
                     viewBox="0 0 51 51"
