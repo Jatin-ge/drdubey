@@ -1,5 +1,4 @@
 import { db } from "@/lib/db";
-import { LeadStatus } from "@prisma/client";
 
 
 

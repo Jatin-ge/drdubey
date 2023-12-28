@@ -4,7 +4,6 @@ import axios from "axios";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { GenderType, LeadStatus } from "@prisma/client";
 import { format } from "date-fns";
 import {
   Dialog,
