@@ -27,7 +27,6 @@ model Lead {
   gender GenderType @default(M)
   createdAt DateTime? @default(now())
   updatedAt DateTime? @updatedAt
-  status LeadStatus @default(PENDING)
   patientStatus String?
   doad DateTime?
   dood DateTime? 
@@ -39,7 +38,7 @@ model Lead {
   bill Int?
   tpa TPA @default(Private)
   payment Payments[]
-  opinfo String?
+  cities String?
   }
 
 model Payments {

@@ -6,7 +6,7 @@ import axios from "axios";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Appointment, GenderType, LeadStatus, Side, TPA } from "@prisma/client";
+import { Appointment, GenderType, Side, TPA } from "@prisma/client";
 import { format } from "date-fns";
 import { toast } from "react-hot-toast";
 import { useEffect } from "react";
@@ -62,35 +62,37 @@ const formSchema = z.object({
   address: z.string().min(1, {
     message: "address is required.",
   }),
-  status: z.nativeEnum(LeadStatus),
   remark: z.string(),
   doad: z.string().transform((str) => new Date(str)),
   dood: z.string().transform((str) => new Date(str)),
   patientStatus: z.string(),
-  surgery: z.string(),
   side: z.string(),
   implant: z.string(),
   ipdReg : z.number(),
   bill: z.number(),
-  // pateintStatus: z.string(),
-  opinfo: z.string().min(1, {
+  surgery: z.string().min(1, {
     message: "Selef Operation Information",
   }),
   tpa: z.nativeEnum(TPA),
   dx: z.string(),
+  cities : z.string()
 });
 
 type AddpatientFormValues = z.infer<typeof formSchema>;
 
 const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
   const implants = ["J&J","Maxx","Zimmer","Stryker","S&N"]
-  const OpInfo = ["Single_Knee_Replacement","Both_Knee_Replacement","Hip_Replacement"]
-  const PatientStatus = ["OPD","CONSERVATIIVE","FRACTURE"] 
+
+  const OpInfo = ["Total Knee Replacement","Total Hip Replacement","Revision Knee Surgery","Revision Hip Surgery","Tuksplasty (Partial Knee)"]
+
+  const PatientStatus = ["OPD","IPD","Conservative","Trauma","Arthoplasty"] 
   const router = useRouter();
 
   const [isloading, setLoading] = useState(false);
 
   const toastMessage = initialData ? "Patient updated." : "Patient created.";
+
+  const cities = ["Kota", "Dausa", "Gangapur", "Agra", "Bhartapur", "Mathura", "Churu", "Saradarshahar", "Bikaner", "Jhujhunu", "Sikar", "Neem ka thana", "Narnaul", "Bahror", "Fatehpur", "Pali", "Alwar", "Kishangarh", "Beawar", "Merta City", "Nagaur"];
 
   const form = useForm<AddpatientFormValues>({
     resolver: zodResolver(formSchema),
@@ -102,19 +104,18 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
       age: z.EMPTY_PATH,
       gender: GenderType.M,
       address: "",
-      status: LeadStatus.PENDING,
       remark: "",
       doad: new Date().toISOString().split("T")[0],
       dood: new Date().toISOString().split("T")[0],
       patientStatus: "",
-      surgery: "",
       side: "",
       implant: "",
       ipdReg : z.number(),
       bill: z.number(),
       dx: "",
-      opinfo: "",
-      tpa: ""
+      surgery: "",
+      tpa: "",
+      cities: ""
     },
   });
 
@@ -304,6 +305,45 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
                 </FormItem>
               )}
             />
+            
+            <FormField
+              control={form.control}
+              name="cities"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
+                    City
+                  </FormLabel>
+                  <Select
+                    disabled={isLoading}
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="bg-transparent border border-primary focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none dark:text-white">
+                        <SelectValue placeholder="Select City" />
+                      </SelectTrigger>
+                    </FormControl>
+                   
+                    <SelectContent className="relative overflow-y-scroll h-full">
+                      {Object.values(cities).map((type) => (
+                        
+                        <SelectItem
+                          key={type}
+                          value={type}
+                          className="capitalize"
+                        >
+                          {type.toLowerCase()}
+                        </SelectItem>
+                        
+                      ))}
+                    </SelectContent>
+                  
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name="doad"
@@ -352,11 +392,11 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
             />
             <FormField
               control={form.control}
-              name="opinfo"
+              name="surgery"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
-                    Operation Info
+                    Surgery
                   </FormLabel>
                   <Select
                     disabled={isLoading}
@@ -365,7 +405,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
                   >
                     <FormControl>
                       <SelectTrigger className="bg-transparent border border-primary focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none dark:text-white">
-                        <SelectValue placeholder="Select Operation Info" />
+                        <SelectValue placeholder="Select Surgery" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -384,40 +424,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="status"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
-                    Lead Status
-                  </FormLabel>
-                  <Select
-                    disabled={isLoading}
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger className="bg-transparent border border-primary focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none dark:text-white">
-                        <SelectValue placeholder="Select Lead Status" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {Object.values(LeadStatus).map((type) => (
-                        <SelectItem
-                          key={type}
-                          value={type}
-                          className="capitalize"
-                        >
-                          {type.toLowerCase()}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+           
             <FormField
               control={form.control}
               name="remark"
@@ -494,26 +501,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
                 </FormItem>
               )}
             />
-             <FormField
-              control={form.control}
-              name="surgery"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="uppercase text-sm font-bold text-black dark:text-white">
-                    surgery
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      disabled={isLoading}
-                      className="bg-transparent border border-primary focus-visible:ring-0 text-black focus-visible:ring-offset-0 dark:text-white"
-                      placeholder="Enter name for Surgery"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            
              <FormField
               control={form.control}
               name="side"
