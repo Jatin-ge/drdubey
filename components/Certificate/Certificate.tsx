@@ -9,7 +9,7 @@ const Certificate = (props: Props) => {
       <Image
         width={800}
         height={800}
-        src="/assets/images/certi.jpg"
+        src="/assets/images/certi2.jpeg"
         alt="certi"
       />
     </div>
