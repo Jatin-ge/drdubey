@@ -30,7 +30,7 @@ export type LeadCloumn = {
   side : Side
   opinfo: string | null
   patientStatus: string | null
-
+  tpa: TPA  
 }
 
 
@@ -148,6 +148,21 @@ export const columns: ColumnDef<LeadCloumn>[] = [
     
   },
   {
+    accessorKey: "opinfo",
+    header: "Operation Info",
+    
+  },
+  {
+    accessorKey: "patientStatus",
+    header: "Patient Status",
+    
+  },
+  {
+    accessorKey: "tpa",
+    header: "TPA",
+    
+  },
+  {
     accessorKey: "ipdReg",
     header: "IPD Reg",
     
@@ -157,6 +172,7 @@ export const columns: ColumnDef<LeadCloumn>[] = [
     header: "Bill",
     
   },
+  
   
  
   {
