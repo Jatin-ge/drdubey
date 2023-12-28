@@ -4,7 +4,6 @@ import { db } from "@/lib/db";
 
 import { AppointMentCloumn } from "./components/column";
 import { BillboardClient } from "./components/client";
-import { LeadStatus } from "@prisma/client";
 
 const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
   const appointments = await db.appointment.findMany({
