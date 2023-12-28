@@ -58,19 +58,16 @@ export const Testimonial = () => {
                       <h1 className="text-2xl font-semibold xl:leading-loose text-gray-800 dark:text-gray-200">
                         Some of the best work that was done!
                       </h1>
-                      <p className="text-base font-medium leading-6 mt-4 text-gray-600 dark:text-gray-300">
-                        Our core values are at the heart of all that we do. They
-                        are integrated into our daily work lives and help us to
-                        remember our customers always comes first, the last
-                        thank you should always comes from us.
+                      <p className="text-lg font-medium md:text-2xl leading-6 mt-4 text-gray-600 dark:text-gray-300">
+                        Dr dheeraj dubey is the best doctor with knee
+                        replacement their team work is excellent my mother did
+                        not face any problem while staying there the doctor and
+                        his team are best excellent
                       </p>
                     </div>
                     <div className="md:mt-0 mt-8">
-                      <p className="text-base font-medium leading-4 text-primary">
-                        Anna Smith
-                      </p>
-                      <p className="text-base leading-4 mt-2 mb-4 text-gray-600 dark:text-gray-200">
-                        Senior Web Designer
+                      <p className="text-2xl font-semibold leading-4 text-primary">
+                        Rajendra Savita
                       </p>
                     </div>
                   </div>
@@ -101,19 +98,15 @@ export const Testimonial = () => {
                       <h1 className="text-2xl font-semibold xl:leading-loose text-gray-800 dark:text-gray-200">
                         Some of the best work that was done!
                       </h1>
-                      <p className="text-base font-medium leading-6 mt-4 text-gray-600 dark:text-gray-300">
-                        Our core values are at the heart of all that we do. They
-                        are integrated into our daily work lives and help us to
-                        remember our customers always comes first, the last
-                        thank you should always comes from us.
+                      <p className="text-base md:text-2xl font-medium leading-6 mt-4 text-gray-600 dark:text-gray-300">
+                        I went to dr dheeraj dubey for my father knee
+                        replacement surgery. Amazing and very polite doctor. My
+                        father is completely fine now and walking properly.
                       </p>
                     </div>
                     <div className="md:mt-0 mt-8">
-                      <p className="text-base font-medium leading-4 text-primary">
-                        Anna Smith
-                      </p>
-                      <p className="text-base leading-4 mt-2 mb-4 text-gray-600 dark:text-gray-200">
-                        Senior Web Designer
+                      <p className="text-2xl  font-semibold leading-4 text-primary">
+                        Sakshi Jain
                       </p>
                     </div>
                   </div>
@@ -141,19 +134,15 @@ export const Testimonial = () => {
                       <h1 className="text-2xl font-semibold xl:leading-loose text-gray-800 dark:text-gray-200 ">
                         Some of the best work that was done!
                       </h1>
-                      <p className="text-base font-medium leading-6 mt-4 text-gray-600 dark:text-gray-200">
-                        Our core values are at the heart of all that we do. They
-                        are integrated into our daily work lives and help us to
-                        remember our customers always comes first, the last
-                        thank you should always comes from us.
+                      <p className="text-base md:text-2xl font-medium leading-6 mt-4 text-gray-600 dark:text-gray-200">
+                        Dr dheeraj dubay amazing Dr with great work and best
+                        knee and hip replacement surgeon in shalby hospital
+                        jaipur.
                       </p>
                     </div>
                     <div className="md:mt-0 mt-8">
-                      <p className="text-base font-medium leading-4 text-primary">
-                        Anna Smith
-                      </p>
-                      <p className="text-base leading-4 mt-2 mb-4 text-gray-600 dark:text-gray-200">
-                        Senior Web Designer
+                      <p className="text-2xl font-semibold leading-4 text-primary">
+                        RamChandra Chaudhry
                       </p>
                     </div>
                   </div>
@@ -184,19 +173,15 @@ export const Testimonial = () => {
                       <h1 className="text-2xl font-semibold xl:leading-loose text-gray-800 dark:text-gray-200">
                         Some of the best work that was done!
                       </h1>
-                      <p className="text-base font-medium leading-6 mt-4 text-gray-600 dark:text-gray-300">
-                        Our core values are at the heart of all that we do. They
-                        are integrated into our daily work lives and help us to
-                        remember our customers always comes first, the last
-                        thank you should always comes from us.
+                      <p className="text-base md:text-2xl font-medium leading-6 mt-4 text-gray-600 dark:text-gray-300">
+                        Dr dheeraj best knee and hip surgeon in shalby Hospital.
+                        My mother is complety fine now and is able to walk
+                        properly without any pain that used to be earlier.
                       </p>
                     </div>
                     <div className="md:mt-0 mt-8">
-                      <p className="text-base font-medium leading-4 text-primary">
-                        Anna Smith
-                      </p>
-                      <p className="text-base leading-4 mt-2 mb-4 text-gray-600 dark:text-gray-200">
-                        Senior Web Designer
+                      <p className="text-2xl  font-semibold leading-4 text-primary">
+                        Shashi Sharma
                       </p>
                     </div>
                   </div>
