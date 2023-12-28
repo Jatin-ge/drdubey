@@ -17,14 +17,15 @@ const Section2 = (props: Props) => {
               </span>
               <h2 className="mt-2 mb-6 text-2xl md:text-5xl font-bold dark:text-gray-300">
                 Quick Introduction about{" "}
-                <span className="text-primary">Dr Dheeraj Dubey</span>
+                <span className="text-primary">Dr Dheeraj Dubay</span>
               </h2>
-              <p className="mb-10 text-gray-600 md:text-2xl dark:text-gray-400 ">
-                Sr. Consultant Joint Replacement Surgery – Shalby
-                Multi-Specialty Hospital MBBS, MS (Orthopedic), FJRS (Germany)
-                Ex. Consultant & Head of Joint Replacement Surgery – HCG
-                Hospitals
+              <p className="max-w-3xl mt-3 text-xl lg:text-3xl leading-relaxed text-gray-600 dark:text-gray-200 md:mt-8">
+                Sr. Consultant Joint Replacement Surgery - Shalby
+                Multi-Specialty Hospitals Jaipur
               </p>
+              <li className="mx-1 font-semibold text-xl text-gray-600 my-4">
+                MBBS, MS (Orthopedic), FJRS (Germany)
+              </li>
               <p className="mb-10 md:text-lg text-gray-600 dark:text-gray-400 ">
                 He has completed his fellowship from Aklepios Ortho Center,
                 Germany in complex and revision joint replacement surgeries. He

@@ -17,7 +17,7 @@ const Booknow = (props: Props) => {
   const router = useRouter();
   const [showCityDropdown, setShowCityDropdown] = useState(false);
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
-  const {onOpen} = useModal();
+  const { onOpen } = useModal();
 
   const handleNavigateToBooking = () => {
     if (selectedCity) {
@@ -32,7 +32,7 @@ const Booknow = (props: Props) => {
           Book your medical appointment Today
         </h1>
         <div className="mt-8 flex flex-col lg:flex-row text-2xl font-semibold">
-          <div className="">
+          {/* <div className="">
             <Button onClick={() => onOpen("selectCity")} className="border bg-transparent dark:bg-[#B9F7CD] text-black border-black px-12 py-4 m-2 flex items-center">
                 <Person4Icon className="mx-2" />
             Book an appointment
@@ -43,6 +43,12 @@ const Booknow = (props: Props) => {
             href={"/booking"}
           >
            
+          </Link> */}
+          <Link
+            className="p-2 border rounded relative inline-flex justify-center items-center gap-x-3 text-center bg-primary hover:bg-blue-700 border border-primary text-sm lg:text-base text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
+            href={"/booking/jaipur"}
+          >
+            Book an appoinment
           </Link>
         </div>
       </div>

@@ -21,6 +21,7 @@ import Footer from "@/components/Footer/Footer";
 import Bot from "@/components/Bot/Bot";
 import Navbar from "@/components/Navbar/navbar";
 import GoogleMaps from "@/components/ui/map";
+import Certificate from "@/components/Certificate/Certificate";
 
 export default function CardWithForm() {
   React.useEffect(() => {
@@ -38,6 +39,8 @@ export default function CardWithForm() {
 
       <Hero2 />
 
+      <Certificate />
+
       <Services />
 
       <WhyChoose />
@@ -48,9 +51,8 @@ export default function CardWithForm() {
 
       <Banner />
 
-      <GoogleMaps/>
-
       <Testimonial />
+      <GoogleMaps />
 
       <Footer />
 
