@@ -8,7 +8,7 @@ export async function POST(
 ){
     try{
 
-        const {name, email, phone, gender, address, status , remark, age, doad, dood, dx, surgery, side, ipdReg, bill, implant, patientStatus, opinfo, tpa
+        const {name, email, phone, gender, address , remark, age, doad, dood, dx, surgery, side, ipdReg, bill, implant, patientStatus, tpa, cities
          } = await req.json();
         console.log(ipdReg, bill);
         
@@ -19,8 +19,7 @@ export async function POST(
                 email, 
                 phone, 
                 gender, 
-                address, 
-                status, 
+                address,  
                 remark ,  
                 age,
                 doad,
@@ -32,8 +31,8 @@ export async function POST(
                 bill,
                 implant,
                 patientStatus,
-                opinfo,
-                tpa
+                tpa,
+                cities
 
 
 
