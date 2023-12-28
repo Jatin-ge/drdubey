@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export default function GoogleMaps() {
   const position1 = { lat: 26.903488202765963, lng:75.72921788230423};
-  const position2 = {lat:26.84793397366845, lng:75.84640891794001}
+  const position2 = {lat:26.82723369883703, lng:75.85228368196005}
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
 
