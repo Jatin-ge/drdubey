@@ -92,7 +92,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
 
   const toastMessage = initialData ? "Patient updated." : "Patient created.";
 
-  const cities = ["Kota", "Dausa", "Gangapur", "Agra", "Bhartapur", "Mathura", "Churu", "Saradarshahar", "Bikaner", "Jhujhunu", "Sikar", "Neem ka thana", "Narnaul", "Bahror", "Fatehpur", "Pali", "Alwar", "Kishangarh", "Beawar", "Merta City", "Nagaur"];
+  const cities = ["Agra", "Alwar", "Bahror", "Beawar", "Bhartapur", "Bikaner", "Churu", "Dausa", "Fatehpur", "Gangapur", "Jhujhunu", "Kishangarh", "Kota", "Mathura", "Merta City", "Nagaur", "Narnaul", "Neem ka thana", "Pali", "Saradarshahar", "Sikar"];
 
   const form = useForm<AddpatientFormValues>({
     resolver: zodResolver(formSchema),
@@ -102,7 +102,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
       email: "",
       phone: "",
       age: z.EMPTY_PATH,
-      gender: GenderType.M,
+      gender: GenderType.Male,
       address: "",
       remark: "",
       doad: new Date().toISOString().split("T")[0],
@@ -492,7 +492,7 @@ const Addpatient: React.FC<AddpatientProps> = ({ initialData, type }) => {
                           value={type}
                           className="capitalize"
                         >
-                          {type.toLowerCase()}
+                          {type}
                         </SelectItem>
                       ))}
                     </SelectContent>
