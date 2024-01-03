@@ -1,7 +1,7 @@
 "use client"
 
 import { ColumnDef, FilterFn } from "@tanstack/react-table"
-import { GenderType, LeadStatus, Side, TPA } from "@prisma/client"
+import { GenderType, Side, TPA } from "@prisma/client"
 import { ArrowUpDown, MoreHorizontal } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { CellAction } from "./cell-action"
@@ -23,12 +23,10 @@ export type LeadCloumn = {
   dx : string | null
   surgery: string | null
   remark: string | null
-  status: LeadStatus
   ipdReg: number | null
   bill: number | null
   implant : string | null
   side : Side
-  opinfo: string | null
   patientStatus: string | null
   tpa: TPA  
 }
@@ -114,43 +112,6 @@ export const columns: ColumnDef<LeadCloumn>[] = [
   {
     accessorKey: "phone",
     header: "Phone",
-  },
-  {
-    accessorKey: "status",
-    // accessorFn: x => x.status,
-    header: ({ table }) => (
-      // <input
-      //   type="text"
-      //   value={table.getColumn("status")?.getFilterValue()}
-      //   onChange={(event) => table.getColumn("status")?.setFilterValue(event.target.value)}
-      //   className="max-w-sm"
-      //   />
-         <select
-        title="filter"
-        //@ts-ignore
-        value={table.getColumn("status")?.getFilterValue()}
-        onChange={(event) => table.getColumn("status")?.setFilterValue(event.target.value)}
-      >
-        <option value="">All</option>
-        {Object.values(LeadStatus).map((option: any, i, _) => (
-           <option key={i} value={option}>
-              {option}
-            </option>
-          ))}
-      </select>
-    ),
-    enableColumnFilter: true,
-
-    // filterFn: selectFilterFn,
-    // meta: {
-    //       filterComponent: CustomFilter
-    //     }
-    
-  },
-  {
-    accessorKey: "opinfo",
-    header: "Operation Info",
-    
   },
   {
     accessorKey: "patientStatus",

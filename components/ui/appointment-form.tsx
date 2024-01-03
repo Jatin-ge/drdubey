@@ -6,8 +6,7 @@ import axios from "axios";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { GenderType, LeadStatus } from "@prisma/client";
-import { format } from "date-fns";
+import { GenderType } from "@prisma/client";
 import { toast } from "react-hot-toast";
 
 import {
@@ -100,7 +99,6 @@ const Appointment = ({ name, email, userId }: AddpatientProps) => {
       age: 0,
       gender: GenderType.M,
       address: "",
-      status: LeadStatus.PENDING,
       remark: "",
       bokingDate: date,
       bookingTime: "",

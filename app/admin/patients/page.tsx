@@ -4,7 +4,6 @@ import { db } from "@/lib/db";
 
 import { LeadCloumn } from "./components/column";
 import { BillboardClient } from "./components/client";
-import { LeadStatus } from "@prisma/client";
 
 const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
   const billboards = await db.lead.findMany({
@@ -26,11 +25,9 @@ const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
     phone: item.phone || null,
     address: item.address || null,
     age: item.age || null,
-    status: item.status || null,
     ipdReg: item.ipdReg || null,
     bill: item.bill || null,
     implant : item.implant || null,
-    opinfo: item.opinfo || null,
     patientStatus: item.patientStatus || null,
     tpa: item.tpa,
   }));
