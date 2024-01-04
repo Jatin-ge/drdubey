@@ -10,8 +10,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 enum GenderType {
-  M 
-  F
+  Male
+  Female
   OTHER
 }
 
@@ -24,7 +24,7 @@ model Lead {
   age Int?
   remark String?
   address String? 
-  gender GenderType @default(M)
+  gender GenderType @default(Male)
   createdAt DateTime? @default(now())
   updatedAt DateTime? @updatedAt
   patientStatus String?
@@ -118,7 +118,7 @@ model Appointment{
   city Cities @relation(fields: [cityname], references: [name])
   age Int
   address String
-  gender GenderType @default(M)
+  gender GenderType @default(Male)
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt
   description String?
