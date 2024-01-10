@@ -142,10 +142,10 @@ const Hero2 = (props: Props) => {
                 </div>
 
                 <p className="mt-3 text-xl font-semibold text-gray-800 dark:text-gray-200">
-                  18k successful surgeries
+                  21000+ successful surgeries
                 </p>
                 <p className="mt-3 text-xl font-semibold text-gray-800 dark:text-gray-200">
-                  15 Years of Experience
+                  15+ Years of Experience
                 </p>
               </div>
             </div>

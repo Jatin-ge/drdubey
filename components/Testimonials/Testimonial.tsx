@@ -118,7 +118,7 @@ export const Testimonial = () => {
                 <div className="mt-14 md:flex">
                   <div className="relative lg:w-1/2 sm:w-96 xl:h-96 h-80">
                     <img
-                      src="/assets/images/patient1.webp"
+                      src="/assets/images/newtest2.jpeg"
                       alt="image of profile"
                       className="w-full h-full flex-shrink-0 object-fit object-cover shadow-lg rounded"
                     />
@@ -157,7 +157,7 @@ export const Testimonial = () => {
                 <div className="mt-14 md:flex">
                   <div className="relative lg:w-1/2 sm:w-96 xl:h-96 h-80">
                     <img
-                      src="/assets/images/patient3.jpg"
+                      src="/assets/images/newtest1.jpeg"
                       alt="image of profile"
                       className="w-full h-full flex-shrink-0 object-fit object-cover shadow-lg rounded"
                     />

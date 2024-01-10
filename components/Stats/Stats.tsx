@@ -4,7 +4,7 @@ import CountUp from "react-countup";
 
 export const Stats = () => {
   return (
-    <div data-aos="" className="mt-8 bg-[#E2FFF5]">
+    <div data-aos="" className="mt-8 bg-[#E2FFF5] dark:bg-inherit">
       <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12">
           <div
@@ -20,7 +20,7 @@ export const Stats = () => {
 
             <div className="text-center">
               <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-gray-200">
-                <CountUp end={17} duration={22} />
+                <CountUp end={21} duration={22} />
               </h3>
             </div>
 
@@ -46,7 +46,7 @@ export const Stats = () => {
               </dt>
               <dd className="text-left pl-3">
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                  5
+                  15
                 </span>
                 <span className="block text-sm text-gray-500">last week</span>
               </dd>
@@ -66,7 +66,7 @@ export const Stats = () => {
 
             <div className="text-center">
               <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-gray-200">
-                <CountUp end={18000} duration={22} />+
+                <CountUp end={21000} duration={22} />+
               </h3>
             </div>
 
@@ -112,7 +112,7 @@ export const Stats = () => {
 
             <div className="text-center">
               <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-gray-200">
-                <CountUp end={50000} duration={22} />+
+                <CountUp end={30000} duration={22} />+
               </h3>
             </div>
 
