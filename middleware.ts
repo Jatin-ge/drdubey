@@ -13,7 +13,8 @@ export default authMiddleware({
     "/about",
     "/gallery",
     "/contact",
-    "/youtube"
+    "/youtube",
+    "/services/(.*)"
 
   ],
   

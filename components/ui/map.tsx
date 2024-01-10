@@ -19,7 +19,7 @@ export default function GoogleMaps() {
 
   return (
     <APIProvider apiKey="AIzaSyBAi8dE58UCX0blqwVUKRv8z7Yw0zGPYDs">
-      <h1 className=" text-center my-8  mx-8 font-extrabold text-gray-700 text-xl lg:text-3xl xl:text-6xl leading-relaxed ">
+      <h1 className=" text-center my-8  mx-8 font-extrabold text-gray-700 text-xl lg:text-3xl xl:text-6xl leading-relaxed dark:text-gray-300">
         We are here in <span className="text-primary">Jaipur</span> at two
         different Locations
       </h1>
@@ -27,7 +27,7 @@ export default function GoogleMaps() {
       <div className="flex flex-col md:flex-row">
         <div
           className="mx-auto my-4 md:my-8 w-[90%]  md:w-[40%]"
-          style={{ height: "60vh" }             }
+          style={{ height: "60vh" }}
         >
           <Map zoom={12} center={position1} mapId="2356584220fb1eb7">
             <AdvancedMarker
