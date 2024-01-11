@@ -13,7 +13,7 @@ export const Stats = () => {
           >
             <div className="inline-flex justify-center items-center">
               <span className="w-2 h-2 inline-block bg-gray-500 rounded-full mr-2"></span>
-              <span className="text-xs font-semibold uppercase text-gray-600 dark:text-gray-400">
+              <span className="text-lg font-semibold uppercase text-gray-600 dark:text-gray-400">
                 Surgeries in a Day
               </span>
             </div>
@@ -23,34 +23,6 @@ export const Stats = () => {
                 <CountUp end={21} duration={22} />
               </h3>
             </div>
-
-            <dl className="flex justify-center items-center divide-x divide-gray-200 dark:divide-gray-700">
-              <dt className="pr-3">
-                <span className="text-green-600">
-                  <svg
-                    className="inline-block w-4 h-4 self-center"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"
-                    />
-                  </svg>
-                  <span className="inline-block text-sm">1.7%</span>
-                </span>
-                <span className="block text-sm text-gray-500">change</span>
-              </dt>
-              <dd className="text-left pl-3">
-                <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                  15
-                </span>
-                <span className="block text-sm text-gray-500">last week</span>
-              </dd>
-            </dl>
           </div>
 
           <div
@@ -59,7 +31,7 @@ export const Stats = () => {
           >
             <div className="inline-flex justify-center items-center">
               <span className="w-2 h-2 inline-block bg-green-500 rounded-full mr-2"></span>
-              <span className="text-xs font-semibold uppercase text-gray-600 dark:text-gray-400">
+              <span className="text-lg font-semibold uppercase text-gray-600 dark:text-gray-400">
                 Successful Surgeries
               </span>
             </div>
@@ -69,34 +41,6 @@ export const Stats = () => {
                 <CountUp end={21000} duration={22} />+
               </h3>
             </div>
-
-            <dl className="flex justify-center items-center divide-x divide-gray-200 dark:divide-gray-700">
-              <dt className="pr-3">
-                <span className="text-green-600">
-                  <svg
-                    className="inline-block w-4 h-4 self-center"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"
-                    />
-                  </svg>
-                  <span className="inline-block text-sm">5.6%</span>
-                </span>
-                <span className="block text-sm text-gray-500">change</span>
-              </dt>
-              <dd className="text-left pl-3">
-                <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                  7
-                </span>
-                <span className="block text-sm text-gray-500">last week</span>
-              </dd>
-            </dl>
           </div>
 
           <div
@@ -105,7 +49,7 @@ export const Stats = () => {
           >
             <div className="inline-flex justify-center items-center">
               <span className="w-2 h-2 inline-block bg-green-500 rounded-full mr-2"></span>
-              <span className="text-xs font-semibold uppercase text-gray-600 dark:text-gray-400">
+              <span className="text-lg font-semibold uppercase text-gray-600 dark:text-gray-400">
                 Happy Patients
               </span>
             </div>
@@ -115,34 +59,6 @@ export const Stats = () => {
                 <CountUp end={30000} duration={22} />+
               </h3>
             </div>
-
-            <dl className="flex justify-center items-center divide-x divide-gray-200 dark:divide-gray-700">
-              <dt className="pr-3">
-                <span className="text-green-600">
-                  <svg
-                    className="inline-block w-4 h-4 self-center"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"
-                    />
-                  </svg>
-                  <span className="inline-block text-sm">5.6%</span>
-                </span>
-                <span className="block text-sm text-gray-500">change</span>
-              </dt>
-              <dd className="text-left pl-3">
-                <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                  7
-                </span>
-                <span className="block text-sm text-gray-500">last week</span>
-              </dd>
-            </dl>
           </div>
         </div>
       </div>

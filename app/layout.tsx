@@ -32,7 +32,7 @@ export default function RootLayout({
           />
 
           {/* Favicon for branding */}
-          <link rel="icon" href="/assets/images/logofinalbg.png" />
+          <link rel="icon" href="/assets/images/logonew.png" />
         </head>
         <body className={inter.className}>
           <ThemeProvider attribute="class" defaultTheme="light">
