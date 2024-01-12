@@ -28,7 +28,7 @@ export default function GoogleMaps() {
         <div className="flex flex-col md:flex-row">
           <div
             className="mx-auto my-4 md:my-8 w-[90%]  md:w-[40%]"
-            style={{ height: "57vh" }}
+            style={{ height: "60vh" }}
           >
             <h1 className=" text-center my-8  mx-8 font-extrabold text-gray-700 text-xl lg:text-2xl leading-relaxed dark:text-gray-300">
               <span className="text-primary lg:text-4xl">Shalby Hospital </span>{" "}

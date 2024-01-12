@@ -50,7 +50,7 @@ const ContactSection: React.FC = () => {
                 <div className="flex-1 h-2 bg-primary"></div>
               </div>
             </div>
-            <p className="mb-16 text-sm text-center text-gray-50">
+            <p className="mb-16 text-sm md:text-lg text-center text-gray-50">
               Drop your message here and feel free to enquire anything about us.
               We are happy to help.
             </p>

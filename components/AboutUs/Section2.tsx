@@ -11,7 +11,7 @@ const Section2 = (props: Props) => {
       <section className="flex items-center bg-stone-100  font-poppins dark:bg-inherit ">
         <div className="justify-center flex-1 max-w-[90%] py-4 mx-auto lg:py-6 md:px-6">
           <div className="flex flex-wrap ">
-            <div className="w-full px-4 mx-auto mb-10 lg:w-1/3 lg:mb-0">
+            <div className="w-full px-4 mx-auto mb-10 lg:w-[44%] lg:mb-0">
               <span className="text-lg font-semibold text-primary uppercase">
                 Who we are
               </span>
@@ -27,28 +27,22 @@ const Section2 = (props: Props) => {
                 MBBS, MS (Orthopedic), FJRS (Germany)
               </li>
               <p className="max-w-4xl mt-2 text-xl lg:text-xl leading-relaxed text-gray-600 dark:text-gray-300 md:mt-8">
-                Dr. Dheeraj Dubay is one of the leading joint replacement
-                surgeons of North India. He has professional experience spanning
-                over many years and has worked in various prominent hospitals
-                around India such as Sir Gangaram hospital,New Delhi and Shalby
-                hospital, Ahmedabad. This has not only added to his expertise
-                but has provided him with vital exposure in the field. He has
-                completed his fellowship from Aklepios Ortho Center, Germany in
-                complex and revision joint replacement surgeries. He has more
-                than 15 years of experience in the field of Joint Replacement
-                Surgeries and is well versed with the latest techniques such as
+                Dr. Dheeraj Dubay is a renowned joint replacement surgeon in
+                North India with over 15 years of experience. His career
+                includes prestigious roles at Sir Gangaram Hospital, New Delhi,
+                and Shalby Hospital, Ahmedabad. Dr. Dubay, who trained in
+                complex and revision joint replacement surgeries at Germanys
+                Aklepios Ortho Center, excels in advanced techniques like
                 computer navigation and minimally invasive surgeries. Currently
-                he is performing replacement surgeries at Shalby Multi-Specialty
-                Hospital, Jaipur. He has done more than 21000 successful Joint
-                Replacement Surgeries with a record of 21 Joint Replacement
-                surgeries in a day in Rajasthan. He has been active on various
-                social platforms in creating awareness regarding bone and
-                joint-related problems. He has been awarded for excellence in
-                Joint Replacement surgery by the Health Minister of Rajasthan
-                for the last 3 consecutive years. He has recently been
-                felicitated by the Honourable central Health Minister and Social
-                and Family Welfare Minister as the most trusted Joint
-                Replacement Surgeon of North India
+                at Shalby Multi-Specialty Hospital, Jaipur, he has successfully
+                performed over 21,000 joint replacements, setting a record of 21
+                surgeries in a single day in Rajasthan. Recognized for his
+                contributions, he has received multiple awards from
+                Rajasthan&apos;s Health Minister and was recently honored as
+                North India&apos;s most trusted Joint Replacement Surgeon by the
+                central Health Minister. Dr. Dubay is also dedicated to
+                educating the public about bone and joint health through various
+                social platforms.
               </p>
               <div
                 className="max-w-max mt-4 px-4 py-3 text-gray-100 uppercase
@@ -58,7 +52,7 @@ const Section2 = (props: Props) => {
                 Know More
               </div>
             </div>
-            <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
+            <div className="w-full px-4 md:my-8 mb-10 lg:w-1/2 lg:mb-0">
               <div className="relative">
                 <Image
                   width={1200}

@@ -94,6 +94,12 @@ const Navbar = () => {
                     >
                       Contact-Us
                     </Link>
+                    <Link
+                      href="/profile"
+                      className="w-full px-4 py-2 -ml-4  hover:text-primary focus:focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
+                    >
+                      Profile
+                    </Link>
                   </>
                 </Disclosure.Panel>
               </div>
