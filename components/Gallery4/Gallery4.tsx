@@ -1,7 +1,8 @@
+import Image from "next/image";
 import React from "react";
 
 interface Gallery4Props {
-  images: string[];
+  images: { id: string; imageUrl: string; title: string; description: string; }[];
 }
 
 const Gallery4: React.FC<Gallery4Props> = ({ images }) => {
@@ -20,7 +21,7 @@ const Gallery4: React.FC<Gallery4Props> = ({ images }) => {
                   <div className="relative mb-5 overflow-hidden">
                     <img
                       className="object-cover w-full h-[250px] lg:h-[450px] transition duration-500 group-hover:origin-center hover:scale-105"
-                      src={image}
+                      src={image.imageUrl}
                       alt={`Gallery Image ${index + 1}`}
                     />
                   </div>

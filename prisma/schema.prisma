@@ -184,3 +184,10 @@ model Services {
   blog String
   image String
 }
+
+model Image {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  imageUrl String
+  title String
+  description String
+}
