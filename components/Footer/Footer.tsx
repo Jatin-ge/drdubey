@@ -21,7 +21,7 @@ const Footer = (props: Props) => {
                   alt={"logo"}
                 />
               </Link>
-              <p className="text-justify font-extrabold  text-gray-600">
+              <p className="text-justify font-extrabold  text-gray-600 dark:text-gray-300">
                 Dr. Dheeraj is one of the leading joint replacement surgeons in
                 North India.
               </p>
@@ -29,7 +29,7 @@ const Footer = (props: Props) => {
 
             <div className="px-4 my-4 w-full sm:w-auto">
               <div>
-                <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-primary font-bold text-gray-700">
+                <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-primary font-bold text-gray-700 dark:text-gray-300">
                   Quick Links
                 </h2>
               </div>
@@ -53,8 +53,8 @@ const Footer = (props: Props) => {
             </div>
             <div className="px-4 my-4 w-full sm:w-auto">
               <div>
-                <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-primary font-bold text-gray-700">
-                  Quick Links
+                <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-primary font-bold text-gray-700 dark:text-gray-300">
+                  More Links
                 </h2>
               </div>
               <ul className="leading-8">
@@ -78,7 +78,7 @@ const Footer = (props: Props) => {
 
             <div className="px-4 my-4 w-full sm:w-auto xl:w-1/5">
               <div>
-                <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-primary font-bold text-gray-700">
+                <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-primary font-bold text-gray-700 dark:text-gray-300">
                   Connect With Us
                 </h2>
               </div>

@@ -12,7 +12,7 @@ const MessageParser = ({ children, actions }) => {
         if (lowerCaseMessage.includes("hi")) {
             actions.greet(message)
         }
-        if (lowerCaseMessage.includes("recovery") ) {
+        if (lowerCaseMessage.includes("recover" || "recovery") ) {
             actions.recoveryMessage(message)
         }
         if (lowerCaseMessage.includes("pain") ) {
@@ -21,16 +21,16 @@ const MessageParser = ({ children, actions }) => {
         if (lowerCaseMessage.includes("walking") ) {
             actions.walkingMessage(message)
         }
-        if (lowerCaseMessage.includes("restrictions" || "restrictions on activities" || "movements")  ) {
+        if (lowerCaseMessage.includes("restriction" || "restrictions on activities" || "movements")  ) {
             actions.restrictionsMessage(message)
         }
         if (lowerCaseMessage.includes( "how long" ||"how long will  knee replacement last " || "another surgery" || "longevity")  ) {
             actions.longevityMessage(message)
         }
-        if (lowerCaseMessage.includes( "physical therapy" )) {
+        if (lowerCaseMessage.includes("therapy" ||  "physical therapy" )) {
             actions.therapyMessage(message)
         }
-        if (lowerCaseMessage.includes( "prevent infection" ||" take care of the surgical site " )  ) {
+        if (lowerCaseMessage.includes("infection" ||  "prevent infection" ||" take care of the surgical site " )  ) {
             actions.preventMessage(message)
         }
         if (lowerCaseMessage.includes( "return to work" || "work" ||  "resume normal activities" )  ) {

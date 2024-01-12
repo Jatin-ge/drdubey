@@ -47,12 +47,11 @@ export default function CardWithForm() {
 
       <Booknow />
 
-      <Form />
-
       <Banner />
 
       <Testimonial />
       <GoogleMaps />
+      <Form />
 
       <Footer />
 

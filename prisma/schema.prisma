@@ -10,9 +10,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 enum GenderType {
-  Male 
+  Male
   Female
-  Other
+  OTHER
 }
 
 
