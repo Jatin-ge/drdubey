@@ -18,7 +18,7 @@ export default function GoogleMaps() {
   const [open2, setOpen2] = useState(false);
 
   return (
-    <div className="md:mb-44">
+    <div className="md:mb-64">
       <APIProvider apiKey="AIzaSyBAi8dE58UCX0blqwVUKRv8z7Yw0zGPYDs">
         <h1 className=" text-center my-8  mx-8 font-extrabold text-gray-700 text-xl lg:text-3xl xl:text-6xl leading-relaxed dark:text-gray-300">
           We are here in <span className="text-primary">Jaipur</span> at two
@@ -28,12 +28,12 @@ export default function GoogleMaps() {
         <div className="flex flex-col md:flex-row">
           <div
             className="mx-auto my-4 md:my-8 w-[90%]  md:w-[40%]"
-            style={{ height: "60vh" }}
+            style={{ height: "57vh" }}
           >
-            <h1 className=" text-center my-8  mx-8 font-extrabold text-gray-700 text-xl lg:text-3xl leading-relaxed dark:text-gray-300">
-              Shalby Hospital: Ajmer Expressway 200 Feet Bypass Road, near
-              Gandhi Path, Chitrakoot Sector 3, Vaishali Nagar, Jaipur,
-              Rajasthan 302021
+            <h1 className=" text-center my-8  mx-8 font-extrabold text-gray-700 text-xl lg:text-2xl leading-relaxed dark:text-gray-300">
+              <span className="text-primary lg:text-4xl">Shalby Hospital </span>{" "}
+              <br /> Ajmer Expressway 200 Feet Bypass Road, near Gandhi Path,
+              Chitrakoot Sector 3, Vaishali Nagar, Jaipur, Rajasthan 302021
             </h1>
             <Map zoom={12} center={position1} mapId="2356584220fb1eb7">
               <AdvancedMarker
@@ -77,9 +77,12 @@ export default function GoogleMaps() {
             className="mx-auto w-[90%]  md:w-[40%] my-64 md:my-8"
             style={{ height: "60vh" }}
           >
-            <h1 className=" text-center my-8  mx-8 font-extrabold text-gray-700 text-xl lg:text-3xl leading-relaxed dark:text-gray-300">
-              Dr. Dubay Hip & Knee clinic: 297, Gali Number 6, Kusum Vihar,
-              Vidhyadhar Nagar, Jagatpura, Jaipur, Rajasthan 302017
+            <h1 className=" text-center my-8  mx-8 font-extrabold text-gray-700 text-xl lg:text-2xl leading-relaxed dark:text-gray-300">
+              <span className="text-primary lg:text-4xl">
+                Dr. Dubay Hip & Knee clinic{" "}
+              </span>{" "}
+              <br /> 297, Gali Number 6, Kusum Vihar, Vidhyadhar Nagar,
+              Jagatpura, Jaipur, Rajasthan 302017
             </h1>
             <Map zoom={12} center={position1} mapId="2356584220fb1eb7">
               <AdvancedMarker

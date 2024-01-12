@@ -15,34 +15,48 @@ const Section2 = (props: Props) => {
               <span className="text-lg font-semibold text-primary uppercase">
                 Who we are
               </span>
-              <h2 className="mt-2 mb-6 text-2xl md:text-5xl font-bold dark:text-gray-300">
+              <h2 className="mt-2 mb-6 text-2xl md:text-4xl font-bold dark:text-gray-300">
                 Quick Introduction about{" "}
                 <span className="text-primary">Dr Dheeraj Dubay</span>
               </h2>
-              <p className="max-w-3xl mt-3 text-xl lg:text-3xl leading-relaxed text-gray-600 dark:text-gray-200 md:mt-8">
+              <p className="max-w-3xl mt-3 text-xl lg:text-2xl leading-relaxed text-gray-600 dark:text-gray-200 md:mt-8">
                 Sr. Consultant Joint Replacement Surgery - Shalby
                 Multi-Specialty Hospitals Jaipur
               </p>
               <li className="mx-1 font-semibold text-xl text-gray-600 my-4">
                 MBBS, MS (Orthopedic), FJRS (Germany)
               </li>
-              <p className="mb-10 md:text-lg text-gray-600 dark:text-gray-400 ">
-                He has completed his fellowship from Aklepios Ortho Center,
-                Germany in complex and revision joint replacement surgeries. He
-                has more than 15 years of experience in the field of Joint
-                Replacement Surgeries and is well wersed with latest techniques
-                such as computer navigation and minimally invasive surgeries.
-                Now he is performing replacement surgeries at Shalby
-                Multi-Specialty Hospital, Jaipur. He has done more than 18000
-                successful Joint Replacement Surgeries. Record of 17 joint
-                replacement surgeries in a day in Rajasthan.
+              <p className="max-w-4xl mt-2 text-xl lg:text-xl leading-relaxed text-gray-600 dark:text-gray-300 md:mt-8">
+                Dr. Dheeraj Dubay is one of the leading joint replacement
+                surgeons of North India. He has professional experience spanning
+                over many years and has worked in various prominent hospitals
+                around India such as Sir Gangaram hospital,New Delhi and Shalby
+                hospital, Ahmedabad. This has not only added to his expertise
+                but has provided him with vital exposure in the field. He has
+                completed his fellowship from Aklepios Ortho Center, Germany in
+                complex and revision joint replacement surgeries. He has more
+                than 15 years of experience in the field of Joint Replacement
+                Surgeries and is well versed with the latest techniques such as
+                computer navigation and minimally invasive surgeries. Currently
+                he is performing replacement surgeries at Shalby Multi-Specialty
+                Hospital, Jaipur. He has done more than 21000 successful Joint
+                Replacement Surgeries with a record of 21 Joint Replacement
+                surgeries in a day in Rajasthan. He has been active on various
+                social platforms in creating awareness regarding bone and
+                joint-related problems. He has been awarded for excellence in
+                Joint Replacement surgery by the Health Minister of Rajasthan
+                for the last 3 consecutive years. He has recently been
+                felicitated by the Honourable central Health Minister and Social
+                and Family Welfare Minister as the most trusted Joint
+                Replacement Surgeon of North India
               </p>
-              <a
-                href="#"
-                className="px-4 py-3 text-gray-100 uppercase transition-all transform bg-primary rounded hover:bg-cyan-500 dark:hover:bg-cyan-500 dark:hover:text-gray-50 dark:text-gray-100 hover:text-gray-100"
+              <div
+                className="max-w-max mt-4 px-4 py-3 text-gray-100 uppercase
+                bg-primary rounded hover:bg-cyan-500 dark:hover:bg-cyan-500
+                dark:hover:text-gray-50 dark:text-gray-100 hover:text-gray-100 "
               >
                 Know More
-              </a>
+              </div>
             </div>
             <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
               <div className="relative">

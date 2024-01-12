@@ -6,20 +6,6 @@ type Props = {};
 
 const Certificate = (props: Props) => {
   return (
-    // <div className="flex flex-col items-center justify-center mb-8 xl:space-x-5">
-    //   <h1 className=" text-center my-8 w-[80%] font-extrabold text-gray-700 text-xl lg:text-3xl xl:text-6xl leading-relaxed ">
-    //     <span className="text-primary">Dr. Dheeraj</span> got awarded for{" "}
-    //     <span className="text-primary">Most Trusted </span>Joint Replacement
-    //     Surgeon of the Year
-    //   </h1>
-    //   <Image
-    //     width={900}
-    //     height={900}
-    //     src="/assets/images/certi2.jpeg"
-    //     alt="certi"
-    //   />
-    // </div>
-
     <div>
       <div className="w-[85%] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
@@ -41,9 +27,11 @@ const Certificate = (props: Props) => {
               Replacement Surgeon of the Year
             </h1>
             <p className="mt-3 text-xl md:text-2xl text-gray-800 dark:text-gray-400">
-              Experience the freedom of movement with Dr. Dheeraj Dubay Joint
-              Replacement Surgery – paving the way to a pain-free and active
-              life. Your joints, your journey, your renewed vitality!
+              He has been awarded for excellence in Joint Replacement surgery by
+              the Health Minister of Rajasthan for the last 3 consecutive years.
+              He has recently been felicitated by the Honourable central Health
+              Minister and Social and Family Welfare Minister as the most
+              trusted Joint Replacement Surgeon of North India.
             </p>
 
             <div className="mt-7 grid gap-3 w-full sm:inline-flex">

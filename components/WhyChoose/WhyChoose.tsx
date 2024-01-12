@@ -75,7 +75,7 @@ const WhyChoose = (props: Props) => {
           </ul>
         </div>
       </div>
-      <div className="my-[80px] ">
+      <div className="my-[80px ">
         <h1 className="text-4xl md:text-5xl font-semibold">
           <span className=" text-primary">|</span> Wellness{" "}
           <span className=" text-primary">|</span> Compassion{" "}

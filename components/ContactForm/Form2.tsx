@@ -29,7 +29,7 @@ const ContactSection: React.FC = () => {
     <section
       style={{
         backgroundImage:
-          'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/images/medicalbg2.jpg")',
+          'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/images/7.png")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backdropFilter: "blur(115px)",
@@ -40,9 +40,6 @@ const ContactSection: React.FC = () => {
         <div className="max-w-xl mx-auto">
           <div className="text-center ">
             <div className="relative flex flex-col items-center">
-              {/* <div className="absolute hidden md:block -top-14 left-0 text-[120px] text-gray-50 font-bold opacity-10">
-                Contact
-              </div> */}
               <h1 className="text-5xl font-bold dark:text-white">
                 {" "}
                 Our <span className="text-primary"> Contact</span>{" "}
@@ -60,10 +57,7 @@ const ContactSection: React.FC = () => {
           </div>
         </div>
         <div className="flex flex-wrap mb-8 -mx-4">
-          <div
-            data-aos="fade-right"
-            className="w-full px-4 mb-4 lg:w-1/3 lg:mb-0"
-          >
+          <div className="w-full px-4 mb-4 lg:w-1/3 lg:mb-0">
             <div className="h-full py-12 text-center transition-all rounded-lg shadow dark:bg-gray-800 bg-gray-50 hover:shadow-lg">
               <div className="inline-flex items-center justify-center w-12 h-12 mb-6 text-gray-100 bg-primary rounded-full dark:bg-primary">
                 <svg
@@ -89,10 +83,7 @@ const ContactSection: React.FC = () => {
             </div>
           </div>
 
-          <div
-            data-aos="flip-down"
-            className="w-full px-4 mb-4 lg:w-1/3 lg:mb-0"
-          >
+          <div className="w-full px-4 mb-4 lg:w-1/3 lg:mb-0">
             <div className="h-full py-12 text-center transition-all rounded-lg shadow dark:bg-gray-800 bg-gray-50 hover:shadow-lg">
               <div className="inline-flex items-center justify-center w-12 h-12 mb-6 text-gray-100 bg-primary rounded-full dark:bg-primary">
                 <svg
@@ -118,10 +109,7 @@ const ContactSection: React.FC = () => {
             </div>
           </div>
 
-          <div
-            data-aos="fade-left"
-            className="w-full px-4 mb-4 lg:w-1/3 lg:mb-0"
-          >
+          <div className="w-full px-4 mb-4 lg:w-1/3 lg:mb-0">
             <div className="h-full py-12 text-center transition-all rounded-lg shadow dark:bg-gray-800 bg-gray-50 hover:shadow-lg">
               <div className="inline-flex items-center justify-center w-12 h-12 mb-6 text-gray-100 bg-primary rounded-full dark:bg-primary">
                 <svg

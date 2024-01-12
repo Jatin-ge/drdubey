@@ -73,7 +73,7 @@ const Card1 = (props: Props) => {
                 width={1400}
                 height={1400}
                 className="relative w-full xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl:scale-130"
-                src="/assets/images/photo.png"
+                src="/assets/images/hero.png"
                 alt="dub"
               />
             </div>
