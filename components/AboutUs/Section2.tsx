@@ -11,7 +11,7 @@ const Section2 = (props: Props) => {
       <section className="flex items-center bg-stone-100  font-poppins dark:bg-inherit ">
         <div className="justify-center flex-1 max-w-[90%] py-4 mx-auto lg:py-6 md:px-6">
           <div className="flex flex-wrap ">
-            <div className="w-full px-4 mx-auto mb-10 lg:w-1/3 lg:mb-0">
+            <div className="w-full px-4 mx-auto mb-10 lg:w-[44%] lg:mb-0">
               <span className="text-lg font-semibold text-primary uppercase">
                 Who we are
               </span>
@@ -58,7 +58,7 @@ const Section2 = (props: Props) => {
                 Know More
               </div>
             </div>
-            <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
+            <div className="w-full px-4 md:my-8 mb-10 lg:w-1/2 lg:mb-0">
               <div className="relative">
                 <Image
                   width={1200}
