@@ -31,17 +31,18 @@ const Section2 = (props: Props) => {
                 North India with over 15 years of experience. His career
                 includes prestigious roles at Sir Gangaram Hospital, New Delhi,
                 and Shalby Hospital, Ahmedabad. Dr. Dubay, who trained in
-                complex and revision joint replacement surgeries at Germany's
+                complex and revision joint replacement surgeries at Germanys
                 Aklepios Ortho Center, excels in advanced techniques like
                 computer navigation and minimally invasive surgeries. Currently
                 at Shalby Multi-Specialty Hospital, Jaipur, he has successfully
                 performed over 21,000 joint replacements, setting a record of 21
                 surgeries in a single day in Rajasthan. Recognized for his
-                contributions, he has received multiple awards from Rajasthan's
-                Health Minister and was recently honored as North India's most
-                trusted Joint Replacement Surgeon by the central Health
-                Minister. Dr. Dubay is also dedicated to educating the public
-                about bone and joint health through various social platforms.
+                contributions, he has received multiple awards from
+                Rajasthan&apos;s Health Minister and was recently honored as
+                North India&apos;s most trusted Joint Replacement Surgeon by the
+                central Health Minister. Dr. Dubay is also dedicated to
+                educating the public about bone and joint health through various
+                social platforms.
               </p>
               <div
                 className="max-w-max mt-4 px-4 py-3 text-gray-100 uppercase
