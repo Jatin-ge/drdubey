@@ -27,27 +27,28 @@ const Section2 = (props: Props) => {
                 MBBS, MS (Orthopedic), FJRS (Germany)
               </li>
               <p className="max-w-4xl mt-2 text-xl lg:text-xl leading-relaxed text-gray-600 dark:text-gray-300 md:mt-8">
-                He has more than{" "}
-                <span className="font-bold text-black dark:text-gray-200">
-                  15 years of experience
-                </span>{" "}
-                in the field of Joint Replacement Surgeries with latest
-                techniques such as computer navigation and minimally invasive
-                surgeries. Now he is performing replacement surgeries at Shalby
-                Multi-Specialty Hospital, Jaipur. He has done more than{" "}
-                <span className="text-black font-bold dark:text-gray-200">
-                  21000{" "}
-                </span>
-                successful Joint Replacement Surgeries. Record of{" "}
-                <span className="text-black font-bold dark:text-gray-200">
-                  21{" "}
-                </span>{" "}
-                joint replacement surgeries in a day in Rajasthan. He has been
-                awarded for excellence in Joint Replacement surgery by the
-                Health Minister of Rajasthan for the last 3 consecutive years.
-                He has recently been felicitated by the Honourable central
-                Health Minister & Family Welfare Minister as the most trusted
-                Joint Replacement Surgeon of North India.
+                Dr. Dheeraj Dubay is one of the leading joint replacement
+                surgeons of North India. He has professional experience spanning
+                over many years and has worked in various prominent hospitals
+                around India such as Sir Gangaram hospital,New Delhi and Shalby
+                hospital, Ahmedabad. This has not only added to his expertise
+                but has provided him with vital exposure in the field. He has
+                completed his fellowship from Aklepios Ortho Center, Germany in
+                complex and revision joint replacement surgeries. He has more
+                than 15 years of experience in the field of Joint Replacement
+                Surgeries and is well versed with the latest techniques such as
+                computer navigation and minimally invasive surgeries. Currently
+                he is performing replacement surgeries at Shalby Multi-Specialty
+                Hospital, Jaipur. He has done more than 21000 successful Joint
+                Replacement Surgeries with a record of 21 Joint Replacement
+                surgeries in a day in Rajasthan. He has been active on various
+                social platforms in creating awareness regarding bone and
+                joint-related problems. He has been awarded for excellence in
+                Joint Replacement surgery by the Health Minister of Rajasthan
+                for the last 3 consecutive years. He has recently been
+                felicitated by the Honourable central Health Minister and Social
+                and Family Welfare Minister as the most trusted Joint
+                Replacement Surgeon of North India
               </p>
               <div
                 className="max-w-max mt-4 px-4 py-3 text-gray-100 uppercase
