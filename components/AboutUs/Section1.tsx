@@ -119,7 +119,7 @@ const Section1 = (props: Props) => {
                 </li>
               </ul>
               <Link
-                href="'booking"
+                href="/booking/jaipur"
                 className="px-8 py-4 text-gray-100 bg-primary rounded-md dark:bg-blue-400 dark:hover:bg-primary hover:bg-cyan-600 font-bold"
               >
                 Book Appointment

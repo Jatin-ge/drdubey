@@ -24,7 +24,7 @@ const images = [
   "/assets/images/dubay/p5.webp",
 ];
 
-const page = (props: Props) => {
+const page = async (props: Props) => {
   return (
     <div>
       <Section2 />
