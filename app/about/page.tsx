@@ -29,7 +29,7 @@ const page = async (props: Props) => {
     <div>
       <Section2 />
       <Section1 />
-      <Gallery4 images={images} />
+      <Gallery4 images={images} type="about" />
 
       <Footer />
     </div>

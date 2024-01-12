@@ -2,7 +2,8 @@ import Image from "next/image";
 import React from "react";
 
 interface Gallery4Props {
-  images: { id: string; imageUrl: string; title: string; description: string; }[];
+  images: { id: string; imageUrl: string; title: string; description: string; }[] | string[];
+  type: "about" | "gallery"
 }
 
 const Gallery4: React.FC<Gallery4Props> = ({ images }) => {
