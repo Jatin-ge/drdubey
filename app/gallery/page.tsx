@@ -29,7 +29,7 @@ const page = (props: Props) => {
   return (
     <div>
       <Navbar />
-      <Gallery images={newimages} />
+      <Gallery images={images} />
       <Footer />
     </div>
   );

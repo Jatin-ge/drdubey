@@ -16,7 +16,6 @@ const page = async (props: Props) => {
       <Section2 />
       <Section1 />
       <Gallery images={newimages} />
-      <Gallery4 images={images} type="about" />
 
       <Footer />
     </div>
