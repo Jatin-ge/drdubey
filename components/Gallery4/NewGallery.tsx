@@ -45,17 +45,17 @@ const Gallery = ({ images }: any) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-2 md:mx-0">
           {images.map((x: any, index: any) => {
             return (
-              <div key={index} className=" bg-[#c7ecdd] relative ">
+              <div key={index} className=" bg-[#c7ecdd] relative  ">
                 <div className="group h-full">
                   <div
-                    className="bg-cover bg-center h-80 md:h-[50vw] w-full bg-no-repeat relative"
+                    className="bg-cover bg-center h-80 md:h-[30vw] w-full bg-no-repeat relative"
                     style={{
                       backgroundImage: `url("${x.imageUrl}")`,
                       backgroundSize: "contain", // Ensure the entire image fits
                     }}
                   >
                     <div className=" hidden md:block text-3xl text-[#EE8A27] font-bold absolute bottom-0 left-2 z-10 space-y-3">
-                      <div>{x.title}</div>
+                      {/* <div>{x.title}</div> */}
                       <div>{x.description}</div>
                     </div>
                   </div>

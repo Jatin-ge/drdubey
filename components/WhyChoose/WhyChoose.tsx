@@ -44,7 +44,7 @@ const WhyChoose = (props: Props) => {
         </div>
 
         <div data-aos="slide-left" className="md:w-1/2  ">
-          <h1 className="text-2xl md:text-5xl font-semibold text-primary my-8">
+          <h1 className="text-2xl md:text-5xl font-extrabold text-primary my-8">
             Why Choose Us?
           </h1>
           <ul className="list-disc list-inside mt-4 text-xl md:text-2xl">
@@ -75,26 +75,13 @@ const WhyChoose = (props: Props) => {
           </ul>
         </div>
       </div>
-      <div className="my-[80px] ">
-        <h1 className="text-4xl md:text-5xl font-semibold">
-          <span className=" text-primary">|</span> Wellness{" "}
-          <span className=" text-primary">|</span> Compassion{" "}
-          <span className=" text-primary">|</span> Quality{" "}
+      <div className="my-y md:my-8 flex items-center justify-center">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-700">
+          <span className=" text-primary">|</span> Wellness{"   "}
+          <span className=" text-primary">|</span> Compassion{"   "}
+          <span className=" text-primary">|</span> Quality{"   "}
           <span className=" text-primary">|</span>
         </h1>
-        <p className="my-4 text-lg md:text-2xl">
-          We provide you the best quality at the most affordable price . Book an
-          appointment now and visit any of our 5 centers.
-        </p>
-        <div className="">
-          {/* <Button
-            onClick={() => onOpen("selectCity")}
-            className="p-2 border  relative inline-flex justify-center items-center gap-x-3 text-center bg-primary hover:bg-blue-700  border-primary text-sm lg:text-base text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
-          >
-            Book an appointment
-          </Button> */}
-          
-        </div>
       </div>
     </div>
   );

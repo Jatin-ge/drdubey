@@ -63,11 +63,11 @@ const Card1 = (props: Props) => {
             </div>
 
             <div data-aos="fade-left" className="relative ">
-              <img
-                className="absolute inset-x-0 bottom-0 -mb-48 -translate-x-1/2 left-1/2"
+              {/* <img
+                className="absolute inset-x-0 bottom-0 -mb-56 -translate-x-1/2 left-1/2"
                 src="https://cdn.rareblocks.xyz/collection/celebration/images/team/1/blob-shape.svg"
                 alt=""
-              />
+              /> */}
 
               <Image
                 width={1400}
