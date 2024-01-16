@@ -16,7 +16,7 @@ export type LeadCloumn = {
   name: string
   address: string | null
   age: number | null
-  gender: GenderType
+  gender: GenderType | null
   doad: string | null
   phone: string | null
   dood: string | null

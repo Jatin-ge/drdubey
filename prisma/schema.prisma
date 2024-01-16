@@ -24,7 +24,7 @@ model Lead {
   age Int?
   remark String?
   address String? 
-  gender GenderType @default(Male)
+  gender GenderType? @default(Male)
   createdAt DateTime? @default(now())
   updatedAt DateTime? @updatedAt
   patientStatus String?
@@ -184,7 +184,6 @@ model Services {
   blog String
   image String
 }
-
 
 model Image {
   id String @id @default(auto()) @map("_id") @db.ObjectId

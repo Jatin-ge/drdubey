@@ -75,7 +75,7 @@ const WhyChoose = (props: Props) => {
           </ul>
         </div>
       </div>
-      <div className="my-[80px ">
+      <div className="my-[80px] ">
         <h1 className="text-4xl md:text-5xl font-semibold">
           <span className=" text-primary">|</span> Wellness{" "}
           <span className=" text-primary">|</span> Compassion{" "}
@@ -93,12 +93,7 @@ const WhyChoose = (props: Props) => {
           >
             Book an appointment
           </Button> */}
-          <Link
-            className="p-2 border rounded relative inline-flex justify-center items-center gap-x-3 text-center bg-primary hover:bg-blue-700 border border-primary text-sm lg:text-base text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
-            href={"/booking/jaipur"}
-          >
-            Book an appoinment
-          </Link>
+          
         </div>
       </div>
     </div>

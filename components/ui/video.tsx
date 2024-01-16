@@ -8,10 +8,8 @@ interface youtubePlayerProps{
 export const YoutubePlayer = ({ url } :youtubePlayerProps ) => {
     
   // Extract the video ID from the YouTube URL
-  const video = url.match(/(?:\?|&)v=([^&#]+)/)
-  const videoId = video ? video[1] : url;
-
-  console.log("the video id is ", videoId);
+  const video = url.split("/")
+  const videoId = video[video.length - 1].split("?")[0]
 
   return (
     <div className="relative overflow-hidden" style={{ paddingBottom: '56.25%' }}>

@@ -30,8 +30,8 @@ export default function GoogleMaps() {
             className="mx-auto my-4 md:my-8 w-[90%]  md:w-[40%]"
             style={{ height: "60vh" }}
           >
-            <h1 className=" text-center my-8  mx-8 font-extrabold text-gray-700 text-xl lg:text-2xl leading-relaxed dark:text-gray-300">
-              <span className="text-primary lg:text-4xl">Shalby Hospital </span>{" "}
+            <h1 className=" text-center my-8  mx-8  text-gray-700 text-xl lg:text-2xl leading-relaxed dark:text-gray-300">
+              <span className="text-primary font-extrabold lg:text-4xl">Shalby Hospital </span>{" "}
               <br /> Ajmer Expressway 200 Feet Bypass Road, near Gandhi Path,
               Chitrakoot Sector 3, Vaishali Nagar, Jaipur, Rajasthan 302021
             </h1>
@@ -77,8 +77,8 @@ export default function GoogleMaps() {
             className="mx-auto w-[90%]  md:w-[40%] my-64 md:my-8"
             style={{ height: "60vh" }}
           >
-            <h1 className=" text-center my-8  mx-8 font-extrabold text-gray-700 text-xl lg:text-2xl leading-relaxed dark:text-gray-300">
-              <span className="text-primary lg:text-4xl">
+            <h1 className=" text-center my-8  mx-8  text-gray-700 text-xl lg:text-2xl leading-relaxed dark:text-gray-300">
+              <span className="text-primary font-extrabold lg:text-4xl">
                 Dr. Dubay Hip & Knee clinic{" "}
               </span>{" "}
               <br /> 297, Gali Number 6, Kusum Vihar, Vidhyadhar Nagar,
