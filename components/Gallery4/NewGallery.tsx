@@ -55,7 +55,6 @@ const Gallery = ({ images }: any) => {
                     }}
                   >
                     <div className=" hidden md:block text-3xl text-[#EE8A27] font-bold absolute bottom-0 left-2 z-10 space-y-3">
-                      {/* <div>{x.title}</div> */}
                       <div>{x.description}</div>
                     </div>
                   </div>
