@@ -72,7 +72,7 @@ const Card1 = (props: Props) => {
               <Image
                 width={1400}
                 height={1400}
-                className="relative w-full xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl:scale-130"
+                className="relative w-full xl:max-w-lg xl:mx-auto 2xl:scale-150"
                 src="/assets/images/hero.png"
                 alt="dub"
               />
