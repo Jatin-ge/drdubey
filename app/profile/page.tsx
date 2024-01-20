@@ -8,13 +8,14 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useModal } from "@/hooks/use-modal-store";
 import SelectCity from "@/components/ui/select-city";
+import { InitialProfile } from "@/lib/initial-profile";
+import { redirect } from "next/navigation";
 
 const Page = async () => {
-  const AuthProfile = await currentProfile();
+  const AuthProfile = await InitialProfile();
 
   if (!AuthProfile) {
-    console.error("Profile is undefined");
-    return null; // or handle the case where the profile is not available
+      return redirect("/sign-in")
   }
 
   const { userId, name, imageUrl, email } = AuthProfile;
@@ -30,13 +31,13 @@ const Page = async () => {
 
   const phone = appointments[0]?.phone;
 
-  console.log("My appointments  ", appointments);
+  console.log("My appointments  ", appointments.length);
 
   return (
     <>
       <Navbar />
 
-      {appointments.length > 0 ? (
+      {appointments.length !== 0 ? (
         <>
           <ProfileCard
             name={appointments[0] ? appointments[0].name : name}
