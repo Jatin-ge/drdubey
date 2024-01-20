@@ -29,6 +29,7 @@ export default function CardWithForm() {
       once: false,
     });
   }, []);
+
   return (
     <div className="overflow-hidden">
       <Navbar />

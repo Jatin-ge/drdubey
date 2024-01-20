@@ -1,4 +1,3 @@
-
 import ProfileCard from "@/components/UserProfile/ProfileCard";
 import { db } from "@/lib/db";
 import React from "react";
@@ -11,7 +10,6 @@ import { useModal } from "@/hooks/use-modal-store";
 import SelectCity from "@/components/ui/select-city";
 
 const Page = async () => {
-
   const AuthProfile = await currentProfile();
 
   if (!AuthProfile) {
@@ -91,7 +89,7 @@ const Page = async () => {
           </div>
         </>
       ) : (
-        <SelectCity/>
+        <SelectCity />
       )}
     </>
   );

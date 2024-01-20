@@ -21,9 +21,12 @@ const Services = (props: Props) => {
             </p>
           </div>
           <div className="">
-            <button className="bg-primary  px-8 font-bold py-3 rounded-xl text-white md:mt-[35%]">
+            <Link
+              href={"/services"}
+              className="bg-primary  px-8 font-bold py-3 rounded-xl text-white md:mt-[35%]"
+            >
               See all Services
-            </button>
+            </Link>
           </div>
         </div>
         <div className=" sm:mx-5 flex flex-wrap justify-around dark:text-gray-700">
