@@ -76,7 +76,7 @@ const Page = async () => {
                         No discussion for appointment scheduled for{" "}
                         {appointment.date} at {appointment.time}
                       </h3>
-                      <div>
+                      <div className="hidden md:block">
                         <p className="text-gray-600">
                           {appointment.date} at {appointment.time}
                         </p>

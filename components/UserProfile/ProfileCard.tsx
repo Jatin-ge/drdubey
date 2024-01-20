@@ -13,8 +13,8 @@ interface Props {
 const ProfileCard = ({ name, imageUrl, email, appointments, phone }: Props) => {
   return (
     <>
-      <div className="flex flex-col md:flex-row ">
-        <div className="bg-white md:w-[50%] overflow-hidden shadow rounded-lg border mx-auto">
+      <div className="overflow-hidden flex flex-col md:flex-row ">
+        <div className="bg-white w-full  md:w-[50%] overflow-hidden shadow rounded-lg border md:mx-auto">
           <div className="px-4 flex justify-between py-5 sm:px-6 bg-primary text-white">
             <h3 className="text-lg leading-6 font-medium">{name}</h3>
 
@@ -116,9 +116,15 @@ const ProfileCard = ({ name, imageUrl, email, appointments, phone }: Props) => {
                     className="py-4 transition duration-300 transform hover:scale-105"
                   >
                     <div className="flex items-center justify-between">
-                      <p className="text-2xl font-bold">{appointment.date}</p>
-                      <p className="text-2xl font-bold">{appointment.time}</p>
-                      <p className="text-2xl font-bold">{appointment.cityname}</p>
+                      <p className="md:text-2xl  font-bold">
+                        {appointment.date}
+                      </p>
+                      <p className="md:text-2xl font-bold">
+                        {appointment.time}
+                      </p>
+                      <p className="md:text-2xl font-bold">
+                        {appointment.cityname}
+                      </p>
                     </div>
                   </li>
                 ))}
