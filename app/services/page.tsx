@@ -24,7 +24,10 @@ const page = async (props: Props) => {
 
         <div className="flex flex-wrap -mx-4">
           {services.map((item) => (
-            <div className="w-full max-w-full mb-8 sm:w-1/2 px-4 lg:w-1/3 flex flex-col">
+            <div
+              key={item.id}
+              className="w-full max-w-full mb-8 sm:w-1/2 px-4 lg:w-1/3 flex flex-col"
+            >
               <img
                 src={item.image}
                 alt="Card img"
