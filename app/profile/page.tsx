@@ -15,7 +15,7 @@ const Page = async () => {
   const AuthProfile = await InitialProfile();
 
   if (!AuthProfile) {
-      return redirect("/sign-in")
+    return redirect("/sign-in");
   }
 
   const { userId, name, imageUrl, email } = AuthProfile;

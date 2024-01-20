@@ -116,7 +116,7 @@ const ProfileCard = ({ name, imageUrl, email, appointments, phone }: Props) => {
                     className="py-4 transition duration-300 transform hover:scale-105"
                   >
                     <div className="flex items-center justify-between">
-                      <p className="md:text-2xl  font-bold">
+                      <p className="md:text-2xl    font-bold">
                         {appointment.date}
                       </p>
                       <p className="md:text-2xl font-bold">
