@@ -47,7 +47,7 @@ const page = async (props: Props) => {
                   </div>
                   <div>
                     <a
-                      href="#"
+                      href={`/services/${item.id}`}
                       className="inline-block pb-1 mt-2 text-base font-black text-blue-600 uppercase border-b border-transparent hover:border-blue-600"
                     >
                       Read More
