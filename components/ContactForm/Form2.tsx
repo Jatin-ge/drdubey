@@ -1,8 +1,9 @@
 "use client";
 import axios from "axios";
-import { Instagram } from "lucide-react";
+import { Instagram, Linkedin, LinkedinIcon } from "lucide-react";
 import React from "react";
 import toast from "react-hot-toast";
+import { AiFillLinkedin } from "react-icons/ai";
 
 const ContactSection: React.FC = () => {
   const handleClick = async (event: any) => {
@@ -142,18 +143,32 @@ const ContactSection: React.FC = () => {
                 </svg>
               </a>
               <a
-                href="https://twitter.com/drdheerajdubey"
+                href="https://www.youtube.com/channel/UCyPsbuVYgJyu-QfAT7bqtnw"
                 className="inline-block mr-4 text-blue-400 dark:text-blue-400 dark:hover:text-blue-300 hover:text-blue-600"
               >
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
                   width="16"
                   height="16"
-                  fill="currentColor"
-                  className="w-6 h-6 bi bi-twitter"
-                  viewBox="0 0 16 16"
+                  viewBox="0 0 48 48"
+                  version="1.1"
+                  className="w-8 h-8  mt-4"
+                  // xmlns="http://www.w3.org/2000/svg"
+                  xmlns="http://www.w3.org/1999/xlink"
                 >
-                  <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+                  <title>Youtube</title>
+                  <g
+                    id="Icon/Social/youtube-color"
+                    stroke="none"
+                    stroke-width="1"
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <path
+                      d="M20.2838235,29.7208546 L20.2817697,19.3775851 L30.0092421,24.5671906 L20.2838235,29.7208546 Z M41.6409276,17.5856462 C41.6409276,17.5856462 41.2890436,15.0488633 40.2097727,13.9319394 C38.8405739,12.4655276 37.3060444,12.4583393 36.6026186,12.3724221 C31.5649942,12 24.008044,12 24.008044,12 L23.9922983,12 C23.9922983,12 16.4356904,12 11.398066,12.3724221 C10.6939556,12.4583393 9.16045298,12.4655276 7.79091194,13.9319394 C6.71164104,15.0488633 6.36009927,17.5856462 6.36009927,17.5856462 C6.36009927,17.5856462 6,20.5646804 6,23.5437145 L6,26.3365376 C6,29.3152295 6.36009927,32.2946059 6.36009927,32.2946059 C6.36009927,32.2946059 6.71164104,34.8310466 7.79091194,35.9483127 C9.16045298,37.4147246 10.9592378,37.3681718 11.7605614,37.5218644 C14.6406709,37.8042616 24.0001711,37.8915481 24.0001711,37.8915481 C24.0001711,37.8915481 31.5649942,37.8799099 36.6026186,37.5074878 C37.3060444,37.4219129 38.8405739,37.4147246 40.2097727,35.9483127 C41.2890436,34.8310466 41.6409276,32.2946059 41.6409276,32.2946059 C41.6409276,32.2946059 42,29.3152295 42,26.3365376 L42,23.5437145 C42,20.5646804 41.6409276,17.5856462 41.6409276,17.5856462 L41.6409276,17.5856462 Z"
+                      id="Shape"
+                      fill="#E70000"
+                    ></path>
+                  </g>
                 </svg>
               </a>
               <a
@@ -161,6 +176,12 @@ const ContactSection: React.FC = () => {
                 className="inline-block mr-4 text-rose-500"
               >
                 <Instagram />
+              </a>
+              <a
+                href="https://www.instagram.com/dheerajdubay1/?igshid=YmMyMTA2M2Y%3D"
+                className="inline-block mr-4 text-blue-500 w-6 h-6"
+              >
+                <LinkedinIcon />
               </a>
             </div>
           </div>

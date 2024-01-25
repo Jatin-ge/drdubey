@@ -1,7 +1,12 @@
 import Link from "next/link";
 import React from "react";
 
-import { YoutubeIcon, FacebookIcon, InstagramIcon } from "lucide-react";
+import {
+  YoutubeIcon,
+  FacebookIcon,
+  InstagramIcon,
+  LinkedinIcon,
+} from "lucide-react";
 import Image from "next/image";
 
 type Props = {};
@@ -35,7 +40,7 @@ const Footer = (props: Props) => {
               </div>
               <ul className="leading-8">
                 <li>
-                  <Link href="/booking" className="hover:text-primary">
+                  <Link href="/booking/jaipur" className="hover:text-primary">
                     Book Appointment
                   </Link>
                 </li>
@@ -59,7 +64,7 @@ const Footer = (props: Props) => {
               </div>
               <ul className="leading-8">
                 <li>
-                  <Link href="/services/6587bd817a2ebd09d835bd1a" className="hover:text-primary">
+                  <Link href="/services" className="hover:text-primary">
                     Services
                   </Link>
                 </li>
@@ -87,7 +92,7 @@ const Footer = (props: Props) => {
                 href="https://www.facebook.com/drdheerajdubay/"
                 className="inline-flex items-center justify-center h-8 w-8 border border-gray-100 rounded-full mr-1 hover:text-primary hover:border-blue-400"
               >
-                <FacebookIcon />
+                <FacebookIcon className="text-blue-500" />
               </Link>
 
               <Link
@@ -95,14 +100,21 @@ const Footer = (props: Props) => {
                 href="https://www.instagram.com/dheerajdubay1/?igshid=YmMyMTA2M2Y%3D"
                 className="inline-flex items-center justify-center h-8 w-8 border border-gray-100 rounded-full mr-1 hover:text-primary hover:border-blue-400"
               >
-                <InstagramIcon />
+                <InstagramIcon className="text-red-500" />
               </Link>
               <Link
                 target="_blank"
                 href=" https://www.youtube.com/@dr.dheerajdubay6664"
                 className="inline-flex items-center justify-center h-8 w-8 border border-gray-100 rounded-full mr-1 mt-2 hover:text-primary hover:border-blue-400"
               >
-                <YoutubeIcon />
+                <LinkedinIcon className="text-blue-500" />
+              </Link>
+              <Link
+                target="_blank"
+                href=" https://www.youtube.com/@dr.dheerajdubay6664"
+                className="inline-flex items-center justify-center h-8 w-8 border border-gray-100 rounded-full mr-1 mt-2 hover:text-primary hover:border-blue-400"
+              >
+                <YoutubeIcon className="text-red-500" />
               </Link>
             </div>
           </div>
