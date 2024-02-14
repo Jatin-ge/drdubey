@@ -7,6 +7,7 @@ import { ModalProvider } from "@/components/providers/modal-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ToastProvider } from "@/components/providers/toast-provider";
 import React, { useEffect } from "react";
+import GTM from '@/utils/GTM'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,8 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <head>
+          <GTM gtmId="MDF4W4JT"/>
+        
           <title>Dr. Dubay</title>
           <meta
             name="description"
