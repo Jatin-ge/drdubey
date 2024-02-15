@@ -26,7 +26,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <head>
-          <GTM gtmId="MDF4W4JT"/>
+          <GTM gtmId="GTM-MDF4W4JT"/>
         
           <title>Dr. Dubay</title>
           <meta
