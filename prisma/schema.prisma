@@ -177,12 +177,33 @@ model YouTube {
 }
 
 
+
 model Services {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  title String
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  title    String
   subtitle String
-  blog String
-  image String
+  blog     String
+  image    String
+  slug  String? 
+  metaTitle     String?
+  metaDescription String?
+  metaKeywords  String?
+}
+
+
+model Blogs {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  title    String
+  slug  String? 
+  subtitle1 String
+  content1     String
+  image1    String
+  subtitle2 String?
+  content2     String?
+  image2  String?
+  metaTitle     String?
+  metaDescription String?
+  metaKeywords  String?
 }
 
 model Image {

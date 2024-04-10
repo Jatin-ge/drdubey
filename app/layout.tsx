@@ -7,15 +7,9 @@ import { ModalProvider } from "@/components/providers/modal-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ToastProvider } from "@/components/providers/toast-provider";
 import React, { useEffect } from "react";
-import GTM from '@/utils/GTM'
+import GTM from "@/utils/GTM";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Dr Dubay ",
-  description:
-    "Dr. Dheeraj Dubay , Joint and Hip Replacement Surgeon Rajasthan",
-};
 
 export default function RootLayout({
   children,
@@ -25,18 +19,6 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <head>
-          <GTM gtmId="GTM-MDF4W4JT"/>
-        
-          <title>Dr. Dubay</title>
-          <meta
-            name="description"
-            content="Dr. Dheeraj Dubay, Joint and Hip Replacement Surgeon in Rajasthan"
-          />
-
-          {/* Favicon for branding */}
-          <link rel="icon" href="/assets/images/logonew.png" />
-        </head>
         <body className={inter.className}>
           <ThemeProvider attribute="class" defaultTheme="light">
             <ToastProvider />

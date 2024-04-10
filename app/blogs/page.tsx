@@ -9,9 +9,11 @@ import GTM from "@/utils/GTM";
 type Props = {};
 
 const page = async (props: Props) => {
-  const services = await db.services.findMany();
+  const blogs = await db.blogs.findMany();
 
-  console.log(services);
+  console.log("the blogs are ", blogs);
+
+  console.log(blogs);
 
   return (
     <>
@@ -36,13 +38,13 @@ const page = async (props: Props) => {
         </div>
 
         <div className="flex flex-wrap -mx-4">
-          {services.map((item) => (
+          {blogs.map((item) => (
             <div
               key={item.id}
               className="w-full max-w-full mb-8 sm:w-1/2 px-4 lg:w-1/3 flex flex-col"
             >
               <img
-                src={item.image}
+                src={item.image1}
                 alt="Card img"
                 className="object-cover object-center w-full h-48"
               />
@@ -51,16 +53,16 @@ const page = async (props: Props) => {
                 <div className="w-full flex flex-col justify-between px-4 py-6 bg-white border border-gray-400 text">
                   <div>
                     <a
-                      href={`/services/${item.slug}`}
+                      href={`/blogs/${item.slug}`}
                       className="block mb-4 text-2xl font-black leading-tight hover:underline hover:text-blue-600 border-b-2 border-blue-600 hover:text-blue-600"
                     >
                       {item.title}
                     </a>
-                    <p className="mb-4">{item.subtitle}</p>
+                    <p className="mb-4">{item.subtitle1}</p>
                   </div>
                   <div>
                     <a
-                      href={`/services/${item.slug}`}
+                      href={`/blogs/${item.slug}`}
                       className="inline-block pb-1 mt-2 text-base font-black text-blue-600 uppercase border-b border-transparent hover:border-blue-600"
                     >
                       Read More

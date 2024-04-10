@@ -21,6 +21,7 @@ import Bot from "@/components/Bot/Bot";
 import Navbar from "@/components/Navbar/navbar";
 import GoogleMaps from "@/components/ui/map";
 import Certificate from "@/components/Certificate/Certificate";
+import GTM from "@/utils/GTM";
 
 export default function CardWithForm() {
   React.useEffect(() => {
@@ -32,6 +33,18 @@ export default function CardWithForm() {
 
   return (
     <div className="overflow-hidden">
+      <head>
+        <GTM gtmId="GTM-MDF4W4JT" />
+
+        <title>Dr. Dubay</title>
+        <meta
+          name="description"
+          content="Dr. Dheeraj Dubay, Joint and Hip Replacement Surgeon in Rajasthan"
+        />
+
+        {/* Favicon for branding */}
+        <link rel="icon" href="/assets/images/logonew.png" />
+      </head>
       <Navbar />
 
       <Card1 />

@@ -10,6 +10,7 @@ import { useModal } from "@/hooks/use-modal-store";
 import SelectCity from "@/components/ui/select-city";
 import { InitialProfile } from "@/lib/initial-profile";
 import { redirect } from "next/navigation";
+import GTM from "@/utils/GTM";
 
 const Page = async () => {
   const AuthProfile = await InitialProfile();
@@ -35,6 +36,18 @@ const Page = async () => {
 
   return (
     <>
+      <head>
+        <GTM gtmId="GTM-MDF4W4JT" />
+
+        <title>Dr. Dubay</title>
+        <meta
+          name="description"
+          content="Dr. Dheeraj Dubay, Joint and Hip Replacement Surgeon in Rajasthan"
+        />
+
+        {/* Favicon for branding */}
+        <link rel="icon" href="/assets/images/logonew.png" />
+      </head>
       <Navbar />
 
       {appointments.length !== 0 ? (

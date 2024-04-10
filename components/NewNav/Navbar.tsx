@@ -53,6 +53,9 @@ const Navbar = () => {
             <Link href="/#services">Services</Link>
           </li>
           <li className="p-4 hover:text-primary">
+            <Link href="/blogs">Blogs</Link>
+          </li>
+          <li className="p-4 hover:text-primary">
             <Link href="/gallery">Gallery</Link>
           </li>
           <li className="p-4 hover:text-primary">
@@ -106,6 +109,12 @@ const Navbar = () => {
               className="p-4 hover:text-primary text-4xl hover:text-gray-500"
             >
               <Link href="/#services">Services</Link>
+            </li>
+            <li
+              onClick={handleNav}
+              className="p-4 hover:text-primary text-4xl hover:text-gray-500"
+            >
+              <Link href="/blogs">Blogs</Link>
             </li>
             <li
               onClick={handleNav}

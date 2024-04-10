@@ -73,6 +73,12 @@ const Navbar = () => {
                     >
                       Services
                     </Link>
+                    <Link
+                      href="/blogs"
+                      className="w-full px-4 py-2 -ml-4  hover:text-primary focus:focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
+                    >
+                      Blogs
+                    </Link>
 
                     <Link
                       href="/gallery"
@@ -133,6 +139,14 @@ const Navbar = () => {
                 className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md  hover:text-primary focus:focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
               >
                 Services
+              </Link>
+            </li>
+            <li className="mr-3 nav__item">
+              <Link
+                href="/blogs"
+                className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md  hover:text-primary focus:focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+              >
+                Blogs
               </Link>
             </li>
 
