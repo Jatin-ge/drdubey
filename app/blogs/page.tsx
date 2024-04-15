@@ -33,7 +33,7 @@ const page = async (props: Props) => {
       <section className="flex flex-col justify-center max-w-6xl  px-4 py-10 mx-auto sm:px-6">
         <div className="flex flex-wrap items-center justify-between mb-8">
           <h2 className="mr-10 text-4xl font-bold leading-none md:text-5xl">
-            We Provide more than 5 Services
+            Welcome to Our Blog Universe.
           </h2>
         </div>
 
@@ -54,11 +54,11 @@ const page = async (props: Props) => {
                   <div>
                     <a
                       href={`/blogs/${item.slug}`}
-                      className="block mb-4 text-2xl font-black leading-tight hover:underline hover:text-blue-600 border-b-2 border-blue-600 hover:text-blue-600"
+                      className="block mb-4 text-2xl font-black leading-tight hover:underline hover:text-blue-600 border-b-2 border-blue-600 hover:text-blue-600 dark:text-gray-900"
                     >
                       {item.title}
                     </a>
-                    <p className="mb-4">{item.subtitle1}</p>
+                    <p className="mb-4 dark:text-gray-700">{item.subtitle1}</p>
                   </div>
                   <div>
                     <a
