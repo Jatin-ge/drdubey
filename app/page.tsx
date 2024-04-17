@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 
 import Hero2 from "@/components/Hero2/Hero2";
 import { Stats } from "@/components/Stats/Stats";
@@ -22,6 +22,7 @@ import Navbar from "@/components/Navbar/navbar";
 import GoogleMaps from "@/components/ui/map";
 import Certificate from "@/components/Certificate/Certificate";
 import GTM from "@/utils/GTM";
+import { db } from "@/lib/db";
 
 export default function CardWithForm() {
   React.useEffect(() => {
@@ -30,6 +31,22 @@ export default function CardWithForm() {
       once: false,
     });
   }, []);
+
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    AOS.init({ duration: 1500, once: false });
+
+    async function fetchServices() {
+      const response = await fetch("/api/services");
+      const data = await response.json();
+      setServices(data);
+    }
+
+    fetchServices();
+  }, []);
+
+  console.log("finallly services are ", services);
 
   return (
     <div className="overflow-hidden">
@@ -54,7 +71,7 @@ export default function CardWithForm() {
 
       <Certificate />
 
-      <Services />
+      <Services services={services} />
 
       <WhyChoose />
 

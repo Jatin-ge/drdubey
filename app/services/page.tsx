@@ -8,7 +8,7 @@ import { db } from "@/lib/db";
 import GTM from "@/utils/GTM";
 type Props = {};
 
-const page = async (props: Props) => {
+const Service = async (props: Props) => {
   const services = await db.services.findMany();
 
   console.log(services);
@@ -76,4 +76,4 @@ const page = async (props: Props) => {
   );
 };
 
-export default page;
+export default Service;
