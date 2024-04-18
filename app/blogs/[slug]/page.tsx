@@ -47,13 +47,21 @@ const page = async ({ params }: { params: { slug: string } }) => {
               <span className="text-green-700 text-sm hidden md:block mt-4">
                 Dr. Dheeraj Dubay
               </span>
-              <h1 className="text-gray-600 text-2xl font-semibold mt-2 mb-2 leading-tight">
+              <h1
+                style={{ whiteSpace: "pre-wrap" }}
+                className="text-gray-600 text-2xl font-semibold mt-2 mb-2 leading-tight"
+              >
                 {data?.subtitle1}
               </h1>
-              <p className="text-xl">{data?.content1}</p>
+              <p style={{ whiteSpace: "pre-wrap" }} className="text-xl">
+                {data?.content1}
+              </p>
 
               {data?.subtitle2 ? (
-                <h1 className="text-gray-600 text-2xl font-semibold mt-2 mb-2 leading-tight">
+                <h1
+                  style={{ whiteSpace: "pre-wrap" }}
+                  className="text-gray-600 text-2xl font-semibold mt-2 mb-2 leading-tight"
+                >
                   {data?.subtitle2}
                 </h1>
               ) : (
@@ -73,7 +81,9 @@ const page = async ({ params }: { params: { slug: string } }) => {
               )}
 
               {data?.content2 ? (
-                <p className="text-xl">{data?.content2}</p>
+                <p style={{ whiteSpace: "pre-wrap" }} className="text-xl">
+                  {data?.content2}
+                </p>
               ) : (
                 <></>
               )}

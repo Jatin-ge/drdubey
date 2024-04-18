@@ -47,7 +47,12 @@ const page = async ({ params }: { params: { slug: string } }) => {
               <h1 className="text-gray-800 dark:text-gray-200 text-4xl font-bold mt-2 mb-2 leading-tight">
                 {data?.title}
               </h1>
-              <p className="text-xl dark:text-gray-400">{data?.blog}</p>
+              <p
+                style={{ whiteSpace: "pre-wrap" }}
+                className="text-xl dark:text-gray-400"
+              >
+                {data?.blog}
+              </p>
             </div>
 
             <div className="right w-full md:w-2/3 ">
