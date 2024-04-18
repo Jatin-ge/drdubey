@@ -32,22 +32,6 @@ export default function CardWithForm() {
     });
   }, []);
 
-  const [services, setServices] = useState([]);
-
-  useEffect(() => {
-    AOS.init({ duration: 1500, once: false });
-
-    async function fetchServices() {
-      const response = await fetch("/api/services");
-      const data = await response.json();
-      setServices(data);
-    }
-
-    fetchServices();
-  }, []);
-
-  console.log("finallly services are ", services);
-
   return (
     <div className="overflow-hidden">
       <head>
@@ -70,8 +54,6 @@ export default function CardWithForm() {
       <Hero2 />
 
       <Certificate />
-
-      <Services services={services} />
 
       <WhyChoose />
 
