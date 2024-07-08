@@ -71,8 +71,8 @@ const Certificate = (props: Props) => {
               His recent invitation to serve as a senior consultant for the AO
               Recon Complex Arthroplasty course in Madrid, Spain, underscores
               his standing in the global orthopaedic community. This prestigious
-              appointment highlights Dr. Dubey's advanced skills and knowledge
-              in joint replacement surgery, particularly in challenging cases.
+              appointment highlights Dr. Dubey advanced skills and knowledge in
+              joint replacement surgery, particularly in challenging cases.
             </p>
 
             <div className="mt-7 grid gap-3 w-full sm:inline-flex">
