@@ -43,7 +43,6 @@ export default function CardWithForm() {
           content="Dr. Dheeraj Dubay, Joint and Hip Replacement Surgeon in Rajasthan"
         />
 
-        {/* Favicon for branding */}
         <link rel="icon" href="/assets/images/logonew.png" />
       </head>
       <Navbar />
