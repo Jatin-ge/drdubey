@@ -23,6 +23,7 @@ import GoogleMaps from "@/components/ui/map";
 import Certificate from "@/components/Certificate/Certificate";
 import GTM from "@/utils/GTM";
 import { db } from "@/lib/db";
+import Certificate2 from "@/components/Certificate/Certificate2";
 
 export default function CardWithForm() {
   React.useEffect(() => {
@@ -51,7 +52,7 @@ export default function CardWithForm() {
       <Stats />
 
       <Hero2 />
-
+      <Certificate2 />
       <Certificate />
 
       <WhyChoose />

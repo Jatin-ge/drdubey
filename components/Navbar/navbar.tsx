@@ -84,7 +84,7 @@ const Navbar = () => {
                       href="/gallery"
                       className="w-full px-4 py-2 -ml-4  hover:text-primary focus:focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                     >
-                      Gallery
+                      Achievements
                     </Link>
 
                     <Link
@@ -155,7 +155,7 @@ const Navbar = () => {
                 href="/gallery"
                 className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md  hover:text-primary focus:focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
               >
-                Gallery
+                Achievements
               </Link>
             </li>
 

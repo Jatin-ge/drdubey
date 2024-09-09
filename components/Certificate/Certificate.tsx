@@ -56,7 +56,7 @@ const Certificate = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="w-[85%] mx-auto px-4 sm:px-6 lg:px-8">
+      {/* <div className="w-[85%] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
           <div data-aos="fade-left">
             <h1 className="block text-2xl font-bold text-gray-800 sm:text-3xl lg:text-5xl lg:leading-tight dark:text-white">
@@ -104,7 +104,7 @@ const Certificate = (props: Props) => {
             <div className="absolute inset-0 -z-[1] bg-gradient-to-tr from-gray-200 via-white/0 to-white/0 w-full h-full rounded-md mt-4 -mb-4 mr-4 -ml-4 lg:mt-6 lg:-mb-6 lg:mr-6 lg:-ml-6 dark:from-slate-800 dark:via-slate-900/0 dark:to-slate-900/0"></div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
