@@ -24,7 +24,7 @@ const Card1 = (props: Props) => {
               <p className="max-w-4xl mt-3 text-xl lg:text-2xl leading-relaxed text-gray-600 dark:text-gray-300 md:mt-8">
                 He has more than{" "}
                 <span className="font-bold text-black dark:text-gray-200">
-                  15 years of experience
+                  16 years of experience
                 </span>{" "}
                 in the field of Joint Replacement Surgeries and is well wersed
                 with latest techniques such as computer navigation and minimally
