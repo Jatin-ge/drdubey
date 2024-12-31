@@ -32,11 +32,11 @@ const Card1 = (props: Props) => {
                 at Shalby Multi-Specialty Hospital, Jaipur. He has done more
                 than{" "}
                 <span className="text-black font-bold dark:text-gray-200">
-                  21000{" "}
+                  25000{" "}
                 </span>
                 successful Joint Replacement Surgeries. Record of{" "}
                 <span className="text-black font-bold dark:text-gray-200">
-                  21{" "}
+                  34{" "}
                 </span>{" "}
                 joint replacement surgeries in a day in Rajasthan. He has been
                 awarded for excellence in Joint Replacement surgery by the
