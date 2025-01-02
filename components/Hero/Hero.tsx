@@ -43,15 +43,15 @@ const Hero = (props: Props) => {
                 Germany in complex and revision joint replacement surgeries.{" "}
               </span>
               He has more than{" "}
-              <span className="text-primary"> 15 years of experience </span> in
+              <span className="text-primary"> 16 years of experience </span> in
               the field of Joint Replacement Surgeries and is well wersed with
               latest techniques such as computer navigation and minimally
               invasive surgeries. Now he is performing replacement surgeries at
               Shalby Multi-Specialty Hospital, Jaipur. He has done{" "}
               <span className="text-primary">
-                more than 18000 successful Joint Replacement Surgeries.{" "}
+                more than 24000 successful Joint Replacement Surgeries.{" "}
               </span>{" "}
-              Record of 17 joint replacement surgeries in a day in Rajasthan. He
+              Record of 34 joint replacement surgeries in a day in Rajasthan. He
               has been active on various social platforms in creating awareness
               regarding bone and joint-related problems and was awarded for
               excellence in Joint Replacement surgery by the health minister of
@@ -90,7 +90,7 @@ const Hero = (props: Props) => {
             </div>
           </div>
         </div>
-        </Container>
+      </Container>
       {/* <Container> 
         <div className="flex flex-col justify-center">
           <div className="text-xl text-center text-gray-700 dark:text-white">
