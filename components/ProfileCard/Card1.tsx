@@ -32,7 +32,7 @@ const Card1 = (props: Props) => {
                 at Shalby Multi-Specialty Hospital, Jaipur. He has done more
                 than{" "}
                 <span className="text-black font-bold dark:text-gray-200">
-                  25000{" "}
+                  24000{" "}
                 </span>
                 successful Joint Replacement Surgeries. Record of{" "}
                 <span className="text-black font-bold dark:text-gray-200">

@@ -72,7 +72,7 @@ const Features = (props: Props) => {
                       viewBox="0 0 16 16"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"
                       />
                     </svg>
@@ -177,19 +177,19 @@ const Features = (props: Props) => {
                     <path
                       d="M5 16.4754C11.7688 27.4499 21.2452 57.3224 5 89.0164"
                       stroke="currentColor"
-                      stroke-width="10"
+                      strokeWidth="10"
                       stroke-linecap="round"
                     />
                     <path
                       d="M33.6761 112.104C44.6984 98.1239 74.2618 57.6776 83.4821 5"
                       stroke="currentColor"
-                      stroke-width="10"
+                      strokeWidth="10"
                       stroke-linecap="round"
                     />
                     <path
                       d="M50.5525 130C68.2064 127.495 110.731 117.541 116 78.0874"
                       stroke="currentColor"
-                      stroke-width="10"
+                      strokeWidth="10"
                       stroke-linecap="round"
                     />
                   </svg>
