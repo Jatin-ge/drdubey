@@ -38,7 +38,7 @@ export const Stats = () => {
 
             <div className="text-center">
               <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 dark:text-gray-200">
-                <CountUp end={25000} duration={10} />+
+                <CountUp end={24000} duration={10} />+
               </h3>
             </div>
           </div>

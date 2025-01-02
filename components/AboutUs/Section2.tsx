@@ -63,7 +63,7 @@ const Section2 = (props: Props) => {
                 />
                 <div className="absolute bottom-0 right-0 z-10 p-4 bg-white shadow sm:p-8 dark:text-gray-300 dark:bg-gray-800 ">
                   <p className="text-lg font-semibold">
-                    15 Years of Experience in the joint replacement surgery
+                    16 Years of Experience in the joint replacement surgery
                   </p>
                 </div>
                 <div className="absolute hidden w-full h-full bg-primary rounded -bottom-6 left-6 lg:block"></div>
