@@ -3,7 +3,7 @@ import { Stats } from "../Stats/Stats";
 import Image from "next/image";
 
 type Props = {};
-//
+//lol
 
 const Card1 = (props: Props) => {
   return (
