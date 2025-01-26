@@ -14,6 +14,45 @@ import Image from "next/image";
 type Props = {};
 
 const Footer = (props: Props) => {
+  const socialLinks = [
+    {
+      name: 'Facebook',
+      href: 'https://www.facebook.com/drdheerajdubay/',
+      icon: FacebookIcon,
+      bgClass: 'bg-gradient-to-r from-blue-500 to-blue-600',
+      hoverClass: 'hover:from-blue-600 hover:to-blue-700',
+      darkBgClass: 'dark:from-blue-600 dark:to-blue-700',
+      darkHoverClass: 'dark:hover:from-blue-500 dark:hover:to-blue-600'
+    },
+    {
+      name: 'Instagram',
+      href: 'https://www.instagram.com/dheerajdubay1/',
+      icon: InstagramIcon,
+      bgClass: 'bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500',
+      hoverClass: 'hover:from-pink-600 hover:via-purple-600 hover:to-orange-600',
+      darkBgClass: 'dark:from-pink-600 dark:via-purple-600 dark:to-orange-600',
+      darkHoverClass: 'dark:hover:from-pink-500 dark:hover:via-purple-500 dark:hover:to-orange-500'
+    },
+    {
+      name: 'LinkedIn',
+      href: 'https://www.linkedin.com/',
+      icon: LinkedinIcon,
+      bgClass: 'bg-gradient-to-r from-blue-600 to-blue-700',
+      hoverClass: 'hover:from-blue-700 hover:to-blue-800',
+      darkBgClass: 'dark:from-blue-700 dark:to-blue-800',
+      darkHoverClass: 'dark:hover:from-blue-600 dark:hover:to-blue-700'
+    },
+    {
+      name: 'YouTube',
+      href: 'https://www.youtube.com/@dr.dheerajdubay6664',
+      icon: YoutubeIcon,
+      bgClass: 'bg-gradient-to-r from-red-500 to-red-600',
+      hoverClass: 'hover:from-red-600 hover:to-red-700',
+      darkBgClass: 'dark:from-red-600 dark:to-red-700',
+      darkHoverClass: 'dark:hover:from-red-500 dark:hover:to-red-600'
+    }
+  ];
+
   return (
     <footer className="relative bg-gradient-to-b from-white to-[#E2FFF5] dark:from-gray-900 dark:to-gray-800">
       {/* Decorative Elements */}
@@ -45,14 +84,7 @@ const Footer = (props: Props) => {
                   <MapPinIcon className="w-5 h-5 text-emerald-500" />
                   <span>Shalby Multi-Specialty Hospital, Jaipur</span>
                 </div>
-                <div className="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
-                  <PhoneIcon className="w-5 h-5 text-emerald-500" />
-                  <span>+91 XXX XXX XXXX</span>
-                </div>
-                <div className="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
-                  <MailIcon className="w-5 h-5 text-emerald-500" />
-                  <span>contact@example.com</span>
-                </div>
+              
               </div>
             </div>
 
@@ -94,54 +126,42 @@ const Footer = (props: Props) => {
               </ul>
             </div>
 
-            {/* Social Links */}
-            <div className="space-y-6">
-              <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
+            {/* Enhanced Social Links Section */}
+            <div className="space-y-8">
+              <h3 className="text-xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent">
                 Connect With Us
               </h3>
+              
+              {/* Social Media Icons */}
               <div className="flex flex-wrap gap-4">
-                <Link
-                  target="_blank"
-                  href="https://www.facebook.com/drdheerajdubay/"
-                  className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-500 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors duration-300"
-                >
-                  <FacebookIcon className="w-5 h-5" />
-                </Link>
-                <Link
-                  target="_blank"
-                  href="https://www.instagram.com/dheerajdubay1/"
-                  className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-pink-50 dark:bg-pink-900/30 text-pink-500 hover:bg-pink-100 dark:hover:bg-pink-900/50 transition-colors duration-300"
-                >
-                  <InstagramIcon className="w-5 h-5" />
-                </Link>
-                <Link
-                  target="_blank"
-                  href="https://www.linkedin.com/"
-                  className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-500 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors duration-300"
-                >
-                  <LinkedinIcon className="w-5 h-5" />
-                </Link>
-                <Link
-                  target="_blank"
-                  href="https://www.youtube.com/@dr.dheerajdubay6664"
-                  className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-red-50 dark:bg-red-900/30 text-red-500 hover:bg-red-100 dark:hover:bg-red-900/50 transition-colors duration-300"
-                >
-                  <YoutubeIcon className="w-5 h-5" />
-                </Link>
+                {socialLinks.map((social) => (
+                  <Link
+                    key={social.name}
+                    target="_blank"
+                    href={social.href}
+                    className={`group relative inline-flex items-center justify-center h-12 w-12 rounded-xl ${social.bgClass} ${social.hoverClass} ${social.darkBgClass} ${social.darkHoverClass} transition-all duration-300 transform hover:scale-110 hover:rotate-3 hover:shadow-lg`}
+                  >
+                    <social.icon className="w-6 h-6 text-white transition-transform duration-300 group-hover:scale-110" />
+                    <span className="sr-only">{social.name}</span>
+                    
+                    {/* Glow effect */}
+                    <div className="absolute inset-0 rounded-xl bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                  </Link>
+                ))}
               </div>
               
-              {/* Newsletter Subscription */}
-              <div className="mt-8">
-                <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-3">
-                  Subscribe to our newsletter
+              {/* Enhanced Newsletter Section */}
+              <div className="mt-8 p-6 bg-white/50 dark:bg-gray-800/50 rounded-2xl backdrop-blur-sm border border-emerald-100 dark:border-emerald-800/50">
+                <h4 className="text-lg font-semibold bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent mb-4">
+                  Subscribe to Newsletter
                 </h4>
-                <div className="flex">
+                <div className="flex flex-col space-y-3">
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className="flex-1 px-4 py-2 rounded-l-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 dark:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all duration-300"
                   />
-                  <button className="px-4 py-2 bg-emerald-500 text-white rounded-r-lg hover:bg-emerald-600 transition-colors duration-300">
+                  <button className="w-full px-4 py-3 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white rounded-xl transform hover:scale-[1.02] transition-all duration-300 font-medium">
                     Subscribe
                   </button>
                 </div>
@@ -150,11 +170,13 @@ const Footer = (props: Props) => {
           </div>
         </div>
 
-        {/* Copyright Section */}
-        <div className="border-t border-gray-200 dark:border-gray-700">
+        {/* Enhanced Copyright Section */}
+        <div className="border-t border-gray-200 dark:border-gray-700/50 bg-white/30 dark:bg-gray-800/30 backdrop-blur-sm">
           <div className="container px-4 py-6 mx-auto">
-            <div className="text-center text-gray-600 dark:text-gray-400">
-              <p>© {new Date().getFullYear()} Dr. Dheeraj Dubay. All rights reserved.</p>
+            <div className="text-center">
+              <p className="text-gray-600 dark:text-gray-400">
+                © {new Date().getFullYear()} Dr. Dheeraj Dubay. All rights reserved.
+              </p>
             </div>
           </div>
         </div>
