@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import CountUp from "react-countup";
-
+//
 export const Stats = () => {
   return (
     <div data-aos="" className="mt-8 bg-[#E2FFF5] dark:bg-inherit">
