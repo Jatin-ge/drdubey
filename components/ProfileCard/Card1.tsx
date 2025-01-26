@@ -47,19 +47,36 @@ const Card1 = (props: Props) => {
                 most trusted Joint Replacement Surgeon of North India.
               </p>
 
+              <div className="my-8 p-4 bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-l-4 border-amber-400 rounded-lg shadow-sm">
+                <div className="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 15.4L9.2 17l.8-3.3L7.3 11l3.4-.3L12 7.6l1.3 3.1 3.4.3-2.7 2.7.8 3.3z"/>
+                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/>
+                  </svg>
+                  <p className="text-lg font-medium text-amber-800 dark:text-amber-200">
+                    Awarded for excellence in Joint Replacement surgery by the Health Minister of Rajasthan for 3 consecutive years
+                  </p>
+                </div>
+              </div>
+
               <p className="mt-4 text-xl text-gray-600 md:mt-8 dark:text-gray-300">
-                <span className="relative inline-block">
-                  <span className="absolute inline-block w-full bottom-0.5 h-2 bg-yellow-300"></span>
-                  <span className="relative"> Have a question ? </span>
-                </span>
-                <br className="block sm:hidden" /> Ask me on{" "}
-                <a
-                  href="https://www.linkedin.com/in/dr-dheeraj-dubay-36399599/"
-                  title=""
-                  className="transition-all duration-200 text-sky-500 hover:text-sky-600 hover:underline"
-                >
-                  LinkedIn
-                </a>
+                <div className="inline-flex items-center gap-2 p-3 px-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                  <span className="font-medium">Have a question?</span>
+                  <a
+                    href="https://www.linkedin.com/in/dr-dheeraj-dubay-36399599/"
+                    className="inline-flex items-center gap-2 text-sky-500 hover:text-sky-600 transition-colors duration-200"
+                  >
+                    Ask on LinkedIn
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      className="w-5 h-5"
+                      viewBox="0 0 24 24" 
+                      fill="currentColor"
+                    >
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                  </a>
+                </div>
               </p>
             </div>
 
