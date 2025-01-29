@@ -148,16 +148,42 @@ const Appointment = ({ name, email, userId }: AddpatientProps) => {
           ],
         },
       };
-      await axios.post(`/api/booking`, { values, date, time, userId, city });
-      await axios.post(
-        "https://graph.facebook.com/v17.0/177309328798172/messages",
-        body,
-        header
-      );
 
-      router.push("/booking/success");
+      // First API call to booking endpoint
+      const bookingResponse = await axios.post(`/api/booking`, { values, date, time, userId, city });
+
+      if (bookingResponse.status === 200) {
+        // Second API call to WhatsApp
+        const whatsappResponse = await axios.post(
+          "https://graph.facebook.com/v17.0/177309328798172/messages",
+          body,
+          header
+        );
+
+        if (whatsappResponse.status === 200) {
+          toast.success("Appointment booked successfully!");
+          router.push("/booking/success");
+        } else {
+          // WhatsApp notification failed but booking was successful
+          toast.success("Appointment booked successfully!");
+          toast.warning("WhatsApp notification could not be sent");
+          router.push("/booking/success");
+        }
+      } else {
+        toast.error("Failed to book appointment. Please try again.");
+      }
     } catch (error: any) {
-      toast.error("Something went wrong.");
+      console.error("Appointment booking error:", error);
+      if (error.response) {
+        // Server responded with an error
+        toast.error(error.response.data.message || "Something went wrong with the booking.");
+      } else if (error.request) {
+        // Request was made but no response received
+        toast.error("No response from server. Please check your internet connection.");
+      } else {
+        // Error in request setup
+        toast.error("Error setting up the request. Please try again.");
+      }
     } finally {
       setLoading(false);
     }
