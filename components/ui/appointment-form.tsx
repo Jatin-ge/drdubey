@@ -328,3 +328,4 @@ const Appointment = ({ name, email, userId }: AddpatientProps) => {
 };
 
 export default Appointment;
+//
