@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer/Footer";
-import Gallery1 from "@/components/Gallery/Gallery1";
+
 import Gallery from "@/components/Gallery4/NewGallery";
 import Navbar from "@/components/Navbar/navbar";
 import { db } from "@/lib/db";
