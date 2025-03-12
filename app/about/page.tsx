@@ -10,10 +10,14 @@ import React from "react";
 type Props = {};
 
 const page = async (props: Props) => {
-  const newimages = await db.image.findMany({});
-  console.log("the images are ", newimages);
+  const newimages = await db.image.findMany({
+    orderBy: {
+      createdAt: 'desc'
+    }
+  });
+
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <head>
         <GTM gtmId="GTM-MDF4W4JT" />
 
@@ -28,10 +32,11 @@ const page = async (props: Props) => {
       </head>
       <Section2 />
       <Section1 />
-      <Gallery images={newimages} />
-
+      <div className="py-12">
+        <Gallery images={newimages} />
+      </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
