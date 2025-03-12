@@ -11,9 +11,7 @@ type Props = {};
 
 const page = async (props: Props) => {
   const newimages = await db.image.findMany({
-    orderBy: {
-      createdAt: 'desc'
-    }
+   
   });
 
   return (
