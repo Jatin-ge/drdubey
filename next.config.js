@@ -15,6 +15,7 @@ const nextConfig = {
         hostname: "uploadthing.com",
       },
     ],
+    domains: ['placehold.co'],
   },
 };
 

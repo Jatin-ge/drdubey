@@ -24,6 +24,7 @@ import Certificate from "@/components/Certificate/Certificate";
 import GTM from "@/utils/GTM";
 import { db } from "@/lib/db";
 import Certificate2 from "@/components/Certificate/Certificate2";
+import AchievementCollage from "@/components/Achievements/AchievementCollage";
 
 export default function CardWithForm() {
   React.useEffect(() => {
@@ -50,7 +51,7 @@ export default function CardWithForm() {
 
       <Card1 />
       <Stats />
-
+      <AchievementCollage />
       <Hero2 />
       <Certificate2 />
       <Certificate />

@@ -22,78 +22,44 @@ const AwardsSection = () => {
   return (
     <section className="py-20 bg-gradient-to-b from-[#f0f4ff] to-white">
       <div className="container mx-auto px-4 max-w-7xl">
-        {/* Section Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-700 mb-4">
-            <span className="text-primary">|</span> Recognition & Excellence{" "}
-            <span className="text-primary">|</span>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-primary">
+            Recognition & Excellence
           </h1>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+          <p className="mt-4 text-lg md:text-xl text-gray-600">
+            Celebrating our achievements and awards in the field of joint replacement.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Awards Section */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-shadow duration-300"
+            className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
-            <div className="flex items-center mb-8">
-              <div className="w-1.5 h-8 bg-primary rounded-full mr-4"></div>
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-primary to-blue-600 text-transparent bg-clip-text">
-                Awards
-              </h2>
-            </div>
-            <ul className="space-y-6">
+            <h2 className="text-3xl font-bold text-primary mb-6">Awards</h2>
+            <ul className="space-y-4">
               {awards.map((award, index) => (
-                <motion.li
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  key={index}
-                  className="flex items-start group"
-                >
-                  <span className="text-primary text-2xl mr-3 group-hover:scale-125 transition-transform duration-300">
-                    •
-                  </span>
-                  <span className="text-gray-700 text-lg leading-relaxed font-medium group-hover:text-primary transition-colors duration-300">
-                    {award}
-                  </span>
-                </motion.li>
+                <li key={index} className="text-lg text-gray-700">
+                  {award}
+                </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Achievements Section */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-shadow duration-300"
+            className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
-            <div className="flex items-center mb-8">
-              <div className="w-1.5 h-8 bg-primary rounded-full mr-4"></div>
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-primary to-blue-600 text-transparent bg-clip-text">
-                Achievements
-              </h2>
-            </div>
-            <ul className="space-y-6">
+            <h2 className="text-3xl font-bold text-primary mb-6">Achievements</h2>
+            <ul className="space-y-4">
               {achievements.map((achievement, index) => (
-                <motion.li
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  key={index}
-                  className="flex items-start group"
-                >
-                  <span className="text-primary text-2xl mr-3 group-hover:scale-125 transition-transform duration-300">
-                    •
-                  </span>
-                  <span className="text-gray-700 text-lg leading-relaxed font-medium group-hover:text-primary transition-colors duration-300">
-                    {achievement}
-                  </span>
-                </motion.li>
+                <li key={index} className="text-lg text-gray-700">
+                  {achievement}
+                </li>
               ))}
             </ul>
           </motion.div>
