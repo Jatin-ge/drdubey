@@ -6,10 +6,6 @@ import { useState } from "react";
 const AchievementCollage = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  
-
-  
-
   return (
     <div className="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
       {/* Background Elements */}
@@ -43,6 +39,15 @@ const AchievementCollage = () => {
             objectFit="contain"
             className="object-cover"
           />
+        </div>
+
+        <div className="mt-8 text-center">
+          <h3 className="text-3xl font-bold text-primary mb-4">
+            Golden Warriors Walkathon 2025: A New Era in Orthopedic Care
+          </h3>
+          <p className="text-lg text-gray-700">
+            Dr. Dheeraj Dubey&apos;s Golden Warriors Walkathon 2025 marked a significant step toward transforming lives in the field of orthopedics. This landmark event brought together individuals to promote mobility, resilience, and a pain-free future. Together, we are redefining possibilities in joint health and active living!
+          </p>
         </div>
       </div>
     </div>

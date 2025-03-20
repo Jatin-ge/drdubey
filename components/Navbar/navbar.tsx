@@ -178,10 +178,10 @@ const Navbar = () => {
             </li>
             <li className="mr-3 nav__item">
               <Link
-                href="/profile"
-                className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md  hover:text-primary focus:focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+                href="/events"
+                className="inline-block px-4 py-2 text-lg font-semibold text-gray-800 no-underline rounded-md hover:text-primary focus:focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
               >
-                My Profile
+                Events
               </Link>
             </li>
           </ul>
