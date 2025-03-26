@@ -57,46 +57,8 @@ export default function CardWithForm() {
       <Certificate2 />
       <Certificate />
 
-      <div className="grid md:grid-cols-2 gap-12 my-16">
-        <div>
-          <h2 className="text-3xl font-bold text-center mb-8">Videos</h2>
-          <div className="aspect-w-16 aspect-h-9 mb-8">
-            <iframe
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-          <div className="aspect-w-16 aspect-h-9">
-            <iframe
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-        <div>
-          <h2 className="text-3xl font-bold text-center mb-8">Pictures</h2>
-          <Image
-            src="/assets/images/event-placeholder.jpg"
-            alt="Event Image"
-            width={600}
-            height={400}
-            className="rounded-md mb-8"
-          />
-          <Image
-            src="/assets/images/event-placeholder.jpg"
-            alt="Event Image"
-            width={600}
-            height={400}
-            className="rounded-md"
-          />
-        </div>
-      </div>
+      
+      
 
       <WhyChoose />
 
