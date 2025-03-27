@@ -95,6 +95,13 @@ const Navbar = () => {
                     </Link>
 
                     <Link
+                      href="/events"
+                      className="w-full px-4 py-2 -ml-4  hover:text-primary focus:focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
+                    >
+                      Events
+                    </Link>
+
+                    <Link
                       href="/contact"
                       className="w-full px-4 py-2 -ml-4  hover:text-primary focus:focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                     >
